@@ -22,5 +22,10 @@ namespace Lakehead_ERIMS
             Application.Exit();
         }
 
+        private void equipmentSnapshotBtn_Click(object sender, EventArgs e)
+        {
+            var equipSnap = new equipSummary();
+            equipSnap.Show();
+        }
     }
 }
