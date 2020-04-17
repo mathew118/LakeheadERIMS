@@ -64,7 +64,7 @@
             this.textBox13 = new System.Windows.Forms.TextBox();
             this.textBox14 = new System.Windows.Forms.TextBox();
             this.textBox15 = new System.Windows.Forms.TextBox();
-            this.textBox16 = new System.Windows.Forms.TextBox();
+            this.itemNameTextbox = new System.Windows.Forms.TextBox();
             this.textBox18 = new System.Windows.Forms.TextBox();
             this.textBox19 = new System.Windows.Forms.TextBox();
             this.textBox20 = new System.Windows.Forms.TextBox();
@@ -367,12 +367,12 @@
             this.textBox15.Size = new System.Drawing.Size(221, 22);
             this.textBox15.TabIndex = 34;
             // 
-            // textBox16
+            // itemNameTextbox
             // 
-            this.textBox16.Location = new System.Drawing.Point(160, 166);
-            this.textBox16.Name = "textBox16";
-            this.textBox16.Size = new System.Drawing.Size(304, 22);
-            this.textBox16.TabIndex = 35;
+            this.itemNameTextbox.Location = new System.Drawing.Point(160, 166);
+            this.itemNameTextbox.Name = "itemNameTextbox";
+            this.itemNameTextbox.Size = new System.Drawing.Size(304, 22);
+            this.itemNameTextbox.TabIndex = 35;
             // 
             // textBox18
             // 
@@ -430,6 +430,7 @@
             this.button1.TabIndex = 43;
             this.button1.Text = "Search Equipment";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -452,7 +453,7 @@
             // equipNumber
             // 
             this.equipNumber.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblEquipBindingSource, "Equip_Number", true));
-            this.equipNumber.Location = new System.Drawing.Point(267, 76);
+            this.equipNumber.Location = new System.Drawing.Point(267, 73);
             this.equipNumber.Name = "equipNumber";
             this.equipNumber.Size = new System.Drawing.Size(125, 22);
             this.equipNumber.TabIndex = 46;
@@ -486,7 +487,7 @@
             this.Controls.Add(this.textBox20);
             this.Controls.Add(this.textBox19);
             this.Controls.Add(this.textBox18);
-            this.Controls.Add(this.textBox16);
+            this.Controls.Add(this.itemNameTextbox);
             this.Controls.Add(this.textBox15);
             this.Controls.Add(this.textBox14);
             this.Controls.Add(this.textBox13);
@@ -569,7 +570,7 @@
         private System.Windows.Forms.TextBox textBox13;
         private System.Windows.Forms.TextBox textBox14;
         private System.Windows.Forms.TextBox textBox15;
-        private System.Windows.Forms.TextBox textBox16;
+        private System.Windows.Forms.TextBox itemNameTextbox;
         private System.Windows.Forms.TextBox textBox18;
         private System.Windows.Forms.TextBox textBox19;
         private System.Windows.Forms.TextBox textBox20;
