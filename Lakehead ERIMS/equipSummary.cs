@@ -13,7 +13,7 @@ namespace Lakehead_ERIMS
 {
     public partial class equipSummary : Form
     {
-        private OleDbConnection connection = new OleDbConnection();
+        
         public equipSummary()
         {
             InitializeComponent();
@@ -23,6 +23,7 @@ namespace Lakehead_ERIMS
         {
             // TODO: This line of code loads data into the 'lUEquipmentDataSet.tblEquip' table. You can move, or remove it, as needed.
             //this.tblEquipTableAdapter.Fill(this.lUEquipmentDataSet.tblEquip);
+            /*
             try
             {
 
@@ -37,23 +38,24 @@ namespace Lakehead_ERIMS
             {
                 MessageBox.Show("Error " + ex);
             }
+            */
 
         }
         
         private void button1_Click(object sender, EventArgs e)
         {
+            OleDbConnection connection = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\ongar\OneDrive\Desktop\LUEquipment.mdb;Persist Security Info=True");
             // searching for the information from the equipment number 
             connection.Open();
-            OleDbCommand command = new OleDbCommand();
-            command.Connection = connection;
-            if (equipNumber.Text != "")
+            OleDbDataReader reader = null;
+            if (equipNumber.Text != " ")
             {
-                OleDbCommand selectEquip = new OleDbCommand("Select * from tblEquip WHERE [Equip_Numb]=@NUMBER");
+                OleDbCommand selectEquip = new OleDbCommand("Select * from tblEquip WHERE [Equip_Numb]=@NUMBER", connection);
                 selectEquip.Parameters.AddWithValue("@NUMBER", int.Parse(equipNumber.Text));
-                OleDbDataReader dr = selectEquip.ExecuteReader(CommandBehavior.SingleResult);
-                if (dr.Read())
+                 reader = selectEquip.ExecuteReader();
+                if (reader.Read())
                 {
-                    itemNameTextbox.Text = dr.ToString();
+                    itemNameTextbox.Text = reader.ToString();
                 }
             }
             connection.Close();
