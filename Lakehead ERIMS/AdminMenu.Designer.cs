@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.exitBtn = new System.Windows.Forms.Button();
@@ -47,8 +48,15 @@
             this.staffLbx = new System.Windows.Forms.ListBox();
             this.statusTab = new System.Windows.Forms.TabPage();
             this.suppliersTab = new System.Windows.Forms.TabPage();
+            this.lUEquipmentDataSet = new Lakehead_ERIMS.LUEquipmentDataSet();
+            this.lUEquipmentDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tblEmployeeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tblEmployeeTableAdapter = new Lakehead_ERIMS.LUEquipmentDataSetTableAdapters.tblEmployeeTableAdapter();
             this.adminTabControl.SuspendLayout();
             this.staffTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lUEquipmentDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lUEquipmentDataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblEmployeeBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -92,6 +100,7 @@
             this.adminTabControl.SelectedIndex = 0;
             this.adminTabControl.Size = new System.Drawing.Size(390, 272);
             this.adminTabControl.TabIndex = 3;
+            this.adminTabControl.TabIndexChanged += new System.EventHandler(this.adminTabControl_TabIndexChanged);
             // 
             // equipmentTab
             // 
@@ -210,18 +219,16 @@
             // 
             // staffLbx
             // 
+            this.staffLbx.DataSource = this.tblEmployeeBindingSource;
+            this.staffLbx.DisplayMember = "Emp_UName";
             this.staffLbx.FormattingEnabled = true;
-            this.staffLbx.Items.AddRange(new object[] {
-            "Cline, Eric",
-            "Fox, Kate",
-            "Hill, Kat",
-            "Marrelli-Dill, Carolyn",
-            "Staff, Depot"});
             this.staffLbx.Location = new System.Drawing.Point(3, 3);
             this.staffLbx.Name = "staffLbx";
             this.staffLbx.ScrollAlwaysVisible = true;
             this.staffLbx.Size = new System.Drawing.Size(376, 95);
+            this.staffLbx.Sorted = true;
             this.staffLbx.TabIndex = 0;
+            this.staffLbx.SelectedIndexChanged += new System.EventHandler(this.staffLbx_SelectedIndexChanged);
             // 
             // statusTab
             // 
@@ -241,11 +248,30 @@
             this.suppliersTab.Text = "Suppliers";
             this.suppliersTab.UseVisualStyleBackColor = true;
             // 
+            // lUEquipmentDataSet
+            // 
+            this.lUEquipmentDataSet.DataSetName = "LUEquipmentDataSet";
+            this.lUEquipmentDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // lUEquipmentDataSetBindingSource
+            // 
+            this.lUEquipmentDataSetBindingSource.DataSource = this.lUEquipmentDataSet;
+            this.lUEquipmentDataSetBindingSource.Position = 0;
+            // 
+            // tblEmployeeBindingSource
+            // 
+            this.tblEmployeeBindingSource.DataMember = "tblEmployee";
+            this.tblEmployeeBindingSource.DataSource = this.lUEquipmentDataSetBindingSource;
+            // 
+            // tblEmployeeTableAdapter
+            // 
+            this.tblEmployeeTableAdapter.ClearBeforeFill = true;
+            // 
             // AdminMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(414, 393);
+            this.ClientSize = new System.Drawing.Size(414, 373);
             this.Controls.Add(this.adminTabControl);
             this.Controls.Add(this.exitBtn);
             this.Controls.Add(this.button2);
@@ -255,9 +281,13 @@
             this.Name = "AdminMenu";
             this.ShowIcon = false;
             this.Text = "Administrative Menu";
+            this.Load += new System.EventHandler(this.AdminMenu_Load);
             this.adminTabControl.ResumeLayout(false);
             this.staffTab.ResumeLayout(false);
             this.staffTab.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lUEquipmentDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lUEquipmentDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblEmployeeBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -283,5 +313,9 @@
         private System.Windows.Forms.Label staffUsernameLbl;
         private System.Windows.Forms.Label staffTypeLbl;
         private System.Windows.Forms.ComboBox staffTypeCbx;
+        private System.Windows.Forms.BindingSource lUEquipmentDataSetBindingSource;
+        private LUEquipmentDataSet lUEquipmentDataSet;
+        private System.Windows.Forms.BindingSource tblEmployeeBindingSource;
+        private LUEquipmentDataSetTableAdapters.tblEmployeeTableAdapter tblEmployeeTableAdapter;
     }
 }
