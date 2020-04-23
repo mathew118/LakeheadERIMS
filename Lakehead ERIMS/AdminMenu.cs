@@ -10,22 +10,16 @@ using System.Windows.Forms;
 
 namespace Lakehead_ERIMS
 {
-    public partial class Menu : Form
+    public partial class AdminMenu : Form
     {
-        public Menu()
+        public AdminMenu()
         {
             InitializeComponent();
         }
 
         private void exitBtn_Click(object sender, EventArgs e)
         {
-            Application.Exit();
-        }
-
-        private void addUpdateEquipmentBtn_Click(object sender, EventArgs e)
-        {
-            AdminMenu adminMenu = new AdminMenu();
-            adminMenu.ShowDialog();
+            this.Close();
         }
     }
 }

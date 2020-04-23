@@ -233,6 +233,7 @@
             this.addUpdateEquipmentBtn.TabIndex = 9;
             this.addUpdateEquipmentBtn.Text = "Add/Update &Equipment";
             this.addUpdateEquipmentBtn.UseVisualStyleBackColor = true;
+            this.addUpdateEquipmentBtn.Click += new System.EventHandler(this.addUpdateEquipmentBtn_Click);
             // 
             // reportsMenuTab
             // 
