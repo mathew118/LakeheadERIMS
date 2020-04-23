@@ -35,6 +35,10 @@
             this.usernameTbx = new System.Windows.Forms.TextBox();
             this.passwordLbl = new System.Windows.Forms.Label();
             this.usernameLbl = new System.Windows.Forms.Label();
+            this.skipLoginBtn = new System.Windows.Forms.Button();
+            this.tblEmployeeTableAdapter = new Lakehead_ERIMS.LUEquipmentDataSetTableAdapters.tblEmployeeTableAdapter();
+            this.lUEquipmentDataSet = new Lakehead_ERIMS.LUEquipmentDataSet();
+            ((System.ComponentModel.ISupportInitialize)(this.lUEquipmentDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // formTitleLbl
@@ -51,7 +55,7 @@
             // 
             // exitBtn
             // 
-            this.exitBtn.Location = new System.Drawing.Point(11, 175);
+            this.exitBtn.Location = new System.Drawing.Point(17, 163);
             this.exitBtn.Name = "exitBtn";
             this.exitBtn.Size = new System.Drawing.Size(75, 23);
             this.exitBtn.TabIndex = 14;
@@ -61,7 +65,7 @@
             // 
             // loginBtn
             // 
-            this.loginBtn.Location = new System.Drawing.Point(216, 175);
+            this.loginBtn.Location = new System.Drawing.Point(206, 163);
             this.loginBtn.Name = "loginBtn";
             this.loginBtn.Size = new System.Drawing.Size(75, 23);
             this.loginBtn.TabIndex = 13;
@@ -71,14 +75,15 @@
             // 
             // passwordTbx
             // 
-            this.passwordTbx.Location = new System.Drawing.Point(98, 113);
+            this.passwordTbx.Location = new System.Drawing.Point(98, 110);
             this.passwordTbx.Name = "passwordTbx";
             this.passwordTbx.Size = new System.Drawing.Size(164, 20);
             this.passwordTbx.TabIndex = 12;
+            this.passwordTbx.UseSystemPasswordChar = true;
             // 
             // usernameTbx
             // 
-            this.usernameTbx.Location = new System.Drawing.Point(98, 65);
+            this.usernameTbx.Location = new System.Drawing.Point(98, 71);
             this.usernameTbx.Name = "usernameTbx";
             this.usernameTbx.Size = new System.Drawing.Size(164, 20);
             this.usernameTbx.TabIndex = 11;
@@ -86,7 +91,7 @@
             // passwordLbl
             // 
             this.passwordLbl.AutoSize = true;
-            this.passwordLbl.Location = new System.Drawing.Point(36, 116);
+            this.passwordLbl.Location = new System.Drawing.Point(36, 113);
             this.passwordLbl.Name = "passwordLbl";
             this.passwordLbl.Size = new System.Drawing.Size(56, 13);
             this.passwordLbl.TabIndex = 10;
@@ -95,17 +100,39 @@
             // usernameLbl
             // 
             this.usernameLbl.AutoSize = true;
-            this.usernameLbl.Location = new System.Drawing.Point(36, 68);
+            this.usernameLbl.Location = new System.Drawing.Point(36, 74);
             this.usernameLbl.Name = "usernameLbl";
             this.usernameLbl.Size = new System.Drawing.Size(58, 13);
             this.usernameLbl.TabIndex = 9;
             this.usernameLbl.Text = "Username:";
             // 
+            // skipLoginBtn
+            // 
+            this.skipLoginBtn.Location = new System.Drawing.Point(112, 163);
+            this.skipLoginBtn.Name = "skipLoginBtn";
+            this.skipLoginBtn.Size = new System.Drawing.Size(75, 23);
+            this.skipLoginBtn.TabIndex = 15;
+            this.skipLoginBtn.Text = "Skip";
+            this.skipLoginBtn.UseVisualStyleBackColor = true;
+            this.skipLoginBtn.Click += new System.EventHandler(this.skipLoginBtn_Click);
+            // 
+            // tblEmployeeTableAdapter
+            // 
+            this.tblEmployeeTableAdapter.ClearBeforeFill = true;
+            // 
+            // lUEquipmentDataSet
+            // 
+            this.lUEquipmentDataSet.DataSetName = "LUEquipmentDataSet";
+            this.lUEquipmentDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // Login
             // 
+            this.AcceptButton = this.loginBtn;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.exitBtn;
             this.ClientSize = new System.Drawing.Size(302, 209);
+            this.Controls.Add(this.skipLoginBtn);
             this.Controls.Add(this.exitBtn);
             this.Controls.Add(this.loginBtn);
             this.Controls.Add(this.passwordTbx);
@@ -117,6 +144,7 @@
             this.Name = "Login";
             this.ShowIcon = false;
             this.Text = "ERIMS Login";
+            ((System.ComponentModel.ISupportInitialize)(this.lUEquipmentDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -131,5 +159,8 @@
         private System.Windows.Forms.TextBox usernameTbx;
         private System.Windows.Forms.Label passwordLbl;
         private System.Windows.Forms.Label usernameLbl;
+        private System.Windows.Forms.Button skipLoginBtn;
+        private LUEquipmentDataSetTableAdapters.tblEmployeeTableAdapter tblEmployeeTableAdapter;
+        private LUEquipmentDataSet lUEquipmentDataSet;
     }
 }

@@ -15,7 +15,7 @@ namespace Lakehead_ERIMS
         /* TODO LIST
          * 
          * Might need to rework equipment part of the admin menu, not enough room for fields and listbox causes significant startup delay/loading times
-         * Start up times still pretty bad even without equipment datatable
+         * Start up times still pretty bad even without equipment datatable, maybe set datasources to null and re-set them when switching tabs
          */
 
 
@@ -55,6 +55,7 @@ namespace Lakehead_ERIMS
         private void saveBtn_Click(object sender, EventArgs e)
         {
             //Get selected tab and make changes based on that
+            saveBtn.Enabled = false;
         }
 
         private void newBtn_Click(object sender, EventArgs e)

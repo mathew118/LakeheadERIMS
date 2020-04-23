@@ -38,12 +38,7 @@
             this.rentEquipmentBtn = new System.Windows.Forms.Button();
             this.equipmentSnapshotBtn = new System.Windows.Forms.Button();
             this.adminMenuTab = new System.Windows.Forms.TabPage();
-            this.addUpdateStaffBtn = new System.Windows.Forms.Button();
             this.adminExitBtn = new System.Windows.Forms.Button();
-            this.addUpdateSupplier = new System.Windows.Forms.Button();
-            this.addUpdateStatusBtn = new System.Windows.Forms.Button();
-            this.addUpdateCategoryBtn = new System.Windows.Forms.Button();
-            this.addUpdateLocationBtn = new System.Windows.Forms.Button();
             this.addUpdateEquipmentBtn = new System.Windows.Forms.Button();
             this.reportsMenuTab = new System.Windows.Forms.TabPage();
             this.outstandingAccountsBtn = new System.Windows.Forms.Button();
@@ -154,12 +149,7 @@
             // 
             // adminMenuTab
             // 
-            this.adminMenuTab.Controls.Add(this.addUpdateStaffBtn);
             this.adminMenuTab.Controls.Add(this.adminExitBtn);
-            this.adminMenuTab.Controls.Add(this.addUpdateSupplier);
-            this.adminMenuTab.Controls.Add(this.addUpdateStatusBtn);
-            this.adminMenuTab.Controls.Add(this.addUpdateCategoryBtn);
-            this.adminMenuTab.Controls.Add(this.addUpdateLocationBtn);
             this.adminMenuTab.Controls.Add(this.addUpdateEquipmentBtn);
             this.adminMenuTab.Location = new System.Drawing.Point(4, 22);
             this.adminMenuTab.Name = "adminMenuTab";
@@ -168,15 +158,6 @@
             this.adminMenuTab.TabIndex = 1;
             this.adminMenuTab.Text = "Administrative Menu";
             this.adminMenuTab.UseVisualStyleBackColor = true;
-            // 
-            // addUpdateStaffBtn
-            // 
-            this.addUpdateStaffBtn.Location = new System.Drawing.Point(0, 123);
-            this.addUpdateStaffBtn.Name = "addUpdateStaffBtn";
-            this.addUpdateStaffBtn.Size = new System.Drawing.Size(417, 33);
-            this.addUpdateStaffBtn.TabIndex = 12;
-            this.addUpdateStaffBtn.Text = "Add/Update &Staff";
-            this.addUpdateStaffBtn.UseVisualStyleBackColor = true;
             // 
             // adminExitBtn
             // 
@@ -188,50 +169,14 @@
             this.adminExitBtn.UseVisualStyleBackColor = true;
             this.adminExitBtn.Click += new System.EventHandler(this.exitBtn_Click);
             // 
-            // addUpdateSupplier
-            // 
-            this.addUpdateSupplier.Location = new System.Drawing.Point(0, 201);
-            this.addUpdateSupplier.Name = "addUpdateSupplier";
-            this.addUpdateSupplier.Size = new System.Drawing.Size(417, 33);
-            this.addUpdateSupplier.TabIndex = 14;
-            this.addUpdateSupplier.Text = "Add/&Update Supplier";
-            this.addUpdateSupplier.UseVisualStyleBackColor = true;
-            // 
-            // addUpdateStatusBtn
-            // 
-            this.addUpdateStatusBtn.Location = new System.Drawing.Point(0, 162);
-            this.addUpdateStatusBtn.Name = "addUpdateStatusBtn";
-            this.addUpdateStatusBtn.Size = new System.Drawing.Size(417, 33);
-            this.addUpdateStatusBtn.TabIndex = 13;
-            this.addUpdateStatusBtn.Text = "&Add/Update Status";
-            this.addUpdateStatusBtn.UseVisualStyleBackColor = true;
-            // 
-            // addUpdateCategoryBtn
-            // 
-            this.addUpdateCategoryBtn.Location = new System.Drawing.Point(0, 45);
-            this.addUpdateCategoryBtn.Name = "addUpdateCategoryBtn";
-            this.addUpdateCategoryBtn.Size = new System.Drawing.Size(417, 33);
-            this.addUpdateCategoryBtn.TabIndex = 10;
-            this.addUpdateCategoryBtn.Text = "Add/&Update &Category";
-            this.addUpdateCategoryBtn.UseVisualStyleBackColor = true;
-            // 
-            // addUpdateLocationBtn
-            // 
-            this.addUpdateLocationBtn.Location = new System.Drawing.Point(0, 84);
-            this.addUpdateLocationBtn.Name = "addUpdateLocationBtn";
-            this.addUpdateLocationBtn.Size = new System.Drawing.Size(417, 33);
-            this.addUpdateLocationBtn.TabIndex = 11;
-            this.addUpdateLocationBtn.Text = "Add/Update &Location";
-            this.addUpdateLocationBtn.UseVisualStyleBackColor = true;
-            // 
             // addUpdateEquipmentBtn
             // 
             this.addUpdateEquipmentBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.5F);
             this.addUpdateEquipmentBtn.Location = new System.Drawing.Point(0, 6);
             this.addUpdateEquipmentBtn.Name = "addUpdateEquipmentBtn";
-            this.addUpdateEquipmentBtn.Size = new System.Drawing.Size(417, 33);
+            this.addUpdateEquipmentBtn.Size = new System.Drawing.Size(417, 228);
             this.addUpdateEquipmentBtn.TabIndex = 9;
-            this.addUpdateEquipmentBtn.Text = "Add/Update &Equipment";
+            this.addUpdateEquipmentBtn.Text = "Click here, redesign later..";
             this.addUpdateEquipmentBtn.UseVisualStyleBackColor = true;
             this.addUpdateEquipmentBtn.Click += new System.EventHandler(this.addUpdateEquipmentBtn_Click);
             // 
@@ -339,12 +284,7 @@
         private System.Windows.Forms.Button equipmentSnapshotBtn;
         private System.Windows.Forms.TabPage adminMenuTab;
         private System.Windows.Forms.TabPage reportsMenuTab;
-        private System.Windows.Forms.Button addUpdateStaffBtn;
         private System.Windows.Forms.Button adminExitBtn;
-        private System.Windows.Forms.Button addUpdateSupplier;
-        private System.Windows.Forms.Button addUpdateStatusBtn;
-        private System.Windows.Forms.Button addUpdateCategoryBtn;
-        private System.Windows.Forms.Button addUpdateLocationBtn;
         private System.Windows.Forms.Button addUpdateEquipmentBtn;
         private System.Windows.Forms.Button outstandingAccountsBtn;
         private System.Windows.Forms.Button reportsExitBtn;
