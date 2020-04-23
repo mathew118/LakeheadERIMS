@@ -27142,7 +27142,8 @@ namespace Lakehead_ERIMS.LUEquipmentDataSetTableAdapters {
             this._commandCollection = new global::System.Data.OleDb.OleDbCommand[1];
             this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Cat_ID, Cat_Name, Cat_IDStart, Cat_IDEnd FROM tblCategory";
+            this._commandCollection[0].CommandText = "SELECT        Cat_ID, Cat_Name, Cat_IDStart, Cat_IDEnd\r\nFROM            tblCatego" +
+                "ry\r\nORDER BY Cat_Name";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -27537,8 +27538,8 @@ namespace Lakehead_ERIMS.LUEquipmentDataSetTableAdapters {
             this._commandCollection = new global::System.Data.OleDb.OleDbCommand[1];
             this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Emp_ID, Emp_UName, Emp_LName, Emp_FName, Emp_Type, Emp_Password FROM tblEm" +
-                "ployee";
+            this._commandCollection[0].CommandText = "SELECT        Emp_ID, Emp_UName, Emp_LName, Emp_FName, Emp_Type, Emp_Password\r\nFR" +
+                "OM            tblEmployee\r\nORDER BY Emp_LName";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -28098,7 +28099,10 @@ namespace Lakehead_ERIMS.LUEquipmentDataSetTableAdapters {
             this._commandCollection = new global::System.Data.OleDb.OleDbCommand[1];
             this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT Equip_ID, Equip_Number, Equip_Name, Equip_Descrip1, Equip_Descrip2, Equip_Descrip3, Equip_Manufacturer, Equip_Model, Equip_Serial, Supp_ID, Equip_DatePurch, Equip_Price, Equip_PONumber, Equip_RentalPrice, Equip_LateFee, Equip_Nights, Equip_Notes, Status_ID, Loc_ID FROM tblEquip";
+            this._commandCollection[0].CommandText = @"SELECT        Equip_ID, Equip_Number, Equip_Name, Equip_Descrip1, Equip_Descrip2, Equip_Descrip3, Equip_Manufacturer, Equip_Model, Equip_Serial, Supp_ID, Equip_DatePurch, Equip_Price, Equip_PONumber, Equip_RentalPrice, 
+                         Equip_LateFee, Equip_Nights, Equip_Notes, Status_ID, Loc_ID
+FROM            tblEquip
+ORDER BY Equip_Name";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -29719,7 +29723,7 @@ namespace Lakehead_ERIMS.LUEquipmentDataSetTableAdapters {
             this._commandCollection = new global::System.Data.OleDb.OleDbCommand[1];
             this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Loc_ID, Loc_Name FROM tblLocation";
+            this._commandCollection[0].CommandText = "SELECT        Loc_ID, Loc_Name\r\nFROM            tblLocation\r\nORDER BY Loc_Name";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -30509,7 +30513,8 @@ namespace Lakehead_ERIMS.LUEquipmentDataSetTableAdapters {
             this._commandCollection = new global::System.Data.OleDb.OleDbCommand[1];
             this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Status_ID, Status_Name FROM tblStatus";
+            this._commandCollection[0].CommandText = "SELECT        Status_ID, Status_Name\r\nFROM            tblStatus\r\nORDER BY Status_" +
+                "Name";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -30938,10 +30943,10 @@ namespace Lakehead_ERIMS.LUEquipmentDataSetTableAdapters {
             this._commandCollection = new global::System.Data.OleDb.OleDbCommand[1];
             this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Stu_ID, Stu_Number, Stu_LName, Stu_FName, Stu_LAddress, Stu_LCity, Stu_LPr" +
-                "ovince, Stu_LPCode, Stu_LPhone, Stu_LExt, Stu_Email, Stu_HAddress, Stu_HCity, St" +
-                "u_HProvince, Stu_HPCode, Stu_HPhone, Stu_Notes, Stu_Owe, Stu_ORPT FROM tblStuden" +
-                "t";
+            this._commandCollection[0].CommandText = @"SELECT        Stu_ID, Stu_Number, Stu_LName, Stu_FName, Stu_LAddress, Stu_LCity, Stu_LProvince, Stu_LPCode, Stu_LPhone, Stu_LExt, Stu_Email, Stu_HAddress, Stu_HCity, Stu_HProvince, Stu_HPCode, Stu_HPhone, Stu_Notes, 
+                         Stu_Owe, Stu_ORPT
+FROM            tblStudent
+ORDER BY Stu_LName";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         

@@ -86,7 +86,9 @@
                 </InsertCommand>
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT Cat_ID, Cat_Name, Cat_IDStart, Cat_IDEnd FROM tblCategory</CommandText>
+                    <CommandText>SELECT        Cat_ID, Cat_Name, Cat_IDStart, Cat_IDEnd
+FROM            tblCategory
+ORDER BY Cat_Name</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -152,7 +154,9 @@
                 </InsertCommand>
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT Emp_ID, Emp_UName, Emp_LName, Emp_FName, Emp_Type, Emp_Password FROM tblEmployee</CommandText>
+                    <CommandText>SELECT        Emp_ID, Emp_UName, Emp_LName, Emp_FName, Emp_Type, Emp_Password
+FROM            tblEmployee
+ORDER BY Emp_LName</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -265,7 +269,10 @@
                 </InsertCommand>
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT Equip_ID, Equip_Number, Equip_Name, Equip_Descrip1, Equip_Descrip2, Equip_Descrip3, Equip_Manufacturer, Equip_Model, Equip_Serial, Supp_ID, Equip_DatePurch, Equip_Price, Equip_PONumber, Equip_RentalPrice, Equip_LateFee, Equip_Nights, Equip_Notes, Status_ID, Loc_ID FROM tblEquip</CommandText>
+                    <CommandText>SELECT        Equip_ID, Equip_Number, Equip_Name, Equip_Descrip1, Equip_Descrip2, Equip_Descrip3, Equip_Manufacturer, Equip_Model, Equip_Serial, Supp_ID, Equip_DatePurch, Equip_Price, Equip_PONumber, Equip_RentalPrice, 
+                         Equip_LateFee, Equip_Nights, Equip_Notes, Status_ID, Loc_ID
+FROM            tblEquip
+ORDER BY Equip_Name</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -494,7 +501,9 @@
                 </InsertCommand>
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT Loc_ID, Loc_Name FROM tblLocation</CommandText>
+                    <CommandText>SELECT        Loc_ID, Loc_Name
+FROM            tblLocation
+ORDER BY Loc_Name</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -614,7 +623,9 @@
                 </InsertCommand>
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT Status_ID, Status_Name FROM tblStatus</CommandText>
+                    <CommandText>SELECT        Status_ID, Status_Name
+FROM            tblStatus
+ORDER BY Status_Name</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -711,7 +722,10 @@
                 </InsertCommand>
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT Stu_ID, Stu_Number, Stu_LName, Stu_FName, Stu_LAddress, Stu_LCity, Stu_LProvince, Stu_LPCode, Stu_LPhone, Stu_LExt, Stu_Email, Stu_HAddress, Stu_HCity, Stu_HProvince, Stu_HPCode, Stu_HPhone, Stu_Notes, Stu_Owe, Stu_ORPT FROM tblStudent</CommandText>
+                    <CommandText>SELECT        Stu_ID, Stu_Number, Stu_LName, Stu_FName, Stu_LAddress, Stu_LCity, Stu_LProvince, Stu_LPCode, Stu_LPhone, Stu_LExt, Stu_Email, Stu_HAddress, Stu_HCity, Stu_HProvince, Stu_HPCode, Stu_HPhone, Stu_Notes, 
+                         Stu_Owe, Stu_ORPT
+FROM            tblStudent
+ORDER BY Stu_LName</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -1491,7 +1505,7 @@
   <xs:element name="LUEquipmentDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="LUEquipmentDataSet" msprop:Generator_UserDSName="LUEquipmentDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Paste_x0020_Errors" msprop:Generator_TableClassName="Paste_ErrorsDataTable" msprop:Generator_TableVarName="tablePaste_Errors" msprop:Generator_TablePropName="Paste_Errors" msprop:Generator_RowDeletingName="Paste_ErrorsRowDeleting" msprop:Generator_RowChangingName="Paste_ErrorsRowChanging" msprop:Generator_RowEvHandlerName="Paste_ErrorsRowChangeEventHandler" msprop:Generator_RowDeletedName="Paste_ErrorsRowDeleted" msprop:Generator_UserTableName="Paste Errors" msprop:Generator_RowChangedName="Paste_ErrorsRowChanged" msprop:Generator_RowEvArgName="Paste_ErrorsRowChangeEvent" msprop:Generator_RowClassName="Paste_ErrorsRow">
+        <xs:element name="Paste_x0020_Errors" msprop:Generator_TableClassName="Paste_ErrorsDataTable" msprop:Generator_TableVarName="tablePaste_Errors" msprop:Generator_RowChangedName="Paste_ErrorsRowChanged" msprop:Generator_TablePropName="Paste_Errors" msprop:Generator_RowDeletingName="Paste_ErrorsRowDeleting" msprop:Generator_RowChangingName="Paste_ErrorsRowChanging" msprop:Generator_RowEvHandlerName="Paste_ErrorsRowChangeEventHandler" msprop:Generator_RowDeletedName="Paste_ErrorsRowDeleted" msprop:Generator_RowClassName="Paste_ErrorsRow" msprop:Generator_UserTableName="Paste Errors" msprop:Generator_RowEvArgName="Paste_ErrorsRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Number_x003A_" msprop:Generator_ColumnVarNameInTable="_columnNumber_" msprop:Generator_ColumnPropNameInRow="_Number_" msprop:Generator_ColumnPropNameInTable="_Number_Column" msprop:Generator_UserColumnName="Number:" minOccurs="0">
@@ -1583,7 +1597,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="tblCategory" msprop:Generator_TableClassName="tblCategoryDataTable" msprop:Generator_TableVarName="tabletblCategory" msprop:Generator_TablePropName="tblCategory" msprop:Generator_RowDeletingName="tblCategoryRowDeleting" msprop:Generator_RowChangingName="tblCategoryRowChanging" msprop:Generator_RowEvHandlerName="tblCategoryRowChangeEventHandler" msprop:Generator_RowDeletedName="tblCategoryRowDeleted" msprop:Generator_UserTableName="tblCategory" msprop:Generator_RowChangedName="tblCategoryRowChanged" msprop:Generator_RowEvArgName="tblCategoryRowChangeEvent" msprop:Generator_RowClassName="tblCategoryRow">
+        <xs:element name="tblCategory" msprop:Generator_TableClassName="tblCategoryDataTable" msprop:Generator_TableVarName="tabletblCategory" msprop:Generator_RowChangedName="tblCategoryRowChanged" msprop:Generator_TablePropName="tblCategory" msprop:Generator_RowDeletingName="tblCategoryRowDeleting" msprop:Generator_RowChangingName="tblCategoryRowChanging" msprop:Generator_RowEvHandlerName="tblCategoryRowChangeEventHandler" msprop:Generator_RowDeletedName="tblCategoryRowDeleted" msprop:Generator_RowClassName="tblCategoryRow" msprop:Generator_UserTableName="tblCategory" msprop:Generator_RowEvArgName="tblCategoryRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Cat_ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnCat_ID" msprop:Generator_ColumnPropNameInRow="Cat_ID" msprop:Generator_ColumnPropNameInTable="Cat_IDColumn" msprop:Generator_UserColumnName="Cat_ID" type="xs:int" />
@@ -1611,7 +1625,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="tblEmployee" msprop:Generator_TableClassName="tblEmployeeDataTable" msprop:Generator_TableVarName="tabletblEmployee" msprop:Generator_TablePropName="tblEmployee" msprop:Generator_RowDeletingName="tblEmployeeRowDeleting" msprop:Generator_RowChangingName="tblEmployeeRowChanging" msprop:Generator_RowEvHandlerName="tblEmployeeRowChangeEventHandler" msprop:Generator_RowDeletedName="tblEmployeeRowDeleted" msprop:Generator_UserTableName="tblEmployee" msprop:Generator_RowChangedName="tblEmployeeRowChanged" msprop:Generator_RowEvArgName="tblEmployeeRowChangeEvent" msprop:Generator_RowClassName="tblEmployeeRow">
+        <xs:element name="tblEmployee" msprop:Generator_TableClassName="tblEmployeeDataTable" msprop:Generator_TableVarName="tabletblEmployee" msprop:Generator_RowChangedName="tblEmployeeRowChanged" msprop:Generator_TablePropName="tblEmployee" msprop:Generator_RowDeletingName="tblEmployeeRowDeleting" msprop:Generator_RowChangingName="tblEmployeeRowChanging" msprop:Generator_RowEvHandlerName="tblEmployeeRowChangeEventHandler" msprop:Generator_RowDeletedName="tblEmployeeRowDeleted" msprop:Generator_RowClassName="tblEmployeeRow" msprop:Generator_UserTableName="tblEmployee" msprop:Generator_RowEvArgName="tblEmployeeRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Emp_ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnEmp_ID" msprop:Generator_ColumnPropNameInRow="Emp_ID" msprop:Generator_ColumnPropNameInTable="Emp_IDColumn" msprop:Generator_UserColumnName="Emp_ID" type="xs:int" />
@@ -1653,7 +1667,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="tblEquip" msprop:Generator_TableClassName="tblEquipDataTable" msprop:Generator_TableVarName="tabletblEquip" msprop:Generator_TablePropName="tblEquip" msprop:Generator_RowDeletingName="tblEquipRowDeleting" msprop:Generator_RowChangingName="tblEquipRowChanging" msprop:Generator_RowEvHandlerName="tblEquipRowChangeEventHandler" msprop:Generator_RowDeletedName="tblEquipRowDeleted" msprop:Generator_UserTableName="tblEquip" msprop:Generator_RowChangedName="tblEquipRowChanged" msprop:Generator_RowEvArgName="tblEquipRowChangeEvent" msprop:Generator_RowClassName="tblEquipRow">
+        <xs:element name="tblEquip" msprop:Generator_TableClassName="tblEquipDataTable" msprop:Generator_TableVarName="tabletblEquip" msprop:Generator_RowChangedName="tblEquipRowChanged" msprop:Generator_TablePropName="tblEquip" msprop:Generator_RowDeletingName="tblEquipRowDeleting" msprop:Generator_RowChangingName="tblEquipRowChanging" msprop:Generator_RowEvHandlerName="tblEquipRowChangeEventHandler" msprop:Generator_RowDeletedName="tblEquipRowDeleted" msprop:Generator_RowClassName="tblEquipRow" msprop:Generator_UserTableName="tblEquip" msprop:Generator_RowEvArgName="tblEquipRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Equip_ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnEquip_ID" msprop:Generator_ColumnPropNameInRow="Equip_ID" msprop:Generator_ColumnPropNameInTable="Equip_IDColumn" msprop:Generator_UserColumnName="Equip_ID" type="xs:int" />
@@ -1738,7 +1752,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="tblHistory" msprop:Generator_TableClassName="tblHistoryDataTable" msprop:Generator_TableVarName="tabletblHistory" msprop:Generator_TablePropName="tblHistory" msprop:Generator_RowDeletingName="tblHistoryRowDeleting" msprop:Generator_RowChangingName="tblHistoryRowChanging" msprop:Generator_RowEvHandlerName="tblHistoryRowChangeEventHandler" msprop:Generator_RowDeletedName="tblHistoryRowDeleted" msprop:Generator_UserTableName="tblHistory" msprop:Generator_RowChangedName="tblHistoryRowChanged" msprop:Generator_RowEvArgName="tblHistoryRowChangeEvent" msprop:Generator_RowClassName="tblHistoryRow">
+        <xs:element name="tblHistory" msprop:Generator_TableClassName="tblHistoryDataTable" msprop:Generator_TableVarName="tabletblHistory" msprop:Generator_RowChangedName="tblHistoryRowChanged" msprop:Generator_TablePropName="tblHistory" msprop:Generator_RowDeletingName="tblHistoryRowDeleting" msprop:Generator_RowChangingName="tblHistoryRowChanging" msprop:Generator_RowEvHandlerName="tblHistoryRowChangeEventHandler" msprop:Generator_RowDeletedName="tblHistoryRowDeleted" msprop:Generator_RowClassName="tblHistoryRow" msprop:Generator_UserTableName="tblHistory" msprop:Generator_RowEvArgName="tblHistoryRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Hist_ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnHist_ID" msprop:Generator_ColumnPropNameInRow="Hist_ID" msprop:Generator_ColumnPropNameInTable="Hist_IDColumn" msprop:Generator_UserColumnName="Hist_ID" type="xs:int" />
@@ -1750,14 +1764,14 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="tblInvoice" msprop:Generator_TableClassName="tblInvoiceDataTable" msprop:Generator_TableVarName="tabletblInvoice" msprop:Generator_TablePropName="tblInvoice" msprop:Generator_RowDeletingName="tblInvoiceRowDeleting" msprop:Generator_RowChangingName="tblInvoiceRowChanging" msprop:Generator_RowEvHandlerName="tblInvoiceRowChangeEventHandler" msprop:Generator_RowDeletedName="tblInvoiceRowDeleted" msprop:Generator_UserTableName="tblInvoice" msprop:Generator_RowChangedName="tblInvoiceRowChanged" msprop:Generator_RowEvArgName="tblInvoiceRowChangeEvent" msprop:Generator_RowClassName="tblInvoiceRow">
+        <xs:element name="tblInvoice" msprop:Generator_TableClassName="tblInvoiceDataTable" msprop:Generator_TableVarName="tabletblInvoice" msprop:Generator_RowChangedName="tblInvoiceRowChanged" msprop:Generator_TablePropName="tblInvoice" msprop:Generator_RowDeletingName="tblInvoiceRowDeleting" msprop:Generator_RowChangingName="tblInvoiceRowChanging" msprop:Generator_RowEvHandlerName="tblInvoiceRowChangeEventHandler" msprop:Generator_RowDeletedName="tblInvoiceRowDeleted" msprop:Generator_RowClassName="tblInvoiceRow" msprop:Generator_UserTableName="tblInvoice" msprop:Generator_RowEvArgName="tblInvoiceRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Inv_Num" msprop:Generator_ColumnVarNameInTable="columnInv_Num" msprop:Generator_ColumnPropNameInRow="Inv_Num" msprop:Generator_ColumnPropNameInTable="Inv_NumColumn" msprop:Generator_UserColumnName="Inv_Num" type="xs:int" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="tblLocation" msprop:Generator_TableClassName="tblLocationDataTable" msprop:Generator_TableVarName="tabletblLocation" msprop:Generator_TablePropName="tblLocation" msprop:Generator_RowDeletingName="tblLocationRowDeleting" msprop:Generator_RowChangingName="tblLocationRowChanging" msprop:Generator_RowEvHandlerName="tblLocationRowChangeEventHandler" msprop:Generator_RowDeletedName="tblLocationRowDeleted" msprop:Generator_UserTableName="tblLocation" msprop:Generator_RowChangedName="tblLocationRowChanged" msprop:Generator_RowEvArgName="tblLocationRowChangeEvent" msprop:Generator_RowClassName="tblLocationRow">
+        <xs:element name="tblLocation" msprop:Generator_TableClassName="tblLocationDataTable" msprop:Generator_TableVarName="tabletblLocation" msprop:Generator_RowChangedName="tblLocationRowChanged" msprop:Generator_TablePropName="tblLocation" msprop:Generator_RowDeletingName="tblLocationRowDeleting" msprop:Generator_RowChangingName="tblLocationRowChanging" msprop:Generator_RowEvHandlerName="tblLocationRowChangeEventHandler" msprop:Generator_RowDeletedName="tblLocationRowDeleted" msprop:Generator_RowClassName="tblLocationRow" msprop:Generator_UserTableName="tblLocation" msprop:Generator_RowEvArgName="tblLocationRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Loc_ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnLoc_ID" msprop:Generator_ColumnPropNameInRow="Loc_ID" msprop:Generator_ColumnPropNameInTable="Loc_IDColumn" msprop:Generator_UserColumnName="Loc_ID" type="xs:int" />
@@ -1771,7 +1785,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="tblRental" msprop:Generator_TableClassName="tblRentalDataTable" msprop:Generator_TableVarName="tabletblRental" msprop:Generator_TablePropName="tblRental" msprop:Generator_RowDeletingName="tblRentalRowDeleting" msprop:Generator_RowChangingName="tblRentalRowChanging" msprop:Generator_RowEvHandlerName="tblRentalRowChangeEventHandler" msprop:Generator_RowDeletedName="tblRentalRowDeleted" msprop:Generator_UserTableName="tblRental" msprop:Generator_RowChangedName="tblRentalRowChanged" msprop:Generator_RowEvArgName="tblRentalRowChangeEvent" msprop:Generator_RowClassName="tblRentalRow">
+        <xs:element name="tblRental" msprop:Generator_TableClassName="tblRentalDataTable" msprop:Generator_TableVarName="tabletblRental" msprop:Generator_RowChangedName="tblRentalRowChanged" msprop:Generator_TablePropName="tblRental" msprop:Generator_RowDeletingName="tblRentalRowDeleting" msprop:Generator_RowChangingName="tblRentalRowChanging" msprop:Generator_RowEvHandlerName="tblRentalRowChangeEventHandler" msprop:Generator_RowDeletedName="tblRentalRowDeleted" msprop:Generator_RowClassName="tblRentalRow" msprop:Generator_UserTableName="tblRental" msprop:Generator_RowEvArgName="tblRentalRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Equip_ID" msprop:Generator_ColumnVarNameInTable="columnEquip_ID" msprop:Generator_ColumnPropNameInRow="Equip_ID" msprop:Generator_ColumnPropNameInTable="Equip_IDColumn" msprop:Generator_UserColumnName="Equip_ID" type="xs:short" />
@@ -1789,7 +1803,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="tblStatus" msprop:Generator_TableClassName="tblStatusDataTable" msprop:Generator_TableVarName="tabletblStatus" msprop:Generator_TablePropName="tblStatus" msprop:Generator_RowDeletingName="tblStatusRowDeleting" msprop:Generator_RowChangingName="tblStatusRowChanging" msprop:Generator_RowEvHandlerName="tblStatusRowChangeEventHandler" msprop:Generator_RowDeletedName="tblStatusRowDeleted" msprop:Generator_UserTableName="tblStatus" msprop:Generator_RowChangedName="tblStatusRowChanged" msprop:Generator_RowEvArgName="tblStatusRowChangeEvent" msprop:Generator_RowClassName="tblStatusRow">
+        <xs:element name="tblStatus" msprop:Generator_TableClassName="tblStatusDataTable" msprop:Generator_TableVarName="tabletblStatus" msprop:Generator_RowChangedName="tblStatusRowChanged" msprop:Generator_TablePropName="tblStatus" msprop:Generator_RowDeletingName="tblStatusRowDeleting" msprop:Generator_RowChangingName="tblStatusRowChanging" msprop:Generator_RowEvHandlerName="tblStatusRowChangeEventHandler" msprop:Generator_RowDeletedName="tblStatusRowDeleted" msprop:Generator_RowClassName="tblStatusRow" msprop:Generator_UserTableName="tblStatus" msprop:Generator_RowEvArgName="tblStatusRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Status_ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnStatus_ID" msprop:Generator_ColumnPropNameInRow="Status_ID" msprop:Generator_ColumnPropNameInTable="Status_IDColumn" msprop:Generator_UserColumnName="Status_ID" type="xs:int" />
@@ -1803,7 +1817,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="tblStudent" msprop:Generator_TableClassName="tblStudentDataTable" msprop:Generator_TableVarName="tabletblStudent" msprop:Generator_TablePropName="tblStudent" msprop:Generator_RowDeletingName="tblStudentRowDeleting" msprop:Generator_RowChangingName="tblStudentRowChanging" msprop:Generator_RowEvHandlerName="tblStudentRowChangeEventHandler" msprop:Generator_RowDeletedName="tblStudentRowDeleted" msprop:Generator_UserTableName="tblStudent" msprop:Generator_RowChangedName="tblStudentRowChanged" msprop:Generator_RowEvArgName="tblStudentRowChangeEvent" msprop:Generator_RowClassName="tblStudentRow">
+        <xs:element name="tblStudent" msprop:Generator_TableClassName="tblStudentDataTable" msprop:Generator_TableVarName="tabletblStudent" msprop:Generator_RowChangedName="tblStudentRowChanged" msprop:Generator_TablePropName="tblStudent" msprop:Generator_RowDeletingName="tblStudentRowDeleting" msprop:Generator_RowChangingName="tblStudentRowChanging" msprop:Generator_RowEvHandlerName="tblStudentRowChangeEventHandler" msprop:Generator_RowDeletedName="tblStudentRowDeleted" msprop:Generator_RowClassName="tblStudentRow" msprop:Generator_UserTableName="tblStudent" msprop:Generator_RowEvArgName="tblStudentRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Stu_ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnStu_ID" msprop:Generator_ColumnPropNameInRow="Stu_ID" msprop:Generator_ColumnPropNameInTable="Stu_IDColumn" msprop:Generator_UserColumnName="Stu_ID" type="xs:int" />
@@ -1924,7 +1938,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="tblSupplier" msprop:Generator_TableClassName="tblSupplierDataTable" msprop:Generator_TableVarName="tabletblSupplier" msprop:Generator_TablePropName="tblSupplier" msprop:Generator_RowDeletingName="tblSupplierRowDeleting" msprop:Generator_RowChangingName="tblSupplierRowChanging" msprop:Generator_RowEvHandlerName="tblSupplierRowChangeEventHandler" msprop:Generator_RowDeletedName="tblSupplierRowDeleted" msprop:Generator_UserTableName="tblSupplier" msprop:Generator_RowChangedName="tblSupplierRowChanged" msprop:Generator_RowEvArgName="tblSupplierRowChangeEvent" msprop:Generator_RowClassName="tblSupplierRow">
+        <xs:element name="tblSupplier" msprop:Generator_TableClassName="tblSupplierDataTable" msprop:Generator_TableVarName="tabletblSupplier" msprop:Generator_RowChangedName="tblSupplierRowChanged" msprop:Generator_TablePropName="tblSupplier" msprop:Generator_RowDeletingName="tblSupplierRowDeleting" msprop:Generator_RowChangingName="tblSupplierRowChanging" msprop:Generator_RowEvHandlerName="tblSupplierRowChangeEventHandler" msprop:Generator_RowDeletedName="tblSupplierRowDeleted" msprop:Generator_RowClassName="tblSupplierRow" msprop:Generator_UserTableName="tblSupplier" msprop:Generator_RowEvArgName="tblSupplierRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Supp_ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnSupp_ID" msprop:Generator_ColumnPropNameInRow="Supp_ID" msprop:Generator_ColumnPropNameInTable="Supp_IDColumn" msprop:Generator_UserColumnName="Supp_ID" type="xs:int" />
@@ -1938,7 +1952,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="ACTIVE" msprop:Generator_TableClassName="ACTIVEDataTable" msprop:Generator_TableVarName="tableACTIVE" msprop:Generator_TablePropName="ACTIVE" msprop:Generator_RowDeletingName="ACTIVERowDeleting" msprop:Generator_RowChangingName="ACTIVERowChanging" msprop:Generator_RowEvHandlerName="ACTIVERowChangeEventHandler" msprop:Generator_RowDeletedName="ACTIVERowDeleted" msprop:Generator_UserTableName="ACTIVE" msprop:Generator_RowChangedName="ACTIVERowChanged" msprop:Generator_RowEvArgName="ACTIVERowChangeEvent" msprop:Generator_RowClassName="ACTIVERow">
+        <xs:element name="ACTIVE" msprop:Generator_TableClassName="ACTIVEDataTable" msprop:Generator_TableVarName="tableACTIVE" msprop:Generator_RowChangedName="ACTIVERowChanged" msprop:Generator_TablePropName="ACTIVE" msprop:Generator_RowDeletingName="ACTIVERowDeleting" msprop:Generator_RowChangingName="ACTIVERowChanging" msprop:Generator_RowEvHandlerName="ACTIVERowChangeEventHandler" msprop:Generator_RowDeletedName="ACTIVERowDeleted" msprop:Generator_RowClassName="ACTIVERow" msprop:Generator_UserTableName="ACTIVE" msprop:Generator_RowEvArgName="ACTIVERowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Equip_ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnEquip_ID" msprop:Generator_ColumnPropNameInRow="Equip_ID" msprop:Generator_ColumnPropNameInTable="Equip_IDColumn" msprop:Generator_UserColumnName="Equip_ID" type="xs:int" />
@@ -2023,7 +2037,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Annual_x0020_Purchase" msprop:Generator_TableClassName="Annual_PurchaseDataTable" msprop:Generator_TableVarName="tableAnnual_Purchase" msprop:Generator_TablePropName="Annual_Purchase" msprop:Generator_RowDeletingName="Annual_PurchaseRowDeleting" msprop:Generator_RowChangingName="Annual_PurchaseRowChanging" msprop:Generator_RowEvHandlerName="Annual_PurchaseRowChangeEventHandler" msprop:Generator_RowDeletedName="Annual_PurchaseRowDeleted" msprop:Generator_UserTableName="Annual Purchase" msprop:Generator_RowChangedName="Annual_PurchaseRowChanged" msprop:Generator_RowEvArgName="Annual_PurchaseRowChangeEvent" msprop:Generator_RowClassName="Annual_PurchaseRow">
+        <xs:element name="Annual_x0020_Purchase" msprop:Generator_TableClassName="Annual_PurchaseDataTable" msprop:Generator_TableVarName="tableAnnual_Purchase" msprop:Generator_RowChangedName="Annual_PurchaseRowChanged" msprop:Generator_TablePropName="Annual_Purchase" msprop:Generator_RowDeletingName="Annual_PurchaseRowDeleting" msprop:Generator_RowChangingName="Annual_PurchaseRowChanging" msprop:Generator_RowEvHandlerName="Annual_PurchaseRowChangeEventHandler" msprop:Generator_RowDeletedName="Annual_PurchaseRowDeleted" msprop:Generator_RowClassName="Annual_PurchaseRow" msprop:Generator_UserTableName="Annual Purchase" msprop:Generator_RowEvArgName="Annual_PurchaseRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Equip_Number" msprop:Generator_ColumnVarNameInTable="columnEquip_Number" msprop:Generator_ColumnPropNameInRow="Equip_Number" msprop:Generator_ColumnPropNameInTable="Equip_NumberColumn" msprop:Generator_UserColumnName="Equip_Number" minOccurs="0">
@@ -2080,7 +2094,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Books" msprop:Generator_TableClassName="BooksDataTable" msprop:Generator_TableVarName="tableBooks" msprop:Generator_TablePropName="Books" msprop:Generator_RowDeletingName="BooksRowDeleting" msprop:Generator_RowChangingName="BooksRowChanging" msprop:Generator_RowEvHandlerName="BooksRowChangeEventHandler" msprop:Generator_RowDeletedName="BooksRowDeleted" msprop:Generator_UserTableName="Books" msprop:Generator_RowChangedName="BooksRowChanged" msprop:Generator_RowEvArgName="BooksRowChangeEvent" msprop:Generator_RowClassName="BooksRow">
+        <xs:element name="Books" msprop:Generator_TableClassName="BooksDataTable" msprop:Generator_TableVarName="tableBooks" msprop:Generator_RowChangedName="BooksRowChanged" msprop:Generator_TablePropName="Books" msprop:Generator_RowDeletingName="BooksRowDeleting" msprop:Generator_RowChangingName="BooksRowChanging" msprop:Generator_RowEvHandlerName="BooksRowChangeEventHandler" msprop:Generator_RowDeletedName="BooksRowDeleted" msprop:Generator_RowClassName="BooksRow" msprop:Generator_UserTableName="Books" msprop:Generator_RowEvArgName="BooksRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Equip_Number" msprop:Generator_ColumnVarNameInTable="columnEquip_Number" msprop:Generator_ColumnPropNameInRow="Equip_Number" msprop:Generator_ColumnPropNameInTable="Equip_NumberColumn" msprop:Generator_UserColumnName="Equip_Number" minOccurs="0">
@@ -2114,7 +2128,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="by_x0020_item" msprop:Generator_TableClassName="by_itemDataTable" msprop:Generator_TableVarName="tableby_item" msprop:Generator_TablePropName="by_item" msprop:Generator_RowDeletingName="by_itemRowDeleting" msprop:Generator_RowChangingName="by_itemRowChanging" msprop:Generator_RowEvHandlerName="by_itemRowChangeEventHandler" msprop:Generator_RowDeletedName="by_itemRowDeleted" msprop:Generator_UserTableName="by item" msprop:Generator_RowChangedName="by_itemRowChanged" msprop:Generator_RowEvArgName="by_itemRowChangeEvent" msprop:Generator_RowClassName="by_itemRow">
+        <xs:element name="by_x0020_item" msprop:Generator_TableClassName="by_itemDataTable" msprop:Generator_TableVarName="tableby_item" msprop:Generator_RowChangedName="by_itemRowChanged" msprop:Generator_TablePropName="by_item" msprop:Generator_RowDeletingName="by_itemRowDeleting" msprop:Generator_RowChangingName="by_itemRowChanging" msprop:Generator_RowEvHandlerName="by_itemRowChangeEventHandler" msprop:Generator_RowDeletedName="by_itemRowDeleted" msprop:Generator_RowClassName="by_itemRow" msprop:Generator_UserTableName="by item" msprop:Generator_RowEvArgName="by_itemRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Equip_ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnEquip_ID" msprop:Generator_ColumnPropNameInRow="Equip_ID" msprop:Generator_ColumnPropNameInTable="Equip_IDColumn" msprop:Generator_UserColumnName="Equip_ID" type="xs:int" />
@@ -2199,7 +2213,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="gone_x0020_not_x0020_missing" msprop:Generator_TableClassName="gone_not_missingDataTable" msprop:Generator_TableVarName="tablegone_not_missing" msprop:Generator_TablePropName="gone_not_missing" msprop:Generator_RowDeletingName="gone_not_missingRowDeleting" msprop:Generator_RowChangingName="gone_not_missingRowChanging" msprop:Generator_RowEvHandlerName="gone_not_missingRowChangeEventHandler" msprop:Generator_RowDeletedName="gone_not_missingRowDeleted" msprop:Generator_UserTableName="gone not missing" msprop:Generator_RowChangedName="gone_not_missingRowChanged" msprop:Generator_RowEvArgName="gone_not_missingRowChangeEvent" msprop:Generator_RowClassName="gone_not_missingRow">
+        <xs:element name="gone_x0020_not_x0020_missing" msprop:Generator_TableClassName="gone_not_missingDataTable" msprop:Generator_TableVarName="tablegone_not_missing" msprop:Generator_RowChangedName="gone_not_missingRowChanged" msprop:Generator_TablePropName="gone_not_missing" msprop:Generator_RowDeletingName="gone_not_missingRowDeleting" msprop:Generator_RowChangingName="gone_not_missingRowChanging" msprop:Generator_RowEvHandlerName="gone_not_missingRowChangeEventHandler" msprop:Generator_RowDeletedName="gone_not_missingRowDeleted" msprop:Generator_RowClassName="gone_not_missingRow" msprop:Generator_UserTableName="gone not missing" msprop:Generator_RowEvArgName="gone_not_missingRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Equip_Number" msprop:Generator_ColumnVarNameInTable="columnEquip_Number" msprop:Generator_ColumnPropNameInRow="Equip_Number" msprop:Generator_ColumnPropNameInTable="Equip_NumberColumn" msprop:Generator_UserColumnName="Equip_Number" minOccurs="0">
@@ -2264,7 +2278,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="In_x0020_Service" msprop:Generator_TableClassName="In_ServiceDataTable" msprop:Generator_TableVarName="tableIn_Service" msprop:Generator_TablePropName="In_Service" msprop:Generator_RowDeletingName="In_ServiceRowDeleting" msprop:Generator_RowChangingName="In_ServiceRowChanging" msprop:Generator_RowEvHandlerName="In_ServiceRowChangeEventHandler" msprop:Generator_RowDeletedName="In_ServiceRowDeleted" msprop:Generator_UserTableName="In Service" msprop:Generator_RowChangedName="In_ServiceRowChanged" msprop:Generator_RowEvArgName="In_ServiceRowChangeEvent" msprop:Generator_RowClassName="In_ServiceRow">
+        <xs:element name="In_x0020_Service" msprop:Generator_TableClassName="In_ServiceDataTable" msprop:Generator_TableVarName="tableIn_Service" msprop:Generator_RowChangedName="In_ServiceRowChanged" msprop:Generator_TablePropName="In_Service" msprop:Generator_RowDeletingName="In_ServiceRowDeleting" msprop:Generator_RowChangingName="In_ServiceRowChanging" msprop:Generator_RowEvHandlerName="In_ServiceRowChangeEventHandler" msprop:Generator_RowDeletedName="In_ServiceRowDeleted" msprop:Generator_RowClassName="In_ServiceRow" msprop:Generator_UserTableName="In Service" msprop:Generator_RowEvArgName="In_ServiceRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Equip_ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnEquip_ID" msprop:Generator_ColumnPropNameInRow="Equip_ID" msprop:Generator_ColumnPropNameInTable="Equip_IDColumn" msprop:Generator_UserColumnName="Equip_ID" type="xs:int" />
@@ -2349,7 +2363,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="INACTIVE" msprop:Generator_TableClassName="INACTIVEDataTable" msprop:Generator_TableVarName="tableINACTIVE" msprop:Generator_TablePropName="INACTIVE" msprop:Generator_RowDeletingName="INACTIVERowDeleting" msprop:Generator_RowChangingName="INACTIVERowChanging" msprop:Generator_RowEvHandlerName="INACTIVERowChangeEventHandler" msprop:Generator_RowDeletedName="INACTIVERowDeleted" msprop:Generator_UserTableName="INACTIVE" msprop:Generator_RowChangedName="INACTIVERowChanged" msprop:Generator_RowEvArgName="INACTIVERowChangeEvent" msprop:Generator_RowClassName="INACTIVERow">
+        <xs:element name="INACTIVE" msprop:Generator_TableClassName="INACTIVEDataTable" msprop:Generator_TableVarName="tableINACTIVE" msprop:Generator_RowChangedName="INACTIVERowChanged" msprop:Generator_TablePropName="INACTIVE" msprop:Generator_RowDeletingName="INACTIVERowDeleting" msprop:Generator_RowChangingName="INACTIVERowChanging" msprop:Generator_RowEvHandlerName="INACTIVERowChangeEventHandler" msprop:Generator_RowDeletedName="INACTIVERowDeleted" msprop:Generator_RowClassName="INACTIVERow" msprop:Generator_UserTableName="INACTIVE" msprop:Generator_RowEvArgName="INACTIVERowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Equip_ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnEquip_ID" msprop:Generator_ColumnPropNameInRow="Equip_ID" msprop:Generator_ColumnPropNameInTable="Equip_IDColumn" msprop:Generator_UserColumnName="Equip_ID" type="xs:int" />
@@ -2434,7 +2448,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Not_x0020_in_x0020_service" msprop:Generator_TableClassName="Not_in_serviceDataTable" msprop:Generator_TableVarName="tableNot_in_service" msprop:Generator_TablePropName="Not_in_service" msprop:Generator_RowDeletingName="Not_in_serviceRowDeleting" msprop:Generator_RowChangingName="Not_in_serviceRowChanging" msprop:Generator_RowEvHandlerName="Not_in_serviceRowChangeEventHandler" msprop:Generator_RowDeletedName="Not_in_serviceRowDeleted" msprop:Generator_UserTableName="Not in service" msprop:Generator_RowChangedName="Not_in_serviceRowChanged" msprop:Generator_RowEvArgName="Not_in_serviceRowChangeEvent" msprop:Generator_RowClassName="Not_in_serviceRow">
+        <xs:element name="Not_x0020_in_x0020_service" msprop:Generator_TableClassName="Not_in_serviceDataTable" msprop:Generator_TableVarName="tableNot_in_service" msprop:Generator_RowChangedName="Not_in_serviceRowChanged" msprop:Generator_TablePropName="Not_in_service" msprop:Generator_RowDeletingName="Not_in_serviceRowDeleting" msprop:Generator_RowChangingName="Not_in_serviceRowChanging" msprop:Generator_RowEvHandlerName="Not_in_serviceRowChangeEventHandler" msprop:Generator_RowDeletedName="Not_in_serviceRowDeleted" msprop:Generator_RowClassName="Not_in_serviceRow" msprop:Generator_UserTableName="Not in service" msprop:Generator_RowEvArgName="Not_in_serviceRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Equip_ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnEquip_ID" msprop:Generator_ColumnPropNameInRow="Equip_ID" msprop:Generator_ColumnPropNameInTable="Equip_IDColumn" msprop:Generator_UserColumnName="Equip_ID" type="xs:int" />
@@ -2519,7 +2533,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="qry_x0020_-_x0020_equip_x0020_in_x0020_service" msprop:Generator_TableClassName="_qry___equip_in_serviceDataTable" msprop:Generator_TableVarName="_tableqry___equip_in_service" msprop:Generator_TablePropName="_qry___equip_in_service" msprop:Generator_RowDeletingName="_qry___equip_in_serviceRowDeleting" msprop:Generator_RowChangingName="_qry___equip_in_serviceRowChanging" msprop:Generator_RowEvHandlerName="_qry___equip_in_serviceRowChangeEventHandler" msprop:Generator_RowDeletedName="_qry___equip_in_serviceRowDeleted" msprop:Generator_UserTableName="qry - equip in service" msprop:Generator_RowChangedName="_qry___equip_in_serviceRowChanged" msprop:Generator_RowEvArgName="_qry___equip_in_serviceRowChangeEvent" msprop:Generator_RowClassName="_qry___equip_in_serviceRow">
+        <xs:element name="qry_x0020_-_x0020_equip_x0020_in_x0020_service" msprop:Generator_TableClassName="_qry___equip_in_serviceDataTable" msprop:Generator_TableVarName="_tableqry___equip_in_service" msprop:Generator_RowChangedName="_qry___equip_in_serviceRowChanged" msprop:Generator_TablePropName="_qry___equip_in_service" msprop:Generator_RowDeletingName="_qry___equip_in_serviceRowDeleting" msprop:Generator_RowChangingName="_qry___equip_in_serviceRowChanging" msprop:Generator_RowEvHandlerName="_qry___equip_in_serviceRowChangeEventHandler" msprop:Generator_RowDeletedName="_qry___equip_in_serviceRowDeleted" msprop:Generator_RowClassName="_qry___equip_in_serviceRow" msprop:Generator_UserTableName="qry - equip in service" msprop:Generator_RowEvArgName="_qry___equip_in_serviceRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Equip_Number" msprop:Generator_ColumnVarNameInTable="columnEquip_Number" msprop:Generator_ColumnPropNameInRow="Equip_Number" msprop:Generator_ColumnPropNameInTable="Equip_NumberColumn" msprop:Generator_UserColumnName="Equip_Number" minOccurs="0">
@@ -2577,14 +2591,14 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="qry_x0020_-_x0020_status" msprop:Generator_TableClassName="_qry___statusDataTable" msprop:Generator_TableVarName="_tableqry___status" msprop:Generator_TablePropName="_qry___status" msprop:Generator_RowDeletingName="_qry___statusRowDeleting" msprop:Generator_RowChangingName="_qry___statusRowChanging" msprop:Generator_RowEvHandlerName="_qry___statusRowChangeEventHandler" msprop:Generator_RowDeletedName="_qry___statusRowDeleted" msprop:Generator_UserTableName="qry - status" msprop:Generator_RowChangedName="_qry___statusRowChanged" msprop:Generator_RowEvArgName="_qry___statusRowChangeEvent" msprop:Generator_RowClassName="_qry___statusRow">
+        <xs:element name="qry_x0020_-_x0020_status" msprop:Generator_TableClassName="_qry___statusDataTable" msprop:Generator_TableVarName="_tableqry___status" msprop:Generator_RowChangedName="_qry___statusRowChanged" msprop:Generator_TablePropName="_qry___status" msprop:Generator_RowDeletingName="_qry___statusRowDeleting" msprop:Generator_RowChangingName="_qry___statusRowChanging" msprop:Generator_RowEvHandlerName="_qry___statusRowChangeEventHandler" msprop:Generator_RowDeletedName="_qry___statusRowDeleted" msprop:Generator_RowClassName="_qry___statusRow" msprop:Generator_UserTableName="qry - status" msprop:Generator_RowEvArgName="_qry___statusRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Status_ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnStatus_ID" msprop:Generator_ColumnPropNameInRow="Status_ID" msprop:Generator_ColumnPropNameInTable="Status_IDColumn" msprop:Generator_UserColumnName="Status_ID" type="xs:int" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="qryEquipCriteria" msprop:Generator_TableClassName="qryEquipCriteriaDataTable" msprop:Generator_TableVarName="tableqryEquipCriteria" msprop:Generator_TablePropName="qryEquipCriteria" msprop:Generator_RowDeletingName="qryEquipCriteriaRowDeleting" msprop:Generator_RowChangingName="qryEquipCriteriaRowChanging" msprop:Generator_RowEvHandlerName="qryEquipCriteriaRowChangeEventHandler" msprop:Generator_RowDeletedName="qryEquipCriteriaRowDeleted" msprop:Generator_UserTableName="qryEquipCriteria" msprop:Generator_RowChangedName="qryEquipCriteriaRowChanged" msprop:Generator_RowEvArgName="qryEquipCriteriaRowChangeEvent" msprop:Generator_RowClassName="qryEquipCriteriaRow">
+        <xs:element name="qryEquipCriteria" msprop:Generator_TableClassName="qryEquipCriteriaDataTable" msprop:Generator_TableVarName="tableqryEquipCriteria" msprop:Generator_RowChangedName="qryEquipCriteriaRowChanged" msprop:Generator_TablePropName="qryEquipCriteria" msprop:Generator_RowDeletingName="qryEquipCriteriaRowDeleting" msprop:Generator_RowChangingName="qryEquipCriteriaRowChanging" msprop:Generator_RowEvHandlerName="qryEquipCriteriaRowChangeEventHandler" msprop:Generator_RowDeletedName="qryEquipCriteriaRowDeleted" msprop:Generator_RowClassName="qryEquipCriteriaRow" msprop:Generator_UserTableName="qryEquipCriteria" msprop:Generator_RowEvArgName="qryEquipCriteriaRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Equip_Number" msprop:Generator_ColumnVarNameInTable="columnEquip_Number" msprop:Generator_ColumnPropNameInRow="Equip_Number" msprop:Generator_ColumnPropNameInTable="Equip_NumberColumn" msprop:Generator_UserColumnName="Equip_Number" minOccurs="0">
@@ -2643,7 +2657,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="qryEquipHistory" msprop:Generator_TableClassName="qryEquipHistoryDataTable" msprop:Generator_TableVarName="tableqryEquipHistory" msprop:Generator_TablePropName="qryEquipHistory" msprop:Generator_RowDeletingName="qryEquipHistoryRowDeleting" msprop:Generator_RowChangingName="qryEquipHistoryRowChanging" msprop:Generator_RowEvHandlerName="qryEquipHistoryRowChangeEventHandler" msprop:Generator_RowDeletedName="qryEquipHistoryRowDeleted" msprop:Generator_UserTableName="qryEquipHistory" msprop:Generator_RowChangedName="qryEquipHistoryRowChanged" msprop:Generator_RowEvArgName="qryEquipHistoryRowChangeEvent" msprop:Generator_RowClassName="qryEquipHistoryRow">
+        <xs:element name="qryEquipHistory" msprop:Generator_TableClassName="qryEquipHistoryDataTable" msprop:Generator_TableVarName="tableqryEquipHistory" msprop:Generator_RowChangedName="qryEquipHistoryRowChanged" msprop:Generator_TablePropName="qryEquipHistory" msprop:Generator_RowDeletingName="qryEquipHistoryRowDeleting" msprop:Generator_RowChangingName="qryEquipHistoryRowChanging" msprop:Generator_RowEvHandlerName="qryEquipHistoryRowChangeEventHandler" msprop:Generator_RowDeletedName="qryEquipHistoryRowDeleted" msprop:Generator_RowClassName="qryEquipHistoryRow" msprop:Generator_UserTableName="qryEquipHistory" msprop:Generator_RowEvArgName="qryEquipHistoryRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Equip_Number" msprop:Generator_ColumnVarNameInTable="columnEquip_Number" msprop:Generator_ColumnPropNameInRow="Equip_Number" msprop:Generator_ColumnPropNameInTable="Equip_NumberColumn" msprop:Generator_UserColumnName="Equip_Number" minOccurs="0">
@@ -2708,7 +2722,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="qryEquipment" msprop:Generator_TableClassName="qryEquipmentDataTable" msprop:Generator_TableVarName="tableqryEquipment" msprop:Generator_TablePropName="qryEquipment" msprop:Generator_RowDeletingName="qryEquipmentRowDeleting" msprop:Generator_RowChangingName="qryEquipmentRowChanging" msprop:Generator_RowEvHandlerName="qryEquipmentRowChangeEventHandler" msprop:Generator_RowDeletedName="qryEquipmentRowDeleted" msprop:Generator_UserTableName="qryEquipment" msprop:Generator_RowChangedName="qryEquipmentRowChanged" msprop:Generator_RowEvArgName="qryEquipmentRowChangeEvent" msprop:Generator_RowClassName="qryEquipmentRow">
+        <xs:element name="qryEquipment" msprop:Generator_TableClassName="qryEquipmentDataTable" msprop:Generator_TableVarName="tableqryEquipment" msprop:Generator_RowChangedName="qryEquipmentRowChanged" msprop:Generator_TablePropName="qryEquipment" msprop:Generator_RowDeletingName="qryEquipmentRowDeleting" msprop:Generator_RowChangingName="qryEquipmentRowChanging" msprop:Generator_RowEvHandlerName="qryEquipmentRowChangeEventHandler" msprop:Generator_RowDeletedName="qryEquipmentRowDeleted" msprop:Generator_RowClassName="qryEquipmentRow" msprop:Generator_UserTableName="qryEquipment" msprop:Generator_RowEvArgName="qryEquipmentRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Equip_Number" msprop:Generator_ColumnVarNameInTable="columnEquip_Number" msprop:Generator_ColumnPropNameInRow="Equip_Number" msprop:Generator_ColumnPropNameInTable="Equip_NumberColumn" msprop:Generator_UserColumnName="Equip_Number" minOccurs="0">
@@ -2766,7 +2780,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="qryInService" msprop:Generator_TableClassName="qryInServiceDataTable" msprop:Generator_TableVarName="tableqryInService" msprop:Generator_TablePropName="qryInService" msprop:Generator_RowDeletingName="qryInServiceRowDeleting" msprop:Generator_RowChangingName="qryInServiceRowChanging" msprop:Generator_RowEvHandlerName="qryInServiceRowChangeEventHandler" msprop:Generator_RowDeletedName="qryInServiceRowDeleted" msprop:Generator_UserTableName="qryInService" msprop:Generator_RowChangedName="qryInServiceRowChanged" msprop:Generator_RowEvArgName="qryInServiceRowChangeEvent" msprop:Generator_RowClassName="qryInServiceRow">
+        <xs:element name="qryInService" msprop:Generator_TableClassName="qryInServiceDataTable" msprop:Generator_TableVarName="tableqryInService" msprop:Generator_RowChangedName="qryInServiceRowChanged" msprop:Generator_TablePropName="qryInService" msprop:Generator_RowDeletingName="qryInServiceRowDeleting" msprop:Generator_RowChangingName="qryInServiceRowChanging" msprop:Generator_RowEvHandlerName="qryInServiceRowChangeEventHandler" msprop:Generator_RowDeletedName="qryInServiceRowDeleted" msprop:Generator_RowClassName="qryInServiceRow" msprop:Generator_UserTableName="qryInService" msprop:Generator_RowEvArgName="qryInServiceRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Equip_ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnEquip_ID" msprop:Generator_ColumnPropNameInRow="Equip_ID" msprop:Generator_ColumnPropNameInTable="Equip_IDColumn" msprop:Generator_UserColumnName="Equip_ID" type="xs:int" />
@@ -2851,7 +2865,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="qryOnLoan" msprop:Generator_TableClassName="qryOnLoanDataTable" msprop:Generator_TableVarName="tableqryOnLoan" msprop:Generator_TablePropName="qryOnLoan" msprop:Generator_RowDeletingName="qryOnLoanRowDeleting" msprop:Generator_RowChangingName="qryOnLoanRowChanging" msprop:Generator_RowEvHandlerName="qryOnLoanRowChangeEventHandler" msprop:Generator_RowDeletedName="qryOnLoanRowDeleted" msprop:Generator_UserTableName="qryOnLoan" msprop:Generator_RowChangedName="qryOnLoanRowChanged" msprop:Generator_RowEvArgName="qryOnLoanRowChangeEvent" msprop:Generator_RowClassName="qryOnLoanRow">
+        <xs:element name="qryOnLoan" msprop:Generator_TableClassName="qryOnLoanDataTable" msprop:Generator_TableVarName="tableqryOnLoan" msprop:Generator_RowChangedName="qryOnLoanRowChanged" msprop:Generator_TablePropName="qryOnLoan" msprop:Generator_RowDeletingName="qryOnLoanRowDeleting" msprop:Generator_RowChangingName="qryOnLoanRowChanging" msprop:Generator_RowEvHandlerName="qryOnLoanRowChangeEventHandler" msprop:Generator_RowDeletedName="qryOnLoanRowDeleted" msprop:Generator_RowClassName="qryOnLoanRow" msprop:Generator_UserTableName="qryOnLoan" msprop:Generator_RowEvArgName="qryOnLoanRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Rent_DateDue" msprop:Generator_ColumnVarNameInTable="columnRent_DateDue" msprop:Generator_ColumnPropNameInRow="Rent_DateDue" msprop:Generator_ColumnPropNameInTable="Rent_DateDueColumn" msprop:Generator_UserColumnName="Rent_DateDue" type="xs:dateTime" minOccurs="0" />
@@ -2914,7 +2928,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="qryOutstandingRentals" msprop:Generator_TableClassName="qryOutstandingRentalsDataTable" msprop:Generator_TableVarName="tableqryOutstandingRentals" msprop:Generator_TablePropName="qryOutstandingRentals" msprop:Generator_RowDeletingName="qryOutstandingRentalsRowDeleting" msprop:Generator_RowChangingName="qryOutstandingRentalsRowChanging" msprop:Generator_RowEvHandlerName="qryOutstandingRentalsRowChangeEventHandler" msprop:Generator_RowDeletedName="qryOutstandingRentalsRowDeleted" msprop:Generator_UserTableName="qryOutstandingRentals" msprop:Generator_RowChangedName="qryOutstandingRentalsRowChanged" msprop:Generator_RowEvArgName="qryOutstandingRentalsRowChangeEvent" msprop:Generator_RowClassName="qryOutstandingRentalsRow">
+        <xs:element name="qryOutstandingRentals" msprop:Generator_TableClassName="qryOutstandingRentalsDataTable" msprop:Generator_TableVarName="tableqryOutstandingRentals" msprop:Generator_RowChangedName="qryOutstandingRentalsRowChanged" msprop:Generator_TablePropName="qryOutstandingRentals" msprop:Generator_RowDeletingName="qryOutstandingRentalsRowDeleting" msprop:Generator_RowChangingName="qryOutstandingRentalsRowChanging" msprop:Generator_RowEvHandlerName="qryOutstandingRentalsRowChangeEventHandler" msprop:Generator_RowDeletedName="qryOutstandingRentalsRowDeleted" msprop:Generator_RowClassName="qryOutstandingRentalsRow" msprop:Generator_UserTableName="qryOutstandingRentals" msprop:Generator_RowEvArgName="qryOutstandingRentalsRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Stu_ID" msprop:Generator_ColumnVarNameInTable="columnStu_ID" msprop:Generator_ColumnPropNameInRow="Stu_ID" msprop:Generator_ColumnPropNameInTable="Stu_IDColumn" msprop:Generator_UserColumnName="Stu_ID" type="xs:int" minOccurs="0" />
@@ -2968,7 +2982,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="qryOverDue" msprop:Generator_TableClassName="qryOverDueDataTable" msprop:Generator_TableVarName="tableqryOverDue" msprop:Generator_TablePropName="qryOverDue" msprop:Generator_RowDeletingName="qryOverDueRowDeleting" msprop:Generator_RowChangingName="qryOverDueRowChanging" msprop:Generator_RowEvHandlerName="qryOverDueRowChangeEventHandler" msprop:Generator_RowDeletedName="qryOverDueRowDeleted" msprop:Generator_UserTableName="qryOverDue" msprop:Generator_RowChangedName="qryOverDueRowChanged" msprop:Generator_RowEvArgName="qryOverDueRowChangeEvent" msprop:Generator_RowClassName="qryOverDueRow">
+        <xs:element name="qryOverDue" msprop:Generator_TableClassName="qryOverDueDataTable" msprop:Generator_TableVarName="tableqryOverDue" msprop:Generator_RowChangedName="qryOverDueRowChanged" msprop:Generator_TablePropName="qryOverDue" msprop:Generator_RowDeletingName="qryOverDueRowDeleting" msprop:Generator_RowChangingName="qryOverDueRowChanging" msprop:Generator_RowEvHandlerName="qryOverDueRowChangeEventHandler" msprop:Generator_RowDeletedName="qryOverDueRowDeleted" msprop:Generator_RowClassName="qryOverDueRow" msprop:Generator_UserTableName="qryOverDue" msprop:Generator_RowEvArgName="qryOverDueRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Rent_DateDue" msprop:Generator_ColumnVarNameInTable="columnRent_DateDue" msprop:Generator_ColumnPropNameInRow="Rent_DateDue" msprop:Generator_ColumnPropNameInTable="Rent_DateDueColumn" msprop:Generator_UserColumnName="Rent_DateDue" type="xs:dateTime" minOccurs="0" />
@@ -3038,7 +3052,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="qryOwing" msprop:Generator_TableClassName="qryOwingDataTable" msprop:Generator_TableVarName="tableqryOwing" msprop:Generator_TablePropName="qryOwing" msprop:Generator_RowDeletingName="qryOwingRowDeleting" msprop:Generator_RowChangingName="qryOwingRowChanging" msprop:Generator_RowEvHandlerName="qryOwingRowChangeEventHandler" msprop:Generator_RowDeletedName="qryOwingRowDeleted" msprop:Generator_UserTableName="qryOwing" msprop:Generator_RowChangedName="qryOwingRowChanged" msprop:Generator_RowEvArgName="qryOwingRowChangeEvent" msprop:Generator_RowClassName="qryOwingRow">
+        <xs:element name="qryOwing" msprop:Generator_TableClassName="qryOwingDataTable" msprop:Generator_TableVarName="tableqryOwing" msprop:Generator_RowChangedName="qryOwingRowChanged" msprop:Generator_TablePropName="qryOwing" msprop:Generator_RowDeletingName="qryOwingRowDeleting" msprop:Generator_RowChangingName="qryOwingRowChanging" msprop:Generator_RowEvHandlerName="qryOwingRowChangeEventHandler" msprop:Generator_RowDeletedName="qryOwingRowDeleted" msprop:Generator_RowClassName="qryOwingRow" msprop:Generator_UserTableName="qryOwing" msprop:Generator_RowEvArgName="qryOwingRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Stu_Number" msprop:Generator_ColumnVarNameInTable="columnStu_Number" msprop:Generator_ColumnPropNameInRow="Stu_Number" msprop:Generator_ColumnPropNameInTable="Stu_NumberColumn" msprop:Generator_UserColumnName="Stu_Number" minOccurs="0">
@@ -3073,7 +3087,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="qryRental" msprop:Generator_TableClassName="qryRentalDataTable" msprop:Generator_TableVarName="tableqryRental" msprop:Generator_TablePropName="qryRental" msprop:Generator_RowDeletingName="qryRentalRowDeleting" msprop:Generator_RowChangingName="qryRentalRowChanging" msprop:Generator_RowEvHandlerName="qryRentalRowChangeEventHandler" msprop:Generator_RowDeletedName="qryRentalRowDeleted" msprop:Generator_UserTableName="qryRental" msprop:Generator_RowChangedName="qryRentalRowChanged" msprop:Generator_RowEvArgName="qryRentalRowChangeEvent" msprop:Generator_RowClassName="qryRentalRow">
+        <xs:element name="qryRental" msprop:Generator_TableClassName="qryRentalDataTable" msprop:Generator_TableVarName="tableqryRental" msprop:Generator_RowChangedName="qryRentalRowChanged" msprop:Generator_TablePropName="qryRental" msprop:Generator_RowDeletingName="qryRentalRowDeleting" msprop:Generator_RowChangingName="qryRentalRowChanging" msprop:Generator_RowEvHandlerName="qryRentalRowChangeEventHandler" msprop:Generator_RowDeletedName="qryRentalRowDeleted" msprop:Generator_RowClassName="qryRentalRow" msprop:Generator_UserTableName="qryRental" msprop:Generator_RowEvArgName="qryRentalRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Expr1" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnExpr1" msprop:Generator_ColumnPropNameInRow="Expr1" msprop:Generator_ColumnPropNameInTable="Expr1Column" msprop:Generator_UserColumnName="Expr1" minOccurs="0">
@@ -3146,7 +3160,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="qryRental-_x0020_Keep" msprop:Generator_TableClassName="_qryRental__KeepDataTable" msprop:Generator_TableVarName="_tableqryRental__Keep" msprop:Generator_TablePropName="_qryRental__Keep" msprop:Generator_RowDeletingName="_qryRental__KeepRowDeleting" msprop:Generator_RowChangingName="_qryRental__KeepRowChanging" msprop:Generator_RowEvHandlerName="_qryRental__KeepRowChangeEventHandler" msprop:Generator_RowDeletedName="_qryRental__KeepRowDeleted" msprop:Generator_UserTableName="qryRental- Keep" msprop:Generator_RowChangedName="_qryRental__KeepRowChanged" msprop:Generator_RowEvArgName="_qryRental__KeepRowChangeEvent" msprop:Generator_RowClassName="_qryRental__KeepRow">
+        <xs:element name="qryRental-_x0020_Keep" msprop:Generator_TableClassName="_qryRental__KeepDataTable" msprop:Generator_TableVarName="_tableqryRental__Keep" msprop:Generator_RowChangedName="_qryRental__KeepRowChanged" msprop:Generator_TablePropName="_qryRental__Keep" msprop:Generator_RowDeletingName="_qryRental__KeepRowDeleting" msprop:Generator_RowChangingName="_qryRental__KeepRowChanging" msprop:Generator_RowEvHandlerName="_qryRental__KeepRowChangeEventHandler" msprop:Generator_RowDeletedName="_qryRental__KeepRowDeleted" msprop:Generator_RowClassName="_qryRental__KeepRow" msprop:Generator_UserTableName="qryRental- Keep" msprop:Generator_RowEvArgName="_qryRental__KeepRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Expr1" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnExpr1" msprop:Generator_ColumnPropNameInRow="Expr1" msprop:Generator_ColumnPropNameInTable="Expr1Column" msprop:Generator_UserColumnName="Expr1" minOccurs="0">
@@ -3212,7 +3226,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="qryRental-master" msprop:Generator_TableClassName="_qryRental_masterDataTable" msprop:Generator_TableVarName="_tableqryRental_master" msprop:Generator_TablePropName="_qryRental_master" msprop:Generator_RowDeletingName="_qryRental_masterRowDeleting" msprop:Generator_RowChangingName="_qryRental_masterRowChanging" msprop:Generator_RowEvHandlerName="_qryRental_masterRowChangeEventHandler" msprop:Generator_RowDeletedName="_qryRental_masterRowDeleted" msprop:Generator_UserTableName="qryRental-master" msprop:Generator_RowChangedName="_qryRental_masterRowChanged" msprop:Generator_RowEvArgName="_qryRental_masterRowChangeEvent" msprop:Generator_RowClassName="_qryRental_masterRow">
+        <xs:element name="qryRental-master" msprop:Generator_TableClassName="_qryRental_masterDataTable" msprop:Generator_TableVarName="_tableqryRental_master" msprop:Generator_RowChangedName="_qryRental_masterRowChanged" msprop:Generator_TablePropName="_qryRental_master" msprop:Generator_RowDeletingName="_qryRental_masterRowDeleting" msprop:Generator_RowChangingName="_qryRental_masterRowChanging" msprop:Generator_RowEvHandlerName="_qryRental_masterRowChangeEventHandler" msprop:Generator_RowDeletedName="_qryRental_masterRowDeleted" msprop:Generator_RowClassName="_qryRental_masterRow" msprop:Generator_UserTableName="qryRental-master" msprop:Generator_RowEvArgName="_qryRental_masterRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Expr1" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnExpr1" msprop:Generator_ColumnPropNameInRow="Expr1" msprop:Generator_ColumnPropNameInTable="Expr1Column" msprop:Generator_UserColumnName="Expr1" minOccurs="0">
@@ -3270,7 +3284,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Quarterly_x0020_Purchases" msprop:Generator_TableClassName="Quarterly_PurchasesDataTable" msprop:Generator_TableVarName="tableQuarterly_Purchases" msprop:Generator_TablePropName="Quarterly_Purchases" msprop:Generator_RowDeletingName="Quarterly_PurchasesRowDeleting" msprop:Generator_RowChangingName="Quarterly_PurchasesRowChanging" msprop:Generator_RowEvHandlerName="Quarterly_PurchasesRowChangeEventHandler" msprop:Generator_RowDeletedName="Quarterly_PurchasesRowDeleted" msprop:Generator_UserTableName="Quarterly Purchases" msprop:Generator_RowChangedName="Quarterly_PurchasesRowChanged" msprop:Generator_RowEvArgName="Quarterly_PurchasesRowChangeEvent" msprop:Generator_RowClassName="Quarterly_PurchasesRow">
+        <xs:element name="Quarterly_x0020_Purchases" msprop:Generator_TableClassName="Quarterly_PurchasesDataTable" msprop:Generator_TableVarName="tableQuarterly_Purchases" msprop:Generator_RowChangedName="Quarterly_PurchasesRowChanged" msprop:Generator_TablePropName="Quarterly_Purchases" msprop:Generator_RowDeletingName="Quarterly_PurchasesRowDeleting" msprop:Generator_RowChangingName="Quarterly_PurchasesRowChanging" msprop:Generator_RowEvHandlerName="Quarterly_PurchasesRowChangeEventHandler" msprop:Generator_RowDeletedName="Quarterly_PurchasesRowDeleted" msprop:Generator_RowClassName="Quarterly_PurchasesRow" msprop:Generator_UserTableName="Quarterly Purchases" msprop:Generator_RowEvArgName="Quarterly_PurchasesRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Equip_Number" msprop:Generator_ColumnVarNameInTable="columnEquip_Number" msprop:Generator_ColumnPropNameInRow="Equip_Number" msprop:Generator_ColumnPropNameInTable="Equip_NumberColumn" msprop:Generator_UserColumnName="Equip_Number" minOccurs="0">
@@ -3327,7 +3341,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="SOLD" msprop:Generator_TableClassName="SOLDDataTable" msprop:Generator_TableVarName="tableSOLD" msprop:Generator_TablePropName="SOLD" msprop:Generator_RowDeletingName="SOLDRowDeleting" msprop:Generator_RowChangingName="SOLDRowChanging" msprop:Generator_RowEvHandlerName="SOLDRowChangeEventHandler" msprop:Generator_RowDeletedName="SOLDRowDeleted" msprop:Generator_UserTableName="SOLD" msprop:Generator_RowChangedName="SOLDRowChanged" msprop:Generator_RowEvArgName="SOLDRowChangeEvent" msprop:Generator_RowClassName="SOLDRow">
+        <xs:element name="SOLD" msprop:Generator_TableClassName="SOLDDataTable" msprop:Generator_TableVarName="tableSOLD" msprop:Generator_RowChangedName="SOLDRowChanged" msprop:Generator_TablePropName="SOLD" msprop:Generator_RowDeletingName="SOLDRowDeleting" msprop:Generator_RowChangingName="SOLDRowChanging" msprop:Generator_RowEvHandlerName="SOLDRowChangeEventHandler" msprop:Generator_RowDeletedName="SOLDRowDeleted" msprop:Generator_RowClassName="SOLDRow" msprop:Generator_UserTableName="SOLD" msprop:Generator_RowEvArgName="SOLDRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Equip_Number" msprop:Generator_ColumnVarNameInTable="columnEquip_Number" msprop:Generator_ColumnPropNameInRow="Equip_Number" msprop:Generator_ColumnPropNameInTable="Equip_NumberColumn" msprop:Generator_UserColumnName="Equip_Number" minOccurs="0">
@@ -3389,7 +3403,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Sold_x0020_2017" msprop:Generator_TableClassName="Sold_2017DataTable" msprop:Generator_TableVarName="tableSold_2017" msprop:Generator_TablePropName="Sold_2017" msprop:Generator_RowDeletingName="Sold_2017RowDeleting" msprop:Generator_RowChangingName="Sold_2017RowChanging" msprop:Generator_RowEvHandlerName="Sold_2017RowChangeEventHandler" msprop:Generator_RowDeletedName="Sold_2017RowDeleted" msprop:Generator_UserTableName="Sold 2017" msprop:Generator_RowChangedName="Sold_2017RowChanged" msprop:Generator_RowEvArgName="Sold_2017RowChangeEvent" msprop:Generator_RowClassName="Sold_2017Row">
+        <xs:element name="Sold_x0020_2017" msprop:Generator_TableClassName="Sold_2017DataTable" msprop:Generator_TableVarName="tableSold_2017" msprop:Generator_RowChangedName="Sold_2017RowChanged" msprop:Generator_TablePropName="Sold_2017" msprop:Generator_RowDeletingName="Sold_2017RowDeleting" msprop:Generator_RowChangingName="Sold_2017RowChanging" msprop:Generator_RowEvHandlerName="Sold_2017RowChangeEventHandler" msprop:Generator_RowDeletedName="Sold_2017RowDeleted" msprop:Generator_RowClassName="Sold_2017Row" msprop:Generator_UserTableName="Sold 2017" msprop:Generator_RowEvArgName="Sold_2017RowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Equip_Number" msprop:Generator_ColumnVarNameInTable="columnEquip_Number" msprop:Generator_ColumnPropNameInRow="Equip_Number" msprop:Generator_ColumnPropNameInTable="Equip_NumberColumn" msprop:Generator_UserColumnName="Equip_Number" minOccurs="0">

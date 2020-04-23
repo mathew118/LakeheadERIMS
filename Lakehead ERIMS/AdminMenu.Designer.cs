@@ -29,13 +29,18 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.addBtn = new System.Windows.Forms.Button();
+            this.saveBtn = new System.Windows.Forms.Button();
             this.exitBtn = new System.Windows.Forms.Button();
             this.adminTabControl = new System.Windows.Forms.TabControl();
             this.equipmentTab = new System.Windows.Forms.TabPage();
             this.categoriesTab = new System.Windows.Forms.TabPage();
             this.locationsTab = new System.Windows.Forms.TabPage();
+            this.locationsLocationNameLbl = new System.Windows.Forms.Label();
+            this.locationsLocationNameTbx = new System.Windows.Forms.TextBox();
+            this.locationsLbx = new System.Windows.Forms.ListBox();
+            this.tblLocationBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.lUEquipmentDataSet = new Lakehead_ERIMS.LUEquipmentDataSet();
             this.staffTab = new System.Windows.Forms.TabPage();
             this.staffUsernameTbx = new System.Windows.Forms.TextBox();
             this.staffUsernameLbl = new System.Windows.Forms.Label();
@@ -46,36 +51,54 @@
             this.staffLastNameLbl = new System.Windows.Forms.Label();
             this.staffLastNameTbx = new System.Windows.Forms.TextBox();
             this.staffLbx = new System.Windows.Forms.ListBox();
+            this.tblEmployeeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.lUEquipmentDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.statusTab = new System.Windows.Forms.TabPage();
             this.suppliersTab = new System.Windows.Forms.TabPage();
-            this.lUEquipmentDataSet = new Lakehead_ERIMS.LUEquipmentDataSet();
-            this.lUEquipmentDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.tblEmployeeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tblEmployeeTableAdapter = new Lakehead_ERIMS.LUEquipmentDataSetTableAdapters.tblEmployeeTableAdapter();
+            this.tblLocationTableAdapter = new Lakehead_ERIMS.LUEquipmentDataSetTableAdapters.tblLocationTableAdapter();
+            this.categoriesLbx = new System.Windows.Forms.ListBox();
+            this.tblCategoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tblCategoryTableAdapter = new Lakehead_ERIMS.LUEquipmentDataSetTableAdapters.tblCategoryTableAdapter();
+            this.categoriesCategoryNameLbl = new System.Windows.Forms.Label();
+            this.categoriesCategoryNameTbx = new System.Windows.Forms.TextBox();
+            this.categoriesStartRangeLbl = new System.Windows.Forms.Label();
+            this.categoriesStartRangeATbx = new System.Windows.Forms.TextBox();
+            this.categoriesEndRangeLbl = new System.Windows.Forms.Label();
+            this.categoriesEndRangeATbx = new System.Windows.Forms.TextBox();
+            this.categoriesStartRangeBTbx = new System.Windows.Forms.TextBox();
+            this.categoriesEndRangeBTbx = new System.Windows.Forms.TextBox();
             this.adminTabControl.SuspendLayout();
-            this.staffTab.SuspendLayout();
+            this.categoriesTab.SuspendLayout();
+            this.locationsTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tblLocationBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lUEquipmentDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lUEquipmentDataSetBindingSource)).BeginInit();
+            this.staffTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tblEmployeeBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lUEquipmentDataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblCategoryBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
-            // button1
+            // addBtn
             // 
-            this.button1.Location = new System.Drawing.Point(40, 306);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(90, 40);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Add New";
-            this.button1.UseVisualStyleBackColor = true;
+            this.addBtn.Location = new System.Drawing.Point(40, 306);
+            this.addBtn.Name = "addBtn";
+            this.addBtn.Size = new System.Drawing.Size(90, 40);
+            this.addBtn.TabIndex = 0;
+            this.addBtn.Text = "Add New";
+            this.addBtn.UseVisualStyleBackColor = true;
+            this.addBtn.Click += new System.EventHandler(this.newBtn_Click);
             // 
-            // button2
+            // saveBtn
             // 
-            this.button2.Location = new System.Drawing.Point(160, 306);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(90, 40);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Save Changes";
-            this.button2.UseVisualStyleBackColor = true;
+            this.saveBtn.Enabled = false;
+            this.saveBtn.Location = new System.Drawing.Point(160, 306);
+            this.saveBtn.Name = "saveBtn";
+            this.saveBtn.Size = new System.Drawing.Size(90, 40);
+            this.saveBtn.TabIndex = 1;
+            this.saveBtn.Text = "Save Changes";
+            this.saveBtn.UseVisualStyleBackColor = true;
+            this.saveBtn.Click += new System.EventHandler(this.saveBtn_Click);
             // 
             // exitBtn
             // 
@@ -100,7 +123,6 @@
             this.adminTabControl.SelectedIndex = 0;
             this.adminTabControl.Size = new System.Drawing.Size(390, 272);
             this.adminTabControl.TabIndex = 3;
-            this.adminTabControl.TabIndexChanged += new System.EventHandler(this.adminTabControl_TabIndexChanged);
             // 
             // equipmentTab
             // 
@@ -114,6 +136,15 @@
             // 
             // categoriesTab
             // 
+            this.categoriesTab.Controls.Add(this.categoriesEndRangeBTbx);
+            this.categoriesTab.Controls.Add(this.categoriesStartRangeBTbx);
+            this.categoriesTab.Controls.Add(this.categoriesEndRangeLbl);
+            this.categoriesTab.Controls.Add(this.categoriesEndRangeATbx);
+            this.categoriesTab.Controls.Add(this.categoriesStartRangeLbl);
+            this.categoriesTab.Controls.Add(this.categoriesStartRangeATbx);
+            this.categoriesTab.Controls.Add(this.categoriesCategoryNameLbl);
+            this.categoriesTab.Controls.Add(this.categoriesCategoryNameTbx);
+            this.categoriesTab.Controls.Add(this.categoriesLbx);
             this.categoriesTab.Location = new System.Drawing.Point(4, 22);
             this.categoriesTab.Name = "categoriesTab";
             this.categoriesTab.Padding = new System.Windows.Forms.Padding(3);
@@ -124,12 +155,55 @@
             // 
             // locationsTab
             // 
+            this.locationsTab.Controls.Add(this.locationsLocationNameLbl);
+            this.locationsTab.Controls.Add(this.locationsLocationNameTbx);
+            this.locationsTab.Controls.Add(this.locationsLbx);
             this.locationsTab.Location = new System.Drawing.Point(4, 22);
             this.locationsTab.Name = "locationsTab";
             this.locationsTab.Size = new System.Drawing.Size(382, 246);
             this.locationsTab.TabIndex = 2;
             this.locationsTab.Text = "Locations";
             this.locationsTab.UseVisualStyleBackColor = true;
+            // 
+            // locationsLocationNameLbl
+            // 
+            this.locationsLocationNameLbl.AutoSize = true;
+            this.locationsLocationNameLbl.Location = new System.Drawing.Point(18, 137);
+            this.locationsLocationNameLbl.Name = "locationsLocationNameLbl";
+            this.locationsLocationNameLbl.Size = new System.Drawing.Size(82, 13);
+            this.locationsLocationNameLbl.TabIndex = 12;
+            this.locationsLocationNameLbl.Text = "Location Name:";
+            // 
+            // locationsLocationNameTbx
+            // 
+            this.locationsLocationNameTbx.Location = new System.Drawing.Point(106, 134);
+            this.locationsLocationNameTbx.Name = "locationsLocationNameTbx";
+            this.locationsLocationNameTbx.Size = new System.Drawing.Size(185, 20);
+            this.locationsLocationNameTbx.TabIndex = 11;
+            this.locationsLocationNameTbx.TextChanged += new System.EventHandler(this.adminFieldChanged);
+            // 
+            // locationsLbx
+            // 
+            this.locationsLbx.DataSource = this.tblLocationBindingSource;
+            this.locationsLbx.DisplayMember = "Loc_Name";
+            this.locationsLbx.FormattingEnabled = true;
+            this.locationsLbx.Location = new System.Drawing.Point(3, 3);
+            this.locationsLbx.Name = "locationsLbx";
+            this.locationsLbx.ScrollAlwaysVisible = true;
+            this.locationsLbx.Size = new System.Drawing.Size(376, 95);
+            this.locationsLbx.TabIndex = 10;
+            this.locationsLbx.ValueMember = "Loc_ID";
+            this.locationsLbx.SelectedIndexChanged += new System.EventHandler(this.locationsLbx_SelectedIndexChanged);
+            // 
+            // tblLocationBindingSource
+            // 
+            this.tblLocationBindingSource.DataMember = "tblLocation";
+            this.tblLocationBindingSource.DataSource = this.lUEquipmentDataSet;
+            // 
+            // lUEquipmentDataSet
+            // 
+            this.lUEquipmentDataSet.DataSetName = "LUEquipmentDataSet";
+            this.lUEquipmentDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // staffTab
             // 
@@ -153,8 +227,9 @@
             // 
             this.staffUsernameTbx.Location = new System.Drawing.Point(264, 171);
             this.staffUsernameTbx.Name = "staffUsernameTbx";
-            this.staffUsernameTbx.Size = new System.Drawing.Size(75, 20);
+            this.staffUsernameTbx.Size = new System.Drawing.Size(90, 20);
             this.staffUsernameTbx.TabIndex = 9;
+            this.staffUsernameTbx.TextChanged += new System.EventHandler(this.adminFieldChanged);
             // 
             // staffUsernameLbl
             // 
@@ -176,14 +251,16 @@
             // 
             // staffTypeCbx
             // 
+            this.staffTypeCbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.staffTypeCbx.FormattingEnabled = true;
             this.staffTypeCbx.Items.AddRange(new object[] {
             "Administrator",
             "Employee"});
             this.staffTypeCbx.Location = new System.Drawing.Point(264, 134);
             this.staffTypeCbx.Name = "staffTypeCbx";
-            this.staffTypeCbx.Size = new System.Drawing.Size(75, 21);
+            this.staffTypeCbx.Size = new System.Drawing.Size(90, 21);
             this.staffTypeCbx.TabIndex = 5;
+            this.staffTypeCbx.SelectedIndexChanged += new System.EventHandler(this.adminFieldChanged);
             // 
             // staffFirstNameLbl
             // 
@@ -198,8 +275,9 @@
             // 
             this.staffFirstNameTbx.Location = new System.Drawing.Point(83, 171);
             this.staffFirstNameTbx.Name = "staffFirstNameTbx";
-            this.staffFirstNameTbx.Size = new System.Drawing.Size(75, 20);
+            this.staffFirstNameTbx.Size = new System.Drawing.Size(90, 20);
             this.staffFirstNameTbx.TabIndex = 3;
+            this.staffFirstNameTbx.TextChanged += new System.EventHandler(this.adminFieldChanged);
             // 
             // staffLastNameLbl
             // 
@@ -214,8 +292,9 @@
             // 
             this.staffLastNameTbx.Location = new System.Drawing.Point(83, 134);
             this.staffLastNameTbx.Name = "staffLastNameTbx";
-            this.staffLastNameTbx.Size = new System.Drawing.Size(75, 20);
+            this.staffLastNameTbx.Size = new System.Drawing.Size(90, 20);
             this.staffLastNameTbx.TabIndex = 1;
+            this.staffLastNameTbx.TextChanged += new System.EventHandler(this.adminFieldChanged);
             // 
             // staffLbx
             // 
@@ -226,9 +305,19 @@
             this.staffLbx.Name = "staffLbx";
             this.staffLbx.ScrollAlwaysVisible = true;
             this.staffLbx.Size = new System.Drawing.Size(376, 95);
-            this.staffLbx.Sorted = true;
             this.staffLbx.TabIndex = 0;
+            this.staffLbx.ValueMember = "Emp_ID";
             this.staffLbx.SelectedIndexChanged += new System.EventHandler(this.staffLbx_SelectedIndexChanged);
+            // 
+            // tblEmployeeBindingSource
+            // 
+            this.tblEmployeeBindingSource.DataMember = "tblEmployee";
+            this.tblEmployeeBindingSource.DataSource = this.lUEquipmentDataSetBindingSource;
+            // 
+            // lUEquipmentDataSetBindingSource
+            // 
+            this.lUEquipmentDataSetBindingSource.DataSource = this.lUEquipmentDataSet;
+            this.lUEquipmentDataSetBindingSource.Position = 0;
             // 
             // statusTab
             // 
@@ -248,24 +337,102 @@
             this.suppliersTab.Text = "Suppliers";
             this.suppliersTab.UseVisualStyleBackColor = true;
             // 
-            // lUEquipmentDataSet
-            // 
-            this.lUEquipmentDataSet.DataSetName = "LUEquipmentDataSet";
-            this.lUEquipmentDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // lUEquipmentDataSetBindingSource
-            // 
-            this.lUEquipmentDataSetBindingSource.DataSource = this.lUEquipmentDataSet;
-            this.lUEquipmentDataSetBindingSource.Position = 0;
-            // 
-            // tblEmployeeBindingSource
-            // 
-            this.tblEmployeeBindingSource.DataMember = "tblEmployee";
-            this.tblEmployeeBindingSource.DataSource = this.lUEquipmentDataSetBindingSource;
-            // 
             // tblEmployeeTableAdapter
             // 
             this.tblEmployeeTableAdapter.ClearBeforeFill = true;
+            // 
+            // tblLocationTableAdapter
+            // 
+            this.tblLocationTableAdapter.ClearBeforeFill = true;
+            // 
+            // categoriesLbx
+            // 
+            this.categoriesLbx.DataSource = this.tblCategoryBindingSource;
+            this.categoriesLbx.DisplayMember = "Cat_Name";
+            this.categoriesLbx.FormattingEnabled = true;
+            this.categoriesLbx.Location = new System.Drawing.Point(3, 3);
+            this.categoriesLbx.Name = "categoriesLbx";
+            this.categoriesLbx.ScrollAlwaysVisible = true;
+            this.categoriesLbx.Size = new System.Drawing.Size(376, 95);
+            this.categoriesLbx.TabIndex = 11;
+            this.categoriesLbx.ValueMember = "Cat_ID";
+            this.categoriesLbx.SelectedIndexChanged += new System.EventHandler(this.categoriesLbx_SelectedIndexChanged);
+            // 
+            // tblCategoryBindingSource
+            // 
+            this.tblCategoryBindingSource.DataMember = "tblCategory";
+            this.tblCategoryBindingSource.DataSource = this.lUEquipmentDataSet;
+            // 
+            // tblCategoryTableAdapter
+            // 
+            this.tblCategoryTableAdapter.ClearBeforeFill = true;
+            // 
+            // categoriesCategoryNameLbl
+            // 
+            this.categoriesCategoryNameLbl.AutoSize = true;
+            this.categoriesCategoryNameLbl.Location = new System.Drawing.Point(18, 137);
+            this.categoriesCategoryNameLbl.Name = "categoriesCategoryNameLbl";
+            this.categoriesCategoryNameLbl.Size = new System.Drawing.Size(83, 13);
+            this.categoriesCategoryNameLbl.TabIndex = 14;
+            this.categoriesCategoryNameLbl.Text = "Category Name:";
+            // 
+            // categoriesCategoryNameTbx
+            // 
+            this.categoriesCategoryNameTbx.Location = new System.Drawing.Point(106, 134);
+            this.categoriesCategoryNameTbx.Name = "categoriesCategoryNameTbx";
+            this.categoriesCategoryNameTbx.Size = new System.Drawing.Size(185, 20);
+            this.categoriesCategoryNameTbx.TabIndex = 13;
+            this.categoriesCategoryNameTbx.TextChanged += new System.EventHandler(this.adminFieldChanged);
+            // 
+            // categoriesStartRangeLbl
+            // 
+            this.categoriesStartRangeLbl.AutoSize = true;
+            this.categoriesStartRangeLbl.Location = new System.Drawing.Point(33, 163);
+            this.categoriesStartRangeLbl.Name = "categoriesStartRangeLbl";
+            this.categoriesStartRangeLbl.Size = new System.Drawing.Size(67, 13);
+            this.categoriesStartRangeLbl.TabIndex = 16;
+            this.categoriesStartRangeLbl.Text = "Start Range:";
+            // 
+            // categoriesStartRangeATbx
+            // 
+            this.categoriesStartRangeATbx.Location = new System.Drawing.Point(106, 160);
+            this.categoriesStartRangeATbx.Name = "categoriesStartRangeATbx";
+            this.categoriesStartRangeATbx.Size = new System.Drawing.Size(89, 20);
+            this.categoriesStartRangeATbx.TabIndex = 15;
+            this.categoriesStartRangeATbx.TextChanged += new System.EventHandler(this.adminFieldChanged);
+            // 
+            // categoriesEndRangeLbl
+            // 
+            this.categoriesEndRangeLbl.AutoSize = true;
+            this.categoriesEndRangeLbl.Location = new System.Drawing.Point(36, 189);
+            this.categoriesEndRangeLbl.Name = "categoriesEndRangeLbl";
+            this.categoriesEndRangeLbl.Size = new System.Drawing.Size(64, 13);
+            this.categoriesEndRangeLbl.TabIndex = 18;
+            this.categoriesEndRangeLbl.Text = "End Range:";
+            // 
+            // categoriesEndRangeATbx
+            // 
+            this.categoriesEndRangeATbx.Location = new System.Drawing.Point(106, 186);
+            this.categoriesEndRangeATbx.Name = "categoriesEndRangeATbx";
+            this.categoriesEndRangeATbx.Size = new System.Drawing.Size(89, 20);
+            this.categoriesEndRangeATbx.TabIndex = 17;
+            this.categoriesEndRangeATbx.TextChanged += new System.EventHandler(this.adminFieldChanged);
+            // 
+            // categoriesStartRangeBTbx
+            // 
+            this.categoriesStartRangeBTbx.Location = new System.Drawing.Point(201, 160);
+            this.categoriesStartRangeBTbx.Name = "categoriesStartRangeBTbx";
+            this.categoriesStartRangeBTbx.Size = new System.Drawing.Size(89, 20);
+            this.categoriesStartRangeBTbx.TabIndex = 19;
+            this.categoriesStartRangeBTbx.TextChanged += new System.EventHandler(this.adminFieldChanged);
+            // 
+            // categoriesEndRangeBTbx
+            // 
+            this.categoriesEndRangeBTbx.Location = new System.Drawing.Point(201, 186);
+            this.categoriesEndRangeBTbx.Name = "categoriesEndRangeBTbx";
+            this.categoriesEndRangeBTbx.Size = new System.Drawing.Size(89, 20);
+            this.categoriesEndRangeBTbx.TabIndex = 20;
+            this.categoriesEndRangeBTbx.TextChanged += new System.EventHandler(this.adminFieldChanged);
             // 
             // AdminMenu
             // 
@@ -274,8 +441,8 @@
             this.ClientSize = new System.Drawing.Size(414, 373);
             this.Controls.Add(this.adminTabControl);
             this.Controls.Add(this.exitBtn);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.saveBtn);
+            this.Controls.Add(this.addBtn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.Name = "AdminMenu";
@@ -283,19 +450,25 @@
             this.Text = "Administrative Menu";
             this.Load += new System.EventHandler(this.AdminMenu_Load);
             this.adminTabControl.ResumeLayout(false);
+            this.categoriesTab.ResumeLayout(false);
+            this.categoriesTab.PerformLayout();
+            this.locationsTab.ResumeLayout(false);
+            this.locationsTab.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tblLocationBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lUEquipmentDataSet)).EndInit();
             this.staffTab.ResumeLayout(false);
             this.staffTab.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.lUEquipmentDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lUEquipmentDataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblEmployeeBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lUEquipmentDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblCategoryBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button addBtn;
+        private System.Windows.Forms.Button saveBtn;
         private System.Windows.Forms.Button exitBtn;
         private System.Windows.Forms.TabControl adminTabControl;
         private System.Windows.Forms.TabPage equipmentTab;
@@ -317,5 +490,21 @@
         private LUEquipmentDataSet lUEquipmentDataSet;
         private System.Windows.Forms.BindingSource tblEmployeeBindingSource;
         private LUEquipmentDataSetTableAdapters.tblEmployeeTableAdapter tblEmployeeTableAdapter;
+        private System.Windows.Forms.Label locationsLocationNameLbl;
+        private System.Windows.Forms.TextBox locationsLocationNameTbx;
+        private System.Windows.Forms.ListBox locationsLbx;
+        private System.Windows.Forms.BindingSource tblLocationBindingSource;
+        private LUEquipmentDataSetTableAdapters.tblLocationTableAdapter tblLocationTableAdapter;
+        private System.Windows.Forms.ListBox categoriesLbx;
+        private System.Windows.Forms.BindingSource tblCategoryBindingSource;
+        private LUEquipmentDataSetTableAdapters.tblCategoryTableAdapter tblCategoryTableAdapter;
+        private System.Windows.Forms.Label categoriesEndRangeLbl;
+        private System.Windows.Forms.TextBox categoriesEndRangeATbx;
+        private System.Windows.Forms.Label categoriesStartRangeLbl;
+        private System.Windows.Forms.TextBox categoriesStartRangeATbx;
+        private System.Windows.Forms.Label categoriesCategoryNameLbl;
+        private System.Windows.Forms.TextBox categoriesCategoryNameTbx;
+        private System.Windows.Forms.TextBox categoriesEndRangeBTbx;
+        private System.Windows.Forms.TextBox categoriesStartRangeBTbx;
     }
 }

@@ -12,6 +12,13 @@ namespace Lakehead_ERIMS
 {
     public partial class AdminMenu : Form
     {
+        /* TODO LIST
+         * 
+         * 
+         */
+
+
+
         public AdminMenu()
         {
             InitializeComponent();
@@ -24,9 +31,28 @@ namespace Lakehead_ERIMS
 
         private void AdminMenu_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'lUEquipmentDataSet.tblCategory' table. You can move, or remove it, as needed.
+            this.tblCategoryTableAdapter.Fill(this.lUEquipmentDataSet.tblCategory);
+            // TODO: This line of code loads data into the 'lUEquipmentDataSet.tblLocation' table. You can move, or remove it, as needed.
+            this.tblLocationTableAdapter.Fill(this.lUEquipmentDataSet.tblLocation);
             // TODO: This line of code loads data into the 'lUEquipmentDataSet.tblEmployee' table. You can move, or remove it, as needed.
             this.tblEmployeeTableAdapter.Fill(this.lUEquipmentDataSet.tblEmployee);
 
+        }
+
+        private void adminFieldChanged(object sender, EventArgs e)
+        {
+            saveBtn.Enabled = true;
+        }
+
+        private void saveBtn_Click(object sender, EventArgs e)
+        {
+            //Get selected tab and make changes based on that
+        }
+
+        private void newBtn_Click(object sender, EventArgs e)
+        {
+            //Get selected tab and make changes based on that
         }
 
         private void staffLbx_SelectedIndexChanged(object sender, EventArgs e)
@@ -36,9 +62,9 @@ namespace Lakehead_ERIMS
             DataRow employeeRow;
 
             //Checks if query returns results and if so, assigns it to employeeRow
-            if (this.lUEquipmentDataSet.tblEmployee.Select("Emp_UName = '" + staffLbx.Text + "'").Length == 1)
+            if (this.lUEquipmentDataSet.tblEmployee.Select("Emp_ID = '" + staffLbx.SelectedValue.ToString() + "'").Length == 1)
             {
-                employeeRow = this.lUEquipmentDataSet.tblEmployee.Select("Emp_UName = '" + staffLbx.Text + "'")[0];
+                employeeRow = this.lUEquipmentDataSet.tblEmployee.Select("Emp_ID = '" + staffLbx.SelectedValue.ToString() + "'")[0];
 
                 //Assigns row data to textboxes
                 staffLastNameTbx.Text = employeeRow[2].ToString();
@@ -48,17 +74,56 @@ namespace Lakehead_ERIMS
                 //Assign dropdown value from row
                 staffTypeCbx.SelectedIndex = (employeeRow[4].ToString() == "Administrator") ? 0 : 1;
 
+                //Lock save button until changes are made
+                saveBtn.Enabled = false;
             }
             else
             {
-                MessageBox.Show("Error! Staff not found", "Error");
+                //No staff selected
+
+                //MessageBox.Show("Error! Staff not found", "Error");
             }
 
         }
 
-        private void adminTabControl_TabIndexChanged(object sender, EventArgs e)
+        private void locationsLbx_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //TODO Make if statements that automatically query the selected index of listboxes into the fields. (ALSO MAKE SURE THE LISTBOX ISNT EMPTY)
+            locationsLocationNameTbx.Text = locationsLbx.Text;
+
+            //Lock save button until changes are made
+            saveBtn.Enabled = false;
+        }
+
+        
+
+        private void categoriesLbx_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //Dataset should be filled but its already done in AdminMenu_Load()
+
+            DataRow categoryRow;
+
+            //Checks if query returns results and if so, assigns it to categoryRow
+            if (this.lUEquipmentDataSet.tblCategory.Select("Cat_ID = '" + categoriesLbx.SelectedValue.ToString() + "'").Length == 1)
+            {
+                categoryRow = this.lUEquipmentDataSet.tblCategory.Select("Cat_ID = '" + categoriesLbx.SelectedValue.ToString() + "'")[0];
+
+                //Assigns row data to textboxes
+                categoriesCategoryNameTbx.Text = categoryRow[1].ToString();
+
+                categoriesStartRangeATbx.Text = categoryRow[2].ToString().Substring(0, 3);
+                categoriesStartRangeBTbx.Text = categoryRow[2].ToString().Substring(3);
+                categoriesEndRangeATbx.Text = categoryRow[3].ToString().Substring(0, 3);
+                categoriesEndRangeBTbx.Text = categoryRow[3].ToString().Substring(3);
+
+                //Lock save button until changes are made
+                saveBtn.Enabled = false;
+            }
+            else
+            {
+                //No staff selected
+
+                //MessageBox.Show("Error! Staff not found", "Error");
+            }
         }
     }
 }
