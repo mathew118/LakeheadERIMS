@@ -27,5 +27,11 @@ namespace Lakehead_ERIMS
             var equipSnap = new equipSummary();
             equipSnap.Show();
         }
+
+        private void addUpdateStudentBtn_Click(object sender, EventArgs e)
+        {
+            var addUpdateStudent = new addUpdateStudent();
+            addUpdateStudent.Show();
+        }
     }
 }

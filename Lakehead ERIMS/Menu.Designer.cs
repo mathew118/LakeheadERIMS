@@ -77,7 +77,7 @@
             this.menuTabControl.Controls.Add(this.adminMenuTab);
             this.menuTabControl.Controls.Add(this.reportsMenuTab);
             this.menuTabControl.Location = new System.Drawing.Point(16, 66);
-            this.menuTabControl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.menuTabControl.Margin = new System.Windows.Forms.Padding(4);
             this.menuTabControl.Name = "menuTabControl";
             this.menuTabControl.SelectedIndex = 0;
             this.menuTabControl.Size = new System.Drawing.Size(571, 375);
@@ -92,9 +92,9 @@
             this.mainMenuTab.Controls.Add(this.rentEquipmentBtn);
             this.mainMenuTab.Controls.Add(this.equipmentSnapshotBtn);
             this.mainMenuTab.Location = new System.Drawing.Point(4, 25);
-            this.mainMenuTab.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.mainMenuTab.Margin = new System.Windows.Forms.Padding(4);
             this.mainMenuTab.Name = "mainMenuTab";
-            this.mainMenuTab.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.mainMenuTab.Padding = new System.Windows.Forms.Padding(4);
             this.mainMenuTab.Size = new System.Drawing.Size(563, 346);
             this.mainMenuTab.TabIndex = 0;
             this.mainMenuTab.Text = "Main Menu";
@@ -103,7 +103,7 @@
             // exitBtn
             // 
             this.exitBtn.Location = new System.Drawing.Point(328, 235);
-            this.exitBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.exitBtn.Margin = new System.Windows.Forms.Padding(4);
             this.exitBtn.Name = "exitBtn";
             this.exitBtn.Size = new System.Drawing.Size(168, 37);
             this.exitBtn.TabIndex = 12;
@@ -114,7 +114,7 @@
             // returnEquipmentBtn
             // 
             this.returnEquipmentBtn.Location = new System.Drawing.Point(328, 151);
-            this.returnEquipmentBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.returnEquipmentBtn.Margin = new System.Windows.Forms.Padding(4);
             this.returnEquipmentBtn.Name = "returnEquipmentBtn";
             this.returnEquipmentBtn.Size = new System.Drawing.Size(168, 37);
             this.returnEquipmentBtn.TabIndex = 11;
@@ -124,7 +124,7 @@
             // editRentalBtn
             // 
             this.editRentalBtn.Location = new System.Drawing.Point(328, 68);
-            this.editRentalBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.editRentalBtn.Margin = new System.Windows.Forms.Padding(4);
             this.editRentalBtn.Name = "editRentalBtn";
             this.editRentalBtn.Size = new System.Drawing.Size(168, 37);
             this.editRentalBtn.TabIndex = 10;
@@ -134,17 +134,18 @@
             // addUpdateStudentBtn
             // 
             this.addUpdateStudentBtn.Location = new System.Drawing.Point(65, 151);
-            this.addUpdateStudentBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.addUpdateStudentBtn.Margin = new System.Windows.Forms.Padding(4);
             this.addUpdateStudentBtn.Name = "addUpdateStudentBtn";
             this.addUpdateStudentBtn.Size = new System.Drawing.Size(168, 37);
             this.addUpdateStudentBtn.TabIndex = 8;
             this.addUpdateStudentBtn.Text = "Add/&Update Student";
             this.addUpdateStudentBtn.UseVisualStyleBackColor = true;
+            this.addUpdateStudentBtn.Click += new System.EventHandler(this.addUpdateStudentBtn_Click);
             // 
             // rentEquipmentBtn
             // 
             this.rentEquipmentBtn.Location = new System.Drawing.Point(65, 235);
-            this.rentEquipmentBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rentEquipmentBtn.Margin = new System.Windows.Forms.Padding(4);
             this.rentEquipmentBtn.Name = "rentEquipmentBtn";
             this.rentEquipmentBtn.Size = new System.Drawing.Size(168, 37);
             this.rentEquipmentBtn.TabIndex = 9;
@@ -154,7 +155,7 @@
             // equipmentSnapshotBtn
             // 
             this.equipmentSnapshotBtn.Location = new System.Drawing.Point(65, 68);
-            this.equipmentSnapshotBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.equipmentSnapshotBtn.Margin = new System.Windows.Forms.Padding(4);
             this.equipmentSnapshotBtn.Name = "equipmentSnapshotBtn";
             this.equipmentSnapshotBtn.Size = new System.Drawing.Size(168, 37);
             this.equipmentSnapshotBtn.TabIndex = 7;
@@ -172,9 +173,9 @@
             this.adminMenuTab.Controls.Add(this.addUpdateLocationBtn);
             this.adminMenuTab.Controls.Add(this.addUpdateEquipmentBtn);
             this.adminMenuTab.Location = new System.Drawing.Point(4, 25);
-            this.adminMenuTab.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.adminMenuTab.Margin = new System.Windows.Forms.Padding(4);
             this.adminMenuTab.Name = "adminMenuTab";
-            this.adminMenuTab.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.adminMenuTab.Padding = new System.Windows.Forms.Padding(4);
             this.adminMenuTab.Size = new System.Drawing.Size(563, 346);
             this.adminMenuTab.TabIndex = 1;
             this.adminMenuTab.Text = "Administrative Menu";
@@ -183,7 +184,7 @@
             // addUpdateStaffBtn
             // 
             this.addUpdateStaffBtn.Location = new System.Drawing.Point(328, 68);
-            this.addUpdateStaffBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.addUpdateStaffBtn.Margin = new System.Windows.Forms.Padding(4);
             this.addUpdateStaffBtn.Name = "addUpdateStaffBtn";
             this.addUpdateStaffBtn.Size = new System.Drawing.Size(168, 37);
             this.addUpdateStaffBtn.TabIndex = 12;
@@ -193,7 +194,7 @@
             // adminExitBtn
             // 
             this.adminExitBtn.Location = new System.Drawing.Point(328, 263);
-            this.adminExitBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.adminExitBtn.Margin = new System.Windows.Forms.Padding(4);
             this.adminExitBtn.Name = "adminExitBtn";
             this.adminExitBtn.Size = new System.Drawing.Size(168, 37);
             this.adminExitBtn.TabIndex = 15;
@@ -204,7 +205,7 @@
             // addUpdateSupplier
             // 
             this.addUpdateSupplier.Location = new System.Drawing.Point(328, 198);
-            this.addUpdateSupplier.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.addUpdateSupplier.Margin = new System.Windows.Forms.Padding(4);
             this.addUpdateSupplier.Name = "addUpdateSupplier";
             this.addUpdateSupplier.Size = new System.Drawing.Size(168, 37);
             this.addUpdateSupplier.TabIndex = 14;
@@ -214,7 +215,7 @@
             // addUpdateStatusBtn
             // 
             this.addUpdateStatusBtn.Location = new System.Drawing.Point(328, 133);
-            this.addUpdateStatusBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.addUpdateStatusBtn.Margin = new System.Windows.Forms.Padding(4);
             this.addUpdateStatusBtn.Name = "addUpdateStatusBtn";
             this.addUpdateStatusBtn.Size = new System.Drawing.Size(168, 37);
             this.addUpdateStatusBtn.TabIndex = 13;
@@ -224,7 +225,7 @@
             // addUpdateCategoryBtn
             // 
             this.addUpdateCategoryBtn.Location = new System.Drawing.Point(65, 133);
-            this.addUpdateCategoryBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.addUpdateCategoryBtn.Margin = new System.Windows.Forms.Padding(4);
             this.addUpdateCategoryBtn.Name = "addUpdateCategoryBtn";
             this.addUpdateCategoryBtn.Size = new System.Drawing.Size(168, 37);
             this.addUpdateCategoryBtn.TabIndex = 10;
@@ -234,7 +235,7 @@
             // addUpdateLocationBtn
             // 
             this.addUpdateLocationBtn.Location = new System.Drawing.Point(65, 198);
-            this.addUpdateLocationBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.addUpdateLocationBtn.Margin = new System.Windows.Forms.Padding(4);
             this.addUpdateLocationBtn.Name = "addUpdateLocationBtn";
             this.addUpdateLocationBtn.Size = new System.Drawing.Size(168, 37);
             this.addUpdateLocationBtn.TabIndex = 11;
@@ -245,7 +246,7 @@
             // 
             this.addUpdateEquipmentBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.5F);
             this.addUpdateEquipmentBtn.Location = new System.Drawing.Point(65, 68);
-            this.addUpdateEquipmentBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.addUpdateEquipmentBtn.Margin = new System.Windows.Forms.Padding(4);
             this.addUpdateEquipmentBtn.Name = "addUpdateEquipmentBtn";
             this.addUpdateEquipmentBtn.Size = new System.Drawing.Size(168, 37);
             this.addUpdateEquipmentBtn.TabIndex = 9;
@@ -261,7 +262,7 @@
             this.reportsMenuTab.Controls.Add(this.equipmentHistoryBtn);
             this.reportsMenuTab.Controls.Add(this.equipmentOnLoanBtn);
             this.reportsMenuTab.Location = new System.Drawing.Point(4, 25);
-            this.reportsMenuTab.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.reportsMenuTab.Margin = new System.Windows.Forms.Padding(4);
             this.reportsMenuTab.Name = "reportsMenuTab";
             this.reportsMenuTab.Size = new System.Drawing.Size(563, 346);
             this.reportsMenuTab.TabIndex = 2;
@@ -271,7 +272,7 @@
             // outstandingAccountsBtn
             // 
             this.outstandingAccountsBtn.Location = new System.Drawing.Point(328, 68);
-            this.outstandingAccountsBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.outstandingAccountsBtn.Margin = new System.Windows.Forms.Padding(4);
             this.outstandingAccountsBtn.Name = "outstandingAccountsBtn";
             this.outstandingAccountsBtn.Size = new System.Drawing.Size(168, 37);
             this.outstandingAccountsBtn.TabIndex = 11;
@@ -281,7 +282,7 @@
             // reportsExitBtn
             // 
             this.reportsExitBtn.Location = new System.Drawing.Point(328, 235);
-            this.reportsExitBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.reportsExitBtn.Margin = new System.Windows.Forms.Padding(4);
             this.reportsExitBtn.Name = "reportsExitBtn";
             this.reportsExitBtn.Size = new System.Drawing.Size(168, 37);
             this.reportsExitBtn.TabIndex = 13;
@@ -292,7 +293,7 @@
             // overdueRentalsBtn
             // 
             this.overdueRentalsBtn.Location = new System.Drawing.Point(328, 151);
-            this.overdueRentalsBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.overdueRentalsBtn.Margin = new System.Windows.Forms.Padding(4);
             this.overdueRentalsBtn.Name = "overdueRentalsBtn";
             this.overdueRentalsBtn.Size = new System.Drawing.Size(168, 37);
             this.overdueRentalsBtn.TabIndex = 12;
@@ -302,7 +303,7 @@
             // equipmentInventoryBtn
             // 
             this.equipmentInventoryBtn.Location = new System.Drawing.Point(65, 151);
-            this.equipmentInventoryBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.equipmentInventoryBtn.Margin = new System.Windows.Forms.Padding(4);
             this.equipmentInventoryBtn.Name = "equipmentInventoryBtn";
             this.equipmentInventoryBtn.Size = new System.Drawing.Size(168, 37);
             this.equipmentInventoryBtn.TabIndex = 9;
@@ -312,7 +313,7 @@
             // equipmentHistoryBtn
             // 
             this.equipmentHistoryBtn.Location = new System.Drawing.Point(65, 235);
-            this.equipmentHistoryBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.equipmentHistoryBtn.Margin = new System.Windows.Forms.Padding(4);
             this.equipmentHistoryBtn.Name = "equipmentHistoryBtn";
             this.equipmentHistoryBtn.Size = new System.Drawing.Size(168, 37);
             this.equipmentHistoryBtn.TabIndex = 10;
@@ -323,7 +324,7 @@
             // 
             this.equipmentOnLoanBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.equipmentOnLoanBtn.Location = new System.Drawing.Point(65, 68);
-            this.equipmentOnLoanBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.equipmentOnLoanBtn.Margin = new System.Windows.Forms.Padding(4);
             this.equipmentOnLoanBtn.Name = "equipmentOnLoanBtn";
             this.equipmentOnLoanBtn.Size = new System.Drawing.Size(168, 37);
             this.equipmentOnLoanBtn.TabIndex = 8;
@@ -338,7 +339,7 @@
             this.Controls.Add(this.menuTabControl);
             this.Controls.Add(this.formTitleLbl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "Menu";
             this.ShowIcon = false;

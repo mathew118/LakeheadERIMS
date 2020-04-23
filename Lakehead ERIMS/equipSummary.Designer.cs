@@ -75,11 +75,11 @@
             this.button2 = new System.Windows.Forms.Button();
             this.label23 = new System.Windows.Forms.Label();
             this.equipNumber = new System.Windows.Forms.TextBox();
-            this.lUEquipmentDataSet = new Lakehead_ERIMS.LUEquipmentDataSet();
             this.tblEquipBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.lUEquipmentDataSet = new Lakehead_ERIMS.LUEquipmentDataSet();
             this.tblEquipTableAdapter = new Lakehead_ERIMS.LUEquipmentDataSetTableAdapters.tblEquipTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.lUEquipmentDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblEquipBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lUEquipmentDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -408,7 +408,7 @@
             this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label21.Location = new System.Drawing.Point(47, 13);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(218, 39);
+            this.label21.Size = new System.Drawing.Size(209, 38);
             this.label21.TabIndex = 41;
             this.label21.Text = "Item number";
             // 
@@ -418,7 +418,7 @@
             this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label22.Location = new System.Drawing.Point(260, 13);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(351, 39);
+            this.label22.Size = new System.Drawing.Size(337, 38);
             this.label22.TabIndex = 42;
             this.label22.Text = "Equipment Snapshot";
             // 
@@ -457,16 +457,17 @@
             this.equipNumber.Name = "equipNumber";
             this.equipNumber.Size = new System.Drawing.Size(125, 22);
             this.equipNumber.TabIndex = 46;
-            // 
-            // lUEquipmentDataSet
-            // 
-            this.lUEquipmentDataSet.DataSetName = "LUEquipmentDataSet";
-            this.lUEquipmentDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.equipNumber.TextChanged += new System.EventHandler(this.equipNumber_TextChanged);
             // 
             // tblEquipBindingSource
             // 
             this.tblEquipBindingSource.DataMember = "tblEquip";
             this.tblEquipBindingSource.DataSource = this.lUEquipmentDataSet;
+            // 
+            // lUEquipmentDataSet
+            // 
+            this.lUEquipmentDataSet.DataSetName = "LUEquipmentDataSet";
+            this.lUEquipmentDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // tblEquipTableAdapter
             // 
@@ -526,8 +527,8 @@
             this.Name = "equipSummary";
             this.Text = "equipSummary";
             this.Load += new System.EventHandler(this.equipSummary_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.lUEquipmentDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblEquipBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lUEquipmentDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

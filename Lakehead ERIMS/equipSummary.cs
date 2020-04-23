@@ -44,21 +44,50 @@ namespace Lakehead_ERIMS
         
         private void button1_Click(object sender, EventArgs e)
         {
-            OleDbConnection connection = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\ongar\OneDrive\Desktop\LUEquipment.mdb;Persist Security Info=True");
-            // searching for the information from the equipment number 
-            connection.Open();
-            OleDbDataReader reader = null;
-            if (equipNumber.Text != " ")
-            {
-                OleDbCommand selectEquip = new OleDbCommand("Select * from tblEquip WHERE [Equip_Numb]=@NUMBER", connection);
-                selectEquip.Parameters.AddWithValue("@NUMBER", int.Parse(equipNumber.Text));
-                 reader = selectEquip.ExecuteReader();
-                if (reader.Read())
-                {
-                    itemNameTextbox.Text = reader.ToString();
-                }
-            }
-            connection.Close();
+          
+
+            string connenctionString;
+            OleDbConnection cnn;
+           
+
+
+
+            connenctionString = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\ongar\OneDrive\Desktop\LUEquipment.mdb;Persist Security Info=True";
+            cnn = new OleDbConnection(connenctionString);
+
+            cnn.Open();
+            //OleDbCommand command;
+            OleDbDataReader dataReader;
+            String sql, Output = "";
+            string number;
+            double usernumber = double.Parse(equipNumber.Text);
+
+
+            var query = " SELECT * FROM tblEquip WHERE [Equip_Numb] = ?";
+
+            var command = new OleDbCommand(query, cnn);
+            command.Parameters.Add(new OleDbParameter("Equip_Numb", equipNumber.Text));
+
+            dataReader = command.ExecuteReader();
+
+
+            //sql = "Select * from [tblEquip] WHERE [Equip_Numb] = '" + equipNumber.Text.ToString() + "'";
+
+            //command = new OleDbCommand(sql, cnn);
+
+            //dataReader = command.ExecuteReader();
+
+            //listBox2.Text = dataReader.ToString();
+            
+            
+            dataReader.Close();
+            command.Dispose();
+            cnn.Close();
+        }
+
+        private void equipNumber_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

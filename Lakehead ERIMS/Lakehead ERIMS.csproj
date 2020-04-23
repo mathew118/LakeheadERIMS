@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="addUpdateStudent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="addUpdateStudent.Designer.cs">
+      <DependentUpon>addUpdateStudent.cs</DependentUpon>
+    </Compile>
     <Compile Include="equipSummary.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -71,6 +77,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="addUpdateStudent.resx">
+      <DependentUpon>addUpdateStudent.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="equipSummary.resx">
       <DependentUpon>equipSummary.cs</DependentUpon>
     </EmbeddedResource>
