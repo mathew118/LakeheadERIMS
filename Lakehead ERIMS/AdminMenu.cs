@@ -14,7 +14,8 @@ namespace Lakehead_ERIMS
     {
         /* TODO LIST
          * 
-         * 
+         * Might need to rework equipment part of the admin menu, not enough room for fields and listbox causes significant startup delay/loading times
+         * Start up times still pretty bad even without equipment datatable
          */
 
 
@@ -31,6 +32,12 @@ namespace Lakehead_ERIMS
 
         private void AdminMenu_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'lUEquipmentDataSet.tblSupplier' table. You can move, or remove it, as needed.
+            this.tblSupplierTableAdapter.Fill(this.lUEquipmentDataSet.tblSupplier);
+            // TODO: This line of code loads data into the 'lUEquipmentDataSet.tblStatus' table. You can move, or remove it, as needed.
+            this.tblStatusTableAdapter.Fill(this.lUEquipmentDataSet.tblStatus);
+            // TODO: This line of code loads data into the 'lUEquipmentDataSet.tblEquip' table. You can move, or remove it, as needed.
+            this.tblEquipTableAdapter.Fill(this.lUEquipmentDataSet.tblEquip);
             // TODO: This line of code loads data into the 'lUEquipmentDataSet.tblCategory' table. You can move, or remove it, as needed.
             this.tblCategoryTableAdapter.Fill(this.lUEquipmentDataSet.tblCategory);
             // TODO: This line of code loads data into the 'lUEquipmentDataSet.tblLocation' table. You can move, or remove it, as needed.
@@ -94,8 +101,6 @@ namespace Lakehead_ERIMS
             saveBtn.Enabled = false;
         }
 
-        
-
         private void categoriesLbx_SelectedIndexChanged(object sender, EventArgs e)
         {
             //Dataset should be filled but its already done in AdminMenu_Load()
@@ -120,10 +125,51 @@ namespace Lakehead_ERIMS
             }
             else
             {
-                //No staff selected
+                //No category selected
 
-                //MessageBox.Show("Error! Staff not found", "Error");
+                //MessageBox.Show("Error! Category not found", "Error");
             }
+        }
+
+        private void equipmentLbx_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //Dataset should be filled but its already done in AdminMenu_Load()
+
+            DataRow equipmentRow;
+
+            //Checks if query returns results and if so, assigns it to equipmentRow
+            if (this.lUEquipmentDataSet.tblEquip.Select("Equip_ID = '" + equipmentLbx.SelectedValue.ToString() + "'").Length == 1)
+            {
+                equipmentRow = this.lUEquipmentDataSet.tblEquip.Select("Equip_ID = '" + equipmentLbx.SelectedValue.ToString() + "'")[0];
+
+                //Assigns row data to textboxes
+                equipmentItemNameTbx.Text = equipmentRow[2].ToString();
+
+                //Lock save button until changes are made
+                saveBtn.Enabled = false;
+            }
+            else
+            {
+                //No equipment selected
+
+                //MessageBox.Show("Error! Equipment not found", "Error");
+            }
+        }
+
+        private void statusLbx_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            statusNameTbx.Text = statusLbx.Text;
+
+            //Lock save button until changes are made
+            saveBtn.Enabled = false;
+        }
+
+        private void suppliersLbx_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            suppliersNameTbx.Text = suppliersLbx.Text;
+
+            //Lock save button until changes are made
+            saveBtn.Enabled = false;
         }
     }
 }
