@@ -62,15 +62,9 @@
             this.record2TextBox = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.emailInfoTextBox = new System.Windows.Forms.TextBox();
-            this.lastNameInfoTextBox = new System.Windows.Forms.TextBox();
-            this.numberInfoTextBox = new System.Windows.Forms.TextBox();
-            this.fristNameInfoTextBox = new System.Windows.Forms.TextBox();
+            this.Fees = new System.Windows.Forms.GroupBox();
+            this.feeTextBox = new System.Windows.Forms.TextBox();
+            this.label24 = new System.Windows.Forms.Label();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
@@ -84,17 +78,23 @@
             this.cityInfoTextBox = new System.Windows.Forms.TextBox();
             this.extInfoTextBox = new System.Windows.Forms.TextBox();
             this.addressInfoTextBox = new System.Windows.Forms.TextBox();
-            this.Fees = new System.Windows.Forms.GroupBox();
-            this.label24 = new System.Windows.Forms.Label();
-            this.feeTextBox = new System.Windows.Forms.TextBox();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.emailInfoTextBox = new System.Windows.Forms.TextBox();
+            this.lastNameInfoTextBox = new System.Windows.Forms.TextBox();
+            this.numberInfoTextBox = new System.Windows.Forms.TextBox();
+            this.fristNameInfoTextBox = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
-            this.groupBox6.SuspendLayout();
-            this.groupBox7.SuspendLayout();
             this.Fees.SuspendLayout();
+            this.groupBox7.SuspendLayout();
+            this.groupBox6.SuspendLayout();
             this.SuspendLayout();
             // 
             // addStudentbttn
@@ -124,6 +124,7 @@
             this.searchStudentbttn.TabIndex = 2;
             this.searchStudentbttn.Text = "Search";
             this.searchStudentbttn.UseVisualStyleBackColor = true;
+            this.searchStudentbttn.Click += new System.EventHandler(this.searchStudentbttn_Click);
             // 
             // exitBttn
             // 
@@ -133,6 +134,7 @@
             this.exitBttn.TabIndex = 3;
             this.exitBttn.Text = "Exit";
             this.exitBttn.UseVisualStyleBackColor = true;
+            this.exitBttn.Click += new System.EventHandler(this.exitBttn_Click);
             // 
             // label1
             // 
@@ -427,86 +429,32 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Student Information";
             // 
-            // groupBox6
+            // Fees
             // 
-            this.groupBox6.Controls.Add(this.label8);
-            this.groupBox6.Controls.Add(this.label9);
-            this.groupBox6.Controls.Add(this.label10);
-            this.groupBox6.Controls.Add(this.label15);
-            this.groupBox6.Controls.Add(this.emailInfoTextBox);
-            this.groupBox6.Controls.Add(this.lastNameInfoTextBox);
-            this.groupBox6.Controls.Add(this.numberInfoTextBox);
-            this.groupBox6.Controls.Add(this.fristNameInfoTextBox);
-            this.groupBox6.Location = new System.Drawing.Point(65, 24);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(341, 162);
-            this.groupBox6.TabIndex = 41;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "Information";
+            this.Fees.Controls.Add(this.feeTextBox);
+            this.Fees.Controls.Add(this.label24);
+            this.Fees.Location = new System.Drawing.Point(841, 16);
+            this.Fees.Name = "Fees";
+            this.Fees.Size = new System.Drawing.Size(261, 176);
+            this.Fees.TabIndex = 43;
+            this.Fees.TabStop = false;
+            this.Fees.Text = "Fees";
             // 
-            // label8
+            // feeTextBox
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(31, 26);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(80, 17);
-            this.label8.TabIndex = 4;
-            this.label8.Text = "Last Name:";
+            this.feeTextBox.Location = new System.Drawing.Point(130, 42);
+            this.feeTextBox.Name = "feeTextBox";
+            this.feeTextBox.Size = new System.Drawing.Size(113, 22);
+            this.feeTextBox.TabIndex = 1;
             // 
-            // label9
+            // label24
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(31, 85);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(115, 17);
-            this.label9.TabIndex = 10;
-            this.label9.Text = "Student Number:";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(31, 110);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(46, 17);
-            this.label10.TabIndex = 16;
-            this.label10.Text = "Email:";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(31, 54);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(80, 17);
-            this.label15.TabIndex = 17;
-            this.label15.Text = "First Name:";
-            // 
-            // emailInfoTextBox
-            // 
-            this.emailInfoTextBox.Location = new System.Drawing.Point(148, 110);
-            this.emailInfoTextBox.Name = "emailInfoTextBox";
-            this.emailInfoTextBox.Size = new System.Drawing.Size(119, 22);
-            this.emailInfoTextBox.TabIndex = 22;
-            // 
-            // lastNameInfoTextBox
-            // 
-            this.lastNameInfoTextBox.Location = new System.Drawing.Point(148, 26);
-            this.lastNameInfoTextBox.Name = "lastNameInfoTextBox";
-            this.lastNameInfoTextBox.Size = new System.Drawing.Size(119, 22);
-            this.lastNameInfoTextBox.TabIndex = 19;
-            // 
-            // numberInfoTextBox
-            // 
-            this.numberInfoTextBox.Location = new System.Drawing.Point(148, 82);
-            this.numberInfoTextBox.Name = "numberInfoTextBox";
-            this.numberInfoTextBox.Size = new System.Drawing.Size(119, 22);
-            this.numberInfoTextBox.TabIndex = 21;
-            // 
-            // fristNameInfoTextBox
-            // 
-            this.fristNameInfoTextBox.Location = new System.Drawing.Point(148, 54);
-            this.fristNameInfoTextBox.Name = "fristNameInfoTextBox";
-            this.fristNameInfoTextBox.Size = new System.Drawing.Size(119, 22);
-            this.fristNameInfoTextBox.TabIndex = 20;
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(29, 42);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(95, 17);
+            this.label24.TabIndex = 0;
+            this.label24.Text = "Fees owing: $";
             // 
             // groupBox7
             // 
@@ -640,32 +588,86 @@
             this.addressInfoTextBox.Size = new System.Drawing.Size(119, 22);
             this.addressInfoTextBox.TabIndex = 25;
             // 
-            // Fees
+            // groupBox6
             // 
-            this.Fees.Controls.Add(this.feeTextBox);
-            this.Fees.Controls.Add(this.label24);
-            this.Fees.Location = new System.Drawing.Point(841, 16);
-            this.Fees.Name = "Fees";
-            this.Fees.Size = new System.Drawing.Size(261, 176);
-            this.Fees.TabIndex = 43;
-            this.Fees.TabStop = false;
-            this.Fees.Text = "Fees";
+            this.groupBox6.Controls.Add(this.label8);
+            this.groupBox6.Controls.Add(this.label9);
+            this.groupBox6.Controls.Add(this.label10);
+            this.groupBox6.Controls.Add(this.label15);
+            this.groupBox6.Controls.Add(this.emailInfoTextBox);
+            this.groupBox6.Controls.Add(this.lastNameInfoTextBox);
+            this.groupBox6.Controls.Add(this.numberInfoTextBox);
+            this.groupBox6.Controls.Add(this.fristNameInfoTextBox);
+            this.groupBox6.Location = new System.Drawing.Point(65, 24);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(341, 162);
+            this.groupBox6.TabIndex = 41;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Information";
             // 
-            // label24
+            // label8
             // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(29, 42);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(95, 17);
-            this.label24.TabIndex = 0;
-            this.label24.Text = "Fees owing: $";
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(31, 26);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(80, 17);
+            this.label8.TabIndex = 4;
+            this.label8.Text = "Last Name:";
             // 
-            // feeTextBox
+            // label9
             // 
-            this.feeTextBox.Location = new System.Drawing.Point(130, 42);
-            this.feeTextBox.Name = "feeTextBox";
-            this.feeTextBox.Size = new System.Drawing.Size(113, 22);
-            this.feeTextBox.TabIndex = 1;
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(31, 85);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(115, 17);
+            this.label9.TabIndex = 10;
+            this.label9.Text = "Student Number:";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(31, 110);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(46, 17);
+            this.label10.TabIndex = 16;
+            this.label10.Text = "Email:";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(31, 54);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(80, 17);
+            this.label15.TabIndex = 17;
+            this.label15.Text = "First Name:";
+            // 
+            // emailInfoTextBox
+            // 
+            this.emailInfoTextBox.Location = new System.Drawing.Point(148, 110);
+            this.emailInfoTextBox.Name = "emailInfoTextBox";
+            this.emailInfoTextBox.Size = new System.Drawing.Size(119, 22);
+            this.emailInfoTextBox.TabIndex = 22;
+            // 
+            // lastNameInfoTextBox
+            // 
+            this.lastNameInfoTextBox.Location = new System.Drawing.Point(148, 26);
+            this.lastNameInfoTextBox.Name = "lastNameInfoTextBox";
+            this.lastNameInfoTextBox.Size = new System.Drawing.Size(119, 22);
+            this.lastNameInfoTextBox.TabIndex = 19;
+            // 
+            // numberInfoTextBox
+            // 
+            this.numberInfoTextBox.Location = new System.Drawing.Point(148, 82);
+            this.numberInfoTextBox.Name = "numberInfoTextBox";
+            this.numberInfoTextBox.Size = new System.Drawing.Size(119, 22);
+            this.numberInfoTextBox.TabIndex = 21;
+            // 
+            // fristNameInfoTextBox
+            // 
+            this.fristNameInfoTextBox.Location = new System.Drawing.Point(148, 54);
+            this.fristNameInfoTextBox.Name = "fristNameInfoTextBox";
+            this.fristNameInfoTextBox.Size = new System.Drawing.Size(119, 22);
+            this.fristNameInfoTextBox.TabIndex = 20;
             // 
             // addUpdateStudent
             // 
@@ -689,12 +691,12 @@
             this.groupBox2.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
-            this.groupBox6.ResumeLayout(false);
-            this.groupBox6.PerformLayout();
-            this.groupBox7.ResumeLayout(false);
-            this.groupBox7.PerformLayout();
             this.Fees.ResumeLayout(false);
             this.Fees.PerformLayout();
+            this.groupBox7.ResumeLayout(false);
+            this.groupBox7.PerformLayout();
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

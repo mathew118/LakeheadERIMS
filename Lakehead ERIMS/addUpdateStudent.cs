@@ -54,7 +54,6 @@ namespace Lakehead_ERIMS
             OleDbCommand cmd = new OleDbCommand();
 
             string command = "insert into tblStudent(Stu_Number, Stu_LName, Stu_FName, Stu_LAddress,Stu_LCity, Stu_LProvince, Stu_LPCode, Stu_LPhone, Stu_LExt, Stu_Email) values('" + newNumberTextBox.Text + "','" + newLastTextBox.Text + "', '"+ newFirstTextBox.Text + "','"+ newAddressTextBox.Text + "', '" + newCityTextBox.Text + "' ,'" + provComboBox.Text + "','" + newPostalCodeTextBox.Text + "' ,'" + NewPhoneTextBox.Text + "','" + newExtTextBox.Text + "','" + newEmailTextBox.Text + "')";
-            //, ,
           
             OleDbCommand cmdd = new OleDbCommand(command, cnn);
        
@@ -63,6 +62,17 @@ namespace Lakehead_ERIMS
             MessageBox.Show("YAYA");
 
             cnn.Close();
+        }
+
+        private void exitBttn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void searchStudentbttn_Click(object sender, EventArgs e)
+        {
+            var search = new searchStudent();
+            search.Show();
         }
     }
 }
