@@ -33,7 +33,7 @@ namespace Lakehead_ERIMS
             //If more than one user exists with the same username, warn user.
             if(usernameTbx.Text.Length == 0)
             {
-                MessageBox.Show("Username field is empty.", "Error");
+                MessageBox.Show("You must enter a username.", "Error");
             }
             else if (this.lUEquipmentDataSet.tblEmployee.Select("Emp_UName = '" + usernameTbx.Text + "'").Length > 1)
             {
