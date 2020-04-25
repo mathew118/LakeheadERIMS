@@ -33,5 +33,11 @@ namespace Lakehead_ERIMS
             var addUpdateStudent = new addUpdateStudent();
             addUpdateStudent.Show();
         }
+
+        private void rentEquipmentBtn_Click(object sender, EventArgs e)
+        {
+            var rent = new RentEquipment();
+            rent.Show();
+        }
     }
 }

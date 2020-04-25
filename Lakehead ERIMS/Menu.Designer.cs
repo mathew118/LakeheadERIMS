@@ -151,6 +151,7 @@
             this.rentEquipmentBtn.TabIndex = 9;
             this.rentEquipmentBtn.Text = "&Rent Equipment";
             this.rentEquipmentBtn.UseVisualStyleBackColor = true;
+            this.rentEquipmentBtn.Click += new System.EventHandler(this.rentEquipmentBtn_Click);
             // 
             // equipmentSnapshotBtn
             // 
