@@ -46,13 +46,10 @@ namespace Lakehead_ERIMS
             {
                 rentform.Show();
             }
-            if (count > 1)
-            {
-                MessageBox.Show("Nope");
-            }
+            
             else
             {
-                MessageBox.Show("Nope Again");
+                MessageBox.Show("Invalid Student Number");
             }
             cnn.Close();
 
