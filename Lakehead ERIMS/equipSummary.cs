@@ -112,16 +112,28 @@ namespace Lakehead_ERIMS
             {
                 statusLabel.Text = "Out";
                 
-                string query = "SELECT Rent_DateDue FROM tblRental WHERE Equip_ID = '" + EquipID + "'";
+                string query = "SELECT Rent_DateDue FROM tblRental WHERE Equip_ID = " + EquipID + "";
                 OleDbCommand commandStudentInfo = new OleDbCommand(query, cnn);
-                OleDbDataReader reader = commandStudentInfo.ExecuteReader();
-                reader.Read();
                 dateDueLabel.Text = commandStudentInfo.ExecuteScalar().ToString();
-                reader.Close();
+
+                string query1 = "SELECT Stu_ID FROM tblRental WHERE Equip_ID = " + EquipID + "";
+                OleDbCommand commandStudent = new OleDbCommand(query1, cnn);
+                string studentID = commandStudent.ExecuteScalar().ToString();
+
+                string querry2 = "SELECT Stu_Number FROM tblStudent WHERE Stu_ID = " + studentID + "";
+                OleDbCommand commandStudentNumber = new OleDbCommand(querry2, cnn);
+                studentNumberLabel.Text = commandStudentNumber.ExecuteScalar().ToString();
+
+                string querry3 = "SELECT Stu_FName FROM tblStudent WHERE Stu_ID = " + studentID + "";
+                OleDbCommand commandStudentName = new OleDbCommand(querry3, cnn);
+                studentNameLabel.Text = commandStudentName.ExecuteScalar().ToString();
+
+                string querry4= "SELECT Stu_LPhone FROM tblStudent WHERE Stu_ID = " + studentID + "";
+                OleDbCommand commandStudentPhone = new OleDbCommand(querry4, cnn);
+                studentPhoneLabel.Text = commandStudentPhone.ExecuteScalar().ToString();
+
             }
 
-
-            //statusLabel.Text = status;
 
             cnn.Close();
         }

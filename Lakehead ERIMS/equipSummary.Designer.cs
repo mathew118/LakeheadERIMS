@@ -47,10 +47,6 @@
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
@@ -244,38 +240,6 @@
             this.label18.TabIndex = 17;
             this.label18.Text = "Date due:";
             // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(278, 581);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(58, 17);
-            this.label19.TabIndex = 18;
-            this.label19.Text = "Record:";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(387, 581);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(24, 17);
-            this.label20.TabIndex = 19;
-            this.label20.Text = "of:";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(334, 578);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(47, 22);
-            this.textBox1.TabIndex = 20;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(417, 576);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(47, 22);
-            this.textBox2.TabIndex = 21;
-            // 
             // label21
             // 
             this.label21.AutoSize = true;
@@ -350,172 +314,155 @@
             // 
             // itemNameLabel
             // 
-            this.itemNameLabel.AutoSize = true;
             this.itemNameLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.itemNameLabel.Location = new System.Drawing.Point(157, 169);
             this.itemNameLabel.Name = "itemNameLabel";
-            this.itemNameLabel.Size = new System.Drawing.Size(74, 19);
+            this.itemNameLabel.Size = new System.Drawing.Size(195, 19);
             this.itemNameLabel.TabIndex = 47;
             this.itemNameLabel.Text = "                ";
             this.itemNameLabel.Click += new System.EventHandler(this.label24_Click);
             // 
             // desc2Label
             // 
-            this.desc2Label.AutoSize = true;
             this.desc2Label.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.desc2Label.Location = new System.Drawing.Point(157, 248);
             this.desc2Label.Name = "desc2Label";
-            this.desc2Label.Size = new System.Drawing.Size(74, 19);
+            this.desc2Label.Size = new System.Drawing.Size(195, 19);
             this.desc2Label.TabIndex = 48;
             this.desc2Label.Text = "                ";
             // 
             // desc3Label
             // 
-            this.desc3Label.AutoSize = true;
             this.desc3Label.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.desc3Label.Location = new System.Drawing.Point(157, 285);
             this.desc3Label.Name = "desc3Label";
-            this.desc3Label.Size = new System.Drawing.Size(74, 19);
+            this.desc3Label.Size = new System.Drawing.Size(195, 19);
             this.desc3Label.TabIndex = 49;
             this.desc3Label.Text = "                ";
             // 
             // suppLabel
             // 
-            this.suppLabel.AutoSize = true;
             this.suppLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.suppLabel.Location = new System.Drawing.Point(157, 332);
             this.suppLabel.Name = "suppLabel";
-            this.suppLabel.Size = new System.Drawing.Size(74, 19);
+            this.suppLabel.Size = new System.Drawing.Size(195, 19);
             this.suppLabel.TabIndex = 50;
             this.suppLabel.Text = "                ";
             // 
             // manuLabel
             // 
-            this.manuLabel.AutoSize = true;
             this.manuLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.manuLabel.Location = new System.Drawing.Point(157, 363);
             this.manuLabel.Name = "manuLabel";
-            this.manuLabel.Size = new System.Drawing.Size(74, 19);
+            this.manuLabel.Size = new System.Drawing.Size(195, 19);
             this.manuLabel.TabIndex = 51;
             this.manuLabel.Text = "                ";
             // 
             // modelLabel
             // 
-            this.modelLabel.AutoSize = true;
             this.modelLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.modelLabel.Location = new System.Drawing.Point(157, 402);
             this.modelLabel.Name = "modelLabel";
-            this.modelLabel.Size = new System.Drawing.Size(74, 19);
+            this.modelLabel.Size = new System.Drawing.Size(195, 19);
             this.modelLabel.TabIndex = 52;
             this.modelLabel.Text = "                ";
             // 
             // serialLabel
             // 
-            this.serialLabel.AutoSize = true;
             this.serialLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.serialLabel.Location = new System.Drawing.Point(157, 433);
             this.serialLabel.Name = "serialLabel";
-            this.serialLabel.Size = new System.Drawing.Size(74, 19);
+            this.serialLabel.Size = new System.Drawing.Size(195, 19);
             this.serialLabel.TabIndex = 53;
             this.serialLabel.Text = "                ";
             // 
             // homeLabel
             // 
-            this.homeLabel.AutoSize = true;
             this.homeLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.homeLabel.Location = new System.Drawing.Point(599, 208);
             this.homeLabel.Name = "homeLabel";
-            this.homeLabel.Size = new System.Drawing.Size(74, 19);
+            this.homeLabel.Size = new System.Drawing.Size(157, 19);
             this.homeLabel.TabIndex = 55;
             this.homeLabel.Text = "                ";
             // 
             // nightLabel
             // 
-            this.nightLabel.AutoSize = true;
             this.nightLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.nightLabel.Location = new System.Drawing.Point(599, 248);
             this.nightLabel.Name = "nightLabel";
-            this.nightLabel.Size = new System.Drawing.Size(74, 19);
+            this.nightLabel.Size = new System.Drawing.Size(157, 19);
             this.nightLabel.TabIndex = 56;
             this.nightLabel.Text = "                ";
             // 
             // rentalFeeLabel
             // 
-            this.rentalFeeLabel.AutoSize = true;
             this.rentalFeeLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.rentalFeeLabel.Location = new System.Drawing.Point(599, 287);
             this.rentalFeeLabel.Name = "rentalFeeLabel";
-            this.rentalFeeLabel.Size = new System.Drawing.Size(74, 19);
+            this.rentalFeeLabel.Size = new System.Drawing.Size(157, 19);
             this.rentalFeeLabel.TabIndex = 57;
             this.rentalFeeLabel.Text = "                ";
             // 
             // lateFeeLabel
             // 
-            this.lateFeeLabel.AutoSize = true;
             this.lateFeeLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lateFeeLabel.Location = new System.Drawing.Point(599, 320);
             this.lateFeeLabel.Name = "lateFeeLabel";
-            this.lateFeeLabel.Size = new System.Drawing.Size(74, 19);
+            this.lateFeeLabel.Size = new System.Drawing.Size(157, 19);
             this.lateFeeLabel.TabIndex = 58;
             this.lateFeeLabel.Text = "                ";
             // 
             // statusLabel
             // 
-            this.statusLabel.AutoSize = true;
             this.statusLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.statusLabel.Location = new System.Drawing.Point(599, 352);
             this.statusLabel.Name = "statusLabel";
-            this.statusLabel.Size = new System.Drawing.Size(74, 19);
+            this.statusLabel.Size = new System.Drawing.Size(157, 19);
             this.statusLabel.TabIndex = 59;
             this.statusLabel.Text = "                ";
             // 
             // studentNumberLabel
             // 
-            this.studentNumberLabel.AutoSize = true;
             this.studentNumberLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.studentNumberLabel.Location = new System.Drawing.Point(599, 389);
             this.studentNumberLabel.Name = "studentNumberLabel";
-            this.studentNumberLabel.Size = new System.Drawing.Size(74, 19);
+            this.studentNumberLabel.Size = new System.Drawing.Size(157, 19);
             this.studentNumberLabel.TabIndex = 60;
             this.studentNumberLabel.Text = "                ";
             // 
             // studentNameLabel
             // 
-            this.studentNameLabel.AutoSize = true;
             this.studentNameLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.studentNameLabel.Location = new System.Drawing.Point(599, 429);
             this.studentNameLabel.Name = "studentNameLabel";
-            this.studentNameLabel.Size = new System.Drawing.Size(74, 19);
+            this.studentNameLabel.Size = new System.Drawing.Size(157, 19);
             this.studentNameLabel.TabIndex = 61;
             this.studentNameLabel.Text = "                ";
             // 
             // studentPhoneLabel
             // 
-            this.studentPhoneLabel.AutoSize = true;
             this.studentPhoneLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.studentPhoneLabel.Location = new System.Drawing.Point(599, 460);
             this.studentPhoneLabel.Name = "studentPhoneLabel";
-            this.studentPhoneLabel.Size = new System.Drawing.Size(74, 19);
+            this.studentPhoneLabel.Size = new System.Drawing.Size(157, 19);
             this.studentPhoneLabel.TabIndex = 62;
             this.studentPhoneLabel.Text = "                ";
             // 
             // dateDueLabel
             // 
-            this.dateDueLabel.AutoSize = true;
             this.dateDueLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dateDueLabel.Location = new System.Drawing.Point(599, 500);
             this.dateDueLabel.Name = "dateDueLabel";
-            this.dateDueLabel.Size = new System.Drawing.Size(74, 19);
+            this.dateDueLabel.Size = new System.Drawing.Size(157, 19);
             this.dateDueLabel.TabIndex = 63;
             this.dateDueLabel.Text = "                ";
             // 
             // desc1Label
             // 
-            this.desc1Label.AutoSize = true;
             this.desc1Label.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.desc1Label.Location = new System.Drawing.Point(157, 206);
             this.desc1Label.Name = "desc1Label";
-            this.desc1Label.Size = new System.Drawing.Size(74, 19);
+            this.desc1Label.Size = new System.Drawing.Size(195, 19);
             this.desc1Label.TabIndex = 64;
             this.desc1Label.Text = "                ";
             // 
@@ -557,10 +504,6 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label22);
             this.Controls.Add(this.label21);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label20);
-            this.Controls.Add(this.label19);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.label16);
@@ -609,10 +552,6 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Button button1;

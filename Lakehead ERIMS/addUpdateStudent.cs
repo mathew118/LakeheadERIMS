@@ -142,13 +142,58 @@ namespace Lakehead_ERIMS
             cnn.Open();
             OleDbCommand commandInsert = new OleDbCommand();
             commandInsert.Connection = cnn;
-            commandInsert.CommandText = "UPDATE tblStudent SET STU_LNAME = '" + lastNameInfoTextBox.Text + "' WHERE Stu_Number = '" + studentNumberTextBox.Text + "'";
+            commandInsert.CommandText = "UPDATE tblStudent SET STU_LName = '" + lastNameInfoTextBox.Text + "' WHERE Stu_Number = '" + studentNumberTextBox.Text + "'";
             commandInsert.ExecuteScalar();
 
             OleDbCommand commandInsert1 = new OleDbCommand();
             commandInsert1.Connection = cnn;
-            commandInsert1.CommandText = "UPDATE tblStudent SET STU_FNAME = '" + fristNameInfoTextBox.Text + "' WHERE Stu_Number = '" + studentNumberTextBox.Text + "'";
+            commandInsert1.CommandText = "UPDATE tblStudent SET STU_FName = '" + fristNameInfoTextBox.Text + "' WHERE Stu_Number = '" + studentNumberTextBox.Text + "'";
             commandInsert1.ExecuteScalar();
+
+            OleDbCommand commandInsert2 = new OleDbCommand();
+            commandInsert2.Connection = cnn;
+            commandInsert2.CommandText = "UPDATE tblStudent SET STU_Number = '" + numberInfoTextBox.Text + "' WHERE Stu_Number = '" + studentNumberTextBox.Text + "'";
+            commandInsert2.ExecuteScalar();
+
+            OleDbCommand commandInsert3 = new OleDbCommand();
+            commandInsert3.Connection = cnn;
+            commandInsert3.CommandText = "UPDATE tblStudent SET STU_LAddress = '" + addressInfoTextBox.Text + "' WHERE Stu_Number = '" + studentNumberTextBox.Text + "'";
+            commandInsert3.ExecuteScalar();
+
+            OleDbCommand commandInsert4 = new OleDbCommand();
+            commandInsert4.Connection = cnn;
+            commandInsert4.CommandText = "UPDATE tblStudent SET STU_Email = '" + emailInfoTextBox.Text + "' WHERE Stu_Number = '" + studentNumberTextBox.Text + "'";
+            commandInsert4.ExecuteScalar();
+
+            OleDbCommand commandInsert5 = new OleDbCommand();
+            commandInsert5.Connection = cnn;
+            commandInsert5.CommandText = "UPDATE tblStudent SET STU_LCity = '" + cityInfoTextBox.Text + "' WHERE Stu_Number = '" + studentNumberTextBox.Text + "'";
+            commandInsert5.ExecuteScalar();
+
+            OleDbCommand commandInsert6 = new OleDbCommand();
+            commandInsert6.Connection = cnn;
+            commandInsert6.CommandText = "UPDATE tblStudent SET STU_LProvince = '" + provInfoCombo.Text + "' WHERE Stu_Number = '" + studentNumberTextBox.Text + "'";
+            commandInsert6.ExecuteScalar();
+
+            OleDbCommand commandInsert7 = new OleDbCommand();
+            commandInsert7.Connection = cnn;
+            commandInsert7.CommandText = "UPDATE tblStudent SET STU_LPCode = '" + postalInfoText.Text + "' WHERE Stu_Number = '" + studentNumberTextBox.Text + "'";
+            commandInsert7.ExecuteScalar();
+
+            OleDbCommand commandInsert8 = new OleDbCommand();
+            commandInsert8.Connection = cnn;
+            commandInsert8.CommandText = "UPDATE tblStudent SET STU_LPhone = '" + phoneInfoTextBox.Text + "' WHERE Stu_Number = '" + studentNumberTextBox.Text + "'";
+            commandInsert8.ExecuteScalar();
+
+            OleDbCommand commandInsert9 = new OleDbCommand();
+            commandInsert9.Connection = cnn;
+            commandInsert9.CommandText = "UPDATE tblStudent SET STU_LExt = '" + extInfoTextBox.Text + "' WHERE Stu_Number = '" + studentNumberTextBox.Text + "'";
+            commandInsert9.ExecuteScalar();
+
+            OleDbCommand commandInsert10 = new OleDbCommand();
+            commandInsert10.Connection = cnn;
+            commandInsert10.CommandText = "UPDATE tblStudent SET STU_owe = '" + feeTextBox.Text + "' WHERE Stu_Number = '" + studentNumberTextBox.Text + "'";
+            commandInsert10.ExecuteScalar();
             cnn.Close();
         }
     }
