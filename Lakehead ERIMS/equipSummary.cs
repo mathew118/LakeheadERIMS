@@ -51,6 +51,7 @@ namespace Lakehead_ERIMS
             command3.CommandText = "SELECT Equip_Descrip3 FROM tblEquip WHERE Equip_Number = '" + equipNumber.Text + "'";
             desc3Label.Text = command3.ExecuteScalar().ToString();
 
+            //suppler connection
             // OleDbCommand command4 = new OleDbCommand();
             //command4.Connection = cnn;
             //command4.CommandText = "SELECT tblEquip.Supp_ID, tblSupplier.Supp_Name FROM tblEquip INNER JOIN tblSupplier ON tblEquip.Supp_ID=tblSupplier.Supp_ID WHERE Equip_Number = '" + equipNumber.Text + "'";
@@ -76,11 +77,51 @@ namespace Lakehead_ERIMS
             command8.CommandText = "SELECT Equip_Notes FROM tblEquip WHERE Equip_Number = '" + equipNumber.Text + "'";
             notesListBox.Text = command8.ExecuteScalar().ToString();
 
-            OleDbCommand command9 = new OleDbCommand();
-            command9.Connection = cnn;
-            command9.CommandText = "SELECT Equip_Descrip3 FROM tblEquip WHERE Equip_Number = '" + equipNumber.Text + "'";
-            desc3Label.Text = command9.ExecuteScalar().ToString();
+            //home location
+            //OleDbCommand command9 = new OleDbCommand();
+            //command9.Connection = cnn;
+            //command9.CommandText = "SELECT Equip_Descrip3 FROM tblEquip WHERE Equip_Number = '" + equipNumber.Text + "'";
+            //desc3Label.Text = command9.ExecuteScalar().ToString();
 
+            OleDbCommand command10 = new OleDbCommand();
+            command10.Connection = cnn;
+            command10.CommandText = "SELECT Equip_Nights FROM tblEquip WHERE Equip_Number = '" + equipNumber.Text + "'";
+            nightLabel.Text = command10.ExecuteScalar().ToString();
+
+            OleDbCommand command11 = new OleDbCommand();
+            command11.Connection = cnn;
+            command11.CommandText = "SELECT Equip_RentalPrice FROM tblEquip WHERE Equip_Number = '" + equipNumber.Text + "'";
+            rentalFeeLabel.Text = command11.ExecuteScalar().ToString();
+
+            OleDbCommand command12 = new OleDbCommand();
+            command12.Connection = cnn;
+            command12.CommandText = "SELECT Equip_LateFee FROM tblEquip WHERE Equip_Number = '" + equipNumber.Text + "'";
+            lateFeeLabel.Text = command12.ExecuteScalar().ToString();
+
+            //status
+            OleDbCommand command13 = new OleDbCommand();
+            command13.Connection = cnn;
+            command13.CommandText = "SELECT Status_ID FROM tblEquip WHERE Equip_Number = '" + equipNumber.Text + "'";
+            string status = command13.ExecuteScalar().ToString();
+            OleDbCommand commandEquipID = new OleDbCommand();
+            commandEquipID.Connection = cnn;
+            commandEquipID.CommandText = "SELECT Equip_ID FROM tblEquip WHERE Equip_Number = '" + equipNumber.Text + "'";
+            string EquipID = commandEquipID.ExecuteScalar().ToString();
+
+            if (status == "9")
+            {
+                statusLabel.Text = "Out";
+                
+                string query = "SELECT Rent_DateDue FROM tblRental WHERE Equip_ID = '" + EquipID + "'";
+                OleDbCommand commandStudentInfo = new OleDbCommand(query, cnn);
+                OleDbDataReader reader = commandStudentInfo.ExecuteReader();
+                reader.Read();
+                dateDueLabel.Text = commandStudentInfo.ExecuteScalar().ToString();
+                reader.Close();
+            }
+
+
+            //statusLabel.Text = status;
 
             cnn.Close();
         }

@@ -56,10 +56,6 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.record1TextBox = new System.Windows.Forms.TextBox();
-            this.record2TextBox = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.Fees = new System.Windows.Forms.GroupBox();
@@ -87,6 +83,8 @@
             this.lastNameInfoTextBox = new System.Windows.Forms.TextBox();
             this.numberInfoTextBox = new System.Windows.Forms.TextBox();
             this.fristNameInfoTextBox = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.studentNumberTextBox = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -115,6 +113,7 @@
             this.updateStudentBttn.TabIndex = 1;
             this.updateStudentBttn.Text = "Update";
             this.updateStudentBttn.UseVisualStyleBackColor = true;
+            this.updateStudentBttn.Click += new System.EventHandler(this.updateStudentBttn_Click);
             // 
             // searchStudentbttn
             // 
@@ -328,7 +327,7 @@
             this.groupBox1.Controls.Add(this.updateStudentBttn);
             this.groupBox1.Controls.Add(this.searchStudentbttn);
             this.groupBox1.Controls.Add(this.exitBttn);
-            this.groupBox1.Location = new System.Drawing.Point(145, 565);
+            this.groupBox1.Location = new System.Drawing.Point(183, 689);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(543, 100);
             this.groupBox1.TabIndex = 37;
@@ -373,39 +372,6 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "New Student";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(215, 536);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(58, 17);
-            this.label2.TabIndex = 41;
-            this.label2.Text = "Record:";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(348, 536);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(24, 17);
-            this.label3.TabIndex = 42;
-            this.label3.Text = "of:";
-            // 
-            // record1TextBox
-            // 
-            this.record1TextBox.Location = new System.Drawing.Point(279, 536);
-            this.record1TextBox.Name = "record1TextBox";
-            this.record1TextBox.Size = new System.Drawing.Size(51, 22);
-            this.record1TextBox.TabIndex = 43;
-            // 
-            // record2TextBox
-            // 
-            this.record2TextBox.Location = new System.Drawing.Point(379, 537);
-            this.record2TextBox.Name = "record2TextBox";
-            this.record2TextBox.Size = new System.Drawing.Size(44, 22);
-            this.record2TextBox.TabIndex = 44;
-            // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.groupBox3);
@@ -419,21 +385,23 @@
             // 
             // groupBox5
             // 
+            this.groupBox5.Controls.Add(this.studentNumberTextBox);
+            this.groupBox5.Controls.Add(this.label2);
             this.groupBox5.Controls.Add(this.Fees);
             this.groupBox5.Controls.Add(this.groupBox7);
             this.groupBox5.Controls.Add(this.groupBox6);
             this.groupBox5.Location = new System.Drawing.Point(53, 338);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(1122, 192);
+            this.groupBox5.Size = new System.Drawing.Size(1122, 318);
             this.groupBox5.TabIndex = 46;
             this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Student Information";
+            this.groupBox5.Text = "Update Student";
             // 
             // Fees
             // 
             this.Fees.Controls.Add(this.feeTextBox);
             this.Fees.Controls.Add(this.label24);
-            this.Fees.Location = new System.Drawing.Point(841, 16);
+            this.Fees.Location = new System.Drawing.Point(801, 91);
             this.Fees.Name = "Fees";
             this.Fees.Size = new System.Drawing.Size(261, 176);
             this.Fees.TabIndex = 43;
@@ -470,7 +438,7 @@
             this.groupBox7.Controls.Add(this.cityInfoTextBox);
             this.groupBox7.Controls.Add(this.extInfoTextBox);
             this.groupBox7.Controls.Add(this.addressInfoTextBox);
-            this.groupBox7.Location = new System.Drawing.Point(428, 0);
+            this.groupBox7.Location = new System.Drawing.Point(393, 91);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Size = new System.Drawing.Size(381, 194);
             this.groupBox7.TabIndex = 42;
@@ -598,7 +566,7 @@
             this.groupBox6.Controls.Add(this.lastNameInfoTextBox);
             this.groupBox6.Controls.Add(this.numberInfoTextBox);
             this.groupBox6.Controls.Add(this.fristNameInfoTextBox);
-            this.groupBox6.Location = new System.Drawing.Point(65, 24);
+            this.groupBox6.Location = new System.Drawing.Point(46, 91);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(341, 162);
             this.groupBox6.TabIndex = 41;
@@ -669,17 +637,29 @@
             this.fristNameInfoTextBox.Size = new System.Drawing.Size(119, 22);
             this.fristNameInfoTextBox.TabIndex = 20;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(77, 34);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(153, 17);
+            this.label2.TabIndex = 44;
+            this.label2.Text = "Enter Student Number:";
+            // 
+            // studentNumberTextBox
+            // 
+            this.studentNumberTextBox.Location = new System.Drawing.Point(242, 36);
+            this.studentNumberTextBox.Name = "studentNumberTextBox";
+            this.studentNumberTextBox.Size = new System.Drawing.Size(85, 22);
+            this.studentNumberTextBox.TabIndex = 45;
+            // 
             // addUpdateStudent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1187, 677);
+            this.ClientSize = new System.Drawing.Size(1404, 801);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
-            this.Controls.Add(this.record2TextBox);
-            this.Controls.Add(this.record1TextBox);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label16);
             this.Name = "addUpdateStudent";
@@ -691,6 +671,7 @@
             this.groupBox2.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
             this.Fees.ResumeLayout(false);
             this.Fees.PerformLayout();
             this.groupBox7.ResumeLayout(false);
@@ -732,10 +713,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox record1TextBox;
-        private System.Windows.Forms.TextBox record2TextBox;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.GroupBox groupBox7;
@@ -763,5 +740,7 @@
         private System.Windows.Forms.GroupBox Fees;
         private System.Windows.Forms.TextBox feeTextBox;
         private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.TextBox studentNumberTextBox;
+        private System.Windows.Forms.Label label2;
     }
 }
