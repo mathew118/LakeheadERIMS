@@ -18,6 +18,17 @@ namespace Lakehead_ERIMS
          * Also maybe shouldnt have the whole DB in memory, they prob have old computers, empty tables when their tabs aren't open
          * 
          * Equipment tab is going to need multiple tables loaded such as suppliers, status, location, so I need to rework table loading.
+         * 
+         * 
+         * ERIC's COMMENTS
+         * 1. I assume that all of the tabs on this menu allow for changes. updates, deletion, of the appropriate data (ie equipment, locations. etc) (NEED TO ADD DELETION)
+         * 2. The large drop-down box with equipment in it, located at the top - interesting idea - Is that so that I can scroll through and pick an item to enter the details below? If so, more detail is needed there - specifically the item number. Also, can one jump to an item or does it need to be scrolled though - there are 9,000 items in the inventory. (ADD ITEM NUMBERS TO THE LISTBOX)
+         * 3. the item number field by the Search Button can be shortened or at least limited to the input length -  each section is only 3 digits - visually if you could add a dash (hyphen) between the two boxes that would look more like how they appear on the inventory items (ADD HYPEN IN-BETWEEN AND LIMIT CHARACTERS TO 3 EACH)
+         * 4. The boxes that display text (eg Item Name, Description 1, Model, etc) will need to be wider to accommodate the full text - the sample you have here has short data, but many are longer  - try some other items like 371-117, 860-257, 980-218 See the Equipment table (tblEquip) in the MSAccess inventory file to see the field lengths. (WIDEN FIELDS)
+         * 5. Notes field will also need to be wider so that more than a few words are displayed at once (WIDEN FIELD)
+         * 6. Nights Rented field - this needs to be a calculated field so that each night it is rented it will add to this number. (THE COLUMN IN THE TABLE IS THE CUMULATIVE TOTAL OF THE NIGHTS RENTED, THIS FIELD SHOULD DISPLAY THE AMOUNT FOR THIS PARTICULAR RENTAL?)
+         * 7. The price and fees fields should be displayed as $175.00 rather than just 175 (FORMAT TEXT ACCORDINGLY)
+         * 8. Will there be error messages that pop up, eg typing in an equipment number that does not exist. Currently, a message comes up saying it does not exist, do you want to create it? - this would be helpful. (ADD PROPER ERROR CHECKING AND ERROR MESSAGES)
          */
 
 
@@ -179,6 +190,11 @@ namespace Lakehead_ERIMS
             //Get selected tab and make changes based on that
         }
 
+        private void staffResetPasswordBtn_Click(object sender, EventArgs e)
+        {
+            
+        }
+
         private void staffLbx_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -327,5 +343,7 @@ namespace Lakehead_ERIMS
                 saveBtn.Enabled = false;
             }
         }
+
+        
     }
 }
