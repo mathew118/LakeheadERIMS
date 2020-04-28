@@ -12,6 +12,9 @@ namespace Lakehead_ERIMS
 {
     public partial class Login : Form
     {
+
+        //Look at lines 47-54 to see an example of dataset querying
+
         public Login()
         {
             InitializeComponent();
@@ -24,7 +27,7 @@ namespace Lakehead_ERIMS
 
         private void loginBtn_Click(object sender, EventArgs e)
         {
-
+            //Filles tblEmployee with a query from the database
             this.tblEmployeeTableAdapter.Fill(this.lUEquipmentDataSet.tblEmployee);
 
             DataRow employeeRow;
@@ -35,16 +38,19 @@ namespace Lakehead_ERIMS
             {
                 MessageBox.Show("You must enter a username.", "Error");
             }
+            //Checks if the select query returns more than 1 row
             else if (this.lUEquipmentDataSet.tblEmployee.Select("Emp_UName = '" + usernameTbx.Text + "'").Length > 1)
             {
                 MessageBox.Show("Usernames must be unique.", "Error");
                 usernameTbx.Clear();
             }
+            //Checks if the select query returns exactly 1 row
             else if (this.lUEquipmentDataSet.tblEmployee.Select("Emp_UName = '" + usernameTbx.Text + "'").Length == 1)
             {
+                //Performs select query checking if Emp_UName col matches the text inside the username textbox. ([0] selects the first row in the query and there should only be 1 row returned)
                 employeeRow = this.lUEquipmentDataSet.tblEmployee.Select("Emp_UName = '" + usernameTbx.Text + "'")[0];
                 
-                //Password Correct
+                //Password Correct (Check if the 6th column (Emp_Password) in the row is equal to the text inside the password textbox)
                 if(employeeRow[5].ToString() == passwordTbx.Text)
                 {
                     //Login
