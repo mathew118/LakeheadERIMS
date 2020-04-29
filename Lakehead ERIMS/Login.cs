@@ -27,7 +27,7 @@ namespace Lakehead_ERIMS
 
         private void loginBtn_Click(object sender, EventArgs e)
         {
-            //Filles tblEmployee with a query from the database
+            //Fills tblEmployee with a query from the database
             this.tblEmployeeTableAdapter.Fill(this.lUEquipmentDataSet.tblEmployee);
 
             DataRow employeeRow;

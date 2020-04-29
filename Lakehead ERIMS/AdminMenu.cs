@@ -18,6 +18,7 @@ namespace Lakehead_ERIMS
          * Also maybe shouldnt have the whole DB in memory, they prob have old computers, empty tables when their tabs aren't open
          * 
          * Equipment tab is going to need multiple tables loaded such as suppliers, status, location, so I need to rework table loading.
+         * I should also make certain status rows permanent since other parts of the application rely on certain status and their index
          * 
          * 
          * ERIC's COMMENTS
