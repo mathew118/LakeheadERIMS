@@ -31,11 +31,29 @@ namespace Lakehead_ERIMS
             connenctionString = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\ongar\OneDrive\Desktop\LUEquipment.mdb;Persist Security Info=True";
             cnn = new OleDbConnection(connenctionString);
             cnn.Open();
-            OleDbCommand command = new OleDbCommand();
-            command.Connection = cnn;
-            command.CommandText = "SELECT Equip_Name FROM tblEquip WHERE Equip_Number = '" + equipNumber.Text + "'";
-            itemNameLabel.Text = command.ExecuteScalar().ToString();
+            //OleDbCommand command = new OleDbCommand();
+            //command.Connection = cnn;
+            //command.CommandText = "SELECT Equip_Name FROM tblEquip WHERE Equip_Number = '" + equipNumber.Text + "'";
+            //itemNameLabel.Text = command.ExecuteScalar().ToString();
 
+            DataRow equipmentrow;
+
+            this.tblEquipTableAdapter.Fill(this.lUEquipmentDataSet.tblEquip);
+            equipmentrow = lUEquipmentDataSet.tblEquip.Select("Equip_Number = '" + equipNumber.Text + "'")[0];
+            itemNameLabel.Text = equipmentrow[2].ToString();
+            desc1Label.Text = equipmentrow[3].ToString();
+            desc2Label.Text = equipmentrow[4].ToString();
+            desc3Label.Text = equipmentrow[5].ToString();
+            manuLabel.Text = equipmentrow[6].ToString();
+            modelLabel.Text = equipmentrow[7].ToString();
+            serialLabel.Text = equipmentrow[8].ToString();
+            notesListBox.Text = equipmentrow[16].ToString();
+            nightLabel.Text = equipmentrow[15].ToString();
+            rentalFeeLabel.Text = equipmentrow[13].ToString();
+
+
+            
+            /*
             OleDbCommand command1 = new OleDbCommand();
             command1.Connection = cnn;
             command1.CommandText = "SELECT Equip_Descrip1 FROM tblEquip WHERE Equip_Number = '" + equipNumber.Text + "'";
@@ -133,9 +151,10 @@ namespace Lakehead_ERIMS
                 studentPhoneLabel.Text = commandStudentPhone.ExecuteScalar().ToString();
 
             }
-
-
+            */
+    
             cnn.Close();
+
         }
 
         private void equipNumber_TextChanged(object sender, EventArgs e)
