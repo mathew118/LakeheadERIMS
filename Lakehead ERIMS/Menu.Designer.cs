@@ -201,8 +201,9 @@
             this.outstandingAccountsBtn.Name = "outstandingAccountsBtn";
             this.outstandingAccountsBtn.Size = new System.Drawing.Size(417, 40);
             this.outstandingAccountsBtn.TabIndex = 11;
-            this.outstandingAccountsBtn.Text = "&Outstanding Accounts";
+            this.outstandingAccountsBtn.Text = "&Overdue Balances";
             this.outstandingAccountsBtn.UseVisualStyleBackColor = true;
+            this.outstandingAccountsBtn.Click += new System.EventHandler(this.outstandingAccountsBtn_Click);
             // 
             // reportsExitBtn
             // 
@@ -222,6 +223,7 @@
             this.overdueRentalsBtn.TabIndex = 12;
             this.overdueRentalsBtn.Text = "Overdue &Rentals";
             this.overdueRentalsBtn.UseVisualStyleBackColor = true;
+            this.overdueRentalsBtn.Click += new System.EventHandler(this.overdueRentalsBtn_Click);
             // 
             // equipmentInventoryBtn
             // 
@@ -231,6 +233,7 @@
             this.equipmentInventoryBtn.TabIndex = 9;
             this.equipmentInventoryBtn.Text = "&Equipment Inventory";
             this.equipmentInventoryBtn.UseVisualStyleBackColor = true;
+            this.equipmentInventoryBtn.Click += new System.EventHandler(this.equipmentInventoryBtn_Click);
             // 
             // equipmentHistoryBtn
             // 
@@ -240,6 +243,7 @@
             this.equipmentHistoryBtn.TabIndex = 10;
             this.equipmentHistoryBtn.Text = "Equipment &History";
             this.equipmentHistoryBtn.UseVisualStyleBackColor = true;
+            this.equipmentHistoryBtn.Click += new System.EventHandler(this.equipmentHistoryBtn_Click);
             // 
             // equipmentOnLoanBtn
             // 
@@ -250,6 +254,7 @@
             this.equipmentOnLoanBtn.TabIndex = 8;
             this.equipmentOnLoanBtn.Text = "Equipment On &Loan";
             this.equipmentOnLoanBtn.UseVisualStyleBackColor = true;
+            this.equipmentOnLoanBtn.Click += new System.EventHandler(this.equipmentOnLoanBtn_Click);
             // 
             // Menu
             // 
