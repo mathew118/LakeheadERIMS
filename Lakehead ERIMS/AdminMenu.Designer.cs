@@ -92,6 +92,9 @@
             this.locationsLbx = new System.Windows.Forms.ListBox();
             this.tblLocationBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.staffTab = new System.Windows.Forms.TabPage();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.staffResetPasswordBtn = new System.Windows.Forms.Button();
             this.staffUsernameTbx = new System.Windows.Forms.TextBox();
             this.staffUsernameLbl = new System.Windows.Forms.Label();
             this.staffTypeLbl = new System.Windows.Forms.Label();
@@ -119,9 +122,6 @@
             this.tblEquipTableAdapter = new Lakehead_ERIMS.LUEquipmentDataSetTableAdapters.tblEquipTableAdapter();
             this.tblStatusTableAdapter = new Lakehead_ERIMS.LUEquipmentDataSetTableAdapters.tblStatusTableAdapter();
             this.tblSupplierTableAdapter = new Lakehead_ERIMS.LUEquipmentDataSetTableAdapters.tblSupplierTableAdapter();
-            this.staffResetPasswordBtn = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.adminTabControl.SuspendLayout();
             this.equipmentTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tblEquipBindingSource)).BeginInit();
@@ -245,6 +245,8 @@
             // 
             // equipmentSupplierCbx
             // 
+            this.equipmentSupplierCbx.DataSource = this.tblSupplierBindingSource;
+            this.equipmentSupplierCbx.DisplayMember = "Supp_Name";
             this.equipmentSupplierCbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.equipmentSupplierCbx.FormattingEnabled = true;
             this.equipmentSupplierCbx.ItemHeight = 13;
@@ -252,6 +254,7 @@
             this.equipmentSupplierCbx.Name = "equipmentSupplierCbx";
             this.equipmentSupplierCbx.Size = new System.Drawing.Size(90, 21);
             this.equipmentSupplierCbx.TabIndex = 59;
+            this.equipmentSupplierCbx.ValueMember = "Supp_ID";
             // 
             // equipmentHomeLocationCbx
             // 
@@ -759,6 +762,32 @@
             this.staffTab.Text = "Staff";
             this.staffTab.UseVisualStyleBackColor = true;
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(130, 219);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(90, 20);
+            this.textBox1.TabIndex = 12;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(43, 222);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(81, 13);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "New Password:";
+            // 
+            // staffResetPasswordBtn
+            // 
+            this.staffResetPasswordBtn.Location = new System.Drawing.Point(264, 208);
+            this.staffResetPasswordBtn.Name = "staffResetPasswordBtn";
+            this.staffResetPasswordBtn.Size = new System.Drawing.Size(90, 40);
+            this.staffResetPasswordBtn.TabIndex = 10;
+            this.staffResetPasswordBtn.Text = "Reset Password";
+            this.staffResetPasswordBtn.UseVisualStyleBackColor = true;
+            this.staffResetPasswordBtn.Click += new System.EventHandler(this.staffResetPasswordBtn_Click);
+            // 
             // staffUsernameTbx
             // 
             this.staffUsernameTbx.Location = new System.Drawing.Point(264, 171);
@@ -972,32 +1001,6 @@
             // tblSupplierTableAdapter
             // 
             this.tblSupplierTableAdapter.ClearBeforeFill = true;
-            // 
-            // staffResetPasswordBtn
-            // 
-            this.staffResetPasswordBtn.Location = new System.Drawing.Point(264, 208);
-            this.staffResetPasswordBtn.Name = "staffResetPasswordBtn";
-            this.staffResetPasswordBtn.Size = new System.Drawing.Size(90, 40);
-            this.staffResetPasswordBtn.TabIndex = 10;
-            this.staffResetPasswordBtn.Text = "Reset Password";
-            this.staffResetPasswordBtn.UseVisualStyleBackColor = true;
-            this.staffResetPasswordBtn.Click += new System.EventHandler(this.staffResetPasswordBtn_Click);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(130, 219);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(90, 20);
-            this.textBox1.TabIndex = 12;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(43, 222);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(81, 13);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "New Password:";
             // 
             // AdminMenu
             // 

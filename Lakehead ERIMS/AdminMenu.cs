@@ -30,7 +30,8 @@ namespace Lakehead_ERIMS
          * 6. Nights Rented field - this needs to be a calculated field so that each night it is rented it will add to this number. (THE COLUMN IN THE TABLE IS THE CUMULATIVE TOTAL OF THE NIGHTS RENTED, THIS FIELD SHOULD DISPLAY THE AMOUNT FOR THIS PARTICULAR RENTAL?)
          * 7. The price and fees fields should be displayed as $175.00 rather than just 175 (FORMAT TEXT ACCORDINGLY)
          * 8. Will there be error messages that pop up, eg typing in an equipment number that does not exist. Currently, a message comes up saying it does not exist, do you want to create it? - this would be helpful. (ADD PROPER ERROR CHECKING AND ERROR MESSAGES)
-         */
+         * Make sure when equipment is rented out, total rental days are added to nights. If The rental is cancelled or returned early, it should subtract the remaining days from equipment nights.
+        */
 
 
 
@@ -44,6 +45,9 @@ namespace Lakehead_ERIMS
             //Load equipment table as this is the first tab opened on startup
             Application.DoEvents();
             this.tblEquipTableAdapter.Fill(this.lUEquipmentDataSet.tblEquip);
+            this.tblSupplierTableAdapter.Fill(this.lUEquipmentDataSet.tblSupplier);
+            this.tblStatusTableAdapter.Fill(this.lUEquipmentDataSet.tblStatus);
+            this.tblLocationTableAdapter.Fill(this.lUEquipmentDataSet.tblLocation);
 
             //Set the first item as selected
             if (equipmentLbx.Items.Count > 0)
@@ -289,6 +293,26 @@ namespace Lakehead_ERIMS
                     equipmentRow = this.lUEquipmentDataSet.tblEquip.Select("Equip_ID = '" + equipmentLbx.SelectedValue.ToString() + "'")[0];
 
                     //Assigns row data to textboxes
+                    /* 0 - Equip_ID
+                     * 1 - Equip_Number
+                     * 2 - Equip_Name
+                     * 3 - Equip_Descrip1
+                     * 4 - Equip_Descrip2
+                     * 5 - Equip_Descrip3
+                     * 6 - Equip_Manufacturer
+                     * 7 - Equip_Model
+                     * 8 - Equip_Serial
+                     * 9 - Supp_ID
+                     * 10 - Equip_DatePurch
+                     * 11 - Equip_Price
+                     * 12 - Equip_PONumber
+                     * 13 - Equip_RentalPrice
+                     * 14 - Equip_LateFee
+                     * 15 - Equip_Nights
+                     * 16 - Equip_Notes
+                     * 17 - Status_ID
+                     * 18 - Loc_ID
+                     */
                     equipmentItemNumberSearchATbx.Text = equipmentRow[1].ToString().Substring(0, 3);
                     equipmentItemNumberSearchBTbx.Text = equipmentRow[1].ToString().Substring(3);
                     equipmentItemNameTbx.Text = equipmentRow[2].ToString();
@@ -302,11 +326,17 @@ namespace Lakehead_ERIMS
                     equipmentPONumberTbx.Text = equipmentRow[12].ToString();
                     equipmentRentalFeeTbx.Text = equipmentRow[13].ToString();
                     equipmentLateFeeTbx.Text = equipmentRow[14].ToString();
-                    equipmentNightsRentedTbx.Text = equipmentRow[15].ToString();
+                    //equipmentNightsRentedTbx.Text = equipmentRow[15].ToString();
                     equipmentNotesTbx.Text = equipmentRow[16].ToString();
 
-                    
+                    //Set Status
+                    int statusId = int.Parse(equipmentRow[17].ToString());
+                    equipmentStatusCbx.SelectedValue = statusId;
+                    //lUEquipmentDataSet.tblStatus.FindByStatus_ID(statusId).Status_Name;
 
+                    //Set Location
+
+                    //Set Supplier
 
                     //Lock save button until changes are made
                     saveBtn.Enabled = false;
