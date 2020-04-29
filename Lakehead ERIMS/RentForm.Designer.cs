@@ -38,34 +38,15 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.equipNumbTextBox = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.rentItemGridView = new System.Windows.Forms.DataGridView();
-            this.lUEquipmentDataSet = new Lakehead_ERIMS.LUEquipmentDataSet();
-            this.tblEquipBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.tblEquipTableAdapter = new Lakehead_ERIMS.LUEquipmentDataSetTableAdapters.tblEquipTableAdapter();
-            this.equipIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.equipNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.equipNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.equipDescrip1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.equipDescrip2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.equipDescrip3DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.equipManufacturerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.equipModelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.equipSerialDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.suppIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.equipDatePurchDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.equipPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.equipPONumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.equipRentalPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.equipLateFeeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.equipNightsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.equipNotesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.statusIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.locIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button1 = new System.Windows.Forms.Button();
+            this.searchButton = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button2 = new System.Windows.Forms.Button();
+            this.addButton = new System.Windows.Forms.Button();
+            this.equipNumbTextBox = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.tblEquipBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.lUEquipmentDataSet = new Lakehead_ERIMS.LUEquipmentDataSet();
+            this.tblEquipTableAdapter = new Lakehead_ERIMS.LUEquipmentDataSetTableAdapters.tblEquipTableAdapter();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.studentNumberLabel = new System.Windows.Forms.Label();
@@ -79,11 +60,32 @@
             this.enterStudentNumberButton = new System.Windows.Forms.Button();
             this.studentLNameLabel = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.totalLabel = new System.Windows.Forms.Label();
+            this.hstLabel = new System.Windows.Forms.Label();
+            this.waiveCheckBox = new System.Windows.Forms.CheckBox();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.subtotalLabel = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.deleteFeeRadioButton = new System.Windows.Forms.RadioButton();
+            this.payFeeRadioButton = new System.Windows.Forms.RadioButton();
+            this.ignoreRadioButton = new System.Windows.Forms.RadioButton();
+            this.label11 = new System.Windows.Forms.Label();
+            this.feeTextBox = new System.Windows.Forms.TextBox();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.Equip_Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Equip_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Equip_RentalPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.rentItemGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lUEquipmentDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblEquipBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lUEquipmentDataSet)).BeginInit();
             this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -160,10 +162,10 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.searchButton);
+            this.groupBox1.Controls.Add(this.dataGridView1);
             this.groupBox1.Controls.Add(this.button2);
-            this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.rentItemGridView);
-            this.groupBox1.Controls.Add(this.label10);
+            this.groupBox1.Controls.Add(this.addButton);
             this.groupBox1.Controls.Add(this.equipNumbTextBox);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Location = new System.Drawing.Point(33, 457);
@@ -173,215 +175,24 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
             // 
-            // label9
+            // searchButton
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(41, 40);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(46, 17);
-            this.label9.TabIndex = 1;
-            this.label9.Text = "label9";
+            this.searchButton.Location = new System.Drawing.Point(343, 36);
+            this.searchButton.Name = "searchButton";
+            this.searchButton.Size = new System.Drawing.Size(98, 33);
+            this.searchButton.TabIndex = 8;
+            this.searchButton.Text = "Search";
+            this.searchButton.UseVisualStyleBackColor = true;
+            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
-            // equipNumbTextBox
+            // dataGridView1
             // 
-            this.equipNumbTextBox.Location = new System.Drawing.Point(107, 38);
-            this.equipNumbTextBox.Name = "equipNumbTextBox";
-            this.equipNumbTextBox.Size = new System.Drawing.Size(83, 22);
-            this.equipNumbTextBox.TabIndex = 2;
-            this.equipNumbTextBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(258, 41);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(54, 17);
-            this.label10.TabIndex = 3;
-            this.label10.Text = "label10";
-            // 
-            // rentItemGridView
-            // 
-            this.rentItemGridView.AutoGenerateColumns = false;
-            this.rentItemGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.rentItemGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.equipIDDataGridViewTextBoxColumn,
-            this.equipNumberDataGridViewTextBoxColumn,
-            this.equipNameDataGridViewTextBoxColumn,
-            this.equipDescrip1DataGridViewTextBoxColumn,
-            this.equipDescrip2DataGridViewTextBoxColumn,
-            this.equipDescrip3DataGridViewTextBoxColumn,
-            this.equipManufacturerDataGridViewTextBoxColumn,
-            this.equipModelDataGridViewTextBoxColumn,
-            this.equipSerialDataGridViewTextBoxColumn,
-            this.suppIDDataGridViewTextBoxColumn,
-            this.equipDatePurchDataGridViewTextBoxColumn,
-            this.equipPriceDataGridViewTextBoxColumn,
-            this.equipPONumberDataGridViewTextBoxColumn,
-            this.equipRentalPriceDataGridViewTextBoxColumn,
-            this.equipLateFeeDataGridViewTextBoxColumn,
-            this.equipNightsDataGridViewTextBoxColumn,
-            this.equipNotesDataGridViewTextBoxColumn,
-            this.statusIDDataGridViewTextBoxColumn,
-            this.locIDDataGridViewTextBoxColumn});
-            this.rentItemGridView.DataSource = this.tblEquipBindingSource;
-            this.rentItemGridView.Location = new System.Drawing.Point(44, 76);
-            this.rentItemGridView.Name = "rentItemGridView";
-            this.rentItemGridView.RowTemplate.Height = 24;
-            this.rentItemGridView.Size = new System.Drawing.Size(334, 155);
-            this.rentItemGridView.TabIndex = 4;
-            // 
-            // lUEquipmentDataSet
-            // 
-            this.lUEquipmentDataSet.DataSetName = "LUEquipmentDataSet";
-            this.lUEquipmentDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // tblEquipBindingSource
-            // 
-            this.tblEquipBindingSource.DataMember = "tblEquip";
-            this.tblEquipBindingSource.DataSource = this.lUEquipmentDataSet;
-            // 
-            // tblEquipTableAdapter
-            // 
-            this.tblEquipTableAdapter.ClearBeforeFill = true;
-            // 
-            // equipIDDataGridViewTextBoxColumn
-            // 
-            this.equipIDDataGridViewTextBoxColumn.DataPropertyName = "Equip_ID";
-            this.equipIDDataGridViewTextBoxColumn.HeaderText = "Equip_ID";
-            this.equipIDDataGridViewTextBoxColumn.Name = "equipIDDataGridViewTextBoxColumn";
-            this.equipIDDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // equipNumberDataGridViewTextBoxColumn
-            // 
-            this.equipNumberDataGridViewTextBoxColumn.DataPropertyName = "Equip_Number";
-            this.equipNumberDataGridViewTextBoxColumn.HeaderText = "Number";
-            this.equipNumberDataGridViewTextBoxColumn.Name = "equipNumberDataGridViewTextBoxColumn";
-            // 
-            // equipNameDataGridViewTextBoxColumn
-            // 
-            this.equipNameDataGridViewTextBoxColumn.DataPropertyName = "Equip_Name";
-            this.equipNameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.equipNameDataGridViewTextBoxColumn.Name = "equipNameDataGridViewTextBoxColumn";
-            // 
-            // equipDescrip1DataGridViewTextBoxColumn
-            // 
-            this.equipDescrip1DataGridViewTextBoxColumn.DataPropertyName = "Equip_Descrip1";
-            this.equipDescrip1DataGridViewTextBoxColumn.HeaderText = "Equip_Descrip1";
-            this.equipDescrip1DataGridViewTextBoxColumn.Name = "equipDescrip1DataGridViewTextBoxColumn";
-            this.equipDescrip1DataGridViewTextBoxColumn.Visible = false;
-            // 
-            // equipDescrip2DataGridViewTextBoxColumn
-            // 
-            this.equipDescrip2DataGridViewTextBoxColumn.DataPropertyName = "Equip_Descrip2";
-            this.equipDescrip2DataGridViewTextBoxColumn.HeaderText = "Equip_Descrip2";
-            this.equipDescrip2DataGridViewTextBoxColumn.Name = "equipDescrip2DataGridViewTextBoxColumn";
-            this.equipDescrip2DataGridViewTextBoxColumn.Visible = false;
-            // 
-            // equipDescrip3DataGridViewTextBoxColumn
-            // 
-            this.equipDescrip3DataGridViewTextBoxColumn.DataPropertyName = "Equip_Descrip3";
-            this.equipDescrip3DataGridViewTextBoxColumn.HeaderText = "Equip_Descrip3";
-            this.equipDescrip3DataGridViewTextBoxColumn.Name = "equipDescrip3DataGridViewTextBoxColumn";
-            this.equipDescrip3DataGridViewTextBoxColumn.Visible = false;
-            // 
-            // equipManufacturerDataGridViewTextBoxColumn
-            // 
-            this.equipManufacturerDataGridViewTextBoxColumn.DataPropertyName = "Equip_Manufacturer";
-            this.equipManufacturerDataGridViewTextBoxColumn.HeaderText = "Equip_Manufacturer";
-            this.equipManufacturerDataGridViewTextBoxColumn.Name = "equipManufacturerDataGridViewTextBoxColumn";
-            this.equipManufacturerDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // equipModelDataGridViewTextBoxColumn
-            // 
-            this.equipModelDataGridViewTextBoxColumn.DataPropertyName = "Equip_Model";
-            this.equipModelDataGridViewTextBoxColumn.HeaderText = "Equip_Model";
-            this.equipModelDataGridViewTextBoxColumn.Name = "equipModelDataGridViewTextBoxColumn";
-            this.equipModelDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // equipSerialDataGridViewTextBoxColumn
-            // 
-            this.equipSerialDataGridViewTextBoxColumn.DataPropertyName = "Equip_Serial";
-            this.equipSerialDataGridViewTextBoxColumn.HeaderText = "Equip_Serial";
-            this.equipSerialDataGridViewTextBoxColumn.Name = "equipSerialDataGridViewTextBoxColumn";
-            this.equipSerialDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // suppIDDataGridViewTextBoxColumn
-            // 
-            this.suppIDDataGridViewTextBoxColumn.DataPropertyName = "Supp_ID";
-            this.suppIDDataGridViewTextBoxColumn.HeaderText = "Supp_ID";
-            this.suppIDDataGridViewTextBoxColumn.Name = "suppIDDataGridViewTextBoxColumn";
-            this.suppIDDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // equipDatePurchDataGridViewTextBoxColumn
-            // 
-            this.equipDatePurchDataGridViewTextBoxColumn.DataPropertyName = "Equip_DatePurch";
-            this.equipDatePurchDataGridViewTextBoxColumn.HeaderText = "Equip_DatePurch";
-            this.equipDatePurchDataGridViewTextBoxColumn.Name = "equipDatePurchDataGridViewTextBoxColumn";
-            this.equipDatePurchDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // equipPriceDataGridViewTextBoxColumn
-            // 
-            this.equipPriceDataGridViewTextBoxColumn.DataPropertyName = "Equip_Price";
-            this.equipPriceDataGridViewTextBoxColumn.HeaderText = "Price";
-            this.equipPriceDataGridViewTextBoxColumn.Name = "equipPriceDataGridViewTextBoxColumn";
-            this.equipPriceDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // equipPONumberDataGridViewTextBoxColumn
-            // 
-            this.equipPONumberDataGridViewTextBoxColumn.DataPropertyName = "Equip_PONumber";
-            this.equipPONumberDataGridViewTextBoxColumn.HeaderText = "Equip_PONumber";
-            this.equipPONumberDataGridViewTextBoxColumn.Name = "equipPONumberDataGridViewTextBoxColumn";
-            this.equipPONumberDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // equipRentalPriceDataGridViewTextBoxColumn
-            // 
-            this.equipRentalPriceDataGridViewTextBoxColumn.DataPropertyName = "Equip_RentalPrice";
-            this.equipRentalPriceDataGridViewTextBoxColumn.HeaderText = "Rental Price";
-            this.equipRentalPriceDataGridViewTextBoxColumn.Name = "equipRentalPriceDataGridViewTextBoxColumn";
-            // 
-            // equipLateFeeDataGridViewTextBoxColumn
-            // 
-            this.equipLateFeeDataGridViewTextBoxColumn.DataPropertyName = "Equip_LateFee";
-            this.equipLateFeeDataGridViewTextBoxColumn.HeaderText = "Equip_LateFee";
-            this.equipLateFeeDataGridViewTextBoxColumn.Name = "equipLateFeeDataGridViewTextBoxColumn";
-            this.equipLateFeeDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // equipNightsDataGridViewTextBoxColumn
-            // 
-            this.equipNightsDataGridViewTextBoxColumn.DataPropertyName = "Equip_Nights";
-            this.equipNightsDataGridViewTextBoxColumn.HeaderText = "Equip_Nights";
-            this.equipNightsDataGridViewTextBoxColumn.Name = "equipNightsDataGridViewTextBoxColumn";
-            this.equipNightsDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // equipNotesDataGridViewTextBoxColumn
-            // 
-            this.equipNotesDataGridViewTextBoxColumn.DataPropertyName = "Equip_Notes";
-            this.equipNotesDataGridViewTextBoxColumn.HeaderText = "Equip_Notes";
-            this.equipNotesDataGridViewTextBoxColumn.Name = "equipNotesDataGridViewTextBoxColumn";
-            this.equipNotesDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // statusIDDataGridViewTextBoxColumn
-            // 
-            this.statusIDDataGridViewTextBoxColumn.DataPropertyName = "Status_ID";
-            this.statusIDDataGridViewTextBoxColumn.HeaderText = "Status_ID";
-            this.statusIDDataGridViewTextBoxColumn.Name = "statusIDDataGridViewTextBoxColumn";
-            this.statusIDDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // locIDDataGridViewTextBoxColumn
-            // 
-            this.locIDDataGridViewTextBoxColumn.DataPropertyName = "Loc_ID";
-            this.locIDDataGridViewTextBoxColumn.HeaderText = "Loc_ID";
-            this.locIDDataGridViewTextBoxColumn.Name = "locIDDataGridViewTextBoxColumn";
-            this.locIDDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(27, 263);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(178, 53);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(48, 92);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(382, 138);
+            this.dataGridView1.TabIndex = 7;
             // 
             // button2
             // 
@@ -391,6 +202,47 @@
             this.button2.TabIndex = 6;
             this.button2.Text = "button2";
             this.button2.UseVisualStyleBackColor = true;
+            // 
+            // addButton
+            // 
+            this.addButton.Location = new System.Drawing.Point(27, 263);
+            this.addButton.Name = "addButton";
+            this.addButton.Size = new System.Drawing.Size(178, 53);
+            this.addButton.TabIndex = 5;
+            this.addButton.Text = "Add";
+            this.addButton.UseVisualStyleBackColor = true;
+            this.addButton.Click += new System.EventHandler(this.addButton_Click);
+            // 
+            // equipNumbTextBox
+            // 
+            this.equipNumbTextBox.Location = new System.Drawing.Point(218, 41);
+            this.equipNumbTextBox.Name = "equipNumbTextBox";
+            this.equipNumbTextBox.Size = new System.Drawing.Size(83, 22);
+            this.equipNumbTextBox.TabIndex = 2;
+            this.equipNumbTextBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(41, 40);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(171, 17);
+            this.label9.TabIndex = 1;
+            this.label9.Text = "Enter Equipment Number:";
+            // 
+            // tblEquipBindingSource
+            // 
+            this.tblEquipBindingSource.DataMember = "tblEquip";
+            this.tblEquipBindingSource.DataSource = this.lUEquipmentDataSet;
+            // 
+            // lUEquipmentDataSet
+            // 
+            this.lUEquipmentDataSet.DataSetName = "LUEquipmentDataSet";
+            this.lUEquipmentDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // tblEquipTableAdapter
+            // 
+            this.tblEquipTableAdapter.ClearBeforeFill = true;
             // 
             // dateTimePicker1
             // 
@@ -514,11 +366,185 @@
             this.label13.TabIndex = 23;
             this.label13.Text = "Student Last Name:";
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.totalLabel);
+            this.groupBox3.Controls.Add(this.hstLabel);
+            this.groupBox3.Controls.Add(this.waiveCheckBox);
+            this.groupBox3.Controls.Add(this.label24);
+            this.groupBox3.Controls.Add(this.label16);
+            this.groupBox3.Controls.Add(this.subtotalLabel);
+            this.groupBox3.Controls.Add(this.label14);
+            this.groupBox3.Location = new System.Drawing.Point(889, 420);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(402, 297);
+            this.groupBox3.TabIndex = 25;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Payment Summary";
+            // 
+            // totalLabel
+            // 
+            this.totalLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.totalLabel.Location = new System.Drawing.Point(191, 153);
+            this.totalLabel.Name = "totalLabel";
+            this.totalLabel.Size = new System.Drawing.Size(54, 17);
+            this.totalLabel.TabIndex = 10;
+            this.totalLabel.Text = "    ";
+            // 
+            // hstLabel
+            // 
+            this.hstLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.hstLabel.Location = new System.Drawing.Point(191, 109);
+            this.hstLabel.Name = "hstLabel";
+            this.hstLabel.Size = new System.Drawing.Size(54, 17);
+            this.hstLabel.TabIndex = 9;
+            this.hstLabel.Text = "    ";
+            // 
+            // waiveCheckBox
+            // 
+            this.waiveCheckBox.AutoSize = true;
+            this.waiveCheckBox.Location = new System.Drawing.Point(269, 66);
+            this.waiveCheckBox.Name = "waiveCheckBox";
+            this.waiveCheckBox.Size = new System.Drawing.Size(69, 21);
+            this.waiveCheckBox.TabIndex = 8;
+            this.waiveCheckBox.Text = "Waive";
+            this.waiveCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(53, 154);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(44, 17);
+            this.label24.TabIndex = 7;
+            this.label24.Text = "Total:";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(53, 109);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(40, 17);
+            this.label16.TabIndex = 2;
+            this.label16.Text = "HST:";
+            // 
+            // subtotalLabel
+            // 
+            this.subtotalLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.subtotalLabel.Location = new System.Drawing.Point(191, 66);
+            this.subtotalLabel.Name = "subtotalLabel";
+            this.subtotalLabel.Size = new System.Drawing.Size(54, 17);
+            this.subtotalLabel.TabIndex = 1;
+            this.subtotalLabel.Text = "    ";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(53, 62);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(64, 17);
+            this.label14.TabIndex = 0;
+            this.label14.Text = "Subtotal:";
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.deleteFeeRadioButton);
+            this.groupBox4.Controls.Add(this.payFeeRadioButton);
+            this.groupBox4.Controls.Add(this.ignoreRadioButton);
+            this.groupBox4.Controls.Add(this.label11);
+            this.groupBox4.Controls.Add(this.feeTextBox);
+            this.groupBox4.Location = new System.Drawing.Point(900, 119);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(391, 260);
+            this.groupBox4.TabIndex = 26;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Account Balance";
+            // 
+            // deleteFeeRadioButton
+            // 
+            this.deleteFeeRadioButton.AutoSize = true;
+            this.deleteFeeRadioButton.Location = new System.Drawing.Point(86, 215);
+            this.deleteFeeRadioButton.Name = "deleteFeeRadioButton";
+            this.deleteFeeRadioButton.Size = new System.Drawing.Size(98, 21);
+            this.deleteFeeRadioButton.TabIndex = 4;
+            this.deleteFeeRadioButton.TabStop = true;
+            this.deleteFeeRadioButton.Text = "Delete Fee";
+            this.deleteFeeRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // payFeeRadioButton
+            // 
+            this.payFeeRadioButton.AutoSize = true;
+            this.payFeeRadioButton.Location = new System.Drawing.Point(86, 178);
+            this.payFeeRadioButton.Name = "payFeeRadioButton";
+            this.payFeeRadioButton.Size = new System.Drawing.Size(81, 21);
+            this.payFeeRadioButton.TabIndex = 3;
+            this.payFeeRadioButton.TabStop = true;
+            this.payFeeRadioButton.Text = "Pay Fee";
+            this.payFeeRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // ignoreRadioButton
+            // 
+            this.ignoreRadioButton.AutoSize = true;
+            this.ignoreRadioButton.Location = new System.Drawing.Point(86, 137);
+            this.ignoreRadioButton.Name = "ignoreRadioButton";
+            this.ignoreRadioButton.Size = new System.Drawing.Size(97, 21);
+            this.ignoreRadioButton.TabIndex = 2;
+            this.ignoreRadioButton.TabStop = true;
+            this.ignoreRadioButton.Text = "Ignore Fee";
+            this.ignoreRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(75, 64);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(117, 17);
+            this.label11.TabIndex = 1;
+            this.label11.Text = "Outstanding Fee:";
+            // 
+            // feeTextBox
+            // 
+            this.feeTextBox.Location = new System.Drawing.Point(198, 61);
+            this.feeTextBox.Name = "feeTextBox";
+            this.feeTextBox.Size = new System.Drawing.Size(86, 22);
+            this.feeTextBox.TabIndex = 0;
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Equip_Number,
+            this.Equip_Name,
+            this.Equip_RentalPrice});
+            this.dataGridView2.Location = new System.Drawing.Point(513, 529);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.RowTemplate.Height = 24;
+            this.dataGridView2.Size = new System.Drawing.Size(370, 139);
+            this.dataGridView2.TabIndex = 27;
+            // 
+            // Equip_Number
+            // 
+            this.Equip_Number.HeaderText = "Equip_Number";
+            this.Equip_Number.Name = "Equip_Number";
+            // 
+            // Equip_Name
+            // 
+            this.Equip_Name.HeaderText = "Equip_Name";
+            this.Equip_Name.Name = "Equip_Name";
+            // 
+            // Equip_RentalPrice
+            // 
+            this.Equip_RentalPrice.HeaderText = "Equip_RentalPrice";
+            this.Equip_RentalPrice.Name = "Equip_RentalPrice";
+            // 
             // RentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1217, 861);
+            this.ClientSize = new System.Drawing.Size(1327, 861);
+            this.Controls.Add(this.dataGridView2);
+            this.Controls.Add(this.groupBox4);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.studentLNameLabel);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.groupBox2);
@@ -543,11 +569,16 @@
             this.Load += new System.EventHandler(this.RentForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.rentItemGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lUEquipmentDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblEquipBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lUEquipmentDataSet)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -564,34 +595,13 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DataGridView rentItemGridView;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox equipNumbTextBox;
         private System.Windows.Forms.Label label9;
         private LUEquipmentDataSet lUEquipmentDataSet;
         private System.Windows.Forms.BindingSource tblEquipBindingSource;
         private LUEquipmentDataSetTableAdapters.tblEquipTableAdapter tblEquipTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn equipIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn equipNumberDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn equipNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn equipDescrip1DataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn equipDescrip2DataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn equipDescrip3DataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn equipManufacturerDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn equipModelDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn equipSerialDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn suppIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn equipDatePurchDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn equipPriceDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn equipPONumberDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn equipRentalPriceDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn equipLateFeeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn equipNightsDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn equipNotesDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn statusIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn locIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.Label studentNumberLabel;
@@ -605,5 +615,25 @@
         private System.Windows.Forms.Button enterStudentNumberButton;
         private System.Windows.Forms.Label studentLNameLabel;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Label totalLabel;
+        private System.Windows.Forms.Label hstLabel;
+        private System.Windows.Forms.CheckBox waiveCheckBox;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label subtotalLabel;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.RadioButton deleteFeeRadioButton;
+        private System.Windows.Forms.RadioButton payFeeRadioButton;
+        private System.Windows.Forms.RadioButton ignoreRadioButton;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox feeTextBox;
+        private System.Windows.Forms.Button searchButton;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Equip_Number;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Equip_Name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Equip_RentalPrice;
     }
 }
