@@ -71,6 +71,23 @@ namespace Lakehead_ERIMS
 
         private void searchStudentbttn_Click(object sender, EventArgs e)
         {
+
+            this.tblStudentTableAdapter1.Fill(this.luEquipmentDataSet1.tblStudent);
+            DataRow info;
+            MessageBox.Show(studentNumberTextBox.Text);
+            info = luEquipmentDataSet1.tblStudent.Select("Stu_Number = '" + studentNumberTextBox.Text + "'")[1];
+            lastNameInfoTextBox.Text = info[2].ToString();
+            fristNameInfoTextBox.Text = info[3].ToString();
+            numberInfoTextBox.Text = info[1].ToString();
+            emailInfoTextBox.Text = info[10].ToString();
+            addressInfoTextBox.Text = info[4].ToString();
+            cityInfoTextBox.Text = info[5].ToString();
+            provInfoCombo.Text = info[6].ToString();
+            postalInfoText.Text = info[7].ToString();
+            phoneInfoTextBox.Text = info[8].ToString();
+            extInfoTextBox.Text = info[9].ToString();
+            feeTextBox.Text = info[17].ToString();
+            /*
             string connenctionString;
             OleDbConnection cnn;
             connenctionString = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\ongar\OneDrive\Desktop\LUEquipment.mdb;Persist Security Info=True";
@@ -131,10 +148,13 @@ namespace Lakehead_ERIMS
             command10.CommandText = "SELECT Stu_Owe FROM tblStudent WHERE Stu_Number = '" + studentNumberTextBox.Text + "'";
             feeTextBox.Text = command10.ExecuteScalar().ToString();
             cnn.Close();
+            */
         }
 
         private void updateStudentBttn_Click(object sender, EventArgs e)
         {
+
+            /*
             string connenctionString;
             OleDbConnection cnn;
             connenctionString = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\ongar\OneDrive\Desktop\LUEquipment.mdb;Persist Security Info=True";
@@ -195,6 +215,7 @@ namespace Lakehead_ERIMS
             commandInsert10.CommandText = "UPDATE tblStudent SET STU_owe = '" + feeTextBox.Text + "' WHERE Stu_Number = '" + studentNumberTextBox.Text + "'";
             commandInsert10.ExecuteScalar();
             cnn.Close();
+            */
         }
     }
 }

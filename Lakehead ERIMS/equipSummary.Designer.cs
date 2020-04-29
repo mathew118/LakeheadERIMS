@@ -32,7 +32,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -53,13 +52,9 @@
             this.button2 = new System.Windows.Forms.Button();
             this.label23 = new System.Windows.Forms.Label();
             this.equipNumber = new System.Windows.Forms.TextBox();
-            this.tblEquipBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.lUEquipmentDataSet = new Lakehead_ERIMS.LUEquipmentDataSet();
-            this.tblEquipTableAdapter = new Lakehead_ERIMS.LUEquipmentDataSetTableAdapters.tblEquipTableAdapter();
             this.itemNameLabel = new System.Windows.Forms.Label();
             this.desc2Label = new System.Windows.Forms.Label();
             this.desc3Label = new System.Windows.Forms.Label();
-            this.suppLabel = new System.Windows.Forms.Label();
             this.manuLabel = new System.Windows.Forms.Label();
             this.modelLabel = new System.Windows.Forms.Label();
             this.serialLabel = new System.Windows.Forms.Label();
@@ -74,6 +69,12 @@
             this.dateDueLabel = new System.Windows.Forms.Label();
             this.desc1Label = new System.Windows.Forms.Label();
             this.notesListBox = new System.Windows.Forms.ListBox();
+            this.tblEquipBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.lUEquipmentDataSet = new Lakehead_ERIMS.LUEquipmentDataSet();
+            this.tblEquipTableAdapter = new Lakehead_ERIMS.LUEquipmentDataSetTableAdapters.tblEquipTableAdapter();
+            this.tblRentalTableAdapter1 = new Lakehead_ERIMS.LUEquipmentDataSetTableAdapters.tblRentalTableAdapter();
+            this.equipID = new System.Windows.Forms.Label();
+            this.tblStudentTableAdapter1 = new Lakehead_ERIMS.LUEquipmentDataSetTableAdapters.tblStudentTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.tblEquipBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lUEquipmentDataSet)).BeginInit();
             this.SuspendLayout();
@@ -105,19 +106,10 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "Description2:";
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(51, 334);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(64, 17);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Supplier:";
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(48, 363);
+            this.label5.Location = new System.Drawing.Point(47, 322);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(96, 17);
             this.label5.TabIndex = 4;
@@ -126,7 +118,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(48, 477);
+            this.label6.Location = new System.Drawing.Point(47, 436);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(49, 17);
             this.label6.TabIndex = 5;
@@ -144,7 +136,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(48, 402);
+            this.label8.Location = new System.Drawing.Point(47, 361);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(50, 17);
             this.label8.TabIndex = 7;
@@ -153,7 +145,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(48, 435);
+            this.label9.Location = new System.Drawing.Point(47, 394);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(100, 17);
             this.label9.TabIndex = 8;
@@ -262,7 +254,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(142, 646);
+            this.button1.Location = new System.Drawing.Point(156, 567);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(159, 35);
             this.button1.TabIndex = 43;
@@ -272,7 +264,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(352, 644);
+            this.button2.Location = new System.Drawing.Point(378, 567);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(180, 36);
             this.button2.TabIndex = 44;
@@ -291,26 +283,11 @@
             // 
             // equipNumber
             // 
-            this.equipNumber.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblEquipBindingSource, "Equip_Number", true));
             this.equipNumber.Location = new System.Drawing.Point(267, 73);
             this.equipNumber.Name = "equipNumber";
             this.equipNumber.Size = new System.Drawing.Size(125, 22);
             this.equipNumber.TabIndex = 46;
             this.equipNumber.TextChanged += new System.EventHandler(this.equipNumber_TextChanged);
-            // 
-            // tblEquipBindingSource
-            // 
-            this.tblEquipBindingSource.DataMember = "tblEquip";
-            this.tblEquipBindingSource.DataSource = this.lUEquipmentDataSet;
-            // 
-            // lUEquipmentDataSet
-            // 
-            this.lUEquipmentDataSet.DataSetName = "LUEquipmentDataSet";
-            this.lUEquipmentDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // tblEquipTableAdapter
-            // 
-            this.tblEquipTableAdapter.ClearBeforeFill = true;
             // 
             // itemNameLabel
             // 
@@ -340,19 +317,10 @@
             this.desc3Label.TabIndex = 49;
             this.desc3Label.Text = "                ";
             // 
-            // suppLabel
-            // 
-            this.suppLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.suppLabel.Location = new System.Drawing.Point(157, 332);
-            this.suppLabel.Name = "suppLabel";
-            this.suppLabel.Size = new System.Drawing.Size(195, 19);
-            this.suppLabel.TabIndex = 50;
-            this.suppLabel.Text = "                ";
-            // 
             // manuLabel
             // 
             this.manuLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.manuLabel.Location = new System.Drawing.Point(157, 363);
+            this.manuLabel.Location = new System.Drawing.Point(156, 322);
             this.manuLabel.Name = "manuLabel";
             this.manuLabel.Size = new System.Drawing.Size(195, 19);
             this.manuLabel.TabIndex = 51;
@@ -361,7 +329,7 @@
             // modelLabel
             // 
             this.modelLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.modelLabel.Location = new System.Drawing.Point(157, 402);
+            this.modelLabel.Location = new System.Drawing.Point(156, 361);
             this.modelLabel.Name = "modelLabel";
             this.modelLabel.Size = new System.Drawing.Size(195, 19);
             this.modelLabel.TabIndex = 52;
@@ -370,7 +338,7 @@
             // serialLabel
             // 
             this.serialLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.serialLabel.Location = new System.Drawing.Point(157, 433);
+            this.serialLabel.Location = new System.Drawing.Point(156, 392);
             this.serialLabel.Name = "serialLabel";
             this.serialLabel.Size = new System.Drawing.Size(195, 19);
             this.serialLabel.TabIndex = 53;
@@ -470,16 +438,49 @@
             // 
             this.notesListBox.FormattingEnabled = true;
             this.notesListBox.ItemHeight = 16;
-            this.notesListBox.Location = new System.Drawing.Point(157, 472);
+            this.notesListBox.Location = new System.Drawing.Point(156, 431);
             this.notesListBox.Name = "notesListBox";
             this.notesListBox.Size = new System.Drawing.Size(195, 100);
             this.notesListBox.TabIndex = 65;
+            // 
+            // tblEquipBindingSource
+            // 
+            this.tblEquipBindingSource.DataMember = "tblEquip";
+            this.tblEquipBindingSource.DataSource = this.lUEquipmentDataSet;
+            // 
+            // lUEquipmentDataSet
+            // 
+            this.lUEquipmentDataSet.DataSetName = "LUEquipmentDataSet";
+            this.lUEquipmentDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // tblEquipTableAdapter
+            // 
+            this.tblEquipTableAdapter.ClearBeforeFill = true;
+            // 
+            // tblRentalTableAdapter1
+            // 
+            this.tblRentalTableAdapter1.ClearBeforeFill = true;
+            // 
+            // equipID
+            // 
+            this.equipID.AutoSize = true;
+            this.equipID.Location = new System.Drawing.Point(640, 555);
+            this.equipID.Name = "equipID";
+            this.equipID.Size = new System.Drawing.Size(46, 17);
+            this.equipID.TabIndex = 66;
+            this.equipID.Text = "label4";
+            this.equipID.Visible = false;
+            // 
+            // tblStudentTableAdapter1
+            // 
+            this.tblStudentTableAdapter1.ClearBeforeFill = true;
             // 
             // equipSummary
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(835, 748);
+            this.ClientSize = new System.Drawing.Size(833, 616);
+            this.Controls.Add(this.equipID);
             this.Controls.Add(this.notesListBox);
             this.Controls.Add(this.desc1Label);
             this.Controls.Add(this.dateDueLabel);
@@ -494,7 +495,6 @@
             this.Controls.Add(this.serialLabel);
             this.Controls.Add(this.modelLabel);
             this.Controls.Add(this.manuLabel);
-            this.Controls.Add(this.suppLabel);
             this.Controls.Add(this.desc3Label);
             this.Controls.Add(this.desc2Label);
             this.Controls.Add(this.itemNameLabel);
@@ -518,7 +518,6 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -537,7 +536,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
@@ -564,7 +562,6 @@
         private System.Windows.Forms.Label itemNameLabel;
         private System.Windows.Forms.Label desc2Label;
         private System.Windows.Forms.Label desc3Label;
-        private System.Windows.Forms.Label suppLabel;
         private System.Windows.Forms.Label manuLabel;
         private System.Windows.Forms.Label modelLabel;
         private System.Windows.Forms.Label serialLabel;
@@ -579,5 +576,8 @@
         private System.Windows.Forms.Label dateDueLabel;
         private System.Windows.Forms.Label desc1Label;
         private System.Windows.Forms.ListBox notesListBox;
+        private LUEquipmentDataSetTableAdapters.tblRentalTableAdapter tblRentalTableAdapter1;
+        private System.Windows.Forms.Label equipID;
+        private LUEquipmentDataSetTableAdapters.tblStudentTableAdapter tblStudentTableAdapter1;
     }
 }

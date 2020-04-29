@@ -21,140 +21,96 @@ namespace Lakehead_ERIMS
 
         private void equipSummary_Load(object sender, EventArgs e)
         {
-
+            
         }
         
         private void button1_Click(object sender, EventArgs e)
         {
-            string connenctionString;
-            OleDbConnection cnn;
-            connenctionString = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\ongar\OneDrive\Desktop\LUEquipment.mdb;Persist Security Info=True";
-            cnn = new OleDbConnection(connenctionString);
-            cnn.Open();
-            //OleDbCommand command = new OleDbCommand();
-            //command.Connection = cnn;
-            //command.CommandText = "SELECT Equip_Name FROM tblEquip WHERE Equip_Number = '" + equipNumber.Text + "'";
-            //itemNameLabel.Text = command.ExecuteScalar().ToString();
-
             DataRow equipmentrow;
 
-            this.tblEquipTableAdapter.Fill(this.lUEquipmentDataSet.tblEquip);
-            equipmentrow = lUEquipmentDataSet.tblEquip.Select("Equip_Number = '" + equipNumber.Text + "'")[0];
-            itemNameLabel.Text = equipmentrow[2].ToString();
-            desc1Label.Text = equipmentrow[3].ToString();
-            desc2Label.Text = equipmentrow[4].ToString();
-            desc3Label.Text = equipmentrow[5].ToString();
-            manuLabel.Text = equipmentrow[6].ToString();
-            modelLabel.Text = equipmentrow[7].ToString();
-            serialLabel.Text = equipmentrow[8].ToString();
-            notesListBox.Text = equipmentrow[16].ToString();
-            nightLabel.Text = equipmentrow[15].ToString();
-            rentalFeeLabel.Text = equipmentrow[13].ToString();
+            //if (lUEquipmentDataSet.tblEquip.Select("Equip_Number = '" + equipNumber.Text + "'").Length == 1)
+            //{
+    
+            
+                this.tblEquipTableAdapter.Fill(this.lUEquipmentDataSet.tblEquip);
+                equipmentrow = lUEquipmentDataSet.tblEquip.Select("Equip_Number = '" + equipNumber.Text + "'")[0];
+                itemNameLabel.Text = equipmentrow[2].ToString();
+                desc1Label.Text = equipmentrow[3].ToString();
+                desc2Label.Text = equipmentrow[4].ToString();
+                desc3Label.Text = equipmentrow[5].ToString();
+                manuLabel.Text = equipmentrow[6].ToString();
+                modelLabel.Text = equipmentrow[7].ToString();
+                serialLabel.Text = equipmentrow[8].ToString();
+                notesListBox.Text = equipmentrow[16].ToString();
+                nightLabel.Text = equipmentrow[15].ToString();
+                rentalFeeLabel.Text = equipmentrow[13].ToString();
+                string statusID = equipmentrow[17].ToString();
+                if (statusID == "1")
+                {
+                    statusLabel.Text = "Active";
+                }else if (statusID == "2"){
+                    statusLabel.Text = "Destroyed";
+                }else if (statusID == "3")
+                {
+                    statusLabel.Text = "Retired";
+                }
+                else if (statusID == "4")
+                {
+                    statusLabel.Text = "Missing";
+                }
+                else if (statusID == "5")
+                {
+                    statusLabel.Text = "Scrapped for parts";
+                }
+                else if (statusID == "6")
+                {
+                    statusLabel.Text = "Retired";
+                }
+                else if (statusID == "7")
+                {
+                    statusLabel.Text = "Sold";
+                }
+                else if (statusID == "8")
+                {
+                    statusLabel.Text = "Unknown";
+                }
+                else if (statusID == "9")
+                {
+                    statusLabel.Text = "Out";
+                string EquipID = equipmentrow[0].ToString();
+                this.tblRentalTableAdapter1.Fill(this.lUEquipmentDataSet.tblRental);
+                DataRow rentalDS;
+                rentalDS = lUEquipmentDataSet.tblRental.Select("Equip_ID = '" + equipmentrow[0].ToString() + "'")[0];
+                dateDueLabel.Text = rentalDS[3].ToString();
+                string stuID = rentalDS[1].ToString();
+                this.tblStudentTableAdapter1.Fill(this.lUEquipmentDataSet.tblStudent);
+                DataRow info;
+                info = lUEquipmentDataSet.tblStudent.Select("Stu_ID = '" + stuID + "'")[0];
+                studentNumberLabel.Text = info[1].ToString();
+                studentNameLabel.Text = info[3].ToString();
+                studentPhoneLabel.Text = info[8].ToString();
+                
+                }
+                else if (statusID == "10")
+                {
+                    statusLabel.Text = "Waiting Repaires";
+                }
+                else if (statusID == "11")
+                {
+                    statusLabel.Text = "Lost";
+                }
+
+
+            //}
+           // else
+            //{
+              //  MessageBox.Show("Invalid Number");
+            //}
+           
 
 
             
-            /*
-            OleDbCommand command1 = new OleDbCommand();
-            command1.Connection = cnn;
-            command1.CommandText = "SELECT Equip_Descrip1 FROM tblEquip WHERE Equip_Number = '" + equipNumber.Text + "'";
-            desc1Label.Text = command1.ExecuteScalar().ToString();
-
-            OleDbCommand command2 = new OleDbCommand();
-            command2.Connection = cnn;
-            command2.CommandText = "SELECT Equip_Descrip2 FROM tblEquip WHERE Equip_Number = '" + equipNumber.Text + "'";
-            desc2Label.Text = command2.ExecuteScalar().ToString();
-
-            OleDbCommand command3 = new OleDbCommand();
-            command3.Connection = cnn;
-            command3.CommandText = "SELECT Equip_Descrip3 FROM tblEquip WHERE Equip_Number = '" + equipNumber.Text + "'";
-            desc3Label.Text = command3.ExecuteScalar().ToString();
-
-            //suppler connection
-            // OleDbCommand command4 = new OleDbCommand();
-            //command4.Connection = cnn;
-            //command4.CommandText = "SELECT tblEquip.Supp_ID, tblSupplier.Supp_Name FROM tblEquip INNER JOIN tblSupplier ON tblEquip.Supp_ID=tblSupplier.Supp_ID WHERE Equip_Number = '" + equipNumber.Text + "'";
-            //suppLabel.Text = command4.ExecuteScalar().ToString();
-
-            OleDbCommand command5 = new OleDbCommand();
-            command5.Connection = cnn;
-            command5.CommandText = "SELECT Equip_Manufacturer FROM tblEquip WHERE Equip_Number = '" + equipNumber.Text + "'";
-            manuLabel.Text = command5.ExecuteScalar().ToString();
-
-            OleDbCommand command6 = new OleDbCommand();
-            command6.Connection = cnn;
-            command6.CommandText = "SELECT Equip_Model FROM tblEquip WHERE Equip_Number = '" + equipNumber.Text + "'";
-            modelLabel.Text = command6.ExecuteScalar().ToString();
-
-            OleDbCommand command7 = new OleDbCommand();
-            command7.Connection = cnn;
-            command7.CommandText = "SELECT Equip_Serial FROM tblEquip WHERE Equip_Number = '" + equipNumber.Text + "'";
-            serialLabel.Text = command7.ExecuteScalar().ToString();
-
-            OleDbCommand command8 = new OleDbCommand();
-            command8.Connection = cnn;
-            command8.CommandText = "SELECT Equip_Notes FROM tblEquip WHERE Equip_Number = '" + equipNumber.Text + "'";
-            notesListBox.Text = command8.ExecuteScalar().ToString();
-
-            //home location
-            //OleDbCommand command9 = new OleDbCommand();
-            //command9.Connection = cnn;
-            //command9.CommandText = "SELECT Equip_Descrip3 FROM tblEquip WHERE Equip_Number = '" + equipNumber.Text + "'";
-            //desc3Label.Text = command9.ExecuteScalar().ToString();
-
-            OleDbCommand command10 = new OleDbCommand();
-            command10.Connection = cnn;
-            command10.CommandText = "SELECT Equip_Nights FROM tblEquip WHERE Equip_Number = '" + equipNumber.Text + "'";
-            nightLabel.Text = command10.ExecuteScalar().ToString();
-
-            OleDbCommand command11 = new OleDbCommand();
-            command11.Connection = cnn;
-            command11.CommandText = "SELECT Equip_RentalPrice FROM tblEquip WHERE Equip_Number = '" + equipNumber.Text + "'";
-            rentalFeeLabel.Text = command11.ExecuteScalar().ToString();
-
-            OleDbCommand command12 = new OleDbCommand();
-            command12.Connection = cnn;
-            command12.CommandText = "SELECT Equip_LateFee FROM tblEquip WHERE Equip_Number = '" + equipNumber.Text + "'";
-            lateFeeLabel.Text = command12.ExecuteScalar().ToString();
-
-            //status
-            OleDbCommand command13 = new OleDbCommand();
-            command13.Connection = cnn;
-            command13.CommandText = "SELECT Status_ID FROM tblEquip WHERE Equip_Number = '" + equipNumber.Text + "'";
-            string status = command13.ExecuteScalar().ToString();
-            OleDbCommand commandEquipID = new OleDbCommand();
-            commandEquipID.Connection = cnn;
-            commandEquipID.CommandText = "SELECT Equip_ID FROM tblEquip WHERE Equip_Number = '" + equipNumber.Text + "'";
-            string EquipID = commandEquipID.ExecuteScalar().ToString();
-
-            if (status == "9")
-            {
-                statusLabel.Text = "Out";
-                
-                string query = "SELECT Rent_DateDue FROM tblRental WHERE Equip_ID = " + EquipID + "";
-                OleDbCommand commandStudentInfo = new OleDbCommand(query, cnn);
-                dateDueLabel.Text = commandStudentInfo.ExecuteScalar().ToString();
-
-                string query1 = "SELECT Stu_ID FROM tblRental WHERE Equip_ID = " + EquipID + "";
-                OleDbCommand commandStudent = new OleDbCommand(query1, cnn);
-                string studentID = commandStudent.ExecuteScalar().ToString();
-
-                string querry2 = "SELECT Stu_Number FROM tblStudent WHERE Stu_ID = " + studentID + "";
-                OleDbCommand commandStudentNumber = new OleDbCommand(querry2, cnn);
-                studentNumberLabel.Text = commandStudentNumber.ExecuteScalar().ToString();
-
-                string querry3 = "SELECT Stu_FName FROM tblStudent WHERE Stu_ID = " + studentID + "";
-                OleDbCommand commandStudentName = new OleDbCommand(querry3, cnn);
-                studentNameLabel.Text = commandStudentName.ExecuteScalar().ToString();
-
-                string querry4= "SELECT Stu_LPhone FROM tblStudent WHERE Stu_ID = " + studentID + "";
-                OleDbCommand commandStudentPhone = new OleDbCommand(querry4, cnn);
-                studentPhoneLabel.Text = commandStudentPhone.ExecuteScalar().ToString();
-
-            }
-            */
-    
-            cnn.Close();
-
+          
         }
 
         private void equipNumber_TextChanged(object sender, EventArgs e)

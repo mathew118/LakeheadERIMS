@@ -58,6 +58,8 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.studentNumberTextBox = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.Fees = new System.Windows.Forms.GroupBox();
             this.feeTextBox = new System.Windows.Forms.TextBox();
             this.label24 = new System.Windows.Forms.Label();
@@ -83,8 +85,8 @@
             this.lastNameInfoTextBox = new System.Windows.Forms.TextBox();
             this.numberInfoTextBox = new System.Windows.Forms.TextBox();
             this.fristNameInfoTextBox = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.studentNumberTextBox = new System.Windows.Forms.TextBox();
+            this.tblStudentTableAdapter1 = new Lakehead_ERIMS.LUEquipmentDataSetTableAdapters.tblStudentTableAdapter();
+            this.luEquipmentDataSet1 = new Lakehead_ERIMS.LUEquipmentDataSet();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -93,6 +95,7 @@
             this.Fees.SuspendLayout();
             this.groupBox7.SuspendLayout();
             this.groupBox6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.luEquipmentDataSet1)).BeginInit();
             this.SuspendLayout();
             // 
             // addStudentbttn
@@ -397,6 +400,22 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Update Student";
             // 
+            // studentNumberTextBox
+            // 
+            this.studentNumberTextBox.Location = new System.Drawing.Point(242, 36);
+            this.studentNumberTextBox.Name = "studentNumberTextBox";
+            this.studentNumberTextBox.Size = new System.Drawing.Size(85, 22);
+            this.studentNumberTextBox.TabIndex = 45;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(77, 34);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(153, 17);
+            this.label2.TabIndex = 44;
+            this.label2.Text = "Enter Student Number:";
+            // 
             // Fees
             // 
             this.Fees.Controls.Add(this.feeTextBox);
@@ -637,21 +656,14 @@
             this.fristNameInfoTextBox.Size = new System.Drawing.Size(119, 22);
             this.fristNameInfoTextBox.TabIndex = 20;
             // 
-            // label2
+            // tblStudentTableAdapter1
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(77, 34);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(153, 17);
-            this.label2.TabIndex = 44;
-            this.label2.Text = "Enter Student Number:";
+            this.tblStudentTableAdapter1.ClearBeforeFill = true;
             // 
-            // studentNumberTextBox
+            // luEquipmentDataSet1
             // 
-            this.studentNumberTextBox.Location = new System.Drawing.Point(242, 36);
-            this.studentNumberTextBox.Name = "studentNumberTextBox";
-            this.studentNumberTextBox.Size = new System.Drawing.Size(85, 22);
-            this.studentNumberTextBox.TabIndex = 45;
+            this.luEquipmentDataSet1.DataSetName = "LUEquipmentDataSet";
+            this.luEquipmentDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // addUpdateStudent
             // 
@@ -678,6 +690,7 @@
             this.groupBox7.PerformLayout();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.luEquipmentDataSet1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -742,5 +755,7 @@
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.TextBox studentNumberTextBox;
         private System.Windows.Forms.Label label2;
+        private LUEquipmentDataSetTableAdapters.tblStudentTableAdapter tblStudentTableAdapter1;
+        private LUEquipmentDataSet luEquipmentDataSet1;
     }
 }
