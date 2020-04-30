@@ -20,7 +20,7 @@ namespace Lakehead_ERIMS
          * Equipment tab is going to need multiple tables loaded such as suppliers, status, location, so I need to rework table loading.
          * I should also make certain status rows permanent since other parts of the application rely on certain status and their index
          * 
-         * Dropdowns always re-disable save button?
+         * Dropdowns always re-disable save button? It has something to do with them being connected to a datasource, staff combobox doesn't do this.
          * 
          * Duplicate names may cause issues.
          * 
@@ -187,6 +187,18 @@ namespace Lakehead_ERIMS
             saveBtn.Enabled = true;
         }
 
+        private void HandleNumericOnly(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar) || (e.KeyChar == (char)8))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
         private void saveBtn_Click(object sender, EventArgs e)
         {
             //Get selected tab and make changes based on that
@@ -243,23 +255,20 @@ namespace Lakehead_ERIMS
             //Locations
             else if (adminTabControl.SelectedIndex == 2)
             {
-                int locationIndex = -1;
-                int.TryParse(locationsLbx.SelectedValue.ToString(), out locationIndex);
-                int locationListboxIndex = locationsLbx.SelectedIndex;
-
-                if (locationIndex != -1)
+                //Add New
+                if(locationsLbx.SelectedIndex == -1)
                 {
                     string newLocationName = locationsLocationNameTbx.Text.Trim();
 
                     //Validate input
-                    if(newLocationName.Length > 0)
+                    if (newLocationName.Length > 0)
                     {
-                        //Update row                  
-                        tblLocationTableAdapter.Update(newLocationName, locationIndex, lUEquipmentDataSet.tblLocation.FindByLoc_ID(locationIndex).Loc_Name);
+                        //Add row                  
+                        tblLocationTableAdapter.Insert(newLocationName);
                         this.tblLocationTableAdapter.Fill(this.lUEquipmentDataSet.tblLocation);
 
-                        //Maintain current row selection
-                        locationListboxIndex = locationsLbx.FindStringExact(newLocationName);
+                        //Select row
+                        int locationListboxIndex = locationsLbx.FindStringExact(newLocationName);
                         if (locationListboxIndex != -1)
                         {
                             locationsLbx.SetSelected(locationListboxIndex, true);
@@ -268,18 +277,83 @@ namespace Lakehead_ERIMS
                     else
                     {
                         MessageBox.Show("Location name cannot be empty.", "Error");
-                    }                                
+                    }
+                    
                 }
+                //Update
                 else
                 {
-                    MessageBox.Show("Invalid location selected.", "Error");
-                }
+                    int locationIndex = -1;
+                    int.TryParse(locationsLbx.SelectedValue.ToString(), out locationIndex);
+                    int locationListboxIndex = locationsLbx.SelectedIndex;
+
+                    if (locationIndex != -1)
+                    {
+                        string newLocationName = locationsLocationNameTbx.Text.Trim();
+
+                        //Validate input
+                        if (newLocationName.Length > 0)
+                        {
+                            //Update row                  
+                            tblLocationTableAdapter.Update(newLocationName, locationIndex, lUEquipmentDataSet.tblLocation.FindByLoc_ID(locationIndex).Loc_Name);
+                            this.tblLocationTableAdapter.Fill(this.lUEquipmentDataSet.tblLocation);
+
+                            //Maintain current row selection
+                            locationListboxIndex = locationsLbx.FindStringExact(newLocationName);
+                            if (locationListboxIndex != -1)
+                            {
+                                locationsLbx.SetSelected(locationListboxIndex, true);
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Location name cannot be empty.", "Error");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Invalid location selected.", "Error");
+                    }
+                }                
             }
 
             //Staff
             else if (adminTabControl.SelectedIndex == 3)
             {
+                int staffIndex = -1;
+                int.TryParse(staffLbx.SelectedValue.ToString(), out staffIndex);
+                int staffListboxIndex = staffLbx.SelectedIndex;
 
+                if (staffIndex != -1)
+                {
+                    string newStaffUsername = staffUsernameTbx.Text.Trim();
+                    string newStaffLastName = staffLastNameTbx.Text.Trim();
+                    string newStaffFirstName = staffFirstNameTbx.Text.Trim();
+                    string newStaffType = staffTypeCbx.Text;
+
+                    //Validate input
+                    if (newStaffUsername.Length > 0 && newStaffLastName.Length > 0 && newStaffFirstName.Length > 0 && newStaffType.Length > 0)
+                    {
+                        //Update row                  
+                        tblEmployeeTableAdapter.Update(newStaffUsername, newStaffLastName, newStaffFirstName, newStaffType, lUEquipmentDataSet.tblEmployee.FindByEmp_ID(staffIndex).Emp_Password, staffIndex, lUEquipmentDataSet.tblEmployee.FindByEmp_ID(staffIndex).Emp_UName, lUEquipmentDataSet.tblEmployee.FindByEmp_ID(staffIndex).Emp_LName, lUEquipmentDataSet.tblEmployee.FindByEmp_ID(staffIndex).Emp_FName, lUEquipmentDataSet.tblEmployee.FindByEmp_ID(staffIndex).Emp_Type, lUEquipmentDataSet.tblEmployee.FindByEmp_ID(staffIndex).Emp_Password);
+                        this.tblEmployeeTableAdapter.Fill(this.lUEquipmentDataSet.tblEmployee);
+
+                        //Maintain current row selection
+                        staffListboxIndex = staffLbx.FindStringExact(newStaffUsername);
+                        if (staffListboxIndex != -1)
+                        {
+                            staffLbx.SetSelected(staffListboxIndex, true);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("All fields must not be empty.", "Error");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Invalid staff selected.", "Error");
+                }
             }
 
             //Status
@@ -358,11 +432,74 @@ namespace Lakehead_ERIMS
         private void newBtn_Click(object sender, EventArgs e)
         {
             //Get selected tab and make changes based on that
+            //Equipment
+            if (adminTabControl.SelectedIndex == 0)
+            {
+
+            }
+
+            //Categories
+            else if (adminTabControl.SelectedIndex == 1)
+            {
+                
+            }
+
+            //Locations
+            else if (adminTabControl.SelectedIndex == 2)
+            {
+                //Clear fields
+                locationsLbx.SelectedIndex = -1;
+                locationsLocationNameTbx.Clear();
+
+
+            }
+
+            //Staff
+            else if (adminTabControl.SelectedIndex == 3)
+            {
+                
+            }
+
+            //Status
+            else if (adminTabControl.SelectedIndex == 4)
+            {
+                
+            }
+
+            //Suppliers
+            else if (adminTabControl.SelectedIndex == 5)
+            {
+                
+            }
+
         }
 
         private void staffResetPasswordBtn_Click(object sender, EventArgs e)
         {
-            
+            int staffIndex = -1;
+            int.TryParse(staffLbx.SelectedValue.ToString(), out staffIndex);
+
+            if (staffIndex != -1)
+            {
+                string newStaffPassword = staffPasswordResetTbx.Text.Trim();
+
+                //Validate input
+                if (newStaffPassword.Length > 0)
+                {
+                    //Update row                  
+                    tblEmployeeTableAdapter.Update(lUEquipmentDataSet.tblEmployee.FindByEmp_ID(staffIndex).Emp_UName, lUEquipmentDataSet.tblEmployee.FindByEmp_ID(staffIndex).Emp_LName, lUEquipmentDataSet.tblEmployee.FindByEmp_ID(staffIndex).Emp_FName, lUEquipmentDataSet.tblEmployee.FindByEmp_ID(staffIndex).Emp_Type, newStaffPassword, staffIndex, lUEquipmentDataSet.tblEmployee.FindByEmp_ID(staffIndex).Emp_UName, lUEquipmentDataSet.tblEmployee.FindByEmp_ID(staffIndex).Emp_LName, lUEquipmentDataSet.tblEmployee.FindByEmp_ID(staffIndex).Emp_FName, lUEquipmentDataSet.tblEmployee.FindByEmp_ID(staffIndex).Emp_Type, lUEquipmentDataSet.tblEmployee.FindByEmp_ID(staffIndex).Emp_Password);
+                    staffPasswordResetTbx.Clear();
+                    MessageBox.Show("Password changed.", "Success");                   
+                }
+                else
+                {
+                    MessageBox.Show("Password must not be empty.", "Error");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Invalid staff selected.", "Error");
+            }
         }
 
         private void staffLbx_SelectedIndexChanged(object sender, EventArgs e)
@@ -567,16 +704,6 @@ namespace Lakehead_ERIMS
             }
         }
 
-        private void HandleNumericOnly(object sender, KeyPressEventArgs e)
-        {
-            if (char.IsDigit(e.KeyChar) || (e.KeyChar == (char)8))
-            {
-                e.Handled = false;
-            }
-            else
-            {
-                e.Handled = true;
-            }
-        }
+        
     }
 }

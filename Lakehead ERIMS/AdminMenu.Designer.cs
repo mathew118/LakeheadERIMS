@@ -94,8 +94,8 @@
             this.locationsLocationNameTbx = new System.Windows.Forms.TextBox();
             this.locationsLbx = new System.Windows.Forms.ListBox();
             this.staffTab = new System.Windows.Forms.TabPage();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.staffPasswordResetTbx = new System.Windows.Forms.TextBox();
+            this.staffPasswordResetLbl = new System.Windows.Forms.Label();
             this.staffResetPasswordBtn = new System.Windows.Forms.Button();
             this.staffUsernameTbx = new System.Windows.Forms.TextBox();
             this.staffUsernameLbl = new System.Windows.Forms.Label();
@@ -769,8 +769,8 @@
             // 
             // staffTab
             // 
-            this.staffTab.Controls.Add(this.textBox1);
-            this.staffTab.Controls.Add(this.label1);
+            this.staffTab.Controls.Add(this.staffPasswordResetTbx);
+            this.staffTab.Controls.Add(this.staffPasswordResetLbl);
             this.staffTab.Controls.Add(this.staffResetPasswordBtn);
             this.staffTab.Controls.Add(this.staffUsernameTbx);
             this.staffTab.Controls.Add(this.staffUsernameLbl);
@@ -788,21 +788,22 @@
             this.staffTab.Text = "Staff";
             this.staffTab.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // staffPasswordResetTbx
             // 
-            this.textBox1.Location = new System.Drawing.Point(123, 208);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(90, 20);
-            this.textBox1.TabIndex = 12;
+            this.staffPasswordResetTbx.Location = new System.Drawing.Point(123, 208);
+            this.staffPasswordResetTbx.Name = "staffPasswordResetTbx";
+            this.staffPasswordResetTbx.Size = new System.Drawing.Size(90, 20);
+            this.staffPasswordResetTbx.TabIndex = 12;
+            this.staffPasswordResetTbx.UseSystemPasswordChar = true;
             // 
-            // label1
+            // staffPasswordResetLbl
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(36, 211);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(81, 13);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "New Password:";
+            this.staffPasswordResetLbl.AutoSize = true;
+            this.staffPasswordResetLbl.Location = new System.Drawing.Point(36, 211);
+            this.staffPasswordResetLbl.Name = "staffPasswordResetLbl";
+            this.staffPasswordResetLbl.Size = new System.Drawing.Size(81, 13);
+            this.staffPasswordResetLbl.TabIndex = 11;
+            this.staffPasswordResetLbl.Text = "New Password:";
             // 
             // staffResetPasswordBtn
             // 
@@ -1151,7 +1152,7 @@
         private System.Windows.Forms.ComboBox equipmentSupplierCbx;
         private System.Windows.Forms.TextBox equipmentNotesTbx;
         private System.Windows.Forms.Button staffResetPasswordBtn;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox staffPasswordResetTbx;
+        private System.Windows.Forms.Label staffPasswordResetLbl;
     }
 }
