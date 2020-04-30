@@ -17,7 +17,7 @@ namespace Lakehead_ERIMS
          * Long startup times caused by the tableadapter.fills, I improved it a lot, but see if I can smooth it out any more.
          * Also maybe shouldnt have the whole DB in memory, they prob have old computers, empty tables when their tabs aren't open
          * 
-         * Equipment tab is going to need multiple tables loaded such as suppliers, status, location, so I need to rework table loading.
+         * Equipment tab is going to need multiple tables loaded such as suppliers, status, location, so I may need to rework table loading.
          * I should also make certain status rows permanent since other parts of the application rely on certain status and their index
          * 
          * Dropdowns always re-disable save button? It has something to do with them being connected to a datasource, staff combobox doesn't do this.
@@ -25,7 +25,7 @@ namespace Lakehead_ERIMS
          * Duplicate names may cause issues.
          * 
          * ERIC's COMMENTS
-         * 1. I assume that all of the tabs on this menu allow for changes. updates, deletion, of the appropriate data (ie equipment, locations. etc) (NEED TO ADD DELETION)
+         * 1. I assume that all of the tabs on this menu allow for changes. updates, deletion, of the appropriate data (ie equipment, locations. etc)
          * 2. The large drop-down box with equipment in it, located at the top - interesting idea - Is that so that I can scroll through and pick an item to enter the details below? If so, more detail is needed there - specifically the item number. Also, can one jump to an item or does it need to be scrolled though - there are 9,000 items in the inventory. (ADD ITEM NUMBERS TO THE LISTBOX)
          * 3. the item number field by the Search Button can be shortened or at least limited to the input length -  each section is only 3 digits - visually if you could add a dash (hyphen) between the two boxes that would look more like how they appear on the inventory items (ADD HYPEN IN-BETWEEN AND LIMIT CHARACTERS TO 3 EACH)
          * 4. The boxes that display text (eg Item Name, Description 1, Model, etc) will need to be wider to accommodate the full text - the sample you have here has short data, but many are longer  - try some other items like 371-117, 860-257, 980-218 See the Equipment table (tblEquip) in the MSAccess inventory file to see the field lengths. (WIDEN FIELDS)
@@ -197,6 +197,14 @@ namespace Lakehead_ERIMS
             {
                 e.Handled = true;
             }
+        }
+
+        private void equipmentLbx_Format(object sender, ListControlConvertEventArgs e)
+        {
+            string itemNumber = ((DataRowView)e.ListItem)[1].ToString();
+            string itemName = ((DataRowView)e.ListItem)[2].ToString();
+
+            e.Value = itemNumber.Substring(0, 3) + "-" + itemNumber.Substring(3) + ": " + itemName;
         }
 
         private void saveBtn_Click(object sender, EventArgs e)
@@ -667,6 +675,45 @@ namespace Lakehead_ERIMS
             }
         }
 
+        private void equipmentItemNumberSearchBtn_Click(object sender, EventArgs e)
+        {
+            DataRow equipmentRow;
+            string itemNumber = equipmentItemNumberSearchingATbx.Text + equipmentItemNumberSearchingBTbx.Text;
+            bool itemNumberNumeric = int.TryParse(itemNumber, out int itemNumberInt);
+
+            if (itemNumber.Length == 6 && itemNumberNumeric)
+            {
+                if (this.lUEquipmentDataSet.tblEquip.Select("Equip_Number = '" + itemNumber + "'").Length == 1)
+                {
+                    equipmentRow = this.lUEquipmentDataSet.tblEquip.Select("Equip_Number = '" + itemNumber + "'")[0];
+                    string equipmentListboxName = itemNumber.Substring(0, 3) + "-" + itemNumber.Substring(3) + ": " + equipmentRow[2].ToString();
+
+                    int equipmentListboxIndex = equipmentLbx.FindStringExact(equipmentListboxName);
+                    if (equipmentListboxIndex != -1)
+                    {
+                        equipmentLbx.SetSelected(equipmentListboxIndex, true);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Item does not exist in list.", "Error");
+                    }
+
+                }
+                else if (this.lUEquipmentDataSet.tblEquip.Select("Equip_Number = '" + itemNumber + "'").Length > 1)
+                {
+                    MessageBox.Show("Item number duplicate exists.", "Error");
+                }
+                else
+                {
+                    MessageBox.Show("Item does not exist.", "Error");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Invalid item number entered.", "Error");
+            }
+        }
+
         private void staffLbx_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -782,8 +829,8 @@ namespace Lakehead_ERIMS
                      * 17 - Status_ID
                      * 18 - Loc_ID
                      */
-                    equipmentItemNumberSearchATbx.Text = equipmentRow[1].ToString().Substring(0, 3);
-                    equipmentItemNumberSearchBTbx.Text = equipmentRow[1].ToString().Substring(3);
+                    equipmentItemNumberATbx.Text = equipmentRow[1].ToString().Substring(0, 3);
+                    equipmentItemNumberBTbx.Text = equipmentRow[1].ToString().Substring(3);
                     equipmentItemNameTbx.Text = equipmentRow[2].ToString();
                     equipmentDescription1Tbx.Text = equipmentRow[3].ToString();
                     equipmentDescription2Tbx.Text = equipmentRow[4].ToString();
