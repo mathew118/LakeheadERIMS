@@ -197,11 +197,49 @@ namespace Lakehead_ERIMS
             {
 
             }
+
             //Categories
             else if(adminTabControl.SelectedIndex == 1)
             {
+                int categoryIndex = -1;
+                int.TryParse(categoriesLbx.SelectedValue.ToString(), out categoryIndex);
+                int categoryListboxIndex = categoriesLbx.SelectedIndex;
+                
 
+                if (categoryIndex != -1)
+                {
+                    string newCategoryName = categoriesCategoryNameTbx.Text.Trim();                                
+                    string newCategoryStart = categoriesStartRangeATbx.Text + categoriesStartRangeBTbx.Text;
+                    string newCategoryEnd = categoriesEndRangeATbx.Text + categoriesEndRangeBTbx.Text;
+                    //Checks if both start and end range are entirely numeric
+                    bool startNumeric = int.TryParse(newCategoryStart, out int tempStart);
+                    bool endNumeric = int.TryParse(newCategoryEnd, out int tempEnd);
+
+                    //Validate input
+                    if (newCategoryName.Length > 0 && newCategoryStart.Length == 6 && newCategoryEnd.Length == 6 && startNumeric && endNumeric)
+                    {
+                        //Update row                  
+                        tblCategoryTableAdapter.Update(newCategoryName, newCategoryStart, newCategoryEnd, categoryIndex, lUEquipmentDataSet.tblCategory.FindByCat_ID(categoryIndex).Cat_Name, lUEquipmentDataSet.tblCategory.FindByCat_ID(categoryIndex).Cat_IDStart, lUEquipmentDataSet.tblCategory.FindByCat_ID(categoryIndex).Cat_IDEnd);
+                        this.tblCategoryTableAdapter.Fill(this.lUEquipmentDataSet.tblCategory);
+
+                        //Maintain current row selection
+                        categoryListboxIndex = categoriesLbx.FindStringExact(newCategoryName);
+                        if (categoryListboxIndex != -1)
+                        {
+                            categoriesLbx.SetSelected(categoryListboxIndex, true);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Category name empty or range invalid.", "Error");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Invalid category selected.", "Error");
+                }
             }
+
             //Locations
             else if (adminTabControl.SelectedIndex == 2)
             {
@@ -237,11 +275,13 @@ namespace Lakehead_ERIMS
                     MessageBox.Show("Invalid location selected.", "Error");
                 }
             }
+
             //Staff
             else if (adminTabControl.SelectedIndex == 3)
             {
 
             }
+
             //Status
             else if (adminTabControl.SelectedIndex == 4)
             {
@@ -277,6 +317,7 @@ namespace Lakehead_ERIMS
                     MessageBox.Show("Invalid status selected.", "Error");
                 }
             }
+
             //Suppliers
             else if (adminTabControl.SelectedIndex == 5)
             {
@@ -526,6 +567,16 @@ namespace Lakehead_ERIMS
             }
         }
 
-        
+        private void HandleNumericOnly(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar) || (e.KeyChar == (char)8))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
     }
 }
