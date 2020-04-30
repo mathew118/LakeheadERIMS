@@ -776,7 +776,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(132, 208);
+            this.textBox1.Location = new System.Drawing.Point(123, 208);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(90, 20);
             this.textBox1.TabIndex = 12;
@@ -784,7 +784,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(45, 211);
+            this.label1.Location = new System.Drawing.Point(36, 211);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(81, 13);
             this.label1.TabIndex = 11;
@@ -792,7 +792,7 @@
             // 
             // staffResetPasswordBtn
             // 
-            this.staffResetPasswordBtn.Location = new System.Drawing.Point(264, 208);
+            this.staffResetPasswordBtn.Location = new System.Drawing.Point(255, 208);
             this.staffResetPasswordBtn.Name = "staffResetPasswordBtn";
             this.staffResetPasswordBtn.Size = new System.Drawing.Size(99, 21);
             this.staffResetPasswordBtn.TabIndex = 10;

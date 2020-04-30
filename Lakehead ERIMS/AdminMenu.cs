@@ -91,12 +91,12 @@ namespace Lakehead_ERIMS
                 {
                     //This line of code loads data into the 'lUEquipmentDataSet.tblEquip' table.
                     Application.DoEvents();
-                    this.tblEquipTableAdapter.Fill(this.lUEquipmentDataSet.tblEquip);
+                    this.tblEquipTableAdapter.Fill(this.lUEquipmentDataSet.tblEquip);                   
+                }
 
-                    if(equipmentLbx.Items.Count > 0)
-                    {
-                        equipmentLbx.SetSelected(0, true);
-                    }
+                if (equipmentLbx.Items.Count > 0)
+                {
+                    equipmentLbx.SetSelected(0, true);
                 }
             }
 
@@ -108,11 +108,11 @@ namespace Lakehead_ERIMS
                     //This line of code loads data into the 'lUEquipmentDataSet.tblCategory' table.
                     Application.DoEvents();
                     this.tblCategoryTableAdapter.Fill(this.lUEquipmentDataSet.tblCategory);
+                }
 
-                    if (categoriesLbx.Items.Count > 0)
-                    {
-                        categoriesLbx.SetSelected(0, true);
-                    }
+                if (categoriesLbx.Items.Count > 0)
+                {
+                    categoriesLbx.SetSelected(0, true);
                 }
             }
 
@@ -123,12 +123,12 @@ namespace Lakehead_ERIMS
                 {
                     //This line of code loads data into the 'lUEquipmentDataSet.tblLocation' table.
                     Application.DoEvents();
-                    this.tblLocationTableAdapter.Fill(this.lUEquipmentDataSet.tblLocation);
+                    this.tblLocationTableAdapter.Fill(this.lUEquipmentDataSet.tblLocation);                    
+                }
 
-                    if (locationsLbx.Items.Count > 0)
-                    {
-                        locationsLbx.SetSelected(0, true);
-                    }
+                if (locationsLbx.Items.Count > 0)
+                {
+                    locationsLbx.SetSelected(0, true);
                 }
             }
 
@@ -140,11 +140,11 @@ namespace Lakehead_ERIMS
                     //This line of code loads data into the 'lUEquipmentDataSet.tblEmployee' table.
                     Application.DoEvents();
                     this.tblEmployeeTableAdapter.Fill(this.lUEquipmentDataSet.tblEmployee);
+                }
 
-                    if (staffLbx.Items.Count > 0)
-                    {
-                        staffLbx.SetSelected(0, true);
-                    }
+                if (staffLbx.Items.Count > 0)
+                {
+                    staffLbx.SetSelected(0, true);
                 }
             }
 
@@ -156,11 +156,11 @@ namespace Lakehead_ERIMS
                     //This line of code loads data into the 'lUEquipmentDataSet.tblStatus' table.
                     Application.DoEvents();
                     this.tblStatusTableAdapter.Fill(this.lUEquipmentDataSet.tblStatus);
+                }
 
-                    if (statusLbx.Items.Count > 0)
-                    {
-                        statusLbx.SetSelected(0, true);
-                    }
+                if (statusLbx.Items.Count > 0)
+                {
+                    statusLbx.SetSelected(0, true);
                 }
             }
 
@@ -172,11 +172,11 @@ namespace Lakehead_ERIMS
                     //This line of code loads data into the 'lUEquipmentDataSet.tblSupplier' table.
                     Application.DoEvents();
                     this.tblSupplierTableAdapter.Fill(this.lUEquipmentDataSet.tblSupplier);
+                }
 
-                    if (suppliersLbx.Items.Count > 0)
-                    {
-                        suppliersLbx.SetSelected(0, true);
-                    }
+                if (suppliersLbx.Items.Count > 0)
+                {
+                    suppliersLbx.SetSelected(0, true);
                 }
             }
         }
@@ -190,6 +190,67 @@ namespace Lakehead_ERIMS
         {
             //Get selected tab and make changes based on that
             saveBtn.Enabled = false;
+
+            //Equipment
+            if(adminTabControl.SelectedIndex == 0)
+            {
+
+            }
+            //Categories
+            else if(adminTabControl.SelectedIndex == 1)
+            {
+
+            }
+            //Locations
+            else if (adminTabControl.SelectedIndex == 2)
+            {
+                int locationIndex = -1;
+                int.TryParse(locationsLbx.SelectedValue.ToString(), out locationIndex);
+                int locationListboxIndex = locationsLbx.SelectedIndex;
+
+                if (locationIndex != -1)
+                {
+                    string newLocationName = locationsLocationNameTbx.Text.Trim();
+
+                    //Validate input
+                    if(newLocationName.Length > 0)
+                    {
+                        //Update row                  
+                        tblLocationTableAdapter.Update(newLocationName, locationIndex, lUEquipmentDataSet.tblLocation.FindByLoc_ID(locationIndex).Loc_Name);
+                        this.tblLocationTableAdapter.Fill(this.lUEquipmentDataSet.tblLocation);
+
+                        //Maintain current row selection
+                        locationListboxIndex = locationsLbx.FindStringExact(newLocationName);
+                        if (locationListboxIndex != -1)
+                        {
+                            locationsLbx.SetSelected(locationListboxIndex, true);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Location name cannot be empty.", "Error");
+                    }                                
+                }
+                else
+                {
+                    MessageBox.Show("Invalid location selected.", "Error");
+                }
+            }
+            //Staff
+            else if (adminTabControl.SelectedIndex == 3)
+            {
+
+            }
+            //Status
+            else if (adminTabControl.SelectedIndex == 4)
+            {
+
+            }
+            //Suppliers
+            else if (adminTabControl.SelectedIndex == 5)
+            {
+
+            }
         }
 
         private void newBtn_Click(object sender, EventArgs e)
