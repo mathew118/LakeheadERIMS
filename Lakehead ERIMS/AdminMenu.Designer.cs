@@ -34,6 +34,8 @@
             this.exitBtn = new System.Windows.Forms.Button();
             this.adminTabControl = new System.Windows.Forms.TabControl();
             this.equipmentTab = new System.Windows.Forms.TabPage();
+            this.equipmentItemNumberSearchingBTbx = new System.Windows.Forms.TextBox();
+            this.equipmentItemNumberSearchingATbx = new System.Windows.Forms.TextBox();
             this.equipmentDatePurchasedDpk = new System.Windows.Forms.DateTimePicker();
             this.equipmentSupplierCbx = new System.Windows.Forms.ComboBox();
             this.tblSupplierBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -122,8 +124,6 @@
             this.tblEquipTableAdapter = new Lakehead_ERIMS.LUEquipmentDataSetTableAdapters.tblEquipTableAdapter();
             this.tblStatusTableAdapter = new Lakehead_ERIMS.LUEquipmentDataSetTableAdapters.tblStatusTableAdapter();
             this.tblSupplierTableAdapter = new Lakehead_ERIMS.LUEquipmentDataSetTableAdapters.tblSupplierTableAdapter();
-            this.equipmentItemNumberSearchingBTbx = new System.Windows.Forms.TextBox();
-            this.equipmentItemNumberSearchingATbx = new System.Windows.Forms.TextBox();
             this.adminTabControl.SuspendLayout();
             this.equipmentTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tblSupplierBindingSource)).BeginInit();
@@ -238,14 +238,34 @@
             this.equipmentTab.Text = "Equipment";
             this.equipmentTab.UseVisualStyleBackColor = true;
             // 
+            // equipmentItemNumberSearchingBTbx
+            // 
+            this.equipmentItemNumberSearchingBTbx.Location = new System.Drawing.Point(306, 104);
+            this.equipmentItemNumberSearchingBTbx.MaxLength = 3;
+            this.equipmentItemNumberSearchingBTbx.Name = "equipmentItemNumberSearchingBTbx";
+            this.equipmentItemNumberSearchingBTbx.Size = new System.Drawing.Size(42, 20);
+            this.equipmentItemNumberSearchingBTbx.TabIndex = 62;
+            this.equipmentItemNumberSearchingBTbx.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.HandleNumericOnly);
+            // 
+            // equipmentItemNumberSearchingATbx
+            // 
+            this.equipmentItemNumberSearchingATbx.Location = new System.Drawing.Point(258, 104);
+            this.equipmentItemNumberSearchingATbx.MaxLength = 3;
+            this.equipmentItemNumberSearchingATbx.Name = "equipmentItemNumberSearchingATbx";
+            this.equipmentItemNumberSearchingATbx.Size = new System.Drawing.Size(42, 20);
+            this.equipmentItemNumberSearchingATbx.TabIndex = 61;
+            this.equipmentItemNumberSearchingATbx.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.HandleNumericOnly);
+            // 
             // equipmentDatePurchasedDpk
             // 
             this.equipmentDatePurchasedDpk.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.3F);
+            this.equipmentDatePurchasedDpk.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.equipmentDatePurchasedDpk.Location = new System.Drawing.Point(305, 158);
             this.equipmentDatePurchasedDpk.Name = "equipmentDatePurchasedDpk";
             this.equipmentDatePurchasedDpk.Size = new System.Drawing.Size(90, 17);
             this.equipmentDatePurchasedDpk.TabIndex = 60;
             this.equipmentDatePurchasedDpk.Value = new System.DateTime(2020, 4, 24, 0, 0, 0, 0);
+            this.equipmentDatePurchasedDpk.ValueChanged += new System.EventHandler(this.adminFieldChanged);
             // 
             // equipmentSupplierCbx
             // 
@@ -1045,24 +1065,6 @@
             // tblSupplierTableAdapter
             // 
             this.tblSupplierTableAdapter.ClearBeforeFill = true;
-            // 
-            // equipmentItemNumberSearchingBTbx
-            // 
-            this.equipmentItemNumberSearchingBTbx.Location = new System.Drawing.Point(306, 104);
-            this.equipmentItemNumberSearchingBTbx.MaxLength = 3;
-            this.equipmentItemNumberSearchingBTbx.Name = "equipmentItemNumberSearchingBTbx";
-            this.equipmentItemNumberSearchingBTbx.Size = new System.Drawing.Size(42, 20);
-            this.equipmentItemNumberSearchingBTbx.TabIndex = 62;
-            this.equipmentItemNumberSearchingBTbx.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.HandleNumericOnly);
-            // 
-            // equipmentItemNumberSearchingATbx
-            // 
-            this.equipmentItemNumberSearchingATbx.Location = new System.Drawing.Point(258, 104);
-            this.equipmentItemNumberSearchingATbx.MaxLength = 3;
-            this.equipmentItemNumberSearchingATbx.Name = "equipmentItemNumberSearchingATbx";
-            this.equipmentItemNumberSearchingATbx.Size = new System.Drawing.Size(42, 20);
-            this.equipmentItemNumberSearchingATbx.TabIndex = 61;
-            this.equipmentItemNumberSearchingATbx.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.HandleNumericOnly);
             // 
             // AdminMenu
             // 

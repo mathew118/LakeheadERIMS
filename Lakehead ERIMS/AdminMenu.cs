@@ -838,10 +838,10 @@ namespace Lakehead_ERIMS
                     equipmentManufacturerTbx.Text = equipmentRow[6].ToString();
                     equipmentModelTbx.Text = equipmentRow[7].ToString();
                     equipmentSerialNumberTbx.Text = equipmentRow[8].ToString();
-                    equipmentPurchasePriceTbx.Text = equipmentRow[11].ToString();
+                    equipmentPurchasePriceTbx.Text = (double.TryParse(equipmentRow[11].ToString(), out double purchasePriceDbl)) ? purchasePriceDbl.ToString("C") : equipmentRow[11].ToString();
                     equipmentPONumberTbx.Text = equipmentRow[12].ToString();
-                    equipmentRentalFeeTbx.Text = equipmentRow[13].ToString();
-                    equipmentLateFeeTbx.Text = equipmentRow[14].ToString();
+                    equipmentRentalFeeTbx.Text = (double.TryParse(equipmentRow[13].ToString(), out double rentalFeeDbl)) ? rentalFeeDbl.ToString("C") : equipmentRow[13].ToString();
+                    equipmentLateFeeTbx.Text = (double.TryParse(equipmentRow[14].ToString(), out double lateFeeDbl)) ? lateFeeDbl.ToString("C") : equipmentRow[14].ToString();
                     //equipmentNightsRentedTbx.Text = equipmentRow[15].ToString();
                     equipmentNotesTbx.Text = equipmentRow[16].ToString();
 
@@ -880,6 +880,21 @@ namespace Lakehead_ERIMS
                     }
 
                     equipmentSupplierCbx.SelectedIndex = equipmentSupplierCbx.FindStringExact(supplierName);
+
+                    //Set Purchase Date
+                    if(equipmentRow[10].ToString() != "")
+                    {
+                        equipmentDatePurchasedDpk.Format = DateTimePickerFormat.Short;
+                        equipmentDatePurchasedDpk.Value = (DateTime)equipmentRow[10];
+                    }
+                    else
+                    {
+                        equipmentDatePurchasedDpk.Format = DateTimePickerFormat.Custom;
+                        equipmentDatePurchasedDpk.CustomFormat = " ";
+                        equipmentDatePurchasedDpk.Value = DateTime.FromOADate(0);
+
+                        //For adding/updating, To check if empty, check if the value is equal to DateTime.FromOADate(0)
+                    }
 
                     //Lock save button until changes are made
                     saveBtn.Enabled = false;
