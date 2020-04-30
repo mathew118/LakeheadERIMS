@@ -20,8 +20,9 @@ namespace Lakehead_ERIMS
          * Equipment tab is going to need multiple tables loaded such as suppliers, status, location, so I need to rework table loading.
          * I should also make certain status rows permanent since other parts of the application rely on certain status and their index
          * 
-         * Dropdowns always redisable save button?
+         * Dropdowns always re-disable save button?
          * 
+         * Duplicate names may cause issues.
          * 
          * ERIC's COMMENTS
          * 1. I assume that all of the tabs on this menu allow for changes. updates, deletion, of the appropriate data (ie equipment, locations. etc) (NEED TO ADD DELETION)
@@ -244,12 +245,72 @@ namespace Lakehead_ERIMS
             //Status
             else if (adminTabControl.SelectedIndex == 4)
             {
+                int statusIndex = -1;
+                int.TryParse(statusLbx.SelectedValue.ToString(), out statusIndex);
+                int statusListboxIndex = statusLbx.SelectedIndex;
 
+                if (statusIndex != -1)
+                {
+                    string newStatusName = statusNameTbx.Text.Trim();
+
+                    //Validate input
+                    if (newStatusName.Length > 0)
+                    {
+                        //Update row                  
+                        tblStatusTableAdapter.Update(newStatusName, statusIndex, lUEquipmentDataSet.tblStatus.FindByStatus_ID(statusIndex).Status_Name);
+                        this.tblStatusTableAdapter.Fill(this.lUEquipmentDataSet.tblStatus);
+
+                        //Maintain current row selection
+                        statusListboxIndex = statusLbx.FindStringExact(newStatusName);
+                        if (statusListboxIndex != -1)
+                        {
+                            statusLbx.SetSelected(statusListboxIndex, true);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Status name cannot be empty.", "Error");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Invalid status selected.", "Error");
+                }
             }
             //Suppliers
             else if (adminTabControl.SelectedIndex == 5)
             {
+                int supplierIndex = -1;
+                int.TryParse(suppliersLbx.SelectedValue.ToString(), out supplierIndex);
+                int supplierListboxIndex = suppliersLbx.SelectedIndex;
 
+                if (supplierIndex != -1)
+                {
+                    string newSupplierName = suppliersNameTbx.Text.Trim();
+
+                    //Validate input
+                    if (newSupplierName.Length > 0)
+                    {
+                        //Update row                  
+                        tblSupplierTableAdapter.Update(newSupplierName, supplierIndex, lUEquipmentDataSet.tblSupplier.FindBySupp_ID(supplierIndex).Supp_Name);
+                        this.tblSupplierTableAdapter.Fill(this.lUEquipmentDataSet.tblSupplier);
+
+                        //Maintain current row selection
+                        supplierListboxIndex = suppliersLbx.FindStringExact(newSupplierName);
+                        if (supplierListboxIndex != -1)
+                        {
+                            suppliersLbx.SetSelected(supplierListboxIndex, true);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Supplier name cannot be empty.", "Error");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Invalid supplier selected.", "Error");
+                }
             }
         }
 
