@@ -213,14 +213,10 @@ namespace Lakehead_ERIMS
             //Categories
             else if(adminTabControl.SelectedIndex == 1)
             {
-                int categoryIndex = -1;
-                int.TryParse(categoriesLbx.SelectedValue.ToString(), out categoryIndex);
-                int categoryListboxIndex = categoriesLbx.SelectedIndex;
-                
-
-                if (categoryIndex != -1)
+                //Add New
+                if (categoriesLbx.SelectedIndex == -1)
                 {
-                    string newCategoryName = categoriesCategoryNameTbx.Text.Trim();                                
+                    string newCategoryName = categoriesCategoryNameTbx.Text.Trim();
                     string newCategoryStart = categoriesStartRangeATbx.Text + categoriesStartRangeBTbx.Text;
                     string newCategoryEnd = categoriesEndRangeATbx.Text + categoriesEndRangeBTbx.Text;
                     //Checks if both start and end range are entirely numeric
@@ -230,12 +226,12 @@ namespace Lakehead_ERIMS
                     //Validate input
                     if (newCategoryName.Length > 0 && newCategoryStart.Length == 6 && newCategoryEnd.Length == 6 && startNumeric && endNumeric)
                     {
-                        //Update row                  
-                        tblCategoryTableAdapter.Update(newCategoryName, newCategoryStart, newCategoryEnd, categoryIndex, lUEquipmentDataSet.tblCategory.FindByCat_ID(categoryIndex).Cat_Name, lUEquipmentDataSet.tblCategory.FindByCat_ID(categoryIndex).Cat_IDStart, lUEquipmentDataSet.tblCategory.FindByCat_ID(categoryIndex).Cat_IDEnd);
+                        //Add row                  
+                        tblCategoryTableAdapter.Insert(newCategoryName, newCategoryStart, newCategoryEnd);
                         this.tblCategoryTableAdapter.Fill(this.lUEquipmentDataSet.tblCategory);
 
-                        //Maintain current row selection
-                        categoryListboxIndex = categoriesLbx.FindStringExact(newCategoryName);
+                        //Select row
+                        int categoryListboxIndex = categoriesLbx.FindStringExact(newCategoryName);
                         if (categoryListboxIndex != -1)
                         {
                             categoriesLbx.SetSelected(categoryListboxIndex, true);
@@ -246,10 +242,49 @@ namespace Lakehead_ERIMS
                     {
                         MessageBox.Show("Category name empty or range invalid.", "Error");
                     }
+
                 }
+                //Update
                 else
                 {
-                    MessageBox.Show("Invalid category selected.", "Error");
+                    int categoryIndex = -1;
+                    int.TryParse(categoriesLbx.SelectedValue.ToString(), out categoryIndex);
+                    int categoryListboxIndex = categoriesLbx.SelectedIndex;
+
+
+                    if (categoryIndex != -1)
+                    {
+                        string newCategoryName = categoriesCategoryNameTbx.Text.Trim();
+                        string newCategoryStart = categoriesStartRangeATbx.Text + categoriesStartRangeBTbx.Text;
+                        string newCategoryEnd = categoriesEndRangeATbx.Text + categoriesEndRangeBTbx.Text;
+                        //Checks if both start and end range are entirely numeric
+                        bool startNumeric = int.TryParse(newCategoryStart, out int tempStart);
+                        bool endNumeric = int.TryParse(newCategoryEnd, out int tempEnd);
+
+                        //Validate input
+                        if (newCategoryName.Length > 0 && newCategoryStart.Length == 6 && newCategoryEnd.Length == 6 && startNumeric && endNumeric)
+                        {
+                            //Update row                  
+                            tblCategoryTableAdapter.Update(newCategoryName, newCategoryStart, newCategoryEnd, categoryIndex, lUEquipmentDataSet.tblCategory.FindByCat_ID(categoryIndex).Cat_Name, lUEquipmentDataSet.tblCategory.FindByCat_ID(categoryIndex).Cat_IDStart, lUEquipmentDataSet.tblCategory.FindByCat_ID(categoryIndex).Cat_IDEnd);
+                            this.tblCategoryTableAdapter.Fill(this.lUEquipmentDataSet.tblCategory);
+
+                            //Maintain current row selection
+                            categoryListboxIndex = categoriesLbx.FindStringExact(newCategoryName);
+                            if (categoryListboxIndex != -1)
+                            {
+                                categoriesLbx.SetSelected(categoryListboxIndex, true);
+                            }
+                            saveBtn.Enabled = false;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Category name empty or range invalid.", "Error");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Invalid category selected.", "Error");
+                    }
                 }
             }
 
