@@ -34,6 +34,16 @@ namespace Lakehead_ERIMS
 
         private void enterStudentNumberButton_Click(object sender, EventArgs e)
         {
+            this.tblStudentTableAdapter1.Fill(this.luEquipmentDataSet1.tblStudent);
+            DataRow info;
+            info = luEquipmentDataSet1.tblStudent.Select("Stu_Number = '" + studentNumberTextBox.Text + "'")[0];
+            studentNumberLabel.Text = info[1].ToString();
+            studentFNameLabel.Text = info[3].ToString();
+            studentLNameLabel.Text = info[2].ToString();
+            studentAddressLabe.Text = info[4].ToString();
+            studentPhone.Text = info[8].ToString();
+         
+            /*
             string connenctionString;
             OleDbConnection cnn;
             connenctionString = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\ongar\OneDrive\Desktop\LUEquipment.mdb;Persist Security Info=True";
@@ -70,45 +80,23 @@ namespace Lakehead_ERIMS
             feeTextBox.Text = command5.ExecuteScalar().ToString();
 
             cnn.Close();
+            */
         }
 
         private void label11_Click(object sender, EventArgs e)
         {
 
         }
-
+        int x = 0;
         private void addButton_Click(object sender, EventArgs e)
         {
             this.tblEquipTableAdapter.Fill(this.lUEquipmentDataSet.tblEquip);
             DataRow equipmentrow;
             equipmentrow = lUEquipmentDataSet.tblEquip.Select("Equip_Number = '" + equipNumbTextBox.Text + "'")[0];
-            itemGridView.Rows.Add(equipmentrow[1].ToString(), equipmentrow[2].ToString(), equipmentrow[13].ToString());
-            //int dataSub = equipmentrow[13];
-            //int subtotal = subtotal;
-            subtotalLabel.Text = equipmentrow[13].ToString();
-
-            /*
-            string connenctionString;
-            OleDbConnection cnn;
-            connenctionString = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\ongar\OneDrive\Desktop\LUEquipment.mdb;Persist Security Info=True";
-            cnn = new OleDbConnection(connenctionString);
-            cnn.Open();
-            OleDbCommand commandNumber = new OleDbCommand();
-            commandNumber.Connection = cnn;
-            string select = "SELECT Equip_Number FROM tblEquip WHERE Equip_Number = '" + equipNumbTextBox.Text + "'";
-            commandNumber.CommandText = "SELECT Equip_Number FROM tblEquip WHERE Equip_Number = '" + equipNumbTextBox.Text + "'";
-            OleDbCommand commandName = new OleDbCommand();
-            commandName.Connection = cnn;
-            commandName.CommandText = "SELECT Equip_Name FROM tblEquip WHERE Equip_Number = '" + equipNumbTextBox.Text + "'";
-            OleDbCommand commandRental = new OleDbCommand();
-            commandRental.Connection = cnn;
-            commandRental.CommandText = "SELECT Equip_RentalPrice FROM tblEquip WHERE Equip_Number = '" + equipNumbTextBox.Text + "'";
-
-            itemGridView.Rows.Add(commandNumber.ExecuteScalar().ToString(), commandName.ExecuteScalar().ToString(), commandRental.ExecuteScalar().ToString());
             
-            
-            cnn.Close();
-            */
+            itemGridView.Rows.Add(itemGridView.Rows[x].Cells[0].Value = equipmentrow[1].ToString(), itemGridView.Rows[x].Cells[1].Value = equipmentrow[2].ToString(), itemGridView.Rows[x].Cells[2].Value = equipmentrow[13].ToString());
+            x++;
+
         }
 
         private void searchButton_Click(object sender, EventArgs e)
@@ -142,6 +130,23 @@ namespace Lakehead_ERIMS
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+
+        }
+
+        private void calcCost_Click(object sender, EventArgs e)
+        {
+            double finalCost;
+            foreach (DataGridViewRow row in itemGridView.Rows)
+            {
+
+                int n = row.Index;
+                string final = (Double.Parse(itemGridView.Rows[n].Cells[2].Value.ToString()).ToString());
+                n++;
+
+                MessageBox.Show(final);
+                
+               
+            }
 
         }
     }

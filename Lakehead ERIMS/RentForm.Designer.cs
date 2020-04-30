@@ -78,6 +78,8 @@
             this.lUEquipmentDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tblRentalTableAdapter1 = new Lakehead_ERIMS.LUEquipmentDataSetTableAdapters.tblRentalTableAdapter();
             this.tblStudentTableAdapter1 = new Lakehead_ERIMS.LUEquipmentDataSetTableAdapters.tblStudentTableAdapter();
+            this.luEquipmentDataSet1 = new Lakehead_ERIMS.LUEquipmentDataSet();
+            this.calcCost = new System.Windows.Forms.Button();
             this.rentItem.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.itemGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblEquipBindingSource)).BeginInit();
@@ -86,6 +88,7 @@
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lUEquipmentDataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.luEquipmentDataSet1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -364,6 +367,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.calcCost);
             this.groupBox3.Controls.Add(this.totalLabel);
             this.groupBox3.Controls.Add(this.hstLabel);
             this.groupBox3.Controls.Add(this.waiveCheckBox);
@@ -518,6 +522,21 @@
             // 
             this.tblStudentTableAdapter1.ClearBeforeFill = true;
             // 
+            // luEquipmentDataSet1
+            // 
+            this.luEquipmentDataSet1.DataSetName = "LUEquipmentDataSet";
+            this.luEquipmentDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // calcCost
+            // 
+            this.calcCost.Location = new System.Drawing.Point(126, 216);
+            this.calcCost.Name = "calcCost";
+            this.calcCost.Size = new System.Drawing.Size(169, 41);
+            this.calcCost.TabIndex = 11;
+            this.calcCost.Text = "Calculate Cost";
+            this.calcCost.UseVisualStyleBackColor = true;
+            this.calcCost.Click += new System.EventHandler(this.calcCost_Click);
+            // 
             // form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -557,6 +576,7 @@
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lUEquipmentDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.luEquipmentDataSet1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -613,5 +633,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Price;
         private LUEquipmentDataSetTableAdapters.tblRentalTableAdapter tblRentalTableAdapter1;
         private LUEquipmentDataSetTableAdapters.tblStudentTableAdapter tblStudentTableAdapter1;
+        private LUEquipmentDataSet luEquipmentDataSet1;
+        private System.Windows.Forms.Button calcCost;
     }
 }

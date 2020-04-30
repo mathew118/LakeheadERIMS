@@ -120,6 +120,7 @@
             this.returnEquipmentBtn.TabIndex = 11;
             this.returnEquipmentBtn.Text = "Return &Equipment";
             this.returnEquipmentBtn.UseVisualStyleBackColor = true;
+            this.returnEquipmentBtn.Click += new System.EventHandler(this.returnEquipmentBtn_Click);
             // 
             // editRentalBtn
             // 
@@ -130,6 +131,7 @@
             this.editRentalBtn.TabIndex = 10;
             this.editRentalBtn.Text = "E&dit Rental";
             this.editRentalBtn.UseVisualStyleBackColor = true;
+            this.editRentalBtn.Click += new System.EventHandler(this.editRentalBtn_Click);
             // 
             // addUpdateStudentBtn
             // 

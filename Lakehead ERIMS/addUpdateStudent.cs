@@ -90,7 +90,7 @@ namespace Lakehead_ERIMS
             float fee = (float)Convert.ToDouble(feeTextBox.Text);
             float fee2 = (float)Convert.ToDouble(feeTextBox.Text);
 
-            tblStudentTableAdapter1.Update(numberInfoTextBox.Text, lastNameInfoTextBox.Text, fristNameInfoTextBox.Text, addressInfoTextBox.Text, cityInfoTextBox.Text, provInfoCombo.Text, postalInfoText.Text, phoneInfoTextBox.Text, extInfoTextBox.Text, emailInfoTextBox.Text, "", "", "", "", "", "", fee, true, intStudentId, id[1].ToString(), id[2].ToString(), id[3].ToString(), id[4].ToString(), id[5].ToString(), id[6].ToString(), id[6].ToString(), id[7].ToString(), id[8].ToString(), id[9].ToString(), id[10].ToString(), id[11].ToString(), id[12].ToString(), id[13].ToString(), id[14].ToString(), id[15].ToString(), fee2, false);
+            tblStudentTableAdapter1.Update(numberInfoTextBox.Text, lastNameInfoTextBox.Text, fristNameInfoTextBox.Text, addressInfoTextBox.Text, cityInfoTextBox.Text, provInfoCombo.Text, postalInfoText.Text, phoneInfoTextBox.Text, extInfoTextBox.Text, emailInfoTextBox.Text, id[11].ToString(), id[12].ToString(), id[13].ToString(), id[14].ToString(), id[15].ToString(), id[16].ToString(), fee, true, intStudentId, id[1].ToString(), id[2].ToString(), id[3].ToString(), id[4].ToString(), id[5].ToString(), id[6].ToString(), id[7].ToString(), id[8].ToString(), id[9].ToString(), id[10].ToString(), id[11].ToString(), id[12].ToString(), id[13].ToString(), id[14].ToString(), id[15].ToString(), id[16].ToString(), fee2, false);
             this.tblStudentTableAdapter1.Fill(this.luEquipmentDataSet1.tblStudent);
             MessageBox.Show("Updated");
        

@@ -39,5 +39,17 @@ namespace Lakehead_ERIMS
             var rent = new form();
             rent.Show();
         }
+
+        private void editRentalBtn_Click(object sender, EventArgs e)
+        {
+            var editrental = new editRental();
+            editrental.Show();
+        }
+
+        private void returnEquipmentBtn_Click(object sender, EventArgs e)
+        {
+            var equipReturn = new ReturnEquip();
+            equipReturn.Show();
+        }
     }
 }

@@ -52,6 +52,12 @@
     <Compile Include="addUpdateStudent.Designer.cs">
       <DependentUpon>addUpdateStudent.cs</DependentUpon>
     </Compile>
+    <Compile Include="editRental.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="editRental.Designer.cs">
+      <DependentUpon>editRental.cs</DependentUpon>
+    </Compile>
     <Compile Include="equipSummary.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,8 +92,17 @@
     <Compile Include="RentForm.Designer.cs">
       <DependentUpon>RentForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReturnEquip.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReturnEquip.Designer.cs">
+      <DependentUpon>ReturnEquip.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="addUpdateStudent.resx">
       <DependentUpon>addUpdateStudent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="editRental.resx">
+      <DependentUpon>editRental.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="equipSummary.resx">
       <DependentUpon>equipSummary.cs</DependentUpon>
@@ -109,6 +124,9 @@
     </Compile>
     <EmbeddedResource Include="RentForm.resx">
       <DependentUpon>RentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReturnEquip.resx">
+      <DependentUpon>ReturnEquip.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="LUEquipmentDataSet.xsc">
       <DependentUpon>LUEquipmentDataSet.xsd</DependentUpon>
