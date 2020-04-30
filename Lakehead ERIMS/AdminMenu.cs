@@ -342,7 +342,7 @@ namespace Lakehead_ERIMS
                             this.tblEmployeeTableAdapter.Fill(this.lUEquipmentDataSet.tblEmployee);
 
                             //Select row
-                            int employeeListboxIndex = locationsLbx.FindStringExact(newStaffUsername);
+                            int employeeListboxIndex = staffLbx.FindStringExact(newStaffUsername);
                             if (employeeListboxIndex != -1)
                             {
                                 staffLbx.SetSelected(employeeListboxIndex, true);
@@ -548,7 +548,13 @@ namespace Lakehead_ERIMS
             //Categories
             else if (adminTabControl.SelectedIndex == 1)
             {
-                
+                //Clear fields
+                categoriesLbx.SelectedIndex = -1;
+                categoriesCategoryNameTbx.Clear();
+                categoriesStartRangeATbx.Clear();
+                categoriesStartRangeBTbx.Clear();
+                categoriesEndRangeATbx.Clear();
+                categoriesEndRangeBTbx.Clear();
             }
 
             //Locations

@@ -348,6 +348,7 @@
             // equipmentSerialNumberTbx
             // 
             this.equipmentSerialNumberTbx.Location = new System.Drawing.Point(305, 288);
+            this.equipmentSerialNumberTbx.MaxLength = 20;
             this.equipmentSerialNumberTbx.Name = "equipmentSerialNumberTbx";
             this.equipmentSerialNumberTbx.Size = new System.Drawing.Size(90, 20);
             this.equipmentSerialNumberTbx.TabIndex = 52;
@@ -365,6 +366,7 @@
             // equipmentModelTbx
             // 
             this.equipmentModelTbx.Location = new System.Drawing.Point(305, 262);
+            this.equipmentModelTbx.MaxLength = 20;
             this.equipmentModelTbx.Name = "equipmentModelTbx";
             this.equipmentModelTbx.Size = new System.Drawing.Size(90, 20);
             this.equipmentModelTbx.TabIndex = 50;
@@ -382,6 +384,7 @@
             // equipmentManufacturerTbx
             // 
             this.equipmentManufacturerTbx.Location = new System.Drawing.Point(305, 236);
+            this.equipmentManufacturerTbx.MaxLength = 40;
             this.equipmentManufacturerTbx.Name = "equipmentManufacturerTbx";
             this.equipmentManufacturerTbx.Size = new System.Drawing.Size(90, 20);
             this.equipmentManufacturerTbx.TabIndex = 48;
@@ -451,6 +454,7 @@
             // equipmentNotesTbx
             // 
             this.equipmentNotesTbx.Location = new System.Drawing.Point(100, 314);
+            this.equipmentNotesTbx.MaxLength = 255;
             this.equipmentNotesTbx.Multiline = true;
             this.equipmentNotesTbx.Name = "equipmentNotesTbx";
             this.equipmentNotesTbx.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -505,6 +509,7 @@
             // equipmentDescription3Tbx
             // 
             this.equipmentDescription3Tbx.Location = new System.Drawing.Point(100, 210);
+            this.equipmentDescription3Tbx.MaxLength = 30;
             this.equipmentDescription3Tbx.Name = "equipmentDescription3Tbx";
             this.equipmentDescription3Tbx.Size = new System.Drawing.Size(90, 20);
             this.equipmentDescription3Tbx.TabIndex = 28;
@@ -522,6 +527,7 @@
             // equipmentDescription2Tbx
             // 
             this.equipmentDescription2Tbx.Location = new System.Drawing.Point(100, 184);
+            this.equipmentDescription2Tbx.MaxLength = 30;
             this.equipmentDescription2Tbx.Name = "equipmentDescription2Tbx";
             this.equipmentDescription2Tbx.Size = new System.Drawing.Size(90, 20);
             this.equipmentDescription2Tbx.TabIndex = 26;
@@ -539,6 +545,7 @@
             // equipmentDescription1Tbx
             // 
             this.equipmentDescription1Tbx.Location = new System.Drawing.Point(100, 158);
+            this.equipmentDescription1Tbx.MaxLength = 30;
             this.equipmentDescription1Tbx.Name = "equipmentDescription1Tbx";
             this.equipmentDescription1Tbx.Size = new System.Drawing.Size(90, 20);
             this.equipmentDescription1Tbx.TabIndex = 24;
@@ -556,6 +563,7 @@
             // equipmentItemNumberSearchBTbx
             // 
             this.equipmentItemNumberSearchBTbx.Location = new System.Drawing.Point(148, 105);
+            this.equipmentItemNumberSearchBTbx.MaxLength = 3;
             this.equipmentItemNumberSearchBTbx.Name = "equipmentItemNumberSearchBTbx";
             this.equipmentItemNumberSearchBTbx.Size = new System.Drawing.Size(42, 20);
             this.equipmentItemNumberSearchBTbx.TabIndex = 22;
@@ -572,6 +580,7 @@
             // equipmentItemNumberSearchATbx
             // 
             this.equipmentItemNumberSearchATbx.Location = new System.Drawing.Point(100, 105);
+            this.equipmentItemNumberSearchATbx.MaxLength = 3;
             this.equipmentItemNumberSearchATbx.Name = "equipmentItemNumberSearchATbx";
             this.equipmentItemNumberSearchATbx.Size = new System.Drawing.Size(42, 20);
             this.equipmentItemNumberSearchATbx.TabIndex = 20;
@@ -588,6 +597,7 @@
             // equipmentItemNameTbx
             // 
             this.equipmentItemNameTbx.Location = new System.Drawing.Point(100, 132);
+            this.equipmentItemNameTbx.MaxLength = 30;
             this.equipmentItemNameTbx.Name = "equipmentItemNameTbx";
             this.equipmentItemNameTbx.Size = new System.Drawing.Size(90, 20);
             this.equipmentItemNameTbx.TabIndex = 15;
@@ -701,6 +711,7 @@
             // categoriesCategoryNameTbx
             // 
             this.categoriesCategoryNameTbx.Location = new System.Drawing.Point(106, 134);
+            this.categoriesCategoryNameTbx.MaxLength = 50;
             this.categoriesCategoryNameTbx.Name = "categoriesCategoryNameTbx";
             this.categoriesCategoryNameTbx.Size = new System.Drawing.Size(185, 20);
             this.categoriesCategoryNameTbx.TabIndex = 13;
@@ -748,6 +759,7 @@
             // locationsLocationNameTbx
             // 
             this.locationsLocationNameTbx.Location = new System.Drawing.Point(106, 134);
+            this.locationsLocationNameTbx.MaxLength = 50;
             this.locationsLocationNameTbx.Name = "locationsLocationNameTbx";
             this.locationsLocationNameTbx.Size = new System.Drawing.Size(185, 20);
             this.locationsLocationNameTbx.TabIndex = 11;
@@ -790,6 +802,7 @@
             // staffPasswordResetTbx
             // 
             this.staffPasswordResetTbx.Location = new System.Drawing.Point(123, 208);
+            this.staffPasswordResetTbx.MaxLength = 16;
             this.staffPasswordResetTbx.Name = "staffPasswordResetTbx";
             this.staffPasswordResetTbx.Size = new System.Drawing.Size(90, 20);
             this.staffPasswordResetTbx.TabIndex = 12;
@@ -817,6 +830,7 @@
             // staffUsernameTbx
             // 
             this.staffUsernameTbx.Location = new System.Drawing.Point(264, 171);
+            this.staffUsernameTbx.MaxLength = 8;
             this.staffUsernameTbx.Name = "staffUsernameTbx";
             this.staffUsernameTbx.Size = new System.Drawing.Size(90, 20);
             this.staffUsernameTbx.TabIndex = 9;
@@ -865,6 +879,7 @@
             // staffFirstNameTbx
             // 
             this.staffFirstNameTbx.Location = new System.Drawing.Point(83, 171);
+            this.staffFirstNameTbx.MaxLength = 30;
             this.staffFirstNameTbx.Name = "staffFirstNameTbx";
             this.staffFirstNameTbx.Size = new System.Drawing.Size(90, 20);
             this.staffFirstNameTbx.TabIndex = 3;
@@ -882,6 +897,7 @@
             // staffLastNameTbx
             // 
             this.staffLastNameTbx.Location = new System.Drawing.Point(83, 134);
+            this.staffLastNameTbx.MaxLength = 30;
             this.staffLastNameTbx.Name = "staffLastNameTbx";
             this.staffLastNameTbx.Size = new System.Drawing.Size(90, 20);
             this.staffLastNameTbx.TabIndex = 1;
@@ -934,6 +950,7 @@
             // statusNameTbx
             // 
             this.statusNameTbx.Location = new System.Drawing.Point(106, 134);
+            this.statusNameTbx.MaxLength = 25;
             this.statusNameTbx.Name = "statusNameTbx";
             this.statusNameTbx.Size = new System.Drawing.Size(185, 20);
             this.statusNameTbx.TabIndex = 13;
@@ -976,6 +993,7 @@
             // suppliersNameTbx
             // 
             this.suppliersNameTbx.Location = new System.Drawing.Point(106, 134);
+            this.suppliersNameTbx.MaxLength = 40;
             this.suppliersNameTbx.Name = "suppliersNameTbx";
             this.suppliersNameTbx.Size = new System.Drawing.Size(185, 20);
             this.suppliersNameTbx.TabIndex = 13;
