@@ -46,9 +46,10 @@ namespace Lakehead_ERIMS
         private void addStudentbttn_Click(object sender, EventArgs e)
         {
 
-       
-            LUEquipmentDataSetTableAdapters.tblStudentTableAdapter studentTableAdapter = new LUEquipmentDataSetTableAdapters.tblStudentTableAdapter();
-            studentTableAdapter.Insert(newNumberTextBox.Text,newLastTextBox.Text,newFirstTextBox.Text,newAddressTextBox.Text,newCityTextBox.Text,provComboBox.Text,newPostalCodeTextBox.Text,NewPhoneTextBox.Text,newExtTextBox.Text,newEmailTextBox.Text, " ", " ", " ", " "," "," ",0,true);
+
+    
+            tblStudentTableAdapter1.Insert(newNumberTextBox.Text, newLastTextBox.Text, newFirstTextBox.Text, newAddressTextBox.Text, newCityTextBox.Text, provComboBox.Text, newPostalCodeTextBox.Text, NewPhoneTextBox.Text, newExtTextBox.Text, newEmailTextBox.Text, " ", " ", " ", " ", " ", " ", 0, true);
+            this.tblStudentTableAdapter1.Fill(this.luEquipmentDataSet1.tblStudent);
             MessageBox.Show("Added student");
             
 
@@ -89,10 +90,10 @@ namespace Lakehead_ERIMS
             float fee = (float)Convert.ToDouble(feeTextBox.Text);
 
 
-            LUEquipmentDataSetTableAdapters.tblStudentTableAdapter tblStudentTableAdapter = new LUEquipmentDataSetTableAdapters.tblStudentTableAdapter();
-            tblStudentTableAdapter.Update(numberInfoTextBox.Text, lastNameInfoTextBox.Text, fristNameInfoTextBox.Text, addressInfoTextBox.Text, cityInfoTextBox.Text, provInfoCombo.Text, postalInfoText.Text, phoneInfoTextBox.Text, extInfoTextBox.Text, emailInfoTextBox.Text, "", "", "", "", "", "", fee, true, intStudentId, studentNumberTextBox.Text, lastNameInfoTextBox.Text, fristNameInfoTextBox.Text, addressInfoTextBox.Text, cityInfoTextBox.Text, provInfoCombo.Text, postalInfoText.Text, phoneInfoTextBox.Text, extInfoTextBox.Text, emailInfoTextBox.Text, "", "", "", "", "", "", fee, true);
+            tblStudentTableAdapter1.Update(numberInfoTextBox.Text, lastNameInfoTextBox.Text, fristNameInfoTextBox.Text, addressInfoTextBox.Text, cityInfoTextBox.Text, provInfoCombo.Text, postalInfoText.Text, phoneInfoTextBox.Text, extInfoTextBox.Text, emailInfoTextBox.Text, "", "", "", "", "", "", fee, true, intStudentId, studentNumberTextBox.Text, lastNameInfoTextBox.Text, fristNameInfoTextBox.Text, addressInfoTextBox.Text, cityInfoTextBox.Text, provInfoCombo.Text, postalInfoText.Text, phoneInfoTextBox.Text, extInfoTextBox.Text, emailInfoTextBox.Text, "", "", "", "", "", "", fee, true);
+            this.tblStudentTableAdapter1.Fill(this.luEquipmentDataSet1.tblStudent);
             MessageBox.Show("Updated");
-            //LUEquipmentDataSetTableAdapters.tblStudentTableAdapter
+       
             /*
             string connenctionString;
             OleDbConnection cnn;

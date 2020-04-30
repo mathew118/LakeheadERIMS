@@ -37,6 +37,10 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.rentItem = new System.Windows.Forms.GroupBox();
+            this.itemGridView = new System.Windows.Forms.DataGridView();
+            this.Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.removeButton = new System.Windows.Forms.Button();
             this.deleteButton = new System.Windows.Forms.Button();
             this.addButton = new System.Windows.Forms.Button();
@@ -72,18 +76,16 @@
             this.label11 = new System.Windows.Forms.Label();
             this.feeTextBox = new System.Windows.Forms.TextBox();
             this.lUEquipmentDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.itemGridView = new System.Windows.Forms.DataGridView();
-            this.Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tblRentalTableAdapter1 = new Lakehead_ERIMS.LUEquipmentDataSetTableAdapters.tblRentalTableAdapter();
+            this.tblStudentTableAdapter1 = new Lakehead_ERIMS.LUEquipmentDataSetTableAdapters.tblStudentTableAdapter();
             this.rentItem.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.itemGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblEquipBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lUEquipmentDataSet)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lUEquipmentDataSetBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.itemGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -163,6 +165,34 @@
             this.rentItem.TabIndex = 8;
             this.rentItem.TabStop = false;
             this.rentItem.Text = "Rent Items";
+            // 
+            // itemGridView
+            // 
+            this.itemGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.itemGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Number,
+            this.Name,
+            this.Price});
+            this.itemGridView.Location = new System.Drawing.Point(44, 84);
+            this.itemGridView.Name = "itemGridView";
+            this.itemGridView.RowTemplate.Height = 24;
+            this.itemGridView.Size = new System.Drawing.Size(390, 161);
+            this.itemGridView.TabIndex = 9;
+            // 
+            // Number
+            // 
+            this.Number.HeaderText = "Number";
+            this.Number.Name = "Number";
+            // 
+            // Name
+            // 
+            this.Name.HeaderText = "Name";
+            this.Name.Name = "Name";
+            // 
+            // Price
+            // 
+            this.Price.HeaderText = "Price";
+            this.Price.Name = "Price";
             // 
             // removeButton
             // 
@@ -480,39 +510,19 @@
             this.lUEquipmentDataSetBindingSource.DataSource = this.lUEquipmentDataSet;
             this.lUEquipmentDataSetBindingSource.Position = 0;
             // 
-            // itemGridView
+            // tblRentalTableAdapter1
             // 
-            this.itemGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.itemGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Number,
-            this.Name,
-            this.Price});
-            this.itemGridView.Location = new System.Drawing.Point(44, 84);
-            this.itemGridView.Name = "itemGridView";
-            this.itemGridView.RowTemplate.Height = 24;
-            this.itemGridView.Size = new System.Drawing.Size(390, 161);
-            this.itemGridView.TabIndex = 9;
+            this.tblRentalTableAdapter1.ClearBeforeFill = true;
             // 
-            // Number
+            // tblStudentTableAdapter1
             // 
-            this.Number.HeaderText = "Number";
-            this.Number.Name = "Number";
-            // 
-            // Name
-            // 
-            this.Name.HeaderText = "Name";
-            this.Name.Name = "Name";
-            // 
-            // Price
-            // 
-            this.Price.HeaderText = "Price";
-            this.Price.Name = "Price";
+            this.tblStudentTableAdapter1.ClearBeforeFill = true;
             // 
             // form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1028, 913);
+            this.ClientSize = new System.Drawing.Size(1008, 809);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.studentLNameLabel);
@@ -537,6 +547,7 @@
             this.Load += new System.EventHandler(this.RentForm_Load);
             this.rentItem.ResumeLayout(false);
             this.rentItem.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.itemGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblEquipBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lUEquipmentDataSet)).EndInit();
             this.groupBox2.ResumeLayout(false);
@@ -546,7 +557,6 @@
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lUEquipmentDataSetBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.itemGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -601,5 +611,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Number;
         private System.Windows.Forms.DataGridViewTextBoxColumn Name;
         private System.Windows.Forms.DataGridViewTextBoxColumn Price;
+        private LUEquipmentDataSetTableAdapters.tblRentalTableAdapter tblRentalTableAdapter1;
+        private LUEquipmentDataSetTableAdapters.tblStudentTableAdapter tblStudentTableAdapter1;
     }
 }

@@ -87,6 +87,7 @@
             this.fristNameInfoTextBox = new System.Windows.Forms.TextBox();
             this.tblStudentTableAdapter1 = new Lakehead_ERIMS.LUEquipmentDataSetTableAdapters.tblStudentTableAdapter();
             this.luEquipmentDataSet1 = new Lakehead_ERIMS.LUEquipmentDataSet();
+            this.tblEquipTableAdapter1 = new Lakehead_ERIMS.LUEquipmentDataSetTableAdapters.tblEquipTableAdapter();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -665,6 +666,10 @@
             this.luEquipmentDataSet1.DataSetName = "LUEquipmentDataSet";
             this.luEquipmentDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
+            // tblEquipTableAdapter1
+            // 
+            this.tblEquipTableAdapter1.ClearBeforeFill = true;
+            // 
             // addUpdateStudent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -757,5 +762,6 @@
         private System.Windows.Forms.Label label2;
         private LUEquipmentDataSetTableAdapters.tblStudentTableAdapter tblStudentTableAdapter1;
         private LUEquipmentDataSet luEquipmentDataSet1;
+        private LUEquipmentDataSetTableAdapters.tblEquipTableAdapter tblEquipTableAdapter1;
     }
 }

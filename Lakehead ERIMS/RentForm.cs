@@ -79,6 +79,12 @@ namespace Lakehead_ERIMS
 
         private void addButton_Click(object sender, EventArgs e)
         {
+            this.tblEquipTableAdapter.Fill(this.lUEquipmentDataSet.tblEquip);
+            DataRow equipmentrow;
+            equipmentrow = lUEquipmentDataSet.tblEquip.Select("Equip_Number = '" + equipNumbTextBox.Text + "'")[0];
+            itemGridView.Rows.Add(equipmentrow[1].ToString(), equipmentrow[2].ToString(), equipmentrow[13].ToString());
+
+            /*
             string connenctionString;
             OleDbConnection cnn;
             connenctionString = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\ongar\OneDrive\Desktop\LUEquipment.mdb;Persist Security Info=True";
@@ -99,6 +105,7 @@ namespace Lakehead_ERIMS
             
             
             cnn.Close();
+            */
         }
 
         private void searchButton_Click(object sender, EventArgs e)
