@@ -36,6 +36,8 @@
             this.equipmentTab = new System.Windows.Forms.TabPage();
             this.equipmentDatePurchasedDpk = new System.Windows.Forms.DateTimePicker();
             this.equipmentSupplierCbx = new System.Windows.Forms.ComboBox();
+            this.tblSupplierBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.lUEquipmentDataSet = new Lakehead_ERIMS.LUEquipmentDataSet();
             this.equipmentHomeLocationCbx = new System.Windows.Forms.ComboBox();
             this.equipmentStatusCbx = new System.Windows.Forms.ComboBox();
             this.equipmentLateFeeLbl = new System.Windows.Forms.Label();
@@ -74,7 +76,6 @@
             this.equipmentItemNameTbx = new System.Windows.Forms.TextBox();
             this.equipmentLbx = new System.Windows.Forms.ListBox();
             this.tblEquipBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.lUEquipmentDataSet = new Lakehead_ERIMS.LUEquipmentDataSet();
             this.categoriesTab = new System.Windows.Forms.TabPage();
             this.categoriesEndRangeBTbx = new System.Windows.Forms.TextBox();
             this.categoriesStartRangeBTbx = new System.Windows.Forms.TextBox();
@@ -115,7 +116,6 @@
             this.suppliersNameLbl = new System.Windows.Forms.Label();
             this.suppliersNameTbx = new System.Windows.Forms.TextBox();
             this.suppliersLbx = new System.Windows.Forms.ListBox();
-            this.tblSupplierBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tblEmployeeTableAdapter = new Lakehead_ERIMS.LUEquipmentDataSetTableAdapters.tblEmployeeTableAdapter();
             this.tblLocationTableAdapter = new Lakehead_ERIMS.LUEquipmentDataSetTableAdapters.tblLocationTableAdapter();
             this.tblCategoryTableAdapter = new Lakehead_ERIMS.LUEquipmentDataSetTableAdapters.tblCategoryTableAdapter();
@@ -124,8 +124,9 @@
             this.tblSupplierTableAdapter = new Lakehead_ERIMS.LUEquipmentDataSetTableAdapters.tblSupplierTableAdapter();
             this.adminTabControl.SuspendLayout();
             this.equipmentTab.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tblEquipBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblSupplierBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lUEquipmentDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblEquipBindingSource)).BeginInit();
             this.categoriesTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tblCategoryBindingSource)).BeginInit();
             this.locationsTab.SuspendLayout();
@@ -136,7 +137,6 @@
             this.statusTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tblStatusBindingSource)).BeginInit();
             this.suppliersTab.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tblSupplierBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // addBtn
@@ -256,8 +256,20 @@
             this.equipmentSupplierCbx.TabIndex = 59;
             this.equipmentSupplierCbx.ValueMember = "Supp_ID";
             // 
+            // tblSupplierBindingSource
+            // 
+            this.tblSupplierBindingSource.DataMember = "tblSupplier";
+            this.tblSupplierBindingSource.DataSource = this.lUEquipmentDataSet;
+            // 
+            // lUEquipmentDataSet
+            // 
+            this.lUEquipmentDataSet.DataSetName = "LUEquipmentDataSet";
+            this.lUEquipmentDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // equipmentHomeLocationCbx
             // 
+            this.equipmentHomeLocationCbx.DataSource = this.tblLocationBindingSource;
+            this.equipmentHomeLocationCbx.DisplayMember = "Loc_Name";
             this.equipmentHomeLocationCbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.equipmentHomeLocationCbx.FormattingEnabled = true;
             this.equipmentHomeLocationCbx.ItemHeight = 13;
@@ -265,9 +277,12 @@
             this.equipmentHomeLocationCbx.Name = "equipmentHomeLocationCbx";
             this.equipmentHomeLocationCbx.Size = new System.Drawing.Size(90, 21);
             this.equipmentHomeLocationCbx.TabIndex = 58;
+            this.equipmentHomeLocationCbx.ValueMember = "Loc_ID";
             // 
             // equipmentStatusCbx
             // 
+            this.equipmentStatusCbx.DataSource = this.tblStatusBindingSource;
+            this.equipmentStatusCbx.DisplayMember = "Status_Name";
             this.equipmentStatusCbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.equipmentStatusCbx.FormattingEnabled = true;
             this.equipmentStatusCbx.ItemHeight = 13;
@@ -275,6 +290,8 @@
             this.equipmentStatusCbx.Name = "equipmentStatusCbx";
             this.equipmentStatusCbx.Size = new System.Drawing.Size(90, 21);
             this.equipmentStatusCbx.TabIndex = 6;
+            this.equipmentStatusCbx.ValueMember = "Status_ID";
+            this.equipmentStatusCbx.SelectedIndexChanged += new System.EventHandler(this.adminFieldChanged);
             // 
             // equipmentLateFeeLbl
             // 
@@ -585,11 +602,6 @@
             this.tblEquipBindingSource.DataMember = "tblEquip";
             this.tblEquipBindingSource.DataSource = this.lUEquipmentDataSet;
             // 
-            // lUEquipmentDataSet
-            // 
-            this.lUEquipmentDataSet.DataSetName = "LUEquipmentDataSet";
-            this.lUEquipmentDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // categoriesTab
             // 
             this.categoriesTab.Controls.Add(this.categoriesEndRangeBTbx);
@@ -764,7 +776,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(130, 219);
+            this.textBox1.Location = new System.Drawing.Point(132, 208);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(90, 20);
             this.textBox1.TabIndex = 12;
@@ -772,7 +784,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(43, 222);
+            this.label1.Location = new System.Drawing.Point(45, 211);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(81, 13);
             this.label1.TabIndex = 11;
@@ -782,7 +794,7 @@
             // 
             this.staffResetPasswordBtn.Location = new System.Drawing.Point(264, 208);
             this.staffResetPasswordBtn.Name = "staffResetPasswordBtn";
-            this.staffResetPasswordBtn.Size = new System.Drawing.Size(90, 40);
+            this.staffResetPasswordBtn.Size = new System.Drawing.Size(99, 21);
             this.staffResetPasswordBtn.TabIndex = 10;
             this.staffResetPasswordBtn.Text = "Reset Password";
             this.staffResetPasswordBtn.UseVisualStyleBackColor = true;
@@ -973,11 +985,6 @@
             this.suppliersLbx.ValueMember = "Supp_ID";
             this.suppliersLbx.SelectedIndexChanged += new System.EventHandler(this.suppliersLbx_SelectedIndexChanged);
             // 
-            // tblSupplierBindingSource
-            // 
-            this.tblSupplierBindingSource.DataMember = "tblSupplier";
-            this.tblSupplierBindingSource.DataSource = this.lUEquipmentDataSet;
-            // 
             // tblEmployeeTableAdapter
             // 
             this.tblEmployeeTableAdapter.ClearBeforeFill = true;
@@ -1020,8 +1027,9 @@
             this.adminTabControl.ResumeLayout(false);
             this.equipmentTab.ResumeLayout(false);
             this.equipmentTab.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tblEquipBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblSupplierBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lUEquipmentDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblEquipBindingSource)).EndInit();
             this.categoriesTab.ResumeLayout(false);
             this.categoriesTab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tblCategoryBindingSource)).EndInit();
@@ -1037,7 +1045,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.tblStatusBindingSource)).EndInit();
             this.suppliersTab.ResumeLayout(false);
             this.suppliersTab.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tblSupplierBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

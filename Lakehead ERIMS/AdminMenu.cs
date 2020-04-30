@@ -20,6 +20,8 @@ namespace Lakehead_ERIMS
          * Equipment tab is going to need multiple tables loaded such as suppliers, status, location, so I need to rework table loading.
          * I should also make certain status rows permanent since other parts of the application rely on certain status and their index
          * 
+         * Dropdowns always redisable save button?
+         * 
          * 
          * ERIC's COMMENTS
          * 1. I assume that all of the tabs on this menu allow for changes. updates, deletion, of the appropriate data (ie equipment, locations. etc) (NEED TO ADD DELETION)
@@ -330,13 +332,40 @@ namespace Lakehead_ERIMS
                     equipmentNotesTbx.Text = equipmentRow[16].ToString();
 
                     //Set Status
-                    int statusId = int.Parse(equipmentRow[17].ToString());
-                    equipmentStatusCbx.SelectedValue = statusId;
-                    //lUEquipmentDataSet.tblStatus.FindByStatus_ID(statusId).Status_Name;
+                    int statusId = 0;
+                    string statusName = "";
+                    int.TryParse(equipmentRow[17].ToString(), out statusId);
+                    
+                    if (statusId != 0)
+                    {
+                        statusName = lUEquipmentDataSet.tblStatus.FindByStatus_ID(statusId).Status_Name;
+                    }
+                    
+                    equipmentStatusCbx.SelectedIndex = equipmentStatusCbx.FindStringExact(statusName);
 
                     //Set Location
+                    int locationId = 0;
+                    string locationName = "";
+                    int.TryParse(equipmentRow[18].ToString(), out locationId);
+
+                    if (locationId != 0)
+                    {
+                        locationName = lUEquipmentDataSet.tblLocation.FindByLoc_ID(locationId).Loc_Name;
+                    }
+
+                    equipmentHomeLocationCbx.SelectedIndex = equipmentHomeLocationCbx.FindStringExact(locationName);
 
                     //Set Supplier
+                    int supplierId = 0;
+                    string supplierName = "";
+                    int.TryParse(equipmentRow[9].ToString(), out supplierId);
+
+                    if (supplierId != 0)
+                    {
+                        supplierName = lUEquipmentDataSet.tblSupplier.FindBySupp_ID(supplierId).Supp_Name;
+                    }
+
+                    equipmentSupplierCbx.SelectedIndex = equipmentSupplierCbx.FindStringExact(supplierName);
 
                     //Lock save button until changes are made
                     saveBtn.Enabled = false;
@@ -345,7 +374,7 @@ namespace Lakehead_ERIMS
                 {
                     //No equipment selected
 
-                    //MessageBox.Show("Error! Equipment not found", "Error");
+                    MessageBox.Show("Error! Equipment not found", "Error");
                 }
             }
         }
