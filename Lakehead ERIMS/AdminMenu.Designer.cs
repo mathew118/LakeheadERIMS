@@ -296,7 +296,6 @@
             this.equipmentStatusCbx.Size = new System.Drawing.Size(90, 21);
             this.equipmentStatusCbx.TabIndex = 6;
             this.equipmentStatusCbx.ValueMember = "Status_ID";
-            this.equipmentStatusCbx.SelectedIndexChanged += new System.EventHandler(this.adminFieldChanged);
             // 
             // tblStatusBindingSource
             // 

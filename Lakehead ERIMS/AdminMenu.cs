@@ -202,7 +202,7 @@ namespace Lakehead_ERIMS
         private void saveBtn_Click(object sender, EventArgs e)
         {
             //Get selected tab and make changes based on that
-            saveBtn.Enabled = false;
+            
 
             //Equipment
             if(adminTabControl.SelectedIndex == 0)
@@ -240,6 +240,7 @@ namespace Lakehead_ERIMS
                         {
                             categoriesLbx.SetSelected(categoryListboxIndex, true);
                         }
+                        saveBtn.Enabled = false;
                     }
                     else
                     {
@@ -273,6 +274,7 @@ namespace Lakehead_ERIMS
                         {
                             locationsLbx.SetSelected(locationListboxIndex, true);
                         }
+                        saveBtn.Enabled = false;
                     }
                     else
                     {
@@ -304,6 +306,7 @@ namespace Lakehead_ERIMS
                             {
                                 locationsLbx.SetSelected(locationListboxIndex, true);
                             }
+                            saveBtn.Enabled = false;
                         }
                         else
                         {
@@ -320,39 +323,81 @@ namespace Lakehead_ERIMS
             //Staff
             else if (adminTabControl.SelectedIndex == 3)
             {
-                int staffIndex = -1;
-                int.TryParse(staffLbx.SelectedValue.ToString(), out staffIndex);
-                int staffListboxIndex = staffLbx.SelectedIndex;
-
-                if (staffIndex != -1)
+                //Add New
+                if (staffLbx.SelectedIndex == -1)
                 {
                     string newStaffUsername = staffUsernameTbx.Text.Trim();
                     string newStaffLastName = staffLastNameTbx.Text.Trim();
                     string newStaffFirstName = staffFirstNameTbx.Text.Trim();
                     string newStaffType = staffTypeCbx.Text;
+                    string newStaffPassword = staffPasswordResetTbx.Text.Trim();
 
                     //Validate input
                     if (newStaffUsername.Length > 0 && newStaffLastName.Length > 0 && newStaffFirstName.Length > 0 && newStaffType.Length > 0)
                     {
-                        //Update row                  
-                        tblEmployeeTableAdapter.Update(newStaffUsername, newStaffLastName, newStaffFirstName, newStaffType, lUEquipmentDataSet.tblEmployee.FindByEmp_ID(staffIndex).Emp_Password, staffIndex, lUEquipmentDataSet.tblEmployee.FindByEmp_ID(staffIndex).Emp_UName, lUEquipmentDataSet.tblEmployee.FindByEmp_ID(staffIndex).Emp_LName, lUEquipmentDataSet.tblEmployee.FindByEmp_ID(staffIndex).Emp_FName, lUEquipmentDataSet.tblEmployee.FindByEmp_ID(staffIndex).Emp_Type, lUEquipmentDataSet.tblEmployee.FindByEmp_ID(staffIndex).Emp_Password);
-                        this.tblEmployeeTableAdapter.Fill(this.lUEquipmentDataSet.tblEmployee);
-
-                        //Maintain current row selection
-                        staffListboxIndex = staffLbx.FindStringExact(newStaffUsername);
-                        if (staffListboxIndex != -1)
+                        if (newStaffPassword.Length > 0)
                         {
-                            staffLbx.SetSelected(staffListboxIndex, true);
+                            //Add row                  
+                            tblEmployeeTableAdapter.Insert(newStaffUsername, newStaffLastName, newStaffFirstName, newStaffType, newStaffPassword);
+                            this.tblEmployeeTableAdapter.Fill(this.lUEquipmentDataSet.tblEmployee);
+
+                            //Select row
+                            int employeeListboxIndex = locationsLbx.FindStringExact(newStaffUsername);
+                            if (employeeListboxIndex != -1)
+                            {
+                                staffLbx.SetSelected(employeeListboxIndex, true);
+                            }
+                            saveBtn.Enabled = false;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Please enter a new password.", "Error");
                         }
                     }
                     else
                     {
                         MessageBox.Show("All fields must not be empty.", "Error");
                     }
+
                 }
+                //Update
                 else
                 {
-                    MessageBox.Show("Invalid staff selected.", "Error");
+                    int staffIndex = -1;
+                    int.TryParse(staffLbx.SelectedValue.ToString(), out staffIndex);
+                    int staffListboxIndex = staffLbx.SelectedIndex;
+
+                    if (staffIndex != -1)
+                    {
+                        string newStaffUsername = staffUsernameTbx.Text.Trim();
+                        string newStaffLastName = staffLastNameTbx.Text.Trim();
+                        string newStaffFirstName = staffFirstNameTbx.Text.Trim();
+                        string newStaffType = staffTypeCbx.Text;
+
+                        //Validate input
+                        if (newStaffUsername.Length > 0 && newStaffLastName.Length > 0 && newStaffFirstName.Length > 0 && newStaffType.Length > 0)
+                        {
+                            //Update row                  
+                            tblEmployeeTableAdapter.Update(newStaffUsername, newStaffLastName, newStaffFirstName, newStaffType, lUEquipmentDataSet.tblEmployee.FindByEmp_ID(staffIndex).Emp_Password, staffIndex, lUEquipmentDataSet.tblEmployee.FindByEmp_ID(staffIndex).Emp_UName, lUEquipmentDataSet.tblEmployee.FindByEmp_ID(staffIndex).Emp_LName, lUEquipmentDataSet.tblEmployee.FindByEmp_ID(staffIndex).Emp_FName, lUEquipmentDataSet.tblEmployee.FindByEmp_ID(staffIndex).Emp_Type, lUEquipmentDataSet.tblEmployee.FindByEmp_ID(staffIndex).Emp_Password);
+                            this.tblEmployeeTableAdapter.Fill(this.lUEquipmentDataSet.tblEmployee);
+
+                            //Maintain current row selection
+                            staffListboxIndex = staffLbx.FindStringExact(newStaffUsername);
+                            if (staffListboxIndex != -1)
+                            {
+                                staffLbx.SetSelected(staffListboxIndex, true);
+                            }
+                            saveBtn.Enabled = false;
+                        }
+                        else
+                        {
+                            MessageBox.Show("All fields must not be empty.", "Error");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Invalid staff selected.", "Error");
+                    }
                 }
             }
 
@@ -377,6 +422,7 @@ namespace Lakehead_ERIMS
                         {
                             statusLbx.SetSelected(statusListboxIndex, true);
                         }
+                        saveBtn.Enabled = false;
                     }
                     else
                     {
@@ -408,6 +454,7 @@ namespace Lakehead_ERIMS
                             {
                                 statusLbx.SetSelected(statusListboxIndex, true);
                             }
+                            saveBtn.Enabled = false;
                         }
                         else
                         {
@@ -442,6 +489,7 @@ namespace Lakehead_ERIMS
                         {
                             suppliersLbx.SetSelected(supplierListboxIndex, true);
                         }
+                        saveBtn.Enabled = false;
                     }
                     else
                     {
@@ -473,6 +521,7 @@ namespace Lakehead_ERIMS
                             {
                                 suppliersLbx.SetSelected(supplierListboxIndex, true);
                             }
+                            saveBtn.Enabled = false;
                         }
                         else
                         {
@@ -513,7 +562,15 @@ namespace Lakehead_ERIMS
             //Staff
             else if (adminTabControl.SelectedIndex == 3)
             {
-                
+                //Clear fields
+                staffLbx.SelectedIndex = -1;
+                staffUsernameTbx.Clear();
+                staffLastNameTbx.Clear();
+                staffFirstNameTbx.Clear();
+                staffPasswordResetTbx.Clear();
+                staffTypeCbx.SelectedIndex = 0;
+
+                staffResetPasswordBtn.Visible = false;
             }
 
             //Status
@@ -536,29 +593,36 @@ namespace Lakehead_ERIMS
 
         private void staffResetPasswordBtn_Click(object sender, EventArgs e)
         {
-            int staffIndex = -1;
-            int.TryParse(staffLbx.SelectedValue.ToString(), out staffIndex);
-
-            if (staffIndex != -1)
+            if (staffLbx.SelectedIndex != -1)
             {
-                string newStaffPassword = staffPasswordResetTbx.Text.Trim();
+                int staffIndex = -1;
+                int.TryParse(staffLbx.SelectedValue.ToString(), out staffIndex);
 
-                //Validate input
-                if (newStaffPassword.Length > 0)
+                if (staffIndex != -1)
                 {
-                    //Update row                  
-                    tblEmployeeTableAdapter.Update(lUEquipmentDataSet.tblEmployee.FindByEmp_ID(staffIndex).Emp_UName, lUEquipmentDataSet.tblEmployee.FindByEmp_ID(staffIndex).Emp_LName, lUEquipmentDataSet.tblEmployee.FindByEmp_ID(staffIndex).Emp_FName, lUEquipmentDataSet.tblEmployee.FindByEmp_ID(staffIndex).Emp_Type, newStaffPassword, staffIndex, lUEquipmentDataSet.tblEmployee.FindByEmp_ID(staffIndex).Emp_UName, lUEquipmentDataSet.tblEmployee.FindByEmp_ID(staffIndex).Emp_LName, lUEquipmentDataSet.tblEmployee.FindByEmp_ID(staffIndex).Emp_FName, lUEquipmentDataSet.tblEmployee.FindByEmp_ID(staffIndex).Emp_Type, lUEquipmentDataSet.tblEmployee.FindByEmp_ID(staffIndex).Emp_Password);
-                    staffPasswordResetTbx.Clear();
-                    MessageBox.Show("Password changed.", "Success");                   
+                    string newStaffPassword = staffPasswordResetTbx.Text.Trim();
+
+                    //Validate input
+                    if (newStaffPassword.Length > 0)
+                    {
+                        //Update row                  
+                        tblEmployeeTableAdapter.Update(lUEquipmentDataSet.tblEmployee.FindByEmp_ID(staffIndex).Emp_UName, lUEquipmentDataSet.tblEmployee.FindByEmp_ID(staffIndex).Emp_LName, lUEquipmentDataSet.tblEmployee.FindByEmp_ID(staffIndex).Emp_FName, lUEquipmentDataSet.tblEmployee.FindByEmp_ID(staffIndex).Emp_Type, newStaffPassword, staffIndex, lUEquipmentDataSet.tblEmployee.FindByEmp_ID(staffIndex).Emp_UName, lUEquipmentDataSet.tblEmployee.FindByEmp_ID(staffIndex).Emp_LName, lUEquipmentDataSet.tblEmployee.FindByEmp_ID(staffIndex).Emp_FName, lUEquipmentDataSet.tblEmployee.FindByEmp_ID(staffIndex).Emp_Type, lUEquipmentDataSet.tblEmployee.FindByEmp_ID(staffIndex).Emp_Password);
+                        staffPasswordResetTbx.Clear();
+                        MessageBox.Show("Password changed.", "Success");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Password must not be empty.", "Error");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Password must not be empty.", "Error");
+                    MessageBox.Show("Invalid staff selected.", "Error");
                 }
             }
             else
             {
-                MessageBox.Show("Invalid staff selected.", "Error");
+                //Adding new
             }
         }
 
@@ -579,12 +643,14 @@ namespace Lakehead_ERIMS
                     staffLastNameTbx.Text = employeeRow[2].ToString();
                     staffFirstNameTbx.Text = employeeRow[3].ToString();
                     staffUsernameTbx.Text = employeeRow[1].ToString();
+                    staffPasswordResetTbx.Clear();
 
                     //Assign dropdown value from row
                     staffTypeCbx.SelectedIndex = (employeeRow[4].ToString() == "Administrator") ? 0 : 1;
 
                     //Lock save button until changes are made
                     saveBtn.Enabled = false;
+                    staffResetPasswordBtn.Visible = true;
                 }
                 else
                 {
