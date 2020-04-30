@@ -83,6 +83,9 @@ namespace Lakehead_ERIMS
             DataRow equipmentrow;
             equipmentrow = lUEquipmentDataSet.tblEquip.Select("Equip_Number = '" + equipNumbTextBox.Text + "'")[0];
             itemGridView.Rows.Add(equipmentrow[1].ToString(), equipmentrow[2].ToString(), equipmentrow[13].ToString());
+            //int dataSub = equipmentrow[13];
+            //int subtotal = subtotal;
+            subtotalLabel.Text = equipmentrow[13].ToString();
 
             /*
             string connenctionString;
