@@ -51,7 +51,7 @@ namespace Lakehead_ERIMS
             this.tblSupplierTableAdapter.Fill(this.lUEquipmentDataSet.tblSupplier);
             this.tblStatusTableAdapter.Fill(this.lUEquipmentDataSet.tblStatus);
             this.tblLocationTableAdapter.Fill(this.lUEquipmentDataSet.tblLocation);
-
+            
             //Set the first item as selected
             if (equipmentLbx.Items.Count > 0)
             {
@@ -185,6 +185,7 @@ namespace Lakehead_ERIMS
         private void adminFieldChanged(object sender, EventArgs e)
         {
             saveBtn.Enabled = true;
+            
         }
 
         private void HandleNumericOnly(object sender, KeyPressEventArgs e)
@@ -211,11 +212,104 @@ namespace Lakehead_ERIMS
         {
             //Get selected tab and make changes based on that
             
-
             //Equipment
             if(adminTabControl.SelectedIndex == 0)
             {
+                string newItemNum = equipmentItemNumberATbx.Text + equipmentItemNumberBTbx.Text;
+                string newItemName = equipmentItemNameTbx.Text.Trim();
+                string newDescription1 = equipmentDescription1Tbx.Text.Trim();
+                string newDescription2 = equipmentDescription2Tbx.Text.Trim();
+                string newDescription3 = equipmentDescription3Tbx.Text.Trim();
+                string newNotes = equipmentNotesTbx.Text.Trim();
+                DateTime newPurchaseDate = equipmentDatePurchasedDpk.Value;
+                string newPurchasePrice = equipmentPurchasePriceTbx.Text.Trim();
+                string newPONumber = equipmentPONumberTbx.Text.Trim();
+                string newManufacturer = equipmentManufacturerTbx.Text.Trim();
+                string newModel = equipmentModelTbx.Text.Trim();
+                string newSerialNumber = equipmentSerialNumberTbx.Text.Trim();
+                string newRentalFee = equipmentRentalFeeTbx.Text.Trim();
+                string newLateFee = equipmentLateFeeTbx.Text.Trim();
+                short newStatusId = -1;
+                short.TryParse(equipmentStatusCbx.SelectedValue.ToString(), out newStatusId);
+                short newLocationId = -1;
+                short.TryParse(equipmentHomeLocationCbx.SelectedValue.ToString(), out newLocationId);
+                short newSupplierId = -1;
+                short.TryParse(equipmentSupplierCbx.SelectedValue.ToString(), out newSupplierId);
 
+                //Validate Input
+                if(newItemNum.Length != 6 || !int.TryParse(newItemNum, out int tempItemNum))
+                {
+                    MessageBox.Show("Item number is invalid.", "Error");
+                }
+                else if(newStatusId == -1 || newLocationId == -1 || newSupplierId == -1)
+                {
+                    MessageBox.Show("Status, supplier, or location is invalid.", "Error");
+                }
+                else if (newPurchasePrice.Length == 0 || !double.TryParse(newPurchasePrice, out double tempPP))
+                {
+                    MessageBox.Show("Purchase price is invalid, please enter in the following format: 123.45", "Error");
+                }
+                else if (newRentalFee.Length == 0 || !float.TryParse(newRentalFee, out float tempRF))
+                {
+                    MessageBox.Show("Rental fee is invalid, please enter in the following format: 123.45", "Error");
+                }
+                else if (newLateFee.Length == 0 || !float.TryParse(newLateFee, out float tempLF))
+                {
+                    MessageBox.Show("Late fee is invalid, please enter in the following format: 123.45", "Error");
+                }
+                else
+                {
+                    //Validated
+                    float newPurchasePriceDbl = float.Parse(newPurchasePrice);
+                    float newRentalFeeDbl = float.Parse(newRentalFee);
+                    float newLateFeeDbl = float.Parse(newLateFee);
+
+                    //Add New
+                    if (equipmentLbx.SelectedIndex == -1)
+                    {
+                        //Insert row                  
+                        tblEquipTableAdapter.Insert(newItemNum, newItemName, newDescription1, newDescription2, newDescription3, newManufacturer, newModel, newSerialNumber, newSupplierId, newPurchaseDate, newPurchasePriceDbl, newPONumber, newRentalFeeDbl, newLateFeeDbl, 0, newNotes, newStatusId, newLocationId);
+                        this.tblEquipTableAdapter.Fill(this.lUEquipmentDataSet.tblEquip);
+
+                        //Maintain current row selection
+                        int equipmentListboxIndex = equipmentLbx.FindStringExact(newItemNum.Substring(0, 3) + "-" + newItemNum.Substring(3) + ": " + newItemName);
+                        if (equipmentListboxIndex != -1)
+                        {
+                            equipmentLbx.SetSelected(equipmentListboxIndex, true);
+                        }
+                        saveBtn.Enabled = false;
+
+                    }
+                    //Update
+                    else
+                    {
+                        int equipmentIndex = -1;
+                        int.TryParse(equipmentLbx.SelectedValue.ToString(), out equipmentIndex);
+                        int equipmentListboxIndex = equipmentLbx.SelectedIndex;
+
+
+                        if (equipmentIndex != -1)
+                        {
+                            LUEquipmentDataSet.tblEquipRow equipmentRow = lUEquipmentDataSet.tblEquip.FindByEquip_ID(equipmentIndex);
+                            
+                            //Update row                  
+                            tblEquipTableAdapter.Update(newItemNum, newItemName, newDescription1, newDescription2, newDescription3, newManufacturer, newModel, newSerialNumber, newSupplierId, newPurchaseDate, newPurchasePriceDbl, newPONumber, newRentalFeeDbl, newLateFeeDbl, equipmentRow.Equip_Nights, newNotes, newStatusId, newLocationId, equipmentRow.Equip_ID, equipmentRow.Equip_Number, equipmentRow.Equip_Name, equipmentRow.Equip_Descrip1, equipmentRow.Equip_Descrip2, equipmentRow.Equip_Descrip3, equipmentRow.Equip_Manufacturer, equipmentRow.Equip_Model, equipmentRow.Equip_Serial, equipmentRow.Supp_ID, equipmentRow.Equip_DatePurch, equipmentRow.Equip_Price, equipmentRow.Equip_PONumber, equipmentRow.Equip_RentalPrice, equipmentRow.Equip_LateFee, equipmentRow.Equip_Nights, equipmentRow.Equip_Notes, equipmentRow.Status_ID, equipmentRow.Loc_ID);
+                            this.tblEquipTableAdapter.Fill(this.lUEquipmentDataSet.tblEquip);
+
+                            //Maintain current row selection
+                            equipmentListboxIndex = equipmentLbx.FindStringExact(newItemNum.Substring(0, 3) + "-" + newItemNum.Substring(3) + ": " + newItemName);
+                            if (equipmentListboxIndex != -1)
+                            {
+                                equipmentLbx.SetSelected(equipmentListboxIndex, true);
+                            }
+                            saveBtn.Enabled = false; 
+                        }
+                        else
+                        {
+                            MessageBox.Show("Invalid item selected.", "Error");
+                        }
+                    }
+                }             
             }
 
             //Categories
@@ -585,7 +679,28 @@ namespace Lakehead_ERIMS
             //Equipment
             if (adminTabControl.SelectedIndex == 0)
             {
-
+                //Clear fields
+                equipmentLbx.SelectedIndex = -1;
+                equipmentItemNumberATbx.Clear();
+                equipmentItemNumberBTbx.Clear();
+                equipmentItemNameTbx.Clear();
+                equipmentDescription1Tbx.Clear();
+                equipmentDescription2Tbx.Clear();
+                equipmentDescription3Tbx.Clear();
+                equipmentStatusCbx.SelectedIndex = 0;
+                equipmentHomeLocationCbx.SelectedIndex = 0;
+                equipmentNotesTbx.Clear();
+                equipmentSupplierCbx.SelectedIndex = 0;
+                equipmentDatePurchasedDpk.Format = DateTimePickerFormat.Short;
+                equipmentDatePurchasedDpk.Value = DateTime.Today;
+                equipmentPurchasePriceTbx.Clear();
+                equipmentPONumberTbx.Clear();
+                equipmentManufacturerTbx.Clear();
+                equipmentModelTbx.Clear();
+                equipmentSerialNumberTbx.Clear();
+                equipmentRentalFeeTbx.Clear();
+                equipmentLateFeeTbx.Clear();
+                
             }
 
             //Categories
@@ -797,7 +912,6 @@ namespace Lakehead_ERIMS
 
         private void equipmentLbx_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
             DataRow equipmentRow;
 
             //Checks if listbox isn't empty
@@ -932,7 +1046,5 @@ namespace Lakehead_ERIMS
                 saveBtn.Enabled = false;
             }
         }
-
-        
     }
 }
