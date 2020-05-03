@@ -835,7 +835,7 @@ namespace Lakehead_ERIMS
             DataRow employeeRow;
 
             //Checks if listbox isn't empty
-            if (staffLbx.SelectedValue != null)
+            if (staffLbx.SelectedValue != null && adminTabControl.SelectedIndex == 3)
             {
                 //Checks if query returns results and if so, assigns it to employeeRow
                 if (this.lUEquipmentDataSet.tblEmployee.Select("Emp_ID = '" + staffLbx.SelectedValue.ToString() + "'").Length == 1)
@@ -868,7 +868,7 @@ namespace Lakehead_ERIMS
         private void locationsLbx_SelectedIndexChanged(object sender, EventArgs e)
         {
             //Checks if listbox isn't empty
-            if (locationsLbx.SelectedValue != null)
+            if (locationsLbx.SelectedValue != null && adminTabControl.SelectedIndex == 2)
             {
                 locationsLocationNameTbx.Text = locationsLbx.Text;
 
@@ -883,7 +883,7 @@ namespace Lakehead_ERIMS
             DataRow categoryRow;
 
             //Checks if listbox isn't empty
-            if (categoriesLbx.SelectedValue != null)
+            if (categoriesLbx.SelectedValue != null && adminTabControl.SelectedIndex == 1)
             {
                 //Checks if query returns results and if so, assigns it to categoryRow
                 if (this.lUEquipmentDataSet.tblCategory.Select("Cat_ID = '" + categoriesLbx.SelectedValue.ToString() + "'").Length == 1)
@@ -915,7 +915,7 @@ namespace Lakehead_ERIMS
             DataRow equipmentRow;
 
             //Checks if listbox isn't empty
-            if (equipmentLbx.SelectedValue != null)
+            if (equipmentLbx.SelectedValue != null && adminTabControl.SelectedIndex == 0)
             {
                 //Checks if query returns results and if so, assigns it to equipmentRow
                 if (this.lUEquipmentDataSet.tblEquip.Select("Equip_ID = '" + equipmentLbx.SelectedValue.ToString() + "'").Length == 1)
@@ -1025,7 +1025,7 @@ namespace Lakehead_ERIMS
         private void statusLbx_SelectedIndexChanged(object sender, EventArgs e)
         {
             //Checks if listbox isn't empty
-            if (statusLbx.SelectedValue != null)
+            if (statusLbx.SelectedValue != null && adminTabControl.SelectedIndex == 4)
             {
 
                 statusNameTbx.Text = statusLbx.Text;
@@ -1038,7 +1038,7 @@ namespace Lakehead_ERIMS
         private void suppliersLbx_SelectedIndexChanged(object sender, EventArgs e)
         {
             //Checks if listbox isn't empty
-            if (suppliersLbx.SelectedValue != null)
+            if (suppliersLbx.SelectedValue != null && adminTabControl.SelectedIndex == 5)
             {
                 suppliersNameTbx.Text = suppliersLbx.Text;
 

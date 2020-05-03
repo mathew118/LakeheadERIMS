@@ -279,6 +279,7 @@
             this.equipmentSupplierCbx.Size = new System.Drawing.Size(90, 21);
             this.equipmentSupplierCbx.TabIndex = 59;
             this.equipmentSupplierCbx.ValueMember = "Supp_ID";
+            this.equipmentSupplierCbx.SelectedIndexChanged += new System.EventHandler(this.adminFieldChanged);
             // 
             // tblSupplierBindingSource
             // 
@@ -302,6 +303,7 @@
             this.equipmentHomeLocationCbx.Size = new System.Drawing.Size(90, 21);
             this.equipmentHomeLocationCbx.TabIndex = 58;
             this.equipmentHomeLocationCbx.ValueMember = "Loc_ID";
+            this.equipmentHomeLocationCbx.SelectedIndexChanged += new System.EventHandler(this.adminFieldChanged);
             // 
             // tblLocationBindingSource
             // 
@@ -320,6 +322,7 @@
             this.equipmentStatusCbx.Size = new System.Drawing.Size(90, 21);
             this.equipmentStatusCbx.TabIndex = 6;
             this.equipmentStatusCbx.ValueMember = "Status_ID";
+            this.equipmentStatusCbx.SelectedIndexChanged += new System.EventHandler(this.adminFieldChanged);
             // 
             // tblStatusBindingSource
             // 
