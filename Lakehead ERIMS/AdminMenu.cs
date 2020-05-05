@@ -75,11 +75,11 @@ namespace Lakehead_ERIMS
             //Sets the form size based on which tab is selected
             if(adminTabControl.SelectedIndex == 0)
             {
-                ActiveForm.Size = new Size(460, 566);
-                adminTabControl.Size = new Size(420, 426);
+                ActiveForm.Size = new Size(575, 566);
+                adminTabControl.Size = new Size(535, 426);
                 addBtn.Location = new Point(40, 460);
-                saveBtn.Location = new Point(177, 460);
-                exitBtn.Location = new Point(315, 460);
+                saveBtn.Location = new Point(237, 460);
+                exitBtn.Location = new Point(433, 460);
             }
             else
             {
@@ -228,7 +228,7 @@ namespace Lakehead_ERIMS
                 string newDescription2 = equipmentDescription2Tbx.Text.Trim();
                 string newDescription3 = equipmentDescription3Tbx.Text.Trim();
                 string newNotes = equipmentNotesTbx.Text.Trim();
-                DateTime newPurchaseDate = equipmentDatePurchasedDpk.Value;
+                DateTime? newPurchaseDate = equipmentDatePurchasedDpk.Value;
                 string newPurchasePrice = equipmentPurchasePriceTbx.Text.Trim();
                 string newPONumber = equipmentPONumberTbx.Text.Trim();
                 string newManufacturer = equipmentManufacturerTbx.Text.Trim();
@@ -259,7 +259,6 @@ namespace Lakehead_ERIMS
                 }
                 else
                 {
-                    //Use DateTime.FromOADate(0) to check empty date
 
                     //Validated
                     float newPurchasePriceDbl = float.Parse(newPurchasePrice, System.Globalization.NumberStyles.Currency, System.Globalization.NumberFormatInfo.CurrentInfo);
@@ -293,7 +292,7 @@ namespace Lakehead_ERIMS
                         if (equipmentIndex != -1)
                         {
                             //It'd be better to just add an updateById to the table adapter but am unable to do that due to collaborators. Regular Update() was causing errors with nulls in the old values
-                            LUEquipmentDataSet.tblEquipRow equipmentRow = lUEquipmentDataSet.tblEquip.FindByEquip_ID(equipmentIndex);                                                     
+                            LUEquipmentDataSet.tblEquipRow equipmentRow = lUEquipmentDataSet.tblEquip.FindByEquip_ID(equipmentIndex);
                             
                             equipmentRow.Equip_Number = newItemNum;
                             equipmentRow.Equip_Name = newItemName; 
@@ -301,7 +300,7 @@ namespace Lakehead_ERIMS
                             equipmentRow.Equip_Descrip2 = newDescription2;
                             equipmentRow.Equip_Descrip3 = newDescription3;
                             equipmentRow.Equip_Notes = newNotes;
-                            equipmentRow.Equip_DatePurch = newPurchaseDate;
+                            equipmentRow.Equip_DatePurch = (newPurchaseDate.HasValue) ? newPurchaseDate.Value : DateTime.FromOADate(0);
                             equipmentRow.Equip_Price = newPurchasePriceDbl;
                             equipmentRow.Equip_PONumber = newPONumber;
                             equipmentRow.Equip_Manufacturer = newManufacturer;
@@ -314,7 +313,7 @@ namespace Lakehead_ERIMS
                             if (newSupplierId.HasValue) { equipmentRow.Supp_ID = newSupplierId.Value; } else { equipmentRow.SetSupp_IDNull(); }
 
                             //Update row                  
-                            //tblEquipTableAdapter.Update(equipmentRow);
+                            tblEquipTableAdapter.Update(equipmentRow);
                             this.tblEquipTableAdapter.Fill(this.lUEquipmentDataSet.tblEquip);
 
                             //Maintain current row selection
