@@ -192,6 +192,19 @@ namespace Lakehead_ERIMS
             
         }
 
+        private void equipmentDatePurchasedDpk_ValueChanged(object sender, EventArgs e)
+        {
+            if(equipmentDatePurchasedDpk.Value == DateTime.FromOADate(0))
+            {
+                equipmentDatePurchasedDpk.Format = DateTimePickerFormat.Custom;
+                equipmentDatePurchasedDpk.CustomFormat = " ";
+            }
+            else
+            {
+                equipmentDatePurchasedDpk.Format = DateTimePickerFormat.Long;
+            }                                            
+        }
+
         private void HandleNumericOnly(object sender, KeyPressEventArgs e)
         {
             if (char.IsDigit(e.KeyChar) || (e.KeyChar == (char)8))
@@ -266,8 +279,9 @@ namespace Lakehead_ERIMS
                     //Add New
                     if (equipmentLbx.SelectedIndex == -1)
                     {
+
                         //Insert row                  
-                        tblEquipTableAdapter.Insert(newItemNum, newItemName, newDescription1, newDescription2, newDescription3, newManufacturer, newModel, newSerialNumber, newSupplierId, newPurchaseDate, newPurchasePriceFlt, newPONumber, newRentalFeeFlt, newLateFeeFlt, 0, newNotes, newStatusId, newLocationId);
+                        tblEquipTableAdapter.Insert(newItemNum, newItemName, newDescription1, newDescription2, newDescription3, newManufacturer, newModel, newSerialNumber, newSupplierId, newPurchaseDate, (newPurchasePriceFlt != -1) ? newPurchasePriceFlt : (float?)null, newPONumber, (newRentalFeeFlt != -1) ? newRentalFeeFlt : (float?)null, (newLateFeeFlt != -1) ? newLateFeeFlt : (float?)null, 0, newNotes, newStatusId, newLocationId);
                         this.tblEquipTableAdapter.Fill(this.lUEquipmentDataSet.tblEquip);
 
                         //Maintain current row selection
@@ -1019,16 +1033,11 @@ namespace Lakehead_ERIMS
                     //Set Purchase Date
                     if(equipmentRow[10].ToString() != "")
                     {
-                        equipmentDatePurchasedDpk.Format = DateTimePickerFormat.Long;
                         equipmentDatePurchasedDpk.Value = (DateTime)equipmentRow[10];
                     }
                     else
                     {
-                        equipmentDatePurchasedDpk.Format = DateTimePickerFormat.Custom;
-                        equipmentDatePurchasedDpk.CustomFormat = " ";
                         equipmentDatePurchasedDpk.Value = DateTime.FromOADate(0);
-
-                        //For adding/updating, To check if empty, check if the value is equal to DateTime.FromOADate(0)
                     }
 
                     //Lock save button until changes are made

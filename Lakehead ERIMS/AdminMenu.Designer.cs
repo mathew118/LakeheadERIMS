@@ -268,7 +268,7 @@
             this.equipmentDatePurchasedDpk.Size = new System.Drawing.Size(150, 17);
             this.equipmentDatePurchasedDpk.TabIndex = 60;
             this.equipmentDatePurchasedDpk.Value = new System.DateTime(2020, 4, 24, 0, 0, 0, 0);
-            this.equipmentDatePurchasedDpk.ValueChanged += new System.EventHandler(this.adminFieldChanged);
+            this.equipmentDatePurchasedDpk.ValueChanged += new System.EventHandler(this.equipmentDatePurchasedDpk_ValueChanged);
             // 
             // equipmentSupplierCbx
             // 
