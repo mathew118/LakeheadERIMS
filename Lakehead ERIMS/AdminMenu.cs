@@ -14,13 +14,19 @@ namespace Lakehead_ERIMS
     {
         /* TODO LIST
          * 
+         * !!!!!!!!!!!!!!!!!!!! EQUIPMENT !!!!!!!!!!!!!!!!!!!!
+         * Check for item number uniqueness when inserting/updating.
+         * Allow price/fee input with dollar signs
+         * Need to figure out which fields are required and which are not, and need to include the ability to empty those comboboxes & date.
+         * Resize form for longer data
+         * Add proper nights calculating (Remember the DB value is the TOTAL CUMALATIVE, the field will contain the nights from current rental
+         * !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+         * 
+         * 
          * Long startup times caused by the tableadapter.fills, I improved it a lot, but see if I can smooth it out any more.
          * Also maybe shouldnt have the whole DB in memory, they prob have old computers, empty tables when their tabs aren't open
          * 
-         * Equipment tab is going to need multiple tables loaded such as suppliers, status, location, so I may need to rework table loading.
          * I should also make certain status rows permanent since other parts of the application rely on certain status and their index
-         * 
-         * Dropdowns always re-disable save button? It has something to do with them being connected to a datasource, staff combobox doesn't do this.
          * 
          * Duplicate names may cause issues.
          * 
@@ -211,6 +217,7 @@ namespace Lakehead_ERIMS
         private void saveBtn_Click(object sender, EventArgs e)
         {
             //Get selected tab and make changes based on that
+
             
             //Equipment
             if(adminTabControl.SelectedIndex == 0)
@@ -229,40 +236,35 @@ namespace Lakehead_ERIMS
                 string newSerialNumber = equipmentSerialNumberTbx.Text.Trim();
                 string newRentalFee = equipmentRentalFeeTbx.Text.Trim();
                 string newLateFee = equipmentLateFeeTbx.Text.Trim();
-                short newStatusId = -1;
-                short.TryParse(equipmentStatusCbx.SelectedValue.ToString(), out newStatusId);
-                short newLocationId = -1;
-                short.TryParse(equipmentHomeLocationCbx.SelectedValue.ToString(), out newLocationId);
-                short newSupplierId = -1;
-                short.TryParse(equipmentSupplierCbx.SelectedValue.ToString(), out newSupplierId);
+                short? newStatusId = (equipmentStatusCbx.SelectedIndex != -1) ? short.Parse(equipmentStatusCbx.SelectedValue.ToString()) : (short?)null;
+                int? newLocationId = (equipmentHomeLocationCbx.SelectedIndex != -1) ? int.Parse(equipmentHomeLocationCbx.SelectedValue.ToString()) : (int?)null;              
+                short? newSupplierId = (equipmentSupplierCbx.SelectedIndex != -1) ? short.Parse(equipmentSupplierCbx.SelectedValue.ToString()) : (short?)null;            
 
                 //Validate Input
                 if(newItemNum.Length != 6 || !int.TryParse(newItemNum, out int tempItemNum))
                 {
                     MessageBox.Show("Item number is invalid.", "Error");
                 }
-                else if(newStatusId == -1 || newLocationId == -1 || newSupplierId == -1)
-                {
-                    MessageBox.Show("Status, supplier, or location is invalid.", "Error");
-                }
-                else if (newPurchasePrice.Length == 0 || !double.TryParse(newPurchasePrice, out double tempPP))
+                else if (newPurchasePrice.Length == 0 || !float.TryParse(newPurchasePrice, System.Globalization.NumberStyles.Currency, System.Globalization.NumberFormatInfo.CurrentInfo, out float tempPP))
                 {
                     MessageBox.Show("Purchase price is invalid, please enter in the following format: 123.45", "Error");
                 }
-                else if (newRentalFee.Length == 0 || !float.TryParse(newRentalFee, out float tempRF))
+                else if (newRentalFee.Length == 0 || !float.TryParse(newRentalFee, System.Globalization.NumberStyles.Currency, System.Globalization.NumberFormatInfo.CurrentInfo, out float tempRF))
                 {
                     MessageBox.Show("Rental fee is invalid, please enter in the following format: 123.45", "Error");
                 }
-                else if (newLateFee.Length == 0 || !float.TryParse(newLateFee, out float tempLF))
+                else if (newLateFee.Length == 0 || !float.TryParse(newLateFee, System.Globalization.NumberStyles.Currency, System.Globalization.NumberFormatInfo.CurrentInfo, out float tempLF))
                 {
                     MessageBox.Show("Late fee is invalid, please enter in the following format: 123.45", "Error");
                 }
                 else
                 {
+                    //Use DateTime.FromOADate(0) to check empty date
+
                     //Validated
-                    float newPurchasePriceDbl = float.Parse(newPurchasePrice);
-                    float newRentalFeeDbl = float.Parse(newRentalFee);
-                    float newLateFeeDbl = float.Parse(newLateFee);
+                    float newPurchasePriceDbl = float.Parse(newPurchasePrice, System.Globalization.NumberStyles.Currency, System.Globalization.NumberFormatInfo.CurrentInfo);
+                    float newRentalFeeDbl = float.Parse(newRentalFee, System.Globalization.NumberStyles.Currency, System.Globalization.NumberFormatInfo.CurrentInfo);
+                    float newLateFeeDbl = float.Parse(newLateFee, System.Globalization.NumberStyles.Currency, System.Globalization.NumberFormatInfo.CurrentInfo);
 
                     //Add New
                     if (equipmentLbx.SelectedIndex == -1)
@@ -290,10 +292,29 @@ namespace Lakehead_ERIMS
 
                         if (equipmentIndex != -1)
                         {
-                            LUEquipmentDataSet.tblEquipRow equipmentRow = lUEquipmentDataSet.tblEquip.FindByEquip_ID(equipmentIndex);
+                            //It'd be better to just add an updateById to the table adapter but am unable to do that due to collaborators. Regular Update() was causing errors with nulls in the old values
+                            LUEquipmentDataSet.tblEquipRow equipmentRow = lUEquipmentDataSet.tblEquip.FindByEquip_ID(equipmentIndex);                                                     
                             
+                            equipmentRow.Equip_Number = newItemNum;
+                            equipmentRow.Equip_Name = newItemName; 
+                            equipmentRow.Equip_Descrip1 = newDescription1;
+                            equipmentRow.Equip_Descrip2 = newDescription2;
+                            equipmentRow.Equip_Descrip3 = newDescription3;
+                            equipmentRow.Equip_Notes = newNotes;
+                            equipmentRow.Equip_DatePurch = newPurchaseDate;
+                            equipmentRow.Equip_Price = newPurchasePriceDbl;
+                            equipmentRow.Equip_PONumber = newPONumber;
+                            equipmentRow.Equip_Manufacturer = newManufacturer;
+                            equipmentRow.Equip_Model = newModel;
+                            equipmentRow.Equip_Serial = newSerialNumber;
+                            equipmentRow.Equip_RentalPrice = newRentalFeeDbl;
+                            equipmentRow.Equip_LateFee = newLateFeeDbl;
+                            if (newStatusId.HasValue) { equipmentRow.Status_ID = newStatusId.Value; } else { equipmentRow.SetStatus_IDNull(); }
+                            if (newLocationId.HasValue) { equipmentRow.Loc_ID = newLocationId.Value; } else{ equipmentRow.SetLoc_IDNull(); }
+                            if (newSupplierId.HasValue) { equipmentRow.Supp_ID = newSupplierId.Value; } else { equipmentRow.SetSupp_IDNull(); }
+
                             //Update row                  
-                            tblEquipTableAdapter.Update(newItemNum, newItemName, newDescription1, newDescription2, newDescription3, newManufacturer, newModel, newSerialNumber, newSupplierId, newPurchaseDate, newPurchasePriceDbl, newPONumber, newRentalFeeDbl, newLateFeeDbl, equipmentRow.Equip_Nights, newNotes, newStatusId, newLocationId, equipmentRow.Equip_ID, equipmentRow.Equip_Number, equipmentRow.Equip_Name, equipmentRow.Equip_Descrip1, equipmentRow.Equip_Descrip2, equipmentRow.Equip_Descrip3, equipmentRow.Equip_Manufacturer, equipmentRow.Equip_Model, equipmentRow.Equip_Serial, equipmentRow.Supp_ID, equipmentRow.Equip_DatePurch, equipmentRow.Equip_Price, equipmentRow.Equip_PONumber, equipmentRow.Equip_RentalPrice, equipmentRow.Equip_LateFee, equipmentRow.Equip_Nights, equipmentRow.Equip_Notes, equipmentRow.Status_ID, equipmentRow.Loc_ID);
+                            //tblEquipTableAdapter.Update(equipmentRow);
                             this.tblEquipTableAdapter.Fill(this.lUEquipmentDataSet.tblEquip);
 
                             //Maintain current row selection
@@ -955,9 +976,12 @@ namespace Lakehead_ERIMS
                     equipmentPurchasePriceTbx.Text = (double.TryParse(equipmentRow[11].ToString(), out double purchasePriceDbl)) ? purchasePriceDbl.ToString("C") : equipmentRow[11].ToString();
                     equipmentPONumberTbx.Text = equipmentRow[12].ToString();
                     equipmentRentalFeeTbx.Text = (double.TryParse(equipmentRow[13].ToString(), out double rentalFeeDbl)) ? rentalFeeDbl.ToString("C") : equipmentRow[13].ToString();
-                    equipmentLateFeeTbx.Text = (double.TryParse(equipmentRow[14].ToString(), out double lateFeeDbl)) ? lateFeeDbl.ToString("C") : equipmentRow[14].ToString();
-                    //equipmentNightsRentedTbx.Text = equipmentRow[15].ToString();
+                    equipmentLateFeeTbx.Text = (double.TryParse(equipmentRow[14].ToString(), out double lateFeeDbl)) ? lateFeeDbl.ToString("C") : equipmentRow[14].ToString();                   
                     equipmentNotesTbx.Text = equipmentRow[16].ToString();
+
+
+                    //Need proper nights calculating
+                    equipmentNightsRentedTbx.Text = equipmentRow[15].ToString();
 
                     //Set Status
                     int statusId = 0;
