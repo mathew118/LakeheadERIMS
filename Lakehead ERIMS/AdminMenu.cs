@@ -15,9 +15,10 @@ namespace Lakehead_ERIMS
         /* TODO LIST
          * 
          * !!!!!!!!!!!!!!!!!!!! EQUIPMENT !!!!!!!!!!!!!!!!!!!!
-         * Check for item number uniqueness when inserting/updating.
          * Need to figure out which fields are required and which are not, and need to include the ability to empty those comboboxes & date.
-         * Add proper nights calculating (Remember the DB value is the TOTAL CUMALATIVE, the field will contain the nights from current rental
+         * Add proper nights calculating (Remember the DB value is the TOTAL CUMALATIVE, the field will contain the nights from current rental)
+         * Add button/ability to clear comboboxes and datepicker.
+         * See if I can make it so when you go to edit an empty purchase date, it doesn't start at 1899.
          * !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
          * 
          * 
@@ -258,6 +259,11 @@ namespace Lakehead_ERIMS
                 if(newItemNum.Length != 6 || !int.TryParse(newItemNum, out int tempItemNum))
                 {
                     MessageBox.Show("Item number is invalid.", "Error");
+                }
+                //If an item with the same number exists and you're adding new, or an item with the same number exists and you're not editing that same item, show an error
+                else if ((this.lUEquipmentDataSet.tblEquip.Select("Equip_Number = '" + newItemNum + "'").Length > 0) && (equipmentLbx.SelectedIndex == -1 || (equipmentLbx.SelectedIndex != -1 && lUEquipmentDataSet.tblEquip.FindByEquip_ID(int.Parse(equipmentLbx.SelectedValue.ToString())).Equip_Number != newItemNum)) )
+                {
+                    MessageBox.Show("An item with that equipment number already exists.", "Error");
                 }
                 else if (newPurchasePrice.Length != 0 && !float.TryParse(newPurchasePrice, System.Globalization.NumberStyles.Currency, System.Globalization.NumberFormatInfo.CurrentInfo, out newPurchasePriceFlt))
                 {
