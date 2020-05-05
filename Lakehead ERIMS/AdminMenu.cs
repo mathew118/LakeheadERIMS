@@ -16,9 +16,7 @@ namespace Lakehead_ERIMS
          * 
          * !!!!!!!!!!!!!!!!!!!! EQUIPMENT !!!!!!!!!!!!!!!!!!!!
          * Check for item number uniqueness when inserting/updating.
-         * Allow price/fee input with dollar signs
          * Need to figure out which fields are required and which are not, and need to include the ability to empty those comboboxes & date.
-         * Resize form for longer data
          * Add proper nights calculating (Remember the DB value is the TOTAL CUMALATIVE, the field will contain the nights from current rental
          * !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
          * 
@@ -228,7 +226,7 @@ namespace Lakehead_ERIMS
                 string newDescription2 = equipmentDescription2Tbx.Text.Trim();
                 string newDescription3 = equipmentDescription3Tbx.Text.Trim();
                 string newNotes = equipmentNotesTbx.Text.Trim();
-                DateTime? newPurchaseDate = equipmentDatePurchasedDpk.Value;
+                DateTime newPurchaseDate = equipmentDatePurchasedDpk.Value;
                 string newPurchasePrice = equipmentPurchasePriceTbx.Text.Trim();
                 string newPONumber = equipmentPONumberTbx.Text.Trim();
                 string newManufacturer = equipmentManufacturerTbx.Text.Trim();
@@ -236,6 +234,9 @@ namespace Lakehead_ERIMS
                 string newSerialNumber = equipmentSerialNumberTbx.Text.Trim();
                 string newRentalFee = equipmentRentalFeeTbx.Text.Trim();
                 string newLateFee = equipmentLateFeeTbx.Text.Trim();
+                float newPurchasePriceFlt = -1;
+                float newRentalFeeFlt = -1;
+                float newLateFeeFlt = -1;
                 short? newStatusId = (equipmentStatusCbx.SelectedIndex != -1) ? short.Parse(equipmentStatusCbx.SelectedValue.ToString()) : (short?)null;
                 int? newLocationId = (equipmentHomeLocationCbx.SelectedIndex != -1) ? int.Parse(equipmentHomeLocationCbx.SelectedValue.ToString()) : (int?)null;              
                 short? newSupplierId = (equipmentSupplierCbx.SelectedIndex != -1) ? short.Parse(equipmentSupplierCbx.SelectedValue.ToString()) : (short?)null;            
@@ -245,31 +246,28 @@ namespace Lakehead_ERIMS
                 {
                     MessageBox.Show("Item number is invalid.", "Error");
                 }
-                else if (newPurchasePrice.Length == 0 || !float.TryParse(newPurchasePrice, System.Globalization.NumberStyles.Currency, System.Globalization.NumberFormatInfo.CurrentInfo, out float tempPP))
+                else if (newPurchasePrice.Length != 0 && !float.TryParse(newPurchasePrice, System.Globalization.NumberStyles.Currency, System.Globalization.NumberFormatInfo.CurrentInfo, out newPurchasePriceFlt))
                 {
                     MessageBox.Show("Purchase price is invalid, please enter in the following format: 123.45", "Error");
                 }
-                else if (newRentalFee.Length == 0 || !float.TryParse(newRentalFee, System.Globalization.NumberStyles.Currency, System.Globalization.NumberFormatInfo.CurrentInfo, out float tempRF))
+                //Rental Fee is not optional
+                else if (newRentalFee.Length == 0 || !float.TryParse(newRentalFee, System.Globalization.NumberStyles.Currency, System.Globalization.NumberFormatInfo.CurrentInfo, out newRentalFeeFlt))
                 {
                     MessageBox.Show("Rental fee is invalid, please enter in the following format: 123.45", "Error");
                 }
-                else if (newLateFee.Length == 0 || !float.TryParse(newLateFee, System.Globalization.NumberStyles.Currency, System.Globalization.NumberFormatInfo.CurrentInfo, out float tempLF))
+                else if (newLateFee.Length != 0 && !float.TryParse(newLateFee, System.Globalization.NumberStyles.Currency, System.Globalization.NumberFormatInfo.CurrentInfo, out newLateFeeFlt))
                 {
                     MessageBox.Show("Late fee is invalid, please enter in the following format: 123.45", "Error");
                 }
                 else
                 {
-
                     //Validated
-                    float newPurchasePriceDbl = float.Parse(newPurchasePrice, System.Globalization.NumberStyles.Currency, System.Globalization.NumberFormatInfo.CurrentInfo);
-                    float newRentalFeeDbl = float.Parse(newRentalFee, System.Globalization.NumberStyles.Currency, System.Globalization.NumberFormatInfo.CurrentInfo);
-                    float newLateFeeDbl = float.Parse(newLateFee, System.Globalization.NumberStyles.Currency, System.Globalization.NumberFormatInfo.CurrentInfo);
 
                     //Add New
                     if (equipmentLbx.SelectedIndex == -1)
                     {
                         //Insert row                  
-                        tblEquipTableAdapter.Insert(newItemNum, newItemName, newDescription1, newDescription2, newDescription3, newManufacturer, newModel, newSerialNumber, newSupplierId, newPurchaseDate, newPurchasePriceDbl, newPONumber, newRentalFeeDbl, newLateFeeDbl, 0, newNotes, newStatusId, newLocationId);
+                        tblEquipTableAdapter.Insert(newItemNum, newItemName, newDescription1, newDescription2, newDescription3, newManufacturer, newModel, newSerialNumber, newSupplierId, newPurchaseDate, newPurchasePriceFlt, newPONumber, newRentalFeeFlt, newLateFeeFlt, 0, newNotes, newStatusId, newLocationId);
                         this.tblEquipTableAdapter.Fill(this.lUEquipmentDataSet.tblEquip);
 
                         //Maintain current row selection
@@ -299,15 +297,15 @@ namespace Lakehead_ERIMS
                             equipmentRow.Equip_Descrip1 = newDescription1;
                             equipmentRow.Equip_Descrip2 = newDescription2;
                             equipmentRow.Equip_Descrip3 = newDescription3;
-                            equipmentRow.Equip_Notes = newNotes;
-                            equipmentRow.Equip_DatePurch = (newPurchaseDate.HasValue) ? newPurchaseDate.Value : DateTime.FromOADate(0);
-                            equipmentRow.Equip_Price = newPurchasePriceDbl;
+                            equipmentRow.Equip_Notes = newNotes;                      
                             equipmentRow.Equip_PONumber = newPONumber;
                             equipmentRow.Equip_Manufacturer = newManufacturer;
                             equipmentRow.Equip_Model = newModel;
                             equipmentRow.Equip_Serial = newSerialNumber;
-                            equipmentRow.Equip_RentalPrice = newRentalFeeDbl;
-                            equipmentRow.Equip_LateFee = newLateFeeDbl;
+                            if (newRentalFeeFlt != -1) { equipmentRow.Equip_RentalPrice = newRentalFeeFlt; } else { equipmentRow.SetEquip_RentalPriceNull(); }
+                            if (newLateFeeFlt != -1) { equipmentRow.Equip_LateFee = newLateFeeFlt; } else { equipmentRow.SetEquip_LateFeeNull(); }
+                            if (newPurchasePriceFlt != -1) { equipmentRow.Equip_Price = newPurchasePriceFlt; } else { equipmentRow.SetEquip_PriceNull(); }
+                            if (newPurchaseDate != DateTime.FromOADate(0)) { equipmentRow.Equip_DatePurch = newPurchaseDate; } else { equipmentRow.SetEquip_DatePurchNull(); }
                             if (newStatusId.HasValue) { equipmentRow.Status_ID = newStatusId.Value; } else { equipmentRow.SetStatus_IDNull(); }
                             if (newLocationId.HasValue) { equipmentRow.Loc_ID = newLocationId.Value; } else{ equipmentRow.SetLoc_IDNull(); }
                             if (newSupplierId.HasValue) { equipmentRow.Supp_ID = newSupplierId.Value; } else { equipmentRow.SetSupp_IDNull(); }
@@ -1021,7 +1019,7 @@ namespace Lakehead_ERIMS
                     //Set Purchase Date
                     if(equipmentRow[10].ToString() != "")
                     {
-                        equipmentDatePurchasedDpk.Format = DateTimePickerFormat.Short;
+                        equipmentDatePurchasedDpk.Format = DateTimePickerFormat.Long;
                         equipmentDatePurchasedDpk.Value = (DateTime)equipmentRow[10];
                     }
                     else

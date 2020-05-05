@@ -263,7 +263,6 @@
             // equipmentDatePurchasedDpk
             // 
             this.equipmentDatePurchasedDpk.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.3F);
-            this.equipmentDatePurchasedDpk.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.equipmentDatePurchasedDpk.Location = new System.Drawing.Point(357, 158);
             this.equipmentDatePurchasedDpk.Name = "equipmentDatePurchasedDpk";
             this.equipmentDatePurchasedDpk.Size = new System.Drawing.Size(150, 17);
