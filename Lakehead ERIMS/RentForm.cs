@@ -42,45 +42,9 @@ namespace Lakehead_ERIMS
             studentLNameLabel.Text = info[2].ToString();
             studentAddressLabe.Text = info[4].ToString();
             studentPhone.Text = info[8].ToString();
+            feeTextBox.Text = info[17].ToString();
          
-            /*
-            string connenctionString;
-            OleDbConnection cnn;
-            connenctionString = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\ongar\OneDrive\Desktop\LUEquipment.mdb;Persist Security Info=True";
-            cnn = new OleDbConnection(connenctionString);
-            cnn.Open();
-            OleDbCommand command = new OleDbCommand();
-            command.Connection = cnn;
-            command.CommandText = "SELECT Stu_FName FROM tblStudent WHERE Stu_Number = '" + studentNumberTextBox.Text + "'";
-            studentFNameLabel.Text = command.ExecuteScalar().ToString();
 
-            OleDbCommand command1 = new OleDbCommand();
-            command1.Connection = cnn;
-            command1.CommandText = "SELECT Stu_LName FROM tblStudent WHERE Stu_Number = '" + studentNumberTextBox.Text + "'";
-            studentLNameLabel.Text = command1.ExecuteScalar().ToString();
-
-            OleDbCommand command2 = new OleDbCommand();
-            command2.Connection = cnn;
-            command2.CommandText = "SELECT Stu_Number FROM tblStudent WHERE Stu_Number = '" + studentNumberTextBox.Text + "'";
-            studentNumberLabel.Text = command2.ExecuteScalar().ToString();
-
-            OleDbCommand command3 = new OleDbCommand();
-            command3.Connection = cnn;
-            command3.CommandText = "SELECT Stu_LAddress FROM tblStudent WHERE Stu_Number = '" + studentNumberTextBox.Text + "'";
-            studentAddressLabe.Text = command3.ExecuteScalar().ToString();
-
-            OleDbCommand command4 = new OleDbCommand();
-            command4.Connection = cnn;
-            command4.CommandText = "SELECT Stu_LPhone FROM tblStudent WHERE Stu_Number = '" + studentNumberTextBox.Text + "'";
-            studentPhone.Text = command4.ExecuteScalar().ToString();
-
-            OleDbCommand command5 = new OleDbCommand();
-            command5.Connection = cnn;
-            command5.CommandText = "SELECT Stu_Owe FROM tblStudent WHERE Stu_Number = '" + studentNumberTextBox.Text + "'";
-            feeTextBox.Text = command5.ExecuteScalar().ToString();
-
-            cnn.Close();
-            */
         }
 
         private void label11_Click(object sender, EventArgs e)
@@ -135,18 +99,59 @@ namespace Lakehead_ERIMS
 
         private void calcCost_Click(object sender, EventArgs e)
         {
-            double finalCost;
+            List<int> values = new List<int>();
+            
             foreach (DataGridViewRow row in itemGridView.Rows)
             {
-
-                int n = row.Index;
-                string final = (Double.Parse(itemGridView.Rows[n].Cells[2].Value.ToString()).ToString());
-                n++;
-
-                MessageBox.Show(final);
-                
+                values.Add(int.Parse(row.Cells["Price"].Value.ToString()));
+               // int n = row.Index;
+               // string final = (Double.Parse(itemGridView.Rows[n].Cells[2].Value.ToString()).ToString());
+                //n++;
                
             }
+            int[] array = values.ToArray();
+            int[] finalArray = array.Take(array.Length - 1).ToArray();
+
+            double sum = finalArray.Sum();
+
+            subtotalLabel.Text = sum.ToString();
+
+            if (payFeeRadioButton.Checked)
+            {
+                double feeOwe = Convert.ToDouble(this.feeTextBox.Text);
+                double fee = sum + feeOwe;
+                subtotalLabel.Text = fee.ToString();
+            }
+
+            double subtotalFinal = Convert.ToDouble(this.subtotalLabel.Text);
+
+            double total = subtotalFinal * 1.13;
+
+            double hst = subtotalFinal * 0.13;
+
+            hstLabel.Text = hst.ToString();
+
+            totalLabel.Text = total.ToString();
+
+            if (waiveCheckBox.Checked)
+            {
+                subtotalLabel.Text = "0";
+                hstLabel.Text = "0";
+                totalLabel.Text = "0";
+            }
+             
+          
+
+
+        }
+
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void rentalButton_Click(object sender, EventArgs e)
+        {
 
         }
     }

@@ -46,8 +46,9 @@
             this.addButton = new System.Windows.Forms.Button();
             this.equipNumbTextBox = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.tblEquipBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.lUEquipmentDataSetBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.lUEquipmentDataSet = new Lakehead_ERIMS.LUEquipmentDataSet();
+            this.tblEquipBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tblEquipTableAdapter = new Lakehead_ERIMS.LUEquipmentDataSetTableAdapters.tblEquipTableAdapter();
             this.dateRentedPicker = new System.Windows.Forms.DateTimePicker();
             this.dateDuePicker = new System.Windows.Forms.DateTimePicker();
@@ -62,6 +63,7 @@
             this.studentLNameLabel = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.calcCost = new System.Windows.Forms.Button();
             this.totalLabel = new System.Windows.Forms.Label();
             this.hstLabel = new System.Windows.Forms.Label();
             this.waiveCheckBox = new System.Windows.Forms.CheckBox();
@@ -79,11 +81,13 @@
             this.tblRentalTableAdapter1 = new Lakehead_ERIMS.LUEquipmentDataSetTableAdapters.tblRentalTableAdapter();
             this.tblStudentTableAdapter1 = new Lakehead_ERIMS.LUEquipmentDataSetTableAdapters.tblStudentTableAdapter();
             this.luEquipmentDataSet1 = new Lakehead_ERIMS.LUEquipmentDataSet();
-            this.calcCost = new System.Windows.Forms.Button();
+            this.rentalButton = new System.Windows.Forms.Button();
+            this.exitButton = new System.Windows.Forms.Button();
             this.rentItem.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.itemGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tblEquipBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lUEquipmentDataSetBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lUEquipmentDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblEquipBindingSource)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -244,15 +248,20 @@
             this.label9.TabIndex = 1;
             this.label9.Text = "Enter Equipment Number:";
             // 
-            // tblEquipBindingSource
+            // lUEquipmentDataSetBindingSource1
             // 
-            this.tblEquipBindingSource.DataMember = "tblEquip";
-            this.tblEquipBindingSource.DataSource = this.lUEquipmentDataSet;
+            this.lUEquipmentDataSetBindingSource1.DataSource = this.lUEquipmentDataSet;
+            this.lUEquipmentDataSetBindingSource1.Position = 0;
             // 
             // lUEquipmentDataSet
             // 
             this.lUEquipmentDataSet.DataSetName = "LUEquipmentDataSet";
             this.lUEquipmentDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // tblEquipBindingSource
+            // 
+            this.tblEquipBindingSource.DataMember = "tblEquip";
+            this.tblEquipBindingSource.DataSource = this.lUEquipmentDataSet;
             // 
             // tblEquipTableAdapter
             // 
@@ -277,7 +286,7 @@
             this.studentNumberLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.studentNumberLabel.Location = new System.Drawing.Point(201, 214);
             this.studentNumberLabel.Name = "studentNumberLabel";
-            this.studentNumberLabel.Size = new System.Drawing.Size(78, 19);
+            this.studentNumberLabel.Size = new System.Drawing.Size(159, 19);
             this.studentNumberLabel.TabIndex = 11;
             this.studentNumberLabel.Text = "                 ";
             // 
@@ -286,7 +295,7 @@
             this.studentFNameLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.studentFNameLabel.Location = new System.Drawing.Point(201, 236);
             this.studentFNameLabel.Name = "studentFNameLabel";
-            this.studentFNameLabel.Size = new System.Drawing.Size(78, 19);
+            this.studentFNameLabel.Size = new System.Drawing.Size(159, 19);
             this.studentFNameLabel.TabIndex = 16;
             this.studentFNameLabel.Text = "                 ";
             // 
@@ -295,7 +304,7 @@
             this.studentAddressLabe.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.studentAddressLabe.Location = new System.Drawing.Point(201, 302);
             this.studentAddressLabe.Name = "studentAddressLabe";
-            this.studentAddressLabe.Size = new System.Drawing.Size(78, 19);
+            this.studentAddressLabe.Size = new System.Drawing.Size(159, 19);
             this.studentAddressLabe.TabIndex = 17;
             this.studentAddressLabe.Text = "                 ";
             // 
@@ -304,7 +313,7 @@
             this.studentPhone.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.studentPhone.Location = new System.Drawing.Point(201, 331);
             this.studentPhone.Name = "studentPhone";
-            this.studentPhone.Size = new System.Drawing.Size(78, 19);
+            this.studentPhone.Size = new System.Drawing.Size(159, 19);
             this.studentPhone.TabIndex = 18;
             this.studentPhone.Text = "                 ";
             // 
@@ -351,7 +360,7 @@
             this.studentLNameLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.studentLNameLabel.Location = new System.Drawing.Point(201, 267);
             this.studentLNameLabel.Name = "studentLNameLabel";
-            this.studentLNameLabel.Size = new System.Drawing.Size(78, 19);
+            this.studentLNameLabel.Size = new System.Drawing.Size(159, 19);
             this.studentLNameLabel.TabIndex = 24;
             this.studentLNameLabel.Text = "                 ";
             this.studentLNameLabel.Click += new System.EventHandler(this.label11_Click);
@@ -381,6 +390,16 @@
             this.groupBox3.TabIndex = 25;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Payment Summary";
+            // 
+            // calcCost
+            // 
+            this.calcCost.Location = new System.Drawing.Point(126, 216);
+            this.calcCost.Name = "calcCost";
+            this.calcCost.Size = new System.Drawing.Size(169, 41);
+            this.calcCost.TabIndex = 11;
+            this.calcCost.Text = "Calculate Cost";
+            this.calcCost.UseVisualStyleBackColor = true;
+            this.calcCost.Click += new System.EventHandler(this.calcCost_Click);
             // 
             // totalLabel
             // 
@@ -485,6 +504,7 @@
             // ignoreRadioButton
             // 
             this.ignoreRadioButton.AutoSize = true;
+            this.ignoreRadioButton.Checked = true;
             this.ignoreRadioButton.Location = new System.Drawing.Point(86, 137);
             this.ignoreRadioButton.Name = "ignoreRadioButton";
             this.ignoreRadioButton.Size = new System.Drawing.Size(97, 21);
@@ -527,21 +547,33 @@
             this.luEquipmentDataSet1.DataSetName = "LUEquipmentDataSet";
             this.luEquipmentDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // calcCost
+            // rentalButton
             // 
-            this.calcCost.Location = new System.Drawing.Point(126, 216);
-            this.calcCost.Name = "calcCost";
-            this.calcCost.Size = new System.Drawing.Size(169, 41);
-            this.calcCost.TabIndex = 11;
-            this.calcCost.Text = "Calculate Cost";
-            this.calcCost.UseVisualStyleBackColor = true;
-            this.calcCost.Click += new System.EventHandler(this.calcCost_Click);
+            this.rentalButton.Location = new System.Drawing.Point(585, 741);
+            this.rentalButton.Name = "rentalButton";
+            this.rentalButton.Size = new System.Drawing.Size(127, 31);
+            this.rentalButton.TabIndex = 27;
+            this.rentalButton.Text = "Process Rental";
+            this.rentalButton.UseVisualStyleBackColor = true;
+            this.rentalButton.Click += new System.EventHandler(this.rentalButton_Click);
+            // 
+            // exitButton
+            // 
+            this.exitButton.Location = new System.Drawing.Point(765, 737);
+            this.exitButton.Name = "exitButton";
+            this.exitButton.Size = new System.Drawing.Size(137, 34);
+            this.exitButton.TabIndex = 28;
+            this.exitButton.Text = "Exit";
+            this.exitButton.UseVisualStyleBackColor = true;
+            this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
             // 
             // form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 809);
+            this.Controls.Add(this.exitButton);
+            this.Controls.Add(this.rentalButton);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.studentLNameLabel);
@@ -567,8 +599,9 @@
             this.rentItem.ResumeLayout(false);
             this.rentItem.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.itemGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tblEquipBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lUEquipmentDataSetBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lUEquipmentDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblEquipBindingSource)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
@@ -635,5 +668,8 @@
         private LUEquipmentDataSetTableAdapters.tblStudentTableAdapter tblStudentTableAdapter1;
         private LUEquipmentDataSet luEquipmentDataSet1;
         private System.Windows.Forms.Button calcCost;
+        private System.Windows.Forms.BindingSource lUEquipmentDataSetBindingSource1;
+        private System.Windows.Forms.Button rentalButton;
+        private System.Windows.Forms.Button exitButton;
     }
 }
