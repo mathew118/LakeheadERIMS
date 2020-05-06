@@ -103,11 +103,7 @@ namespace Lakehead_ERIMS
             
             foreach (DataGridViewRow row in itemGridView.Rows)
             {
-                values.Add(int.Parse(row.Cells["Price"].Value.ToString()));
-               // int n = row.Index;
-               // string final = (Double.Parse(itemGridView.Rows[n].Cells[2].Value.ToString()).ToString());
-                //n++;
-               
+                values.Add(int.Parse(row.Cells["Price"].Value.ToString()));            
             }
             int[] array = values.ToArray();
             int[] finalArray = array.Take(array.Length - 1).ToArray();
@@ -140,8 +136,6 @@ namespace Lakehead_ERIMS
                 totalLabel.Text = "0";
             }
              
-          
-
 
         }
 
@@ -152,6 +146,32 @@ namespace Lakehead_ERIMS
 
         private void rentalButton_Click(object sender, EventArgs e)
         {
+            List<int> values = new List<int>();
+
+            foreach (DataGridViewRow row in itemGridView.Rows)
+            {
+                values.Add(int.Parse(row.Cells["Number"].Value.ToString()));
+            }
+
+            int[] insert = values.ToArray();
+            int[] finalInsert = insert.Take(insert.Length - 1).ToArray();
+
+            List<int> equipID = new List<int>();
+            int counter = 0;
+            foreach (int i in finalInsert)
+            {
+                this.tblEquipTableAdapter.Fill(this.lUEquipmentDataSet.tblEquip);
+                DataRow Equip;
+                Equip = lUEquipmentDataSet.tblEquip.Select("Equip_Number = '" + i.ToString() +"'")[0];
+                equipID.Add(Convert.ToInt32(Equip));
+                counter++;
+            }
+            
+
+            //this.tblEquipTableAdapter.Fill(this.lUEquipmentDataSet.tblEquip);
+            //DataRow EquipID;
+            //this.tblRentalTableAdapter1.Insert()
+
 
         }
     }
