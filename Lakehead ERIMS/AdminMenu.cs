@@ -73,12 +73,12 @@ namespace Lakehead_ERIMS
         {
             //Sets the form size based on which tab is selected
             if(adminTabControl.SelectedIndex == 0)
-            {
-                ActiveForm.Size = new Size(575, 566);
-                adminTabControl.Size = new Size(535, 426);
+            {            
+                ActiveForm.Size = new Size(600, 566);
+                adminTabControl.Size = new Size(560, 426);
                 addBtn.Location = new Point(40, 460);
-                saveBtn.Location = new Point(237, 460);
-                exitBtn.Location = new Point(433, 460);
+                saveBtn.Location = new Point(249, 460);
+                exitBtn.Location = new Point(458, 460);
             }
             else
             {
@@ -226,6 +226,21 @@ namespace Lakehead_ERIMS
             e.Value = itemNumber.Substring(0, 3) + "-" + itemNumber.Substring(3) + ": " + itemName;
         }
 
+        private void equipmentLocationClearBtn_Click(object sender, EventArgs e)
+        {
+            equipmentHomeLocationCbx.SelectedIndex = -1;
+        }
+
+        private void equipmentSupplierClearBtn_Click(object sender, EventArgs e)
+        {
+            equipmentSupplierCbx.SelectedIndex = -1;
+        }
+
+        private void equipmentPurchaseDateClearBtn_Click(object sender, EventArgs e)
+        {
+            equipmentDatePurchasedDpk.Value = DateTime.FromOADate(0);
+        }
+
         private void saveBtn_Click(object sender, EventArgs e)
         {
             //Get selected tab and make changes based on that
@@ -277,6 +292,10 @@ namespace Lakehead_ERIMS
                 else if (newLateFee.Length != 0 && !float.TryParse(newLateFee, System.Globalization.NumberStyles.Currency, System.Globalization.NumberFormatInfo.CurrentInfo, out newLateFeeFlt))
                 {
                     MessageBox.Show("Late fee is invalid, please enter in the following format: 123.45", "Error");
+                }
+                else if (!newStatusId.HasValue)
+                {
+                    MessageBox.Show("Status invalid, please select a status", "Error");
                 }
                 else
                 {
