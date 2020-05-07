@@ -34,6 +34,9 @@
             this.exitBtn = new System.Windows.Forms.Button();
             this.adminTabControl = new System.Windows.Forms.TabControl();
             this.equipmentTab = new System.Windows.Forms.TabPage();
+            this.equipmentLocationClearBtn = new System.Windows.Forms.Button();
+            this.equipmentSupplierClearBtn = new System.Windows.Forms.Button();
+            this.equipmentPurchaseDateClearBtn = new System.Windows.Forms.Button();
             this.equipmentItemNumberSearchingDashLbl = new System.Windows.Forms.Label();
             this.equipmentItemNumberDashLbl = new System.Windows.Forms.Label();
             this.equipmentItemNumberSearchingBTbx = new System.Windows.Forms.TextBox();
@@ -126,9 +129,6 @@
             this.tblEquipTableAdapter = new Lakehead_ERIMS.LUEquipmentDataSetTableAdapters.tblEquipTableAdapter();
             this.tblStatusTableAdapter = new Lakehead_ERIMS.LUEquipmentDataSetTableAdapters.tblStatusTableAdapter();
             this.tblSupplierTableAdapter = new Lakehead_ERIMS.LUEquipmentDataSetTableAdapters.tblSupplierTableAdapter();
-            this.equipmentPurchaseDateClearBtn = new System.Windows.Forms.Button();
-            this.equipmentSupplierClearBtn = new System.Windows.Forms.Button();
-            this.equipmentLocationClearBtn = new System.Windows.Forms.Button();
             this.adminTabControl.SuspendLayout();
             this.equipmentTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tblSupplierBindingSource)).BeginInit();
@@ -247,6 +247,39 @@
             this.equipmentTab.TabIndex = 0;
             this.equipmentTab.Text = "Equipment";
             this.equipmentTab.UseVisualStyleBackColor = true;
+            // 
+            // equipmentLocationClearBtn
+            // 
+            this.equipmentLocationClearBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.equipmentLocationClearBtn.Location = new System.Drawing.Point(256, 262);
+            this.equipmentLocationClearBtn.Name = "equipmentLocationClearBtn";
+            this.equipmentLocationClearBtn.Size = new System.Drawing.Size(25, 20);
+            this.equipmentLocationClearBtn.TabIndex = 67;
+            this.equipmentLocationClearBtn.Text = "C";
+            this.equipmentLocationClearBtn.UseVisualStyleBackColor = true;
+            this.equipmentLocationClearBtn.Click += new System.EventHandler(this.equipmentLocationClearBtn_Click);
+            // 
+            // equipmentSupplierClearBtn
+            // 
+            this.equipmentSupplierClearBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.equipmentSupplierClearBtn.Location = new System.Drawing.Point(520, 132);
+            this.equipmentSupplierClearBtn.Name = "equipmentSupplierClearBtn";
+            this.equipmentSupplierClearBtn.Size = new System.Drawing.Size(25, 20);
+            this.equipmentSupplierClearBtn.TabIndex = 66;
+            this.equipmentSupplierClearBtn.Text = "C";
+            this.equipmentSupplierClearBtn.UseVisualStyleBackColor = true;
+            this.equipmentSupplierClearBtn.Click += new System.EventHandler(this.equipmentSupplierClearBtn_Click);
+            // 
+            // equipmentPurchaseDateClearBtn
+            // 
+            this.equipmentPurchaseDateClearBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.equipmentPurchaseDateClearBtn.Location = new System.Drawing.Point(520, 156);
+            this.equipmentPurchaseDateClearBtn.Name = "equipmentPurchaseDateClearBtn";
+            this.equipmentPurchaseDateClearBtn.Size = new System.Drawing.Size(25, 20);
+            this.equipmentPurchaseDateClearBtn.TabIndex = 65;
+            this.equipmentPurchaseDateClearBtn.Text = "C";
+            this.equipmentPurchaseDateClearBtn.UseVisualStyleBackColor = true;
+            this.equipmentPurchaseDateClearBtn.Click += new System.EventHandler(this.equipmentPurchaseDateClearBtn_Click);
             // 
             // equipmentItemNumberSearchingDashLbl
             // 
@@ -672,7 +705,7 @@
             this.equipmentLbx.Location = new System.Drawing.Point(3, 3);
             this.equipmentLbx.Name = "equipmentLbx";
             this.equipmentLbx.ScrollAlwaysVisible = true;
-            this.equipmentLbx.Size = new System.Drawing.Size(521, 95);
+            this.equipmentLbx.Size = new System.Drawing.Size(546, 95);
             this.equipmentLbx.TabIndex = 12;
             this.equipmentLbx.ValueMember = "Equip_ID";
             this.equipmentLbx.SelectedIndexChanged += new System.EventHandler(this.equipmentLbx_SelectedIndexChanged);
@@ -697,7 +730,7 @@
             this.categoriesTab.Location = new System.Drawing.Point(4, 22);
             this.categoriesTab.Name = "categoriesTab";
             this.categoriesTab.Padding = new System.Windows.Forms.Padding(3);
-            this.categoriesTab.Size = new System.Drawing.Size(527, 400);
+            this.categoriesTab.Size = new System.Drawing.Size(552, 400);
             this.categoriesTab.TabIndex = 1;
             this.categoriesTab.Text = "Categories";
             this.categoriesTab.UseVisualStyleBackColor = true;
@@ -804,7 +837,7 @@
             this.locationsTab.Controls.Add(this.locationsLbx);
             this.locationsTab.Location = new System.Drawing.Point(4, 22);
             this.locationsTab.Name = "locationsTab";
-            this.locationsTab.Size = new System.Drawing.Size(527, 400);
+            this.locationsTab.Size = new System.Drawing.Size(552, 400);
             this.locationsTab.TabIndex = 2;
             this.locationsTab.Text = "Locations";
             this.locationsTab.UseVisualStyleBackColor = true;
@@ -856,7 +889,7 @@
             this.staffTab.Controls.Add(this.staffLbx);
             this.staffTab.Location = new System.Drawing.Point(4, 22);
             this.staffTab.Name = "staffTab";
-            this.staffTab.Size = new System.Drawing.Size(527, 400);
+            this.staffTab.Size = new System.Drawing.Size(552, 400);
             this.staffTab.TabIndex = 3;
             this.staffTab.Text = "Staff";
             this.staffTab.UseVisualStyleBackColor = true;
@@ -995,7 +1028,7 @@
             this.statusTab.Controls.Add(this.statusLbx);
             this.statusTab.Location = new System.Drawing.Point(4, 22);
             this.statusTab.Name = "statusTab";
-            this.statusTab.Size = new System.Drawing.Size(527, 400);
+            this.statusTab.Size = new System.Drawing.Size(552, 400);
             this.statusTab.TabIndex = 4;
             this.statusTab.Text = "Status";
             this.statusTab.UseVisualStyleBackColor = true;
@@ -1038,7 +1071,7 @@
             this.suppliersTab.Controls.Add(this.suppliersLbx);
             this.suppliersTab.Location = new System.Drawing.Point(4, 22);
             this.suppliersTab.Name = "suppliersTab";
-            this.suppliersTab.Size = new System.Drawing.Size(527, 400);
+            this.suppliersTab.Size = new System.Drawing.Size(552, 400);
             this.suppliersTab.TabIndex = 5;
             this.suppliersTab.Text = "Suppliers";
             this.suppliersTab.UseVisualStyleBackColor = true;
@@ -1097,39 +1130,6 @@
             // tblSupplierTableAdapter
             // 
             this.tblSupplierTableAdapter.ClearBeforeFill = true;
-            // 
-            // equipmentPurchaseDateClearBtn
-            // 
-            this.equipmentPurchaseDateClearBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.equipmentPurchaseDateClearBtn.Location = new System.Drawing.Point(520, 156);
-            this.equipmentPurchaseDateClearBtn.Name = "equipmentPurchaseDateClearBtn";
-            this.equipmentPurchaseDateClearBtn.Size = new System.Drawing.Size(25, 20);
-            this.equipmentPurchaseDateClearBtn.TabIndex = 65;
-            this.equipmentPurchaseDateClearBtn.Text = "-";
-            this.equipmentPurchaseDateClearBtn.UseVisualStyleBackColor = true;
-            this.equipmentPurchaseDateClearBtn.Click += new System.EventHandler(this.equipmentPurchaseDateClearBtn_Click);
-            // 
-            // equipmentSupplierClearBtn
-            // 
-            this.equipmentSupplierClearBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.equipmentSupplierClearBtn.Location = new System.Drawing.Point(520, 132);
-            this.equipmentSupplierClearBtn.Name = "equipmentSupplierClearBtn";
-            this.equipmentSupplierClearBtn.Size = new System.Drawing.Size(25, 20);
-            this.equipmentSupplierClearBtn.TabIndex = 66;
-            this.equipmentSupplierClearBtn.Text = "-";
-            this.equipmentSupplierClearBtn.UseVisualStyleBackColor = true;
-            this.equipmentSupplierClearBtn.Click += new System.EventHandler(this.equipmentSupplierClearBtn_Click);
-            // 
-            // equipmentLocationClearBtn
-            // 
-            this.equipmentLocationClearBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.equipmentLocationClearBtn.Location = new System.Drawing.Point(256, 262);
-            this.equipmentLocationClearBtn.Name = "equipmentLocationClearBtn";
-            this.equipmentLocationClearBtn.Size = new System.Drawing.Size(25, 20);
-            this.equipmentLocationClearBtn.TabIndex = 67;
-            this.equipmentLocationClearBtn.Text = "-";
-            this.equipmentLocationClearBtn.UseVisualStyleBackColor = true;
-            this.equipmentLocationClearBtn.Click += new System.EventHandler(this.equipmentLocationClearBtn_Click);
             // 
             // AdminMenu
             // 

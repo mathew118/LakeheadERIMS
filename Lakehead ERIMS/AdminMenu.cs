@@ -15,19 +15,12 @@ namespace Lakehead_ERIMS
         /* TODO LIST
          * 
          * !!!!!!!!!!!!!!!!!!!! EQUIPMENT !!!!!!!!!!!!!!!!!!!!
-         * Need to figure out which fields are required and which are not, and need to include the ability to empty those comboboxes & date.
          * Add proper nights calculating (Remember the DB value is the TOTAL CUMALATIVE, the field will contain the nights from current rental)
-         * Add button/ability to clear comboboxes and datepicker.
          * See if I can make it so when you go to edit an empty purchase date, it doesn't start at 1899.
          * !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
          * 
-         * 
          * Long startup times caused by the tableadapter.fills, I improved it a lot, but see if I can smooth it out any more.
          * Also maybe shouldnt have the whole DB in memory, they prob have old computers, empty tables when their tabs aren't open
-         * 
-         * I should also make certain status rows permanent since other parts of the application rely on certain status and their index
-         * 
-         * Duplicate names may cause issues.
          * 
          * ERIC's COMMENTS
          * 1. I assume that all of the tabs on this menu allow for changes. updates, deletion, of the appropriate data (ie equipment, locations. etc)
