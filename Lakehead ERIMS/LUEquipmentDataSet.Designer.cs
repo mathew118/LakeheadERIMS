@@ -10230,6 +10230,8 @@ namespace Lakehead_ERIMS {
             
             private global::System.Data.DataColumn columnEquip_Nights;
             
+            private global::System.Data.DataColumn columnEquip_Notes;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public qryEquipHistoryDataTable() {
@@ -10353,6 +10355,14 @@ namespace Lakehead_ERIMS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn Equip_NotesColumn {
+                get {
+                    return this.columnEquip_Notes;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -10388,7 +10398,7 @@ namespace Lakehead_ERIMS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public qryEquipHistoryRow AddqryEquipHistoryRow(string Equip_Number, string Equip_Name, string Equip_Descrip1, string Equip_Descrip2, string Equip_Descrip3, string Equip_Manufacturer, string Equip_Model, string Equip_Serial, System.DateTime Equip_DatePurch, float Equip_Price, int Equip_Nights) {
+            public qryEquipHistoryRow AddqryEquipHistoryRow(string Equip_Number, string Equip_Name, string Equip_Descrip1, string Equip_Descrip2, string Equip_Descrip3, string Equip_Manufacturer, string Equip_Model, string Equip_Serial, System.DateTime Equip_DatePurch, float Equip_Price, int Equip_Nights, string Equip_Notes) {
                 qryEquipHistoryRow rowqryEquipHistoryRow = ((qryEquipHistoryRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Equip_Number,
@@ -10401,7 +10411,8 @@ namespace Lakehead_ERIMS {
                         Equip_Serial,
                         Equip_DatePurch,
                         Equip_Price,
-                        Equip_Nights};
+                        Equip_Nights,
+                        Equip_Notes};
                 rowqryEquipHistoryRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowqryEquipHistoryRow);
                 return rowqryEquipHistoryRow;
@@ -10435,6 +10446,7 @@ namespace Lakehead_ERIMS {
                 this.columnEquip_DatePurch = base.Columns["Equip_DatePurch"];
                 this.columnEquip_Price = base.Columns["Equip_Price"];
                 this.columnEquip_Nights = base.Columns["Equip_Nights"];
+                this.columnEquip_Notes = base.Columns["Equip_Notes"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -10462,6 +10474,8 @@ namespace Lakehead_ERIMS {
                 base.Columns.Add(this.columnEquip_Price);
                 this.columnEquip_Nights = new global::System.Data.DataColumn("Equip_Nights", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnEquip_Nights);
+                this.columnEquip_Notes = new global::System.Data.DataColumn("Equip_Notes", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEquip_Notes);
                 this.columnEquip_Number.MaxLength = 6;
                 this.columnEquip_Name.MaxLength = 30;
                 this.columnEquip_Descrip1.MaxLength = 30;
@@ -10470,6 +10484,7 @@ namespace Lakehead_ERIMS {
                 this.columnEquip_Manufacturer.MaxLength = 40;
                 this.columnEquip_Model.MaxLength = 20;
                 this.columnEquip_Serial.MaxLength = 20;
+                this.columnEquip_Notes.MaxLength = 255;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -21696,6 +21711,22 @@ namespace Lakehead_ERIMS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string Equip_Notes {
+                get {
+                    try {
+                        return ((string)(this[this.tableqryEquipHistory.Equip_NotesColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Equip_Notes\' in table \'qryEquipHistory\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableqryEquipHistory.Equip_NotesColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsEquip_NumberNull() {
                 return this.IsNull(this.tableqryEquipHistory.Equip_NumberColumn);
             }
@@ -21824,6 +21855,18 @@ namespace Lakehead_ERIMS {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetEquip_NightsNull() {
                 this[this.tableqryEquipHistory.Equip_NightsColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsEquip_NotesNull() {
+                return this.IsNull(this.tableqryEquipHistory.Equip_NotesColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetEquip_NotesNull() {
+                this[this.tableqryEquipHistory.Equip_NotesColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -34044,6 +34087,7 @@ ORDER BY Stu_LName";
             tableMapping.ColumnMappings.Add("Equip_DatePurch", "Equip_DatePurch");
             tableMapping.ColumnMappings.Add("Equip_Price", "Equip_Price");
             tableMapping.ColumnMappings.Add("Equip_Nights", "Equip_Nights");
+            tableMapping.ColumnMappings.Add("Equip_Notes", "Equip_Notes");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -34057,13 +34101,21 @@ ORDER BY Stu_LName";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.OleDb.OleDbCommand[1];
+            this._commandCollection = new global::System.Data.OleDb.OleDbCommand[2];
             this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Equip_Number, Equip_Name, Equip_Descrip1, Equip_Descrip2, Equip_Descrip3, " +
-                "Equip_Manufacturer, Equip_Model, Equip_Serial, Equip_DatePurch, Equip_Price, Equ" +
-                "ip_Nights FROM qryEquipHistory";
+            this._commandCollection[0].CommandText = "SELECT       Equip_Number, Equip_Name, Equip_Descrip1, Equip_Descrip2, Equip_Desc" +
+                "rip3, Equip_Manufacturer, Equip_Model, Equip_Serial, Equip_DatePurch, Equip_Pric" +
+                "e, Equip_Nights, Equip_Notes\r\nFROM            qryEquipHistory";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.OleDb.OleDbCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT       Equip_Number, Equip_Name, Equip_Descrip1, Equip_Descrip2, Equip_Desc" +
+                "rip3, Equip_Manufacturer, Equip_Model, Equip_Serial, Equip_DatePurch, Equip_Pric" +
+                "e, Equip_Nights, Equip_Notes\r\nFROM            qryEquipHistory\r\nWHERE        (Equ" +
+                "ip_Number = ?)";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Equip_Number", global::System.Data.OleDb.OleDbType.WChar, 6, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Equip_Number", global::System.Data.DataRowVersion.Current, false, null));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -34085,6 +34137,42 @@ ORDER BY Stu_LName";
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual LUEquipmentDataSet.qryEquipHistoryDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            LUEquipmentDataSet.qryEquipHistoryDataTable dataTable = new LUEquipmentDataSet.qryEquipHistoryDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillBy(LUEquipmentDataSet.qryEquipHistoryDataTable dataTable, string Equip_Number) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((Equip_Number == null)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Equip_Number));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual LUEquipmentDataSet.qryEquipHistoryDataTable GetDataBy(string Equip_Number) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((Equip_Number == null)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Equip_Number));
+            }
             LUEquipmentDataSet.qryEquipHistoryDataTable dataTable = new LUEquipmentDataSet.qryEquipHistoryDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
