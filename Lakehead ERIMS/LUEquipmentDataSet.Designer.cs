@@ -28142,10 +28142,10 @@ namespace Lakehead_ERIMS.LUEquipmentDataSetTableAdapters {
             this._commandCollection = new global::System.Data.OleDb.OleDbCommand[1];
             this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT        Equip_ID, Equip_Number, Equip_Name, Equip_Descrip1, Equip_Descrip2, Equip_Descrip3, Equip_Manufacturer, Equip_Model, Equip_Serial, Supp_ID, Equip_DatePurch, Equip_Price, Equip_PONumber, Equip_RentalPrice, 
+            this._commandCollection[0].CommandText = @"SELECT       Equip_ID, Equip_Number, Equip_Name, Equip_Descrip1, Equip_Descrip2, Equip_Descrip3, Equip_Manufacturer, Equip_Model, Equip_Serial, Supp_ID, Equip_DatePurch, Equip_Price, Equip_PONumber, Equip_RentalPrice, 
                          Equip_LateFee, Equip_Nights, Equip_Notes, Status_ID, Loc_ID
 FROM            tblEquip
-ORDER BY Equip_Name";
+ORDER BY Equip_Number";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         

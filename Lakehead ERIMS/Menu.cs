@@ -44,7 +44,8 @@ namespace Lakehead_ERIMS
 
         private void equipmentInventoryBtn_Click(object sender, EventArgs e)
         {
-            
+            EquipInventory equipInventory = new EquipInventory();
+            equipInventory.Show();
         }
 
         private void overdueRentalsBtn_Click(object sender, EventArgs e)
@@ -74,13 +75,8 @@ namespace Lakehead_ERIMS
 
         private void equipmentHistoryBtn_Click(object sender, EventArgs e)
         {
-            Access.Application oAccess = new Access.Application();
-            oAccess.Visible = true;
-            oAccess.OpenCurrentDatabase(Path.Combine(Environment.CurrentDirectory, "LUEquipment.mdb"), false);
-            //open Access, equipment number will be asked within Access.
-            oAccess.DoCmd.OpenReport("rptEquipHistory", Access.AcView.acViewPreview, //View
-               System.Reflection.Missing.Value//FilterName
-               );
+            EquipHistory equipHistory = new EquipHistory();
+            equipHistory.Show();
         }
     }
 }
