@@ -16,7 +16,6 @@ namespace Lakehead_ERIMS
          * 
          * !!!!!!!!!!!!!!!!!!!! EQUIPMENT !!!!!!!!!!!!!!!!!!!!
          * Add proper nights calculating (Remember the DB value is the TOTAL CUMALATIVE, the field will contain the nights from current rental)
-         * See if I can make it so when you go to edit an empty purchase date, it doesn't start at 1899.
          * !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
          * 
          * Long startup times caused by the tableadapter.fills, I improved it a lot, but see if I can smooth it out any more.
@@ -188,15 +187,30 @@ namespace Lakehead_ERIMS
 
         private void equipmentDatePurchasedDpk_ValueChanged(object sender, EventArgs e)
         {
-            if(equipmentDatePurchasedDpk.Value == DateTime.FromOADate(0))
+            //The DateTime.Today is so when the datepicker is opened it doesn't start at 1899 and instead starts at today.
+            //Should rework
+
+            if (equipmentDatePurchasedDpk.Value == DateTime.FromOADate(0))
             {
                 equipmentDatePurchasedDpk.Format = DateTimePickerFormat.Custom;
                 equipmentDatePurchasedDpk.CustomFormat = " ";
+                equipmentDatePurchasedDpk.Value = DateTime.Today;
             }
-            else
+            else if (equipmentDatePurchasedDpk.Value != DateTime.Today)
             {
                 equipmentDatePurchasedDpk.Format = DateTimePickerFormat.Long;
-            }                                            
+            }
+
+            adminFieldChanged(sender, e);
+        }
+
+        private void equipmentDatePurchasedDpk_CloseUp(object sender, EventArgs e)
+        {
+            if (equipmentDatePurchasedDpk.Value == DateTime.Today)
+            {
+                equipmentDatePurchasedDpk.Format = DateTimePickerFormat.Long;
+                adminFieldChanged(sender, e);
+            }
         }
 
         private void HandleNumericOnly(object sender, KeyPressEventArgs e)
@@ -248,7 +262,7 @@ namespace Lakehead_ERIMS
                 string newDescription2 = equipmentDescription2Tbx.Text.Trim();
                 string newDescription3 = equipmentDescription3Tbx.Text.Trim();
                 string newNotes = equipmentNotesTbx.Text.Trim();
-                DateTime newPurchaseDate = equipmentDatePurchasedDpk.Value;
+                DateTime newPurchaseDate = (equipmentDatePurchasedDpk.Format != DateTimePickerFormat.Custom) ? equipmentDatePurchasedDpk.Value : DateTime.FromOADate(0);
                 string newPurchasePrice = equipmentPurchasePriceTbx.Text.Trim();
                 string newPONumber = equipmentPONumberTbx.Text.Trim();
                 string newManufacturer = equipmentManufacturerTbx.Text.Trim();
@@ -1052,10 +1066,12 @@ namespace Lakehead_ERIMS
                     if(equipmentRow[10].ToString() != "")
                     {
                         equipmentDatePurchasedDpk.Value = (DateTime)equipmentRow[10];
+                        equipmentDatePurchasedDpk.Format = DateTimePickerFormat.Long;
                     }
                     else
                     {
                         equipmentDatePurchasedDpk.Value = DateTime.FromOADate(0);
+                        equipmentDatePurchasedDpk.Format = DateTimePickerFormat.Custom;
                     }
 
                     //Lock save button until changes are made
@@ -1094,5 +1110,7 @@ namespace Lakehead_ERIMS
                 saveBtn.Enabled = false;
             }
         }
+
+        
     }
 }
