@@ -288,7 +288,7 @@
             // 
             this.equipmentItemNumberSearchingDashLbl.AutoSize = true;
             this.equipmentItemNumberSearchingDashLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.equipmentItemNumberSearchingDashLbl.Location = new System.Drawing.Point(396, 106);
+            this.equipmentItemNumberSearchingDashLbl.Location = new System.Drawing.Point(410, 106);
             this.equipmentItemNumberSearchingDashLbl.Name = "equipmentItemNumberSearchingDashLbl";
             this.equipmentItemNumberSearchingDashLbl.Size = new System.Drawing.Size(12, 15);
             this.equipmentItemNumberSearchingDashLbl.TabIndex = 64;
@@ -306,7 +306,7 @@
             // 
             // equipmentItemNumberSearchingBTbx
             // 
-            this.equipmentItemNumberSearchingBTbx.Location = new System.Drawing.Point(411, 105);
+            this.equipmentItemNumberSearchingBTbx.Location = new System.Drawing.Point(425, 105);
             this.equipmentItemNumberSearchingBTbx.MaxLength = 3;
             this.equipmentItemNumberSearchingBTbx.Name = "equipmentItemNumberSearchingBTbx";
             this.equipmentItemNumberSearchingBTbx.Size = new System.Drawing.Size(42, 20);
@@ -315,7 +315,7 @@
             // 
             // equipmentItemNumberSearchingATbx
             // 
-            this.equipmentItemNumberSearchingATbx.Location = new System.Drawing.Point(351, 105);
+            this.equipmentItemNumberSearchingATbx.Location = new System.Drawing.Point(364, 105);
             this.equipmentItemNumberSearchingATbx.MaxLength = 3;
             this.equipmentItemNumberSearchingATbx.Name = "equipmentItemNumberSearchingATbx";
             this.equipmentItemNumberSearchingATbx.Size = new System.Drawing.Size(42, 20);
@@ -647,7 +647,7 @@
             // 
             // equipmentItemNumberSearchBtn
             // 
-            this.equipmentItemNumberSearchBtn.Location = new System.Drawing.Point(459, 104);
+            this.equipmentItemNumberSearchBtn.Location = new System.Drawing.Point(473, 104);
             this.equipmentItemNumberSearchBtn.Name = "equipmentItemNumberSearchBtn";
             this.equipmentItemNumberSearchBtn.Size = new System.Drawing.Size(55, 21);
             this.equipmentItemNumberSearchBtn.TabIndex = 23;
