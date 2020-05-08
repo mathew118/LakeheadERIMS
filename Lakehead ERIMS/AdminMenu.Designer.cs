@@ -86,6 +86,8 @@
             this.equipmentLbx = new System.Windows.Forms.ListBox();
             this.tblEquipBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.categoriesTab = new System.Windows.Forms.TabPage();
+            this.categoriesEndRangeDashLbl = new System.Windows.Forms.Label();
+            this.categoriesStartRangeDashLbl = new System.Windows.Forms.Label();
             this.categoriesEndRangeBTbx = new System.Windows.Forms.TextBox();
             this.categoriesStartRangeBTbx = new System.Windows.Forms.TextBox();
             this.categoriesEndRangeLbl = new System.Windows.Forms.Label();
@@ -722,6 +724,8 @@
             // 
             // categoriesTab
             // 
+            this.categoriesTab.Controls.Add(this.categoriesEndRangeDashLbl);
+            this.categoriesTab.Controls.Add(this.categoriesStartRangeDashLbl);
             this.categoriesTab.Controls.Add(this.categoriesEndRangeBTbx);
             this.categoriesTab.Controls.Add(this.categoriesStartRangeBTbx);
             this.categoriesTab.Controls.Add(this.categoriesEndRangeLbl);
@@ -739,9 +743,29 @@
             this.categoriesTab.Text = "Categories";
             this.categoriesTab.UseVisualStyleBackColor = true;
             // 
+            // categoriesEndRangeDashLbl
+            // 
+            this.categoriesEndRangeDashLbl.AutoSize = true;
+            this.categoriesEndRangeDashLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.categoriesEndRangeDashLbl.Location = new System.Drawing.Point(198, 187);
+            this.categoriesEndRangeDashLbl.Name = "categoriesEndRangeDashLbl";
+            this.categoriesEndRangeDashLbl.Size = new System.Drawing.Size(12, 15);
+            this.categoriesEndRangeDashLbl.TabIndex = 66;
+            this.categoriesEndRangeDashLbl.Text = "-";
+            // 
+            // categoriesStartRangeDashLbl
+            // 
+            this.categoriesStartRangeDashLbl.AutoSize = true;
+            this.categoriesStartRangeDashLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.categoriesStartRangeDashLbl.Location = new System.Drawing.Point(198, 161);
+            this.categoriesStartRangeDashLbl.Name = "categoriesStartRangeDashLbl";
+            this.categoriesStartRangeDashLbl.Size = new System.Drawing.Size(12, 15);
+            this.categoriesStartRangeDashLbl.TabIndex = 65;
+            this.categoriesStartRangeDashLbl.Text = "-";
+            // 
             // categoriesEndRangeBTbx
             // 
-            this.categoriesEndRangeBTbx.Location = new System.Drawing.Point(201, 186);
+            this.categoriesEndRangeBTbx.Location = new System.Drawing.Point(213, 186);
             this.categoriesEndRangeBTbx.MaxLength = 3;
             this.categoriesEndRangeBTbx.Name = "categoriesEndRangeBTbx";
             this.categoriesEndRangeBTbx.ShortcutsEnabled = false;
@@ -751,7 +775,7 @@
             // 
             // categoriesStartRangeBTbx
             // 
-            this.categoriesStartRangeBTbx.Location = new System.Drawing.Point(201, 160);
+            this.categoriesStartRangeBTbx.Location = new System.Drawing.Point(213, 160);
             this.categoriesStartRangeBTbx.MaxLength = 3;
             this.categoriesStartRangeBTbx.Name = "categoriesStartRangeBTbx";
             this.categoriesStartRangeBTbx.ShortcutsEnabled = false;
@@ -814,7 +838,7 @@
             this.categoriesCategoryNameTbx.Location = new System.Drawing.Point(106, 134);
             this.categoriesCategoryNameTbx.MaxLength = 50;
             this.categoriesCategoryNameTbx.Name = "categoriesCategoryNameTbx";
-            this.categoriesCategoryNameTbx.Size = new System.Drawing.Size(185, 20);
+            this.categoriesCategoryNameTbx.Size = new System.Drawing.Size(196, 20);
             this.categoriesCategoryNameTbx.TabIndex = 24;
             this.categoriesCategoryNameTbx.TextChanged += new System.EventHandler(this.adminFieldChanged);
             // 
@@ -1284,5 +1308,7 @@
         private System.Windows.Forms.Button equipmentLocationClearBtn;
         private System.Windows.Forms.Button equipmentSupplierClearBtn;
         private LUEquipmentDataSetTableAdapters.tblRentalTableAdapter tblRentalTableAdapter;
+        private System.Windows.Forms.Label categoriesStartRangeDashLbl;
+        private System.Windows.Forms.Label categoriesEndRangeDashLbl;
     }
 }
