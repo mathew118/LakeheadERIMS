@@ -53,8 +53,15 @@ namespace Lakehead_ERIMS
                 //Password Correct (Check if the 6th column (Emp_Password) in the row is equal to the text inside the password textbox)
                 if(employeeRow[5].ToString() == passwordTbx.Text)
                 {
+                    string empType = employeeRow[4].ToString();
+                    bool isAdministrator = false;
+                    if (empType == "Administrator")
+                    {
+                        isAdministrator = true;
+                    }
+
                     //Login
-                    Menu menu = new Menu();
+                    Menu menu = new Menu(isAdministrator);
                     this.Hide();
                     menu.ShowDialog();
                     //Once menu is closed, it will close the hidden login form

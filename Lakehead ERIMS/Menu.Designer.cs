@@ -111,7 +111,7 @@
             // 
             // returnEquipmentBtn
             // 
-            this.returnEquipmentBtn.Location = new System.Drawing.Point(0, 123);
+            this.returnEquipmentBtn.Location = new System.Drawing.Point(0, 45);
             this.returnEquipmentBtn.Name = "returnEquipmentBtn";
             this.returnEquipmentBtn.Size = new System.Drawing.Size(417, 33);
             this.returnEquipmentBtn.TabIndex = 11;
@@ -129,7 +129,7 @@
             // 
             // addUpdateStudentBtn
             // 
-            this.addUpdateStudentBtn.Location = new System.Drawing.Point(0, 45);
+            this.addUpdateStudentBtn.Location = new System.Drawing.Point(0, 123);
             this.addUpdateStudentBtn.Name = "addUpdateStudentBtn";
             this.addUpdateStudentBtn.Size = new System.Drawing.Size(417, 33);
             this.addUpdateStudentBtn.TabIndex = 8;
@@ -138,7 +138,7 @@
             // 
             // rentEquipmentBtn
             // 
-            this.rentEquipmentBtn.Location = new System.Drawing.Point(0, 162);
+            this.rentEquipmentBtn.Location = new System.Drawing.Point(0, 6);
             this.rentEquipmentBtn.Name = "rentEquipmentBtn";
             this.rentEquipmentBtn.Size = new System.Drawing.Size(417, 33);
             this.rentEquipmentBtn.TabIndex = 9;
@@ -147,7 +147,7 @@
             // 
             // equipmentSnapshotBtn
             // 
-            this.equipmentSnapshotBtn.Location = new System.Drawing.Point(0, 6);
+            this.equipmentSnapshotBtn.Location = new System.Drawing.Point(0, 162);
             this.equipmentSnapshotBtn.Name = "equipmentSnapshotBtn";
             this.equipmentSnapshotBtn.Size = new System.Drawing.Size(417, 33);
             this.equipmentSnapshotBtn.TabIndex = 7;

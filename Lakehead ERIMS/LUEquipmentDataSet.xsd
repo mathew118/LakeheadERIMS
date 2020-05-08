@@ -272,7 +272,7 @@ ORDER BY Emp_LName</CommandText>
                     <CommandText>SELECT        Equip_ID, Equip_Number, Equip_Name, Equip_Descrip1, Equip_Descrip2, Equip_Descrip3, Equip_Manufacturer, Equip_Model, Equip_Serial, Supp_ID, Equip_DatePurch, Equip_Price, Equip_PONumber, Equip_RentalPrice, 
                          Equip_LateFee, Equip_Nights, Equip_Notes, Status_ID, Loc_ID
 FROM            tblEquip
-ORDER BY Equip_Name</CommandText>
+ORDER BY Equip_Number</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>

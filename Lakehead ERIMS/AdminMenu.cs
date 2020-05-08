@@ -12,7 +12,7 @@ namespace Lakehead_ERIMS
 {
     public partial class AdminMenu : Form
     {
-        //If performance is an issue, you could get rid of the equipment listbox and instead do direct row queries where a single row is returned rather than storing the equipTbl in a datatable.
+        //If performance is an issue, you could get rid of the equipment listbox and instead do direct row queries where a single row is returned rather than storing the equipTbl in a datatable.      
 
         public AdminMenu()
         {
@@ -28,7 +28,7 @@ namespace Lakehead_ERIMS
             this.tblSupplierTableAdapter.Fill(this.lUEquipmentDataSet.tblSupplier);
             this.tblStatusTableAdapter.Fill(this.lUEquipmentDataSet.tblStatus);
             this.tblLocationTableAdapter.Fill(this.lUEquipmentDataSet.tblLocation);
-            
+
             //Set the first item as selected
             if (equipmentLbx.Items.Count > 0)
             {
@@ -202,6 +202,15 @@ namespace Lakehead_ERIMS
             else
             {
                 e.Handled = true;
+            }
+        }
+
+        private void AutoTabItemNum(object sender, KeyEventArgs e)
+        {
+            TextBox sendingTbx = (TextBox)sender;
+            if (sendingTbx.Text.Length == sendingTbx.MaxLength)
+            {
+                sendingTbx.Parent.SelectNextControl(ActiveControl, true, true, true, true);
             }
         }
 
@@ -851,6 +860,8 @@ namespace Lakehead_ERIMS
                     if (equipmentListboxIndex != -1)
                     {
                         equipmentLbx.SetSelected(equipmentListboxIndex, true);
+                        equipmentItemNumberSearchingATbx.Clear();
+                        equipmentItemNumberSearchingBTbx.Clear();
                     }
                     else
                     {
