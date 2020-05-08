@@ -77,13 +77,6 @@ namespace Lakehead_ERIMS
             
         }
 
-        private void skipLoginBtn_Click(object sender, EventArgs e)
-        {
-            Menu menu = new Menu();
-            this.Hide();
-            menu.ShowDialog();
-            //Once menu is closed, it will close the hidden login form
-            this.Close();
-        }
+        
     }
 }

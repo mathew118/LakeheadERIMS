@@ -22,7 +22,7 @@ namespace Lakehead_ERIMS
             Application.Exit();
         }
 
-        private void addUpdateEquipmentBtn_Click(object sender, EventArgs e)
+        private void administrativeMenuBtn_Click(object sender, EventArgs e)
         {
             AdminMenu adminMenu = new AdminMenu();
             adminMenu.ShowDialog();

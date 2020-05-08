@@ -35,7 +35,6 @@
             this.usernameTbx = new System.Windows.Forms.TextBox();
             this.passwordLbl = new System.Windows.Forms.Label();
             this.usernameLbl = new System.Windows.Forms.Label();
-            this.skipLoginBtn = new System.Windows.Forms.Button();
             this.tblEmployeeTableAdapter = new Lakehead_ERIMS.LUEquipmentDataSetTableAdapters.tblEmployeeTableAdapter();
             this.lUEquipmentDataSet = new Lakehead_ERIMS.LUEquipmentDataSet();
             ((System.ComponentModel.ISupportInitialize)(this.lUEquipmentDataSet)).BeginInit();
@@ -55,6 +54,7 @@
             // 
             // exitBtn
             // 
+            this.exitBtn.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.exitBtn.Location = new System.Drawing.Point(17, 163);
             this.exitBtn.Name = "exitBtn";
             this.exitBtn.Size = new System.Drawing.Size(75, 23);
@@ -106,16 +106,6 @@
             this.usernameLbl.TabIndex = 9;
             this.usernameLbl.Text = "Username:";
             // 
-            // skipLoginBtn
-            // 
-            this.skipLoginBtn.Location = new System.Drawing.Point(112, 163);
-            this.skipLoginBtn.Name = "skipLoginBtn";
-            this.skipLoginBtn.Size = new System.Drawing.Size(75, 23);
-            this.skipLoginBtn.TabIndex = 15;
-            this.skipLoginBtn.Text = "Skip";
-            this.skipLoginBtn.UseVisualStyleBackColor = true;
-            this.skipLoginBtn.Click += new System.EventHandler(this.skipLoginBtn_Click);
-            // 
             // tblEmployeeTableAdapter
             // 
             this.tblEmployeeTableAdapter.ClearBeforeFill = true;
@@ -132,7 +122,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.exitBtn;
             this.ClientSize = new System.Drawing.Size(302, 209);
-            this.Controls.Add(this.skipLoginBtn);
             this.Controls.Add(this.exitBtn);
             this.Controls.Add(this.loginBtn);
             this.Controls.Add(this.passwordTbx);
@@ -159,7 +148,6 @@
         private System.Windows.Forms.TextBox usernameTbx;
         private System.Windows.Forms.Label passwordLbl;
         private System.Windows.Forms.Label usernameLbl;
-        private System.Windows.Forms.Button skipLoginBtn;
         private LUEquipmentDataSetTableAdapters.tblEmployeeTableAdapter tblEmployeeTableAdapter;
         private LUEquipmentDataSet lUEquipmentDataSet;
     }

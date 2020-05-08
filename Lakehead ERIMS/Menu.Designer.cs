@@ -31,15 +31,13 @@
             this.formTitleLbl = new System.Windows.Forms.Label();
             this.menuTabControl = new System.Windows.Forms.TabControl();
             this.mainMenuTab = new System.Windows.Forms.TabPage();
+            this.administrativeMenuBtn = new System.Windows.Forms.Button();
             this.exitBtn = new System.Windows.Forms.Button();
             this.returnEquipmentBtn = new System.Windows.Forms.Button();
             this.editRentalBtn = new System.Windows.Forms.Button();
             this.addUpdateStudentBtn = new System.Windows.Forms.Button();
             this.rentEquipmentBtn = new System.Windows.Forms.Button();
             this.equipmentSnapshotBtn = new System.Windows.Forms.Button();
-            this.adminMenuTab = new System.Windows.Forms.TabPage();
-            this.adminExitBtn = new System.Windows.Forms.Button();
-            this.addUpdateEquipmentBtn = new System.Windows.Forms.Button();
             this.reportsMenuTab = new System.Windows.Forms.TabPage();
             this.outstandingAccountsBtn = new System.Windows.Forms.Button();
             this.reportsExitBtn = new System.Windows.Forms.Button();
@@ -49,7 +47,6 @@
             this.equipmentOnLoanBtn = new System.Windows.Forms.Button();
             this.menuTabControl.SuspendLayout();
             this.mainMenuTab.SuspendLayout();
-            this.adminMenuTab.SuspendLayout();
             this.reportsMenuTab.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -68,7 +65,6 @@
             // menuTabControl
             // 
             this.menuTabControl.Controls.Add(this.mainMenuTab);
-            this.menuTabControl.Controls.Add(this.adminMenuTab);
             this.menuTabControl.Controls.Add(this.reportsMenuTab);
             this.menuTabControl.Location = new System.Drawing.Point(12, 54);
             this.menuTabControl.Name = "menuTabControl";
@@ -78,6 +74,7 @@
             // 
             // mainMenuTab
             // 
+            this.mainMenuTab.Controls.Add(this.administrativeMenuBtn);
             this.mainMenuTab.Controls.Add(this.exitBtn);
             this.mainMenuTab.Controls.Add(this.returnEquipmentBtn);
             this.mainMenuTab.Controls.Add(this.editRentalBtn);
@@ -92,93 +89,70 @@
             this.mainMenuTab.Text = "Main Menu";
             this.mainMenuTab.UseVisualStyleBackColor = true;
             // 
+            // administrativeMenuBtn
+            // 
+            this.administrativeMenuBtn.Location = new System.Drawing.Point(0, 201);
+            this.administrativeMenuBtn.Name = "administrativeMenuBtn";
+            this.administrativeMenuBtn.Size = new System.Drawing.Size(417, 33);
+            this.administrativeMenuBtn.TabIndex = 13;
+            this.administrativeMenuBtn.Text = "Administrative Menu";
+            this.administrativeMenuBtn.UseVisualStyleBackColor = true;
+            this.administrativeMenuBtn.Click += new System.EventHandler(this.administrativeMenuBtn_Click);
+            // 
             // exitBtn
             // 
-            this.exitBtn.Location = new System.Drawing.Point(0, 236);
+            this.exitBtn.Location = new System.Drawing.Point(0, 240);
             this.exitBtn.Name = "exitBtn";
-            this.exitBtn.Size = new System.Drawing.Size(417, 40);
+            this.exitBtn.Size = new System.Drawing.Size(417, 33);
             this.exitBtn.TabIndex = 12;
-            this.exitBtn.Text = "E&xit Application";
+            this.exitBtn.Text = "Exit Application";
             this.exitBtn.UseVisualStyleBackColor = true;
             this.exitBtn.Click += new System.EventHandler(this.exitBtn_Click);
             // 
             // returnEquipmentBtn
             // 
-            this.returnEquipmentBtn.Location = new System.Drawing.Point(0, 144);
+            this.returnEquipmentBtn.Location = new System.Drawing.Point(0, 123);
             this.returnEquipmentBtn.Name = "returnEquipmentBtn";
-            this.returnEquipmentBtn.Size = new System.Drawing.Size(417, 40);
+            this.returnEquipmentBtn.Size = new System.Drawing.Size(417, 33);
             this.returnEquipmentBtn.TabIndex = 11;
-            this.returnEquipmentBtn.Text = "Return &Equipment";
+            this.returnEquipmentBtn.Text = "Return Equipment";
             this.returnEquipmentBtn.UseVisualStyleBackColor = true;
             // 
             // editRentalBtn
             // 
-            this.editRentalBtn.Location = new System.Drawing.Point(0, 98);
+            this.editRentalBtn.Location = new System.Drawing.Point(0, 84);
             this.editRentalBtn.Name = "editRentalBtn";
-            this.editRentalBtn.Size = new System.Drawing.Size(417, 40);
+            this.editRentalBtn.Size = new System.Drawing.Size(417, 33);
             this.editRentalBtn.TabIndex = 10;
-            this.editRentalBtn.Text = "E&dit Rental";
+            this.editRentalBtn.Text = "Edit Rental";
             this.editRentalBtn.UseVisualStyleBackColor = true;
             // 
             // addUpdateStudentBtn
             // 
-            this.addUpdateStudentBtn.Location = new System.Drawing.Point(0, 52);
+            this.addUpdateStudentBtn.Location = new System.Drawing.Point(0, 45);
             this.addUpdateStudentBtn.Name = "addUpdateStudentBtn";
-            this.addUpdateStudentBtn.Size = new System.Drawing.Size(417, 40);
+            this.addUpdateStudentBtn.Size = new System.Drawing.Size(417, 33);
             this.addUpdateStudentBtn.TabIndex = 8;
-            this.addUpdateStudentBtn.Text = "Add/&Update Student";
+            this.addUpdateStudentBtn.Text = "Add/Update Student";
             this.addUpdateStudentBtn.UseVisualStyleBackColor = true;
             // 
             // rentEquipmentBtn
             // 
-            this.rentEquipmentBtn.Location = new System.Drawing.Point(0, 190);
+            this.rentEquipmentBtn.Location = new System.Drawing.Point(0, 162);
             this.rentEquipmentBtn.Name = "rentEquipmentBtn";
-            this.rentEquipmentBtn.Size = new System.Drawing.Size(417, 40);
+            this.rentEquipmentBtn.Size = new System.Drawing.Size(417, 33);
             this.rentEquipmentBtn.TabIndex = 9;
-            this.rentEquipmentBtn.Text = "&Rent Equipment";
+            this.rentEquipmentBtn.Text = "Rent Equipment";
             this.rentEquipmentBtn.UseVisualStyleBackColor = true;
             // 
             // equipmentSnapshotBtn
             // 
             this.equipmentSnapshotBtn.Location = new System.Drawing.Point(0, 6);
             this.equipmentSnapshotBtn.Name = "equipmentSnapshotBtn";
-            this.equipmentSnapshotBtn.Size = new System.Drawing.Size(417, 40);
+            this.equipmentSnapshotBtn.Size = new System.Drawing.Size(417, 33);
             this.equipmentSnapshotBtn.TabIndex = 7;
-            this.equipmentSnapshotBtn.Text = "Equipment &Snapshot";
+            this.equipmentSnapshotBtn.Text = "Equipment Snapshot";
             this.equipmentSnapshotBtn.UseVisualStyleBackColor = true;
-            // 
-            // adminMenuTab
-            // 
-            this.adminMenuTab.Controls.Add(this.adminExitBtn);
-            this.adminMenuTab.Controls.Add(this.addUpdateEquipmentBtn);
-            this.adminMenuTab.Location = new System.Drawing.Point(4, 22);
-            this.adminMenuTab.Name = "adminMenuTab";
-            this.adminMenuTab.Padding = new System.Windows.Forms.Padding(3);
-            this.adminMenuTab.Size = new System.Drawing.Size(420, 279);
-            this.adminMenuTab.TabIndex = 1;
-            this.adminMenuTab.Text = "Administrative Menu";
-            this.adminMenuTab.UseVisualStyleBackColor = true;
-            // 
-            // adminExitBtn
-            // 
-            this.adminExitBtn.Location = new System.Drawing.Point(0, 240);
-            this.adminExitBtn.Name = "adminExitBtn";
-            this.adminExitBtn.Size = new System.Drawing.Size(417, 33);
-            this.adminExitBtn.TabIndex = 15;
-            this.adminExitBtn.Text = "E&xit Application";
-            this.adminExitBtn.UseVisualStyleBackColor = true;
-            this.adminExitBtn.Click += new System.EventHandler(this.exitBtn_Click);
-            // 
-            // addUpdateEquipmentBtn
-            // 
-            this.addUpdateEquipmentBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.5F);
-            this.addUpdateEquipmentBtn.Location = new System.Drawing.Point(0, 6);
-            this.addUpdateEquipmentBtn.Name = "addUpdateEquipmentBtn";
-            this.addUpdateEquipmentBtn.Size = new System.Drawing.Size(417, 228);
-            this.addUpdateEquipmentBtn.TabIndex = 9;
-            this.addUpdateEquipmentBtn.Text = "Click here, redesign later..";
-            this.addUpdateEquipmentBtn.UseVisualStyleBackColor = true;
-            this.addUpdateEquipmentBtn.Click += new System.EventHandler(this.addUpdateEquipmentBtn_Click);
             // 
             // reportsMenuTab
             // 
@@ -192,7 +166,7 @@
             this.reportsMenuTab.Name = "reportsMenuTab";
             this.reportsMenuTab.Size = new System.Drawing.Size(420, 279);
             this.reportsMenuTab.TabIndex = 2;
-            this.reportsMenuTab.Text = "Adminstrative Reports";
+            this.reportsMenuTab.Text = "Administrative Reports";
             this.reportsMenuTab.UseVisualStyleBackColor = true;
             // 
             // outstandingAccountsBtn
@@ -265,7 +239,6 @@
             this.Text = "Equipment Room Inventory Management System";
             this.menuTabControl.ResumeLayout(false);
             this.mainMenuTab.ResumeLayout(false);
-            this.adminMenuTab.ResumeLayout(false);
             this.reportsMenuTab.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -282,16 +255,14 @@
         private System.Windows.Forms.Button addUpdateStudentBtn;
         private System.Windows.Forms.Button rentEquipmentBtn;
         private System.Windows.Forms.Button equipmentSnapshotBtn;
-        private System.Windows.Forms.TabPage adminMenuTab;
         private System.Windows.Forms.TabPage reportsMenuTab;
-        private System.Windows.Forms.Button adminExitBtn;
-        private System.Windows.Forms.Button addUpdateEquipmentBtn;
         private System.Windows.Forms.Button outstandingAccountsBtn;
         private System.Windows.Forms.Button reportsExitBtn;
         private System.Windows.Forms.Button overdueRentalsBtn;
         private System.Windows.Forms.Button equipmentInventoryBtn;
         private System.Windows.Forms.Button equipmentHistoryBtn;
         private System.Windows.Forms.Button equipmentOnLoanBtn;
+        private System.Windows.Forms.Button administrativeMenuBtn;
     }
 }
 
