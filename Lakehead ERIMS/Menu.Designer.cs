@@ -45,9 +45,13 @@
             this.equipmentInventoryBtn = new System.Windows.Forms.Button();
             this.equipmentHistoryBtn = new System.Windows.Forms.Button();
             this.equipmentOnLoanBtn = new System.Windows.Forms.Button();
+            this.tblEquipTableAdapter1 = new Lakehead_ERIMS.LUEquipmentDataSetTableAdapters.tblEquipTableAdapter();
+            this.luEquipmentDataSet1 = new Lakehead_ERIMS.LUEquipmentDataSet();
+            this.tblCategoryTableAdapter1 = new Lakehead_ERIMS.LUEquipmentDataSetTableAdapters.tblCategoryTableAdapter();
             this.menuTabControl.SuspendLayout();
             this.mainMenuTab.SuspendLayout();
             this.reportsMenuTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.luEquipmentDataSet1)).BeginInit();
             this.SuspendLayout();
             // 
             // formTitleLbl
@@ -175,8 +179,9 @@
             this.outstandingAccountsBtn.Name = "outstandingAccountsBtn";
             this.outstandingAccountsBtn.Size = new System.Drawing.Size(417, 40);
             this.outstandingAccountsBtn.TabIndex = 11;
-            this.outstandingAccountsBtn.Text = "&Outstanding Accounts";
+            this.outstandingAccountsBtn.Text = "&Overdue Balances";
             this.outstandingAccountsBtn.UseVisualStyleBackColor = true;
+            this.outstandingAccountsBtn.Click += new System.EventHandler(this.outstandingAccountsBtn_Click);
             // 
             // reportsExitBtn
             // 
@@ -196,6 +201,7 @@
             this.overdueRentalsBtn.TabIndex = 12;
             this.overdueRentalsBtn.Text = "Overdue &Rentals";
             this.overdueRentalsBtn.UseVisualStyleBackColor = true;
+            this.overdueRentalsBtn.Click += new System.EventHandler(this.overdueRentalsBtn_Click);
             // 
             // equipmentInventoryBtn
             // 
@@ -205,6 +211,7 @@
             this.equipmentInventoryBtn.TabIndex = 9;
             this.equipmentInventoryBtn.Text = "&Equipment Inventory";
             this.equipmentInventoryBtn.UseVisualStyleBackColor = true;
+            this.equipmentInventoryBtn.Click += new System.EventHandler(this.equipmentInventoryBtn_Click);
             // 
             // equipmentHistoryBtn
             // 
@@ -214,6 +221,7 @@
             this.equipmentHistoryBtn.TabIndex = 10;
             this.equipmentHistoryBtn.Text = "Equipment &History";
             this.equipmentHistoryBtn.UseVisualStyleBackColor = true;
+            this.equipmentHistoryBtn.Click += new System.EventHandler(this.equipmentHistoryBtn_Click);
             // 
             // equipmentOnLoanBtn
             // 
@@ -224,6 +232,20 @@
             this.equipmentOnLoanBtn.TabIndex = 8;
             this.equipmentOnLoanBtn.Text = "Equipment On &Loan";
             this.equipmentOnLoanBtn.UseVisualStyleBackColor = true;
+            this.equipmentOnLoanBtn.Click += new System.EventHandler(this.equipmentOnLoanBtn_Click);
+            // 
+            // tblEquipTableAdapter1
+            // 
+            this.tblEquipTableAdapter1.ClearBeforeFill = true;
+            // 
+            // luEquipmentDataSet1
+            // 
+            this.luEquipmentDataSet1.DataSetName = "LUEquipmentDataSet";
+            this.luEquipmentDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // tblCategoryTableAdapter1
+            // 
+            this.tblCategoryTableAdapter1.ClearBeforeFill = true;
             // 
             // Menu
             // 
@@ -240,6 +262,7 @@
             this.menuTabControl.ResumeLayout(false);
             this.mainMenuTab.ResumeLayout(false);
             this.reportsMenuTab.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.luEquipmentDataSet1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -262,6 +285,9 @@
         private System.Windows.Forms.Button equipmentInventoryBtn;
         private System.Windows.Forms.Button equipmentHistoryBtn;
         private System.Windows.Forms.Button equipmentOnLoanBtn;
+        private LUEquipmentDataSetTableAdapters.tblEquipTableAdapter tblEquipTableAdapter1;
+        private LUEquipmentDataSet luEquipmentDataSet1;
+        private LUEquipmentDataSetTableAdapters.tblCategoryTableAdapter tblCategoryTableAdapter1;
         private System.Windows.Forms.Button administrativeMenuBtn;
     }
 }
