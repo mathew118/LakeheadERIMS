@@ -82,6 +82,24 @@ namespace Lakehead_ERIMS
 
         private void updateStudentBttn_Click(object sender, EventArgs e)
         {
+
+            int stuNumber = Convert.ToInt32(studentNumberTextBox);
+
+            LUEquipmentDataSet.tblStudentRow studentRow = luEquipmentDataSet1.tblStudent.FindByStu_ID(stuNumber);
+            studentRow.Stu_Email = emailInfoTextBox.Text;
+            studentRow.Stu_FName = fristNameInfoTextBox.Text;
+            studentRow.Stu_LName = lastNameInfoTextBox.Text;
+            studentRow.Stu_LAddress = addressInfoTextBox.Text;
+            studentRow.Stu_LCity = cityInfoTextBox.Text;
+            studentRow.Stu_LProvince = provComboBox.Text;
+            studentRow.Stu_LPCode = postalInfoText.Text;
+            studentRow.Stu_LPhone = phoneInfoTextBox.Text;
+            studentRow.Stu_LExt = extInfoTextBox.Text;
+            float fees = float.Parse(feeTextBox.Text);
+            studentRow.Stu_Owe = fees;
+            MessageBox.Show("Updated Successfully");
+            tblStudentTableAdapter1.Update(studentRow);
+            /*
             this.tblStudentTableAdapter1.Fill(this.luEquipmentDataSet1.tblStudent);
             DataRow id;
             id = luEquipmentDataSet1.tblStudent.Select("Stu_Number = '" + studentNumberTextBox.Text + "'")[0];
@@ -93,69 +111,8 @@ namespace Lakehead_ERIMS
             tblStudentTableAdapter1.Update(numberInfoTextBox.Text, lastNameInfoTextBox.Text, fristNameInfoTextBox.Text, addressInfoTextBox.Text, cityInfoTextBox.Text, provInfoCombo.Text, postalInfoText.Text, phoneInfoTextBox.Text, extInfoTextBox.Text, emailInfoTextBox.Text, id[11].ToString(), id[12].ToString(), id[13].ToString(), id[14].ToString(), id[15].ToString(), id[16].ToString(), fee, true, intStudentId, id[1].ToString(), id[2].ToString(), id[3].ToString(), id[4].ToString(), id[5].ToString(), id[6].ToString(), id[7].ToString(), id[8].ToString(), id[9].ToString(), id[10].ToString(), id[11].ToString(), id[12].ToString(), id[13].ToString(), id[14].ToString(), id[15].ToString(), id[16].ToString(), fee2, false);
             this.tblStudentTableAdapter1.Fill(this.luEquipmentDataSet1.tblStudent);
             MessageBox.Show("Updated");
-       
-            /*
-            string connenctionString;
-            OleDbConnection cnn;
-            connenctionString = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\ongar\OneDrive\Desktop\LUEquipment.mdb;Persist Security Info=True";
-            cnn = new OleDbConnection(connenctionString);
-            cnn.Open();
-            OleDbCommand commandInsert = new OleDbCommand();
-            commandInsert.Connection = cnn;
-            commandInsert.CommandText = "UPDATE tblStudent SET STU_LName = '" + lastNameInfoTextBox.Text + "' WHERE Stu_Number = '" + studentNumberTextBox.Text + "'";
-            commandInsert.ExecuteScalar();
-
-            OleDbCommand commandInsert1 = new OleDbCommand();
-            commandInsert1.Connection = cnn;
-            commandInsert1.CommandText = "UPDATE tblStudent SET STU_FName = '" + fristNameInfoTextBox.Text + "' WHERE Stu_Number = '" + studentNumberTextBox.Text + "'";
-            commandInsert1.ExecuteScalar();
-
-            OleDbCommand commandInsert2 = new OleDbCommand();
-            commandInsert2.Connection = cnn;
-            commandInsert2.CommandText = "UPDATE tblStudent SET STU_Number = '" + numberInfoTextBox.Text + "' WHERE Stu_Number = '" + studentNumberTextBox.Text + "'";
-            commandInsert2.ExecuteScalar();
-
-            OleDbCommand commandInsert3 = new OleDbCommand();
-            commandInsert3.Connection = cnn;
-            commandInsert3.CommandText = "UPDATE tblStudent SET STU_LAddress = '" + addressInfoTextBox.Text + "' WHERE Stu_Number = '" + studentNumberTextBox.Text + "'";
-            commandInsert3.ExecuteScalar();
-
-            OleDbCommand commandInsert4 = new OleDbCommand();
-            commandInsert4.Connection = cnn;
-            commandInsert4.CommandText = "UPDATE tblStudent SET STU_Email = '" + emailInfoTextBox.Text + "' WHERE Stu_Number = '" + studentNumberTextBox.Text + "'";
-            commandInsert4.ExecuteScalar();
-
-            OleDbCommand commandInsert5 = new OleDbCommand();
-            commandInsert5.Connection = cnn;
-            commandInsert5.CommandText = "UPDATE tblStudent SET STU_LCity = '" + cityInfoTextBox.Text + "' WHERE Stu_Number = '" + studentNumberTextBox.Text + "'";
-            commandInsert5.ExecuteScalar();
-
-            OleDbCommand commandInsert6 = new OleDbCommand();
-            commandInsert6.Connection = cnn;
-            commandInsert6.CommandText = "UPDATE tblStudent SET STU_LProvince = '" + provInfoCombo.Text + "' WHERE Stu_Number = '" + studentNumberTextBox.Text + "'";
-            commandInsert6.ExecuteScalar();
-
-            OleDbCommand commandInsert7 = new OleDbCommand();
-            commandInsert7.Connection = cnn;
-            commandInsert7.CommandText = "UPDATE tblStudent SET STU_LPCode = '" + postalInfoText.Text + "' WHERE Stu_Number = '" + studentNumberTextBox.Text + "'";
-            commandInsert7.ExecuteScalar();
-
-            OleDbCommand commandInsert8 = new OleDbCommand();
-            commandInsert8.Connection = cnn;
-            commandInsert8.CommandText = "UPDATE tblStudent SET STU_LPhone = '" + phoneInfoTextBox.Text + "' WHERE Stu_Number = '" + studentNumberTextBox.Text + "'";
-            commandInsert8.ExecuteScalar();
-
-            OleDbCommand commandInsert9 = new OleDbCommand();
-            commandInsert9.Connection = cnn;
-            commandInsert9.CommandText = "UPDATE tblStudent SET STU_LExt = '" + extInfoTextBox.Text + "' WHERE Stu_Number = '" + studentNumberTextBox.Text + "'";
-            commandInsert9.ExecuteScalar();
-
-            OleDbCommand commandInsert10 = new OleDbCommand();
-            commandInsert10.Connection = cnn;
-            commandInsert10.CommandText = "UPDATE tblStudent SET STU_owe = '" + feeTextBox.Text + "' WHERE Stu_Number = '" + studentNumberTextBox.Text + "'";
-            commandInsert10.ExecuteScalar();
-            cnn.Close();
-            */
+       */
+            
         }
     }
 }

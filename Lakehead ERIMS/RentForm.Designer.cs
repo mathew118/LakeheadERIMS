@@ -332,6 +332,7 @@
             this.studentNumberTextBox.Name = "studentNumberTextBox";
             this.studentNumberTextBox.Size = new System.Drawing.Size(92, 22);
             this.studentNumberTextBox.TabIndex = 21;
+            this.studentNumberTextBox.TextChanged += new System.EventHandler(this.studentNumberTextBox_TextChanged);
             // 
             // groupBox2
             // 

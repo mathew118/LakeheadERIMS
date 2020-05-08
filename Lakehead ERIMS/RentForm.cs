@@ -146,32 +146,50 @@ namespace Lakehead_ERIMS
 
         private void rentalButton_Click(object sender, EventArgs e)
         {
-            List<int> values = new List<int>();
+            List<string> values = new List<string>();
 
             foreach (DataGridViewRow row in itemGridView.Rows)
             {
-                values.Add(int.Parse(row.Cells["Number"].Value.ToString()));
+                values.Add(row.Cells["Number"].Value.ToString());
             }
 
-            int[] insert = values.ToArray();
-            int[] finalInsert = insert.Take(insert.Length - 1).ToArray();
+            string[] insert = values.ToArray();
+            string[] finalInsert = insert.Take(insert.Length - 1).ToArray();
 
             List<int> equipID = new List<int>();
             int counter = 0;
-            foreach (int i in finalInsert)
+            this.tblEquipTableAdapter.Fill(this.lUEquipmentDataSet.tblEquip);
+            foreach (string i in finalInsert)
             {
-                this.tblEquipTableAdapter.Fill(this.lUEquipmentDataSet.tblEquip);
                 DataRow Equip;
-                Equip = lUEquipmentDataSet.tblEquip.Select("Equip_Number = '" + i.ToString() +"'")[0];
-                equipID.Add(Convert.ToInt32(Equip));
+                Equip = lUEquipmentDataSet.tblEquip.Select("Equip_Number = '" + i +"'")[0];
+                equipID.Add(int.Parse(Equip[0].ToString()));
                 counter++;
             }
-            
+            int[] equipIDarray = equipID.ToArray();
+            int newCounter = 0;
 
-            //this.tblEquipTableAdapter.Fill(this.lUEquipmentDataSet.tblEquip);
-            //DataRow EquipID;
-            //this.tblRentalTableAdapter1.Insert()
+            this.tblRentalTableAdapter1.Fill(this.lUEquipmentDataSet.tblRental);
+            DataRow invoice;
+            invoice = lUEquipmentDataSet.tblRental.Rows[lUEquipmentDataSet.tblRental.Count - 1];
 
+            int inNum = Convert.ToInt32(invoice[5]);
+            int studentNum = Convert.ToInt32(studentNumberTextBox.Text);
+            DateTime rent = Convert.ToDateTime(dateRentedPicker.Text);
+            DateTime due = Convert.ToDateTime(dateDuePicker.Text);
+
+            foreach (int i in equipIDarray)
+            {
+                short array = Convert.ToInt16(equipIDarray[newCounter]);
+                tblRentalTableAdapter1.Insert(array,studentNum,rent,due," ",inNum + 1);
+                this.tblRentalTableAdapter1.Fill(this.lUEquipmentDataSet.tblRental);
+            }
+            MessageBox.Show("Item rented");
+
+        }
+
+        private void studentNumberTextBox_TextChanged(object sender, EventArgs e)
+        {
 
         }
     }

@@ -52,6 +52,7 @@ namespace Lakehead_ERIMS
 
         private void updateButton_Click(object sender, EventArgs e)
         {
+            /*
             this.tblRentalTableAdapter1.Fill(this.luEquipmentDataSet1.tblRental);
             DataRow rental;
             rental = luEquipmentDataSet1.tblRental.Select("Inv_Num = '" + invoiceNumberTextbox.Text + "'")[0];
@@ -64,6 +65,24 @@ namespace Lakehead_ERIMS
             int invoice = int.Parse(rental[5].ToString());
             tblRentalTableAdapter1.Update(stuID, datetime, datetimeDue, rental[4].ToString(), st, stuID, oldDate, oldDate2, rental[4].ToString(), invoice);
             MessageBox.Show("Updated");
+            */
+
+            this.tblRentalTableAdapter1.Fill(this.luEquipmentDataSet1.tblRental);
+            DataRow rental;
+            rental = luEquipmentDataSet1.tblRental.Select("Inv_Num = '" + invoiceNumberTextbox.Text + "'")[0];
+            short equipID = Convert.ToInt16(rental[0].ToString());
+
+            int invoice = Convert.ToInt32(invoiceNumberTextbox.Text);
+            LUEquipmentDataSet.tblRentalRow rentalRow = luEquipmentDataSet1.tblRental.FindByEquip_IDInv_Num(equipID, invoice);
+            DateTime dateOut = Convert.ToDateTime(dateOutPicker.Text);
+            DateTime dateDue = Convert.ToDateTime(DueDatePicker.Text);
+            rentalRow.Rent_DateOut = dateOut;
+            rentalRow.Rent_DateOut = dateDue;
+            
+            tblRentalTableAdapter1.Update(rentalRow);
+            MessageBox.Show("Updated Successfully");
+
+
         }
     }
 }
