@@ -129,6 +129,7 @@
             this.tblEquipTableAdapter = new Lakehead_ERIMS.LUEquipmentDataSetTableAdapters.tblEquipTableAdapter();
             this.tblStatusTableAdapter = new Lakehead_ERIMS.LUEquipmentDataSetTableAdapters.tblStatusTableAdapter();
             this.tblSupplierTableAdapter = new Lakehead_ERIMS.LUEquipmentDataSetTableAdapters.tblSupplierTableAdapter();
+            this.tblRentalTableAdapter = new Lakehead_ERIMS.LUEquipmentDataSetTableAdapters.tblRentalTableAdapter();
             this.adminTabControl.SuspendLayout();
             this.equipmentTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tblSupplierBindingSource)).BeginInit();
@@ -321,10 +322,10 @@
             // 
             // equipmentDatePurchasedDpk
             // 
-            this.equipmentDatePurchasedDpk.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.3F);
+            this.equipmentDatePurchasedDpk.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.equipmentDatePurchasedDpk.Location = new System.Drawing.Point(364, 158);
             this.equipmentDatePurchasedDpk.Name = "equipmentDatePurchasedDpk";
-            this.equipmentDatePurchasedDpk.Size = new System.Drawing.Size(150, 17);
+            this.equipmentDatePurchasedDpk.Size = new System.Drawing.Size(150, 20);
             this.equipmentDatePurchasedDpk.TabIndex = 60;
             this.equipmentDatePurchasedDpk.Value = new System.DateTime(2020, 4, 24, 0, 0, 0, 0);
             this.equipmentDatePurchasedDpk.CloseUp += new System.EventHandler(this.equipmentDatePurchasedDpk_CloseUp);
@@ -1132,6 +1133,10 @@
             // 
             this.tblSupplierTableAdapter.ClearBeforeFill = true;
             // 
+            // tblRentalTableAdapter
+            // 
+            this.tblRentalTableAdapter.ClearBeforeFill = true;
+            // 
             // AdminMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1274,5 +1279,6 @@
         private System.Windows.Forms.Button equipmentPurchaseDateClearBtn;
         private System.Windows.Forms.Button equipmentLocationClearBtn;
         private System.Windows.Forms.Button equipmentSupplierClearBtn;
+        private LUEquipmentDataSetTableAdapters.tblRentalTableAdapter tblRentalTableAdapter;
     }
 }

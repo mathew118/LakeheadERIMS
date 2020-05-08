@@ -12,28 +12,7 @@ namespace Lakehead_ERIMS
 {
     public partial class AdminMenu : Form
     {
-        /* TODO LIST
-         * 
-         * !!!!!!!!!!!!!!!!!!!! EQUIPMENT !!!!!!!!!!!!!!!!!!!!
-         * Add proper nights calculating (Remember the DB value is the TOTAL CUMALATIVE, the field will contain the nights from current rental)
-         * !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-         * 
-         * Long startup times caused by the tableadapter.fills, I improved it a lot, but see if I can smooth it out any more.
-         * Also maybe shouldnt have the whole DB in memory, they prob have old computers, empty tables when their tabs aren't open
-         * 
-         * ERIC's COMMENTS
-         * 1. I assume that all of the tabs on this menu allow for changes. updates, deletion, of the appropriate data (ie equipment, locations. etc)
-         * 2. The large drop-down box with equipment in it, located at the top - interesting idea - Is that so that I can scroll through and pick an item to enter the details below? If so, more detail is needed there - specifically the item number. Also, can one jump to an item or does it need to be scrolled though - there are 9,000 items in the inventory. (ADD ITEM NUMBERS TO THE LISTBOX)
-         * 3. the item number field by the Search Button can be shortened or at least limited to the input length -  each section is only 3 digits - visually if you could add a dash (hyphen) between the two boxes that would look more like how they appear on the inventory items (ADD HYPEN IN-BETWEEN AND LIMIT CHARACTERS TO 3 EACH)
-         * 4. The boxes that display text (eg Item Name, Description 1, Model, etc) will need to be wider to accommodate the full text - the sample you have here has short data, but many are longer  - try some other items like 371-117, 860-257, 980-218 See the Equipment table (tblEquip) in the MSAccess inventory file to see the field lengths. (WIDEN FIELDS)
-         * 5. Notes field will also need to be wider so that more than a few words are displayed at once (WIDEN FIELD)
-         * 6. Nights Rented field - this needs to be a calculated field so that each night it is rented it will add to this number. (THE COLUMN IN THE TABLE IS THE CUMULATIVE TOTAL OF THE NIGHTS RENTED, THIS FIELD SHOULD DISPLAY THE AMOUNT FOR THIS PARTICULAR RENTAL?)
-         * 7. The price and fees fields should be displayed as $175.00 rather than just 175 (FORMAT TEXT ACCORDINGLY)
-         * 8. Will there be error messages that pop up, eg typing in an equipment number that does not exist. Currently, a message comes up saying it does not exist, do you want to create it? - this would be helpful. (ADD PROPER ERROR CHECKING AND ERROR MESSAGES)
-         * Make sure when equipment is rented out, total rental days are added to nights. If The rental is cancelled or returned early, it should subtract the remaining days from equipment nights.
-        */
-
-
+        //If performance is an issue, you could get rid of the equipment listbox and instead do direct row queries where a single row is returned rather than storing the equipTbl in a datatable.
 
         public AdminMenu()
         {
@@ -45,6 +24,7 @@ namespace Lakehead_ERIMS
             //Load equipment table as this is the first tab opened on startup
             Application.DoEvents();
             this.tblEquipTableAdapter.Fill(this.lUEquipmentDataSet.tblEquip);
+            this.tblRentalTableAdapter.Fill(this.lUEquipmentDataSet.tblRental);
             this.tblSupplierTableAdapter.Fill(this.lUEquipmentDataSet.tblSupplier);
             this.tblStatusTableAdapter.Fill(this.lUEquipmentDataSet.tblStatus);
             this.tblLocationTableAdapter.Fill(this.lUEquipmentDataSet.tblLocation);
@@ -1022,10 +1002,6 @@ namespace Lakehead_ERIMS
                     equipmentLateFeeTbx.Text = (double.TryParse(equipmentRow[14].ToString(), out double lateFeeDbl)) ? lateFeeDbl.ToString("C") : equipmentRow[14].ToString();                   
                     equipmentNotesTbx.Text = equipmentRow[16].ToString();
 
-
-                    //Need proper nights calculating
-                    equipmentNightsRentedTbx.Text = equipmentRow[15].ToString();
-
                     //Set Status
                     int statusId = 0;
                     string statusName = "";
@@ -1073,6 +1049,65 @@ namespace Lakehead_ERIMS
                         equipmentDatePurchasedDpk.Value = DateTime.FromOADate(0);
                         equipmentDatePurchasedDpk.Format = DateTimePickerFormat.Custom;
                     }
+
+                    //Set Nights
+                    equipmentNightsRentedTbx.Text = equipmentRow[15].ToString();
+
+                    // Sets nights to the amount of nights out in current/last rental
+                    /* 
+                    equipmentNightsRentedTbx.Clear();
+                    if (statusId == 9)
+                    {
+                        short rentalRowEquipId = -1;
+                        int rentalRowInvNum = -1;                       
+
+                        DataRow[] rentalRows = lUEquipmentDataSet.tblRental.Select("Equip_ID = '" + equipmentRow[0].ToString() + "'");
+                        if (rentalRows.Length == 1)
+                        {
+                            short.TryParse(rentalRows[0][0].ToString(), out rentalRowEquipId);
+                            int.TryParse(rentalRows[0][5].ToString(), out rentalRowInvNum);
+                        }
+                        //Multiple invoices for the same equipment
+                        else if (rentalRows.Length > 1)
+                        {
+                            //Finds the newest invoice
+                            DataRow newestRow = rentalRows[0];
+                            foreach(DataRow row in rentalRows)
+                            {
+                                if (row[2].ToString() != "" && newestRow[2].ToString() != "")
+                                {
+                                    DateTime rentalDate = (DateTime)row[2];
+                                    DateTime newestRentalDate = (DateTime)newestRow[2];
+                                    if (DateTime.Compare(rentalDate, newestRentalDate) > 0)
+                                    {
+                                        newestRow = row;
+                                    }
+                                }
+                            }
+
+                            short.TryParse(newestRow[0].ToString(), out rentalRowEquipId);
+                            int.TryParse(newestRow[5].ToString(), out rentalRowInvNum);
+                        }
+
+                        if (rentalRowEquipId != -1 && rentalRowInvNum != -1)
+                        {
+                            LUEquipmentDataSet.tblRentalRow rentalRow = lUEquipmentDataSet.tblRental.FindByEquip_IDInv_Num(rentalRowEquipId, rentalRowInvNum);
+                            if(!rentalRow.IsRent_DateOutNull() && !rentalRow.IsRent_DateDueNull())
+                            {
+                                double totalDays = (rentalRow.Rent_DateDue - rentalRow.Rent_DateOut).TotalDays;
+                                double daysFromDue = (rentalRow.Rent_DateDue - DateTime.Today).TotalDays;
+                                if (daysFromDue >= 1)
+                                {
+                                    totalDays = totalDays - daysFromDue;
+                                }
+
+                                equipmentNightsRentedTbx.Text = totalDays.ToString();
+
+                            }
+                        }
+                    }
+                    */
+
 
                     //Lock save button until changes are made
                     saveBtn.Enabled = false;
