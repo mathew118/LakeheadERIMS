@@ -27,7 +27,7 @@ namespace Lakehead_ERIMS
 
         private void loginBtn_Click(object sender, EventArgs e)
         {
-            //Filles tblEmployee with a query from the database
+            //Fills tblEmployee with a query from the database
             this.tblEmployeeTableAdapter.Fill(this.lUEquipmentDataSet.tblEmployee);
 
             DataRow employeeRow;
@@ -53,8 +53,15 @@ namespace Lakehead_ERIMS
                 //Password Correct (Check if the 6th column (Emp_Password) in the row is equal to the text inside the password textbox)
                 if(employeeRow[5].ToString() == passwordTbx.Text)
                 {
+                    string empType = employeeRow[4].ToString();
+                    bool isAdministrator = false;
+                    if (empType == "Administrator")
+                    {
+                        isAdministrator = true;
+                    }
+
                     //Login
-                    Menu menu = new Menu();
+                    Menu menu = new Menu(isAdministrator);
                     this.Hide();
                     menu.ShowDialog();
                     //Once menu is closed, it will close the hidden login form
@@ -77,13 +84,6 @@ namespace Lakehead_ERIMS
             
         }
 
-        private void skipLoginBtn_Click(object sender, EventArgs e)
-        {
-            Menu menu = new Menu();
-            this.Hide();
-            menu.ShowDialog();
-            //Once menu is closed, it will close the hidden login form
-            this.Close();
-        }
+        
     }
 }

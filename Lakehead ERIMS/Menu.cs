@@ -14,9 +14,14 @@ namespace Lakehead_ERIMS
 {
     public partial class Menu : Form
     {
-        public Menu()
+        public Menu(bool isAdministrator)
         {
             InitializeComponent();
+
+            if (!isAdministrator)
+            {
+                administrativeMenuBtn.Enabled = false;
+            }
         }
 
         private void exitBtn_Click(object sender, EventArgs e)
@@ -24,7 +29,7 @@ namespace Lakehead_ERIMS
             Application.Exit();
         }
 
-        private void addUpdateEquipmentBtn_Click(object sender, EventArgs e)
+        private void administrativeMenuBtn_Click(object sender, EventArgs e)
         {
             AdminMenu adminMenu = new AdminMenu();
             adminMenu.ShowDialog();

@@ -34,10 +34,21 @@
             this.exitBtn = new System.Windows.Forms.Button();
             this.adminTabControl = new System.Windows.Forms.TabControl();
             this.equipmentTab = new System.Windows.Forms.TabPage();
+            this.equipmentLocationClearBtn = new System.Windows.Forms.Button();
+            this.equipmentSupplierClearBtn = new System.Windows.Forms.Button();
+            this.equipmentPurchaseDateClearBtn = new System.Windows.Forms.Button();
+            this.equipmentItemNumberSearchingDashLbl = new System.Windows.Forms.Label();
+            this.equipmentItemNumberDashLbl = new System.Windows.Forms.Label();
+            this.equipmentItemNumberSearchingBTbx = new System.Windows.Forms.TextBox();
+            this.equipmentItemNumberSearchingATbx = new System.Windows.Forms.TextBox();
             this.equipmentDatePurchasedDpk = new System.Windows.Forms.DateTimePicker();
             this.equipmentSupplierCbx = new System.Windows.Forms.ComboBox();
+            this.tblSupplierBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.lUEquipmentDataSet = new Lakehead_ERIMS.LUEquipmentDataSet();
             this.equipmentHomeLocationCbx = new System.Windows.Forms.ComboBox();
+            this.tblLocationBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.equipmentStatusCbx = new System.Windows.Forms.ComboBox();
+            this.tblStatusBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.equipmentLateFeeLbl = new System.Windows.Forms.Label();
             this.equipmentLateFeeTbx = new System.Windows.Forms.TextBox();
             this.equipmentRentalFeeLbl = new System.Windows.Forms.Label();
@@ -67,15 +78,16 @@
             this.equipmentDescription1Lbl = new System.Windows.Forms.Label();
             this.equipmentDescription1Tbx = new System.Windows.Forms.TextBox();
             this.equipmentItemNumberSearchBtn = new System.Windows.Forms.Button();
-            this.equipmentItemNumberSearchBTbx = new System.Windows.Forms.TextBox();
+            this.equipmentItemNumberBTbx = new System.Windows.Forms.TextBox();
             this.equipmentItemNumberSearchLbl = new System.Windows.Forms.Label();
-            this.equipmentItemNumberSearchATbx = new System.Windows.Forms.TextBox();
+            this.equipmentItemNumberATbx = new System.Windows.Forms.TextBox();
             this.equipmentItemNameLbl = new System.Windows.Forms.Label();
             this.equipmentItemNameTbx = new System.Windows.Forms.TextBox();
             this.equipmentLbx = new System.Windows.Forms.ListBox();
             this.tblEquipBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.lUEquipmentDataSet = new Lakehead_ERIMS.LUEquipmentDataSet();
             this.categoriesTab = new System.Windows.Forms.TabPage();
+            this.categoriesEndRangeDashLbl = new System.Windows.Forms.Label();
+            this.categoriesStartRangeDashLbl = new System.Windows.Forms.Label();
             this.categoriesEndRangeBTbx = new System.Windows.Forms.TextBox();
             this.categoriesStartRangeBTbx = new System.Windows.Forms.TextBox();
             this.categoriesEndRangeLbl = new System.Windows.Forms.Label();
@@ -90,8 +102,10 @@
             this.locationsLocationNameLbl = new System.Windows.Forms.Label();
             this.locationsLocationNameTbx = new System.Windows.Forms.TextBox();
             this.locationsLbx = new System.Windows.Forms.ListBox();
-            this.tblLocationBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.staffTab = new System.Windows.Forms.TabPage();
+            this.staffPasswordResetTbx = new System.Windows.Forms.TextBox();
+            this.staffPasswordResetLbl = new System.Windows.Forms.Label();
+            this.staffResetPasswordBtn = new System.Windows.Forms.Button();
             this.staffUsernameTbx = new System.Windows.Forms.TextBox();
             this.staffUsernameLbl = new System.Windows.Forms.Label();
             this.staffTypeLbl = new System.Windows.Forms.Label();
@@ -107,36 +121,32 @@
             this.statusNameLbl = new System.Windows.Forms.Label();
             this.statusNameTbx = new System.Windows.Forms.TextBox();
             this.statusLbx = new System.Windows.Forms.ListBox();
-            this.tblStatusBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.suppliersTab = new System.Windows.Forms.TabPage();
             this.suppliersNameLbl = new System.Windows.Forms.Label();
             this.suppliersNameTbx = new System.Windows.Forms.TextBox();
             this.suppliersLbx = new System.Windows.Forms.ListBox();
-            this.tblSupplierBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tblEmployeeTableAdapter = new Lakehead_ERIMS.LUEquipmentDataSetTableAdapters.tblEmployeeTableAdapter();
             this.tblLocationTableAdapter = new Lakehead_ERIMS.LUEquipmentDataSetTableAdapters.tblLocationTableAdapter();
             this.tblCategoryTableAdapter = new Lakehead_ERIMS.LUEquipmentDataSetTableAdapters.tblCategoryTableAdapter();
             this.tblEquipTableAdapter = new Lakehead_ERIMS.LUEquipmentDataSetTableAdapters.tblEquipTableAdapter();
             this.tblStatusTableAdapter = new Lakehead_ERIMS.LUEquipmentDataSetTableAdapters.tblStatusTableAdapter();
             this.tblSupplierTableAdapter = new Lakehead_ERIMS.LUEquipmentDataSetTableAdapters.tblSupplierTableAdapter();
-            this.staffResetPasswordBtn = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.tblRentalTableAdapter = new Lakehead_ERIMS.LUEquipmentDataSetTableAdapters.tblRentalTableAdapter();
             this.adminTabControl.SuspendLayout();
             this.equipmentTab.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tblEquipBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblSupplierBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lUEquipmentDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblLocationBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblStatusBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblEquipBindingSource)).BeginInit();
             this.categoriesTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tblCategoryBindingSource)).BeginInit();
             this.locationsTab.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tblLocationBindingSource)).BeginInit();
             this.staffTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tblEmployeeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lUEquipmentDataSetBindingSource)).BeginInit();
             this.statusTab.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tblStatusBindingSource)).BeginInit();
             this.suppliersTab.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tblSupplierBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // addBtn
@@ -144,7 +154,7 @@
             this.addBtn.Location = new System.Drawing.Point(40, 460);
             this.addBtn.Name = "addBtn";
             this.addBtn.Size = new System.Drawing.Size(90, 40);
-            this.addBtn.TabIndex = 0;
+            this.addBtn.TabIndex = 38;
             this.addBtn.Text = "Add New";
             this.addBtn.UseVisualStyleBackColor = true;
             this.addBtn.Click += new System.EventHandler(this.newBtn_Click);
@@ -152,20 +162,20 @@
             // saveBtn
             // 
             this.saveBtn.Enabled = false;
-            this.saveBtn.Location = new System.Drawing.Point(177, 460);
+            this.saveBtn.Location = new System.Drawing.Point(249, 460);
             this.saveBtn.Name = "saveBtn";
             this.saveBtn.Size = new System.Drawing.Size(90, 40);
-            this.saveBtn.TabIndex = 1;
+            this.saveBtn.TabIndex = 39;
             this.saveBtn.Text = "Save Changes";
             this.saveBtn.UseVisualStyleBackColor = true;
             this.saveBtn.Click += new System.EventHandler(this.saveBtn_Click);
             // 
             // exitBtn
             // 
-            this.exitBtn.Location = new System.Drawing.Point(315, 460);
+            this.exitBtn.Location = new System.Drawing.Point(458, 460);
             this.exitBtn.Name = "exitBtn";
             this.exitBtn.Size = new System.Drawing.Size(90, 40);
-            this.exitBtn.TabIndex = 2;
+            this.exitBtn.TabIndex = 40;
             this.exitBtn.Text = "Exit";
             this.exitBtn.UseVisualStyleBackColor = true;
             this.exitBtn.Click += new System.EventHandler(this.exitBtn_Click);
@@ -181,12 +191,19 @@
             this.adminTabControl.Location = new System.Drawing.Point(12, 12);
             this.adminTabControl.Name = "adminTabControl";
             this.adminTabControl.SelectedIndex = 0;
-            this.adminTabControl.Size = new System.Drawing.Size(420, 426);
+            this.adminTabControl.Size = new System.Drawing.Size(560, 426);
             this.adminTabControl.TabIndex = 3;
             this.adminTabControl.SelectedIndexChanged += new System.EventHandler(this.adminTabControl_SelectedIndexChanged);
             // 
             // equipmentTab
             // 
+            this.equipmentTab.Controls.Add(this.equipmentLocationClearBtn);
+            this.equipmentTab.Controls.Add(this.equipmentSupplierClearBtn);
+            this.equipmentTab.Controls.Add(this.equipmentPurchaseDateClearBtn);
+            this.equipmentTab.Controls.Add(this.equipmentItemNumberSearchingDashLbl);
+            this.equipmentTab.Controls.Add(this.equipmentItemNumberDashLbl);
+            this.equipmentTab.Controls.Add(this.equipmentItemNumberSearchingBTbx);
+            this.equipmentTab.Controls.Add(this.equipmentItemNumberSearchingATbx);
             this.equipmentTab.Controls.Add(this.equipmentDatePurchasedDpk);
             this.equipmentTab.Controls.Add(this.equipmentSupplierCbx);
             this.equipmentTab.Controls.Add(this.equipmentHomeLocationCbx);
@@ -220,63 +237,169 @@
             this.equipmentTab.Controls.Add(this.equipmentDescription1Lbl);
             this.equipmentTab.Controls.Add(this.equipmentDescription1Tbx);
             this.equipmentTab.Controls.Add(this.equipmentItemNumberSearchBtn);
-            this.equipmentTab.Controls.Add(this.equipmentItemNumberSearchBTbx);
+            this.equipmentTab.Controls.Add(this.equipmentItemNumberBTbx);
             this.equipmentTab.Controls.Add(this.equipmentItemNumberSearchLbl);
-            this.equipmentTab.Controls.Add(this.equipmentItemNumberSearchATbx);
+            this.equipmentTab.Controls.Add(this.equipmentItemNumberATbx);
             this.equipmentTab.Controls.Add(this.equipmentItemNameLbl);
             this.equipmentTab.Controls.Add(this.equipmentItemNameTbx);
             this.equipmentTab.Controls.Add(this.equipmentLbx);
             this.equipmentTab.Location = new System.Drawing.Point(4, 22);
             this.equipmentTab.Name = "equipmentTab";
             this.equipmentTab.Padding = new System.Windows.Forms.Padding(3);
-            this.equipmentTab.Size = new System.Drawing.Size(412, 400);
+            this.equipmentTab.Size = new System.Drawing.Size(552, 400);
             this.equipmentTab.TabIndex = 0;
             this.equipmentTab.Text = "Equipment";
             this.equipmentTab.UseVisualStyleBackColor = true;
             // 
+            // equipmentLocationClearBtn
+            // 
+            this.equipmentLocationClearBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.equipmentLocationClearBtn.Location = new System.Drawing.Point(256, 262);
+            this.equipmentLocationClearBtn.Name = "equipmentLocationClearBtn";
+            this.equipmentLocationClearBtn.Size = new System.Drawing.Size(25, 20);
+            this.equipmentLocationClearBtn.TabIndex = 91;
+            this.equipmentLocationClearBtn.Text = "C";
+            this.equipmentLocationClearBtn.UseVisualStyleBackColor = true;
+            this.equipmentLocationClearBtn.Click += new System.EventHandler(this.equipmentLocationClearBtn_Click);
+            // 
+            // equipmentSupplierClearBtn
+            // 
+            this.equipmentSupplierClearBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.equipmentSupplierClearBtn.Location = new System.Drawing.Point(520, 132);
+            this.equipmentSupplierClearBtn.Name = "equipmentSupplierClearBtn";
+            this.equipmentSupplierClearBtn.Size = new System.Drawing.Size(25, 20);
+            this.equipmentSupplierClearBtn.TabIndex = 92;
+            this.equipmentSupplierClearBtn.Text = "C";
+            this.equipmentSupplierClearBtn.UseVisualStyleBackColor = true;
+            this.equipmentSupplierClearBtn.Click += new System.EventHandler(this.equipmentSupplierClearBtn_Click);
+            // 
+            // equipmentPurchaseDateClearBtn
+            // 
+            this.equipmentPurchaseDateClearBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.equipmentPurchaseDateClearBtn.Location = new System.Drawing.Point(520, 156);
+            this.equipmentPurchaseDateClearBtn.Name = "equipmentPurchaseDateClearBtn";
+            this.equipmentPurchaseDateClearBtn.Size = new System.Drawing.Size(25, 20);
+            this.equipmentPurchaseDateClearBtn.TabIndex = 93;
+            this.equipmentPurchaseDateClearBtn.Text = "C";
+            this.equipmentPurchaseDateClearBtn.UseVisualStyleBackColor = true;
+            this.equipmentPurchaseDateClearBtn.Click += new System.EventHandler(this.equipmentPurchaseDateClearBtn_Click);
+            // 
+            // equipmentItemNumberSearchingDashLbl
+            // 
+            this.equipmentItemNumberSearchingDashLbl.AutoSize = true;
+            this.equipmentItemNumberSearchingDashLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.equipmentItemNumberSearchingDashLbl.Location = new System.Drawing.Point(410, 106);
+            this.equipmentItemNumberSearchingDashLbl.Name = "equipmentItemNumberSearchingDashLbl";
+            this.equipmentItemNumberSearchingDashLbl.Size = new System.Drawing.Size(12, 15);
+            this.equipmentItemNumberSearchingDashLbl.TabIndex = 64;
+            this.equipmentItemNumberSearchingDashLbl.Text = "-";
+            // 
+            // equipmentItemNumberDashLbl
+            // 
+            this.equipmentItemNumberDashLbl.AutoSize = true;
+            this.equipmentItemNumberDashLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.equipmentItemNumberDashLbl.Location = new System.Drawing.Point(145, 106);
+            this.equipmentItemNumberDashLbl.Name = "equipmentItemNumberDashLbl";
+            this.equipmentItemNumberDashLbl.Size = new System.Drawing.Size(12, 15);
+            this.equipmentItemNumberDashLbl.TabIndex = 63;
+            this.equipmentItemNumberDashLbl.Text = "-";
+            // 
+            // equipmentItemNumberSearchingBTbx
+            // 
+            this.equipmentItemNumberSearchingBTbx.Location = new System.Drawing.Point(425, 105);
+            this.equipmentItemNumberSearchingBTbx.MaxLength = 3;
+            this.equipmentItemNumberSearchingBTbx.Name = "equipmentItemNumberSearchingBTbx";
+            this.equipmentItemNumberSearchingBTbx.Size = new System.Drawing.Size(42, 20);
+            this.equipmentItemNumberSearchingBTbx.TabIndex = 22;
+            this.equipmentItemNumberSearchingBTbx.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.HandleNumericOnly);
+            // 
+            // equipmentItemNumberSearchingATbx
+            // 
+            this.equipmentItemNumberSearchingATbx.Location = new System.Drawing.Point(364, 105);
+            this.equipmentItemNumberSearchingATbx.MaxLength = 3;
+            this.equipmentItemNumberSearchingATbx.Name = "equipmentItemNumberSearchingATbx";
+            this.equipmentItemNumberSearchingATbx.Size = new System.Drawing.Size(42, 20);
+            this.equipmentItemNumberSearchingATbx.TabIndex = 21;
+            this.equipmentItemNumberSearchingATbx.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.HandleNumericOnly);
+            this.equipmentItemNumberSearchingATbx.KeyUp += new System.Windows.Forms.KeyEventHandler(this.AutoTabItemNum);
+            // 
             // equipmentDatePurchasedDpk
             // 
-            this.equipmentDatePurchasedDpk.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.3F);
-            this.equipmentDatePurchasedDpk.Location = new System.Drawing.Point(305, 158);
+            this.equipmentDatePurchasedDpk.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.equipmentDatePurchasedDpk.Location = new System.Drawing.Point(364, 158);
             this.equipmentDatePurchasedDpk.Name = "equipmentDatePurchasedDpk";
-            this.equipmentDatePurchasedDpk.Size = new System.Drawing.Size(90, 17);
-            this.equipmentDatePurchasedDpk.TabIndex = 60;
+            this.equipmentDatePurchasedDpk.Size = new System.Drawing.Size(150, 20);
+            this.equipmentDatePurchasedDpk.TabIndex = 11;
             this.equipmentDatePurchasedDpk.Value = new System.DateTime(2020, 4, 24, 0, 0, 0, 0);
+            this.equipmentDatePurchasedDpk.CloseUp += new System.EventHandler(this.equipmentDatePurchasedDpk_CloseUp);
+            this.equipmentDatePurchasedDpk.ValueChanged += new System.EventHandler(this.equipmentDatePurchasedDpk_ValueChanged);
             // 
             // equipmentSupplierCbx
             // 
+            this.equipmentSupplierCbx.DataSource = this.tblSupplierBindingSource;
+            this.equipmentSupplierCbx.DisplayMember = "Supp_Name";
             this.equipmentSupplierCbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.equipmentSupplierCbx.FormattingEnabled = true;
             this.equipmentSupplierCbx.ItemHeight = 13;
-            this.equipmentSupplierCbx.Location = new System.Drawing.Point(305, 131);
+            this.equipmentSupplierCbx.Location = new System.Drawing.Point(364, 131);
             this.equipmentSupplierCbx.Name = "equipmentSupplierCbx";
-            this.equipmentSupplierCbx.Size = new System.Drawing.Size(90, 21);
-            this.equipmentSupplierCbx.TabIndex = 59;
+            this.equipmentSupplierCbx.Size = new System.Drawing.Size(150, 21);
+            this.equipmentSupplierCbx.TabIndex = 10;
+            this.equipmentSupplierCbx.ValueMember = "Supp_ID";
+            this.equipmentSupplierCbx.SelectedIndexChanged += new System.EventHandler(this.adminFieldChanged);
+            // 
+            // tblSupplierBindingSource
+            // 
+            this.tblSupplierBindingSource.DataMember = "tblSupplier";
+            this.tblSupplierBindingSource.DataSource = this.lUEquipmentDataSet;
+            // 
+            // lUEquipmentDataSet
+            // 
+            this.lUEquipmentDataSet.DataSetName = "LUEquipmentDataSet";
+            this.lUEquipmentDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // equipmentHomeLocationCbx
             // 
+            this.equipmentHomeLocationCbx.DataSource = this.tblLocationBindingSource;
+            this.equipmentHomeLocationCbx.DisplayMember = "Loc_Name";
             this.equipmentHomeLocationCbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.equipmentHomeLocationCbx.FormattingEnabled = true;
             this.equipmentHomeLocationCbx.ItemHeight = 13;
             this.equipmentHomeLocationCbx.Location = new System.Drawing.Point(100, 261);
             this.equipmentHomeLocationCbx.Name = "equipmentHomeLocationCbx";
-            this.equipmentHomeLocationCbx.Size = new System.Drawing.Size(90, 21);
-            this.equipmentHomeLocationCbx.TabIndex = 58;
+            this.equipmentHomeLocationCbx.Size = new System.Drawing.Size(150, 21);
+            this.equipmentHomeLocationCbx.TabIndex = 8;
+            this.equipmentHomeLocationCbx.ValueMember = "Loc_ID";
+            this.equipmentHomeLocationCbx.SelectedIndexChanged += new System.EventHandler(this.adminFieldChanged);
+            // 
+            // tblLocationBindingSource
+            // 
+            this.tblLocationBindingSource.DataMember = "tblLocation";
+            this.tblLocationBindingSource.DataSource = this.lUEquipmentDataSet;
             // 
             // equipmentStatusCbx
             // 
+            this.equipmentStatusCbx.DataSource = this.tblStatusBindingSource;
+            this.equipmentStatusCbx.DisplayMember = "Status_Name";
             this.equipmentStatusCbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.equipmentStatusCbx.FormattingEnabled = true;
             this.equipmentStatusCbx.ItemHeight = 13;
             this.equipmentStatusCbx.Location = new System.Drawing.Point(100, 236);
             this.equipmentStatusCbx.Name = "equipmentStatusCbx";
-            this.equipmentStatusCbx.Size = new System.Drawing.Size(90, 21);
-            this.equipmentStatusCbx.TabIndex = 6;
+            this.equipmentStatusCbx.Size = new System.Drawing.Size(150, 21);
+            this.equipmentStatusCbx.TabIndex = 7;
+            this.equipmentStatusCbx.ValueMember = "Status_ID";
+            this.equipmentStatusCbx.SelectedIndexChanged += new System.EventHandler(this.adminFieldChanged);
+            // 
+            // tblStatusBindingSource
+            // 
+            this.tblStatusBindingSource.DataMember = "tblStatus";
+            this.tblStatusBindingSource.DataSource = this.lUEquipmentDataSet;
             // 
             // equipmentLateFeeLbl
             // 
             this.equipmentLateFeeLbl.AutoSize = true;
-            this.equipmentLateFeeLbl.Location = new System.Drawing.Point(247, 343);
+            this.equipmentLateFeeLbl.Location = new System.Drawing.Point(306, 343);
             this.equipmentLateFeeLbl.Name = "equipmentLateFeeLbl";
             this.equipmentLateFeeLbl.Size = new System.Drawing.Size(52, 13);
             this.equipmentLateFeeLbl.TabIndex = 57;
@@ -284,33 +407,33 @@
             // 
             // equipmentLateFeeTbx
             // 
-            this.equipmentLateFeeTbx.Location = new System.Drawing.Point(305, 340);
+            this.equipmentLateFeeTbx.Location = new System.Drawing.Point(364, 340);
             this.equipmentLateFeeTbx.Name = "equipmentLateFeeTbx";
-            this.equipmentLateFeeTbx.Size = new System.Drawing.Size(90, 20);
-            this.equipmentLateFeeTbx.TabIndex = 56;
+            this.equipmentLateFeeTbx.Size = new System.Drawing.Size(150, 20);
+            this.equipmentLateFeeTbx.TabIndex = 18;
             this.equipmentLateFeeTbx.TextChanged += new System.EventHandler(this.adminFieldChanged);
             // 
             // equipmentRentalFeeLbl
             // 
             this.equipmentRentalFeeLbl.AutoSize = true;
-            this.equipmentRentalFeeLbl.Location = new System.Drawing.Point(237, 317);
+            this.equipmentRentalFeeLbl.Location = new System.Drawing.Point(292, 317);
             this.equipmentRentalFeeLbl.Name = "equipmentRentalFeeLbl";
-            this.equipmentRentalFeeLbl.Size = new System.Drawing.Size(62, 13);
+            this.equipmentRentalFeeLbl.Size = new System.Drawing.Size(66, 13);
             this.equipmentRentalFeeLbl.TabIndex = 55;
-            this.equipmentRentalFeeLbl.Text = "Rental Fee:";
+            this.equipmentRentalFeeLbl.Text = "*Rental Fee:";
             // 
             // equipmentRentalFeeTbx
             // 
-            this.equipmentRentalFeeTbx.Location = new System.Drawing.Point(305, 314);
+            this.equipmentRentalFeeTbx.Location = new System.Drawing.Point(364, 314);
             this.equipmentRentalFeeTbx.Name = "equipmentRentalFeeTbx";
-            this.equipmentRentalFeeTbx.Size = new System.Drawing.Size(90, 20);
-            this.equipmentRentalFeeTbx.TabIndex = 54;
+            this.equipmentRentalFeeTbx.Size = new System.Drawing.Size(150, 20);
+            this.equipmentRentalFeeTbx.TabIndex = 17;
             this.equipmentRentalFeeTbx.TextChanged += new System.EventHandler(this.adminFieldChanged);
             // 
             // equipmentSerialNumberLbl
             // 
             this.equipmentSerialNumberLbl.AutoSize = true;
-            this.equipmentSerialNumberLbl.Location = new System.Drawing.Point(223, 291);
+            this.equipmentSerialNumberLbl.Location = new System.Drawing.Point(282, 291);
             this.equipmentSerialNumberLbl.Name = "equipmentSerialNumberLbl";
             this.equipmentSerialNumberLbl.Size = new System.Drawing.Size(76, 13);
             this.equipmentSerialNumberLbl.TabIndex = 53;
@@ -318,16 +441,17 @@
             // 
             // equipmentSerialNumberTbx
             // 
-            this.equipmentSerialNumberTbx.Location = new System.Drawing.Point(305, 288);
+            this.equipmentSerialNumberTbx.Location = new System.Drawing.Point(364, 288);
+            this.equipmentSerialNumberTbx.MaxLength = 20;
             this.equipmentSerialNumberTbx.Name = "equipmentSerialNumberTbx";
-            this.equipmentSerialNumberTbx.Size = new System.Drawing.Size(90, 20);
-            this.equipmentSerialNumberTbx.TabIndex = 52;
+            this.equipmentSerialNumberTbx.Size = new System.Drawing.Size(150, 20);
+            this.equipmentSerialNumberTbx.TabIndex = 16;
             this.equipmentSerialNumberTbx.TextChanged += new System.EventHandler(this.adminFieldChanged);
             // 
             // equipmentModelLbl
             // 
             this.equipmentModelLbl.AutoSize = true;
-            this.equipmentModelLbl.Location = new System.Drawing.Point(260, 265);
+            this.equipmentModelLbl.Location = new System.Drawing.Point(319, 265);
             this.equipmentModelLbl.Name = "equipmentModelLbl";
             this.equipmentModelLbl.Size = new System.Drawing.Size(39, 13);
             this.equipmentModelLbl.TabIndex = 51;
@@ -335,16 +459,17 @@
             // 
             // equipmentModelTbx
             // 
-            this.equipmentModelTbx.Location = new System.Drawing.Point(305, 262);
+            this.equipmentModelTbx.Location = new System.Drawing.Point(364, 262);
+            this.equipmentModelTbx.MaxLength = 20;
             this.equipmentModelTbx.Name = "equipmentModelTbx";
-            this.equipmentModelTbx.Size = new System.Drawing.Size(90, 20);
-            this.equipmentModelTbx.TabIndex = 50;
+            this.equipmentModelTbx.Size = new System.Drawing.Size(150, 20);
+            this.equipmentModelTbx.TabIndex = 15;
             this.equipmentModelTbx.TextChanged += new System.EventHandler(this.adminFieldChanged);
             // 
             // equipmentManufacturerLbl
             // 
             this.equipmentManufacturerLbl.AutoSize = true;
-            this.equipmentManufacturerLbl.Location = new System.Drawing.Point(226, 239);
+            this.equipmentManufacturerLbl.Location = new System.Drawing.Point(285, 239);
             this.equipmentManufacturerLbl.Name = "equipmentManufacturerLbl";
             this.equipmentManufacturerLbl.Size = new System.Drawing.Size(73, 13);
             this.equipmentManufacturerLbl.TabIndex = 49;
@@ -352,16 +477,17 @@
             // 
             // equipmentManufacturerTbx
             // 
-            this.equipmentManufacturerTbx.Location = new System.Drawing.Point(305, 236);
+            this.equipmentManufacturerTbx.Location = new System.Drawing.Point(364, 236);
+            this.equipmentManufacturerTbx.MaxLength = 40;
             this.equipmentManufacturerTbx.Name = "equipmentManufacturerTbx";
-            this.equipmentManufacturerTbx.Size = new System.Drawing.Size(90, 20);
-            this.equipmentManufacturerTbx.TabIndex = 48;
+            this.equipmentManufacturerTbx.Size = new System.Drawing.Size(150, 20);
+            this.equipmentManufacturerTbx.TabIndex = 14;
             this.equipmentManufacturerTbx.TextChanged += new System.EventHandler(this.adminFieldChanged);
             // 
             // equipmentPONumberLbl
             // 
             this.equipmentPONumberLbl.AutoSize = true;
-            this.equipmentPONumberLbl.Location = new System.Drawing.Point(234, 213);
+            this.equipmentPONumberLbl.Location = new System.Drawing.Point(293, 213);
             this.equipmentPONumberLbl.Name = "equipmentPONumberLbl";
             this.equipmentPONumberLbl.Size = new System.Drawing.Size(65, 13);
             this.equipmentPONumberLbl.TabIndex = 47;
@@ -369,16 +495,16 @@
             // 
             // equipmentPONumberTbx
             // 
-            this.equipmentPONumberTbx.Location = new System.Drawing.Point(305, 210);
+            this.equipmentPONumberTbx.Location = new System.Drawing.Point(364, 210);
             this.equipmentPONumberTbx.Name = "equipmentPONumberTbx";
-            this.equipmentPONumberTbx.Size = new System.Drawing.Size(90, 20);
-            this.equipmentPONumberTbx.TabIndex = 46;
+            this.equipmentPONumberTbx.Size = new System.Drawing.Size(150, 20);
+            this.equipmentPONumberTbx.TabIndex = 13;
             this.equipmentPONumberTbx.TextChanged += new System.EventHandler(this.adminFieldChanged);
             // 
             // equipmentPurchasePriceLbl
             // 
             this.equipmentPurchasePriceLbl.AutoSize = true;
-            this.equipmentPurchasePriceLbl.Location = new System.Drawing.Point(217, 187);
+            this.equipmentPurchasePriceLbl.Location = new System.Drawing.Point(276, 187);
             this.equipmentPurchasePriceLbl.Name = "equipmentPurchasePriceLbl";
             this.equipmentPurchasePriceLbl.Size = new System.Drawing.Size(82, 13);
             this.equipmentPurchasePriceLbl.TabIndex = 45;
@@ -386,16 +512,16 @@
             // 
             // equipmentPurchasePriceTbx
             // 
-            this.equipmentPurchasePriceTbx.Location = new System.Drawing.Point(305, 184);
+            this.equipmentPurchasePriceTbx.Location = new System.Drawing.Point(364, 184);
             this.equipmentPurchasePriceTbx.Name = "equipmentPurchasePriceTbx";
-            this.equipmentPurchasePriceTbx.Size = new System.Drawing.Size(90, 20);
-            this.equipmentPurchasePriceTbx.TabIndex = 44;
+            this.equipmentPurchasePriceTbx.Size = new System.Drawing.Size(150, 20);
+            this.equipmentPurchasePriceTbx.TabIndex = 12;
             this.equipmentPurchasePriceTbx.TextChanged += new System.EventHandler(this.adminFieldChanged);
             // 
             // equipmentDatePurchasedLbl
             // 
             this.equipmentDatePurchasedLbl.AutoSize = true;
-            this.equipmentDatePurchasedLbl.Location = new System.Drawing.Point(212, 161);
+            this.equipmentDatePurchasedLbl.Location = new System.Drawing.Point(271, 161);
             this.equipmentDatePurchasedLbl.Name = "equipmentDatePurchasedLbl";
             this.equipmentDatePurchasedLbl.Size = new System.Drawing.Size(87, 13);
             this.equipmentDatePurchasedLbl.TabIndex = 43;
@@ -404,7 +530,7 @@
             // equipmentSupplierLbl
             // 
             this.equipmentSupplierLbl.AutoSize = true;
-            this.equipmentSupplierLbl.Location = new System.Drawing.Point(251, 135);
+            this.equipmentSupplierLbl.Location = new System.Drawing.Point(310, 135);
             this.equipmentSupplierLbl.Name = "equipmentSupplierLbl";
             this.equipmentSupplierLbl.Size = new System.Drawing.Size(48, 13);
             this.equipmentSupplierLbl.TabIndex = 41;
@@ -422,11 +548,12 @@
             // equipmentNotesTbx
             // 
             this.equipmentNotesTbx.Location = new System.Drawing.Point(100, 314);
+            this.equipmentNotesTbx.MaxLength = 255;
             this.equipmentNotesTbx.Multiline = true;
             this.equipmentNotesTbx.Name = "equipmentNotesTbx";
             this.equipmentNotesTbx.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.equipmentNotesTbx.Size = new System.Drawing.Size(90, 46);
-            this.equipmentNotesTbx.TabIndex = 36;
+            this.equipmentNotesTbx.Size = new System.Drawing.Size(150, 46);
+            this.equipmentNotesTbx.TabIndex = 9;
             this.equipmentNotesTbx.TextChanged += new System.EventHandler(this.adminFieldChanged);
             // 
             // equipmentNightsRentedLbl
@@ -443,8 +570,8 @@
             this.equipmentNightsRentedTbx.Location = new System.Drawing.Point(100, 288);
             this.equipmentNightsRentedTbx.Name = "equipmentNightsRentedTbx";
             this.equipmentNightsRentedTbx.ReadOnly = true;
-            this.equipmentNightsRentedTbx.Size = new System.Drawing.Size(90, 20);
-            this.equipmentNightsRentedTbx.TabIndex = 34;
+            this.equipmentNightsRentedTbx.Size = new System.Drawing.Size(150, 20);
+            this.equipmentNightsRentedTbx.TabIndex = 90;
             // 
             // equipmentHomeLocationLbl
             // 
@@ -458,11 +585,11 @@
             // equipmentStatusLbl
             // 
             this.equipmentStatusLbl.AutoSize = true;
-            this.equipmentStatusLbl.Location = new System.Drawing.Point(54, 239);
+            this.equipmentStatusLbl.Location = new System.Drawing.Point(50, 239);
             this.equipmentStatusLbl.Name = "equipmentStatusLbl";
-            this.equipmentStatusLbl.Size = new System.Drawing.Size(40, 13);
+            this.equipmentStatusLbl.Size = new System.Drawing.Size(44, 13);
             this.equipmentStatusLbl.TabIndex = 31;
-            this.equipmentStatusLbl.Text = "Status:";
+            this.equipmentStatusLbl.Text = "*Status:";
             // 
             // equipmentDescription3Lbl
             // 
@@ -476,9 +603,10 @@
             // equipmentDescription3Tbx
             // 
             this.equipmentDescription3Tbx.Location = new System.Drawing.Point(100, 210);
+            this.equipmentDescription3Tbx.MaxLength = 30;
             this.equipmentDescription3Tbx.Name = "equipmentDescription3Tbx";
-            this.equipmentDescription3Tbx.Size = new System.Drawing.Size(90, 20);
-            this.equipmentDescription3Tbx.TabIndex = 28;
+            this.equipmentDescription3Tbx.Size = new System.Drawing.Size(150, 20);
+            this.equipmentDescription3Tbx.TabIndex = 6;
             this.equipmentDescription3Tbx.TextChanged += new System.EventHandler(this.adminFieldChanged);
             // 
             // equipmentDescription2Lbl
@@ -493,15 +621,16 @@
             // equipmentDescription2Tbx
             // 
             this.equipmentDescription2Tbx.Location = new System.Drawing.Point(100, 184);
+            this.equipmentDescription2Tbx.MaxLength = 30;
             this.equipmentDescription2Tbx.Name = "equipmentDescription2Tbx";
-            this.equipmentDescription2Tbx.Size = new System.Drawing.Size(90, 20);
-            this.equipmentDescription2Tbx.TabIndex = 26;
+            this.equipmentDescription2Tbx.Size = new System.Drawing.Size(150, 20);
+            this.equipmentDescription2Tbx.TabIndex = 5;
             this.equipmentDescription2Tbx.TextChanged += new System.EventHandler(this.adminFieldChanged);
             // 
             // equipmentDescription1Lbl
             // 
             this.equipmentDescription1Lbl.AutoSize = true;
-            this.equipmentDescription1Lbl.Location = new System.Drawing.Point(22, 161);
+            this.equipmentDescription1Lbl.Location = new System.Drawing.Point(22, 162);
             this.equipmentDescription1Lbl.Name = "equipmentDescription1Lbl";
             this.equipmentDescription1Lbl.Size = new System.Drawing.Size(72, 13);
             this.equipmentDescription1Lbl.TabIndex = 25;
@@ -510,58 +639,68 @@
             // equipmentDescription1Tbx
             // 
             this.equipmentDescription1Tbx.Location = new System.Drawing.Point(100, 158);
+            this.equipmentDescription1Tbx.MaxLength = 30;
             this.equipmentDescription1Tbx.Name = "equipmentDescription1Tbx";
-            this.equipmentDescription1Tbx.Size = new System.Drawing.Size(90, 20);
-            this.equipmentDescription1Tbx.TabIndex = 24;
+            this.equipmentDescription1Tbx.Size = new System.Drawing.Size(150, 20);
+            this.equipmentDescription1Tbx.TabIndex = 4;
             this.equipmentDescription1Tbx.TextChanged += new System.EventHandler(this.adminFieldChanged);
             // 
             // equipmentItemNumberSearchBtn
             // 
-            this.equipmentItemNumberSearchBtn.Location = new System.Drawing.Point(196, 104);
+            this.equipmentItemNumberSearchBtn.Location = new System.Drawing.Point(473, 104);
             this.equipmentItemNumberSearchBtn.Name = "equipmentItemNumberSearchBtn";
-            this.equipmentItemNumberSearchBtn.Size = new System.Drawing.Size(55, 20);
+            this.equipmentItemNumberSearchBtn.Size = new System.Drawing.Size(55, 21);
             this.equipmentItemNumberSearchBtn.TabIndex = 23;
             this.equipmentItemNumberSearchBtn.Text = "Search";
             this.equipmentItemNumberSearchBtn.UseVisualStyleBackColor = true;
+            this.equipmentItemNumberSearchBtn.Click += new System.EventHandler(this.equipmentItemNumberSearchBtn_Click);
             // 
-            // equipmentItemNumberSearchBTbx
+            // equipmentItemNumberBTbx
             // 
-            this.equipmentItemNumberSearchBTbx.Location = new System.Drawing.Point(148, 105);
-            this.equipmentItemNumberSearchBTbx.Name = "equipmentItemNumberSearchBTbx";
-            this.equipmentItemNumberSearchBTbx.Size = new System.Drawing.Size(42, 20);
-            this.equipmentItemNumberSearchBTbx.TabIndex = 22;
+            this.equipmentItemNumberBTbx.Location = new System.Drawing.Point(160, 105);
+            this.equipmentItemNumberBTbx.MaxLength = 3;
+            this.equipmentItemNumberBTbx.Name = "equipmentItemNumberBTbx";
+            this.equipmentItemNumberBTbx.Size = new System.Drawing.Size(42, 20);
+            this.equipmentItemNumberBTbx.TabIndex = 2;
+            this.equipmentItemNumberBTbx.TextChanged += new System.EventHandler(this.adminFieldChanged);
+            this.equipmentItemNumberBTbx.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.HandleNumericOnly);
             // 
             // equipmentItemNumberSearchLbl
             // 
             this.equipmentItemNumberSearchLbl.AutoSize = true;
-            this.equipmentItemNumberSearchLbl.Location = new System.Drawing.Point(24, 108);
+            this.equipmentItemNumberSearchLbl.Location = new System.Drawing.Point(20, 108);
             this.equipmentItemNumberSearchLbl.Name = "equipmentItemNumberSearchLbl";
-            this.equipmentItemNumberSearchLbl.Size = new System.Drawing.Size(70, 13);
+            this.equipmentItemNumberSearchLbl.Size = new System.Drawing.Size(74, 13);
             this.equipmentItemNumberSearchLbl.TabIndex = 21;
-            this.equipmentItemNumberSearchLbl.Text = "Item Number:";
+            this.equipmentItemNumberSearchLbl.Text = "*Item Number:";
             // 
-            // equipmentItemNumberSearchATbx
+            // equipmentItemNumberATbx
             // 
-            this.equipmentItemNumberSearchATbx.Location = new System.Drawing.Point(100, 105);
-            this.equipmentItemNumberSearchATbx.Name = "equipmentItemNumberSearchATbx";
-            this.equipmentItemNumberSearchATbx.Size = new System.Drawing.Size(42, 20);
-            this.equipmentItemNumberSearchATbx.TabIndex = 20;
+            this.equipmentItemNumberATbx.Location = new System.Drawing.Point(100, 105);
+            this.equipmentItemNumberATbx.MaxLength = 3;
+            this.equipmentItemNumberATbx.Name = "equipmentItemNumberATbx";
+            this.equipmentItemNumberATbx.Size = new System.Drawing.Size(42, 20);
+            this.equipmentItemNumberATbx.TabIndex = 1;
+            this.equipmentItemNumberATbx.TextChanged += new System.EventHandler(this.adminFieldChanged);
+            this.equipmentItemNumberATbx.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.HandleNumericOnly);
+            this.equipmentItemNumberATbx.KeyUp += new System.Windows.Forms.KeyEventHandler(this.AutoTabItemNum);
             // 
             // equipmentItemNameLbl
             // 
             this.equipmentItemNameLbl.AutoSize = true;
-            this.equipmentItemNameLbl.Location = new System.Drawing.Point(33, 135);
+            this.equipmentItemNameLbl.Location = new System.Drawing.Point(29, 135);
             this.equipmentItemNameLbl.Name = "equipmentItemNameLbl";
-            this.equipmentItemNameLbl.Size = new System.Drawing.Size(61, 13);
+            this.equipmentItemNameLbl.Size = new System.Drawing.Size(65, 13);
             this.equipmentItemNameLbl.TabIndex = 16;
-            this.equipmentItemNameLbl.Text = "Item Name:";
+            this.equipmentItemNameLbl.Text = "*Item Name:";
             // 
             // equipmentItemNameTbx
             // 
             this.equipmentItemNameTbx.Location = new System.Drawing.Point(100, 132);
+            this.equipmentItemNameTbx.MaxLength = 30;
             this.equipmentItemNameTbx.Name = "equipmentItemNameTbx";
-            this.equipmentItemNameTbx.Size = new System.Drawing.Size(90, 20);
-            this.equipmentItemNameTbx.TabIndex = 15;
+            this.equipmentItemNameTbx.Size = new System.Drawing.Size(150, 20);
+            this.equipmentItemNameTbx.TabIndex = 3;
             this.equipmentItemNameTbx.TextChanged += new System.EventHandler(this.adminFieldChanged);
             // 
             // equipmentLbx
@@ -572,23 +711,21 @@
             this.equipmentLbx.Location = new System.Drawing.Point(3, 3);
             this.equipmentLbx.Name = "equipmentLbx";
             this.equipmentLbx.ScrollAlwaysVisible = true;
-            this.equipmentLbx.Size = new System.Drawing.Size(409, 95);
-            this.equipmentLbx.TabIndex = 12;
+            this.equipmentLbx.Size = new System.Drawing.Size(546, 95);
+            this.equipmentLbx.TabIndex = 0;
             this.equipmentLbx.ValueMember = "Equip_ID";
             this.equipmentLbx.SelectedIndexChanged += new System.EventHandler(this.equipmentLbx_SelectedIndexChanged);
+            this.equipmentLbx.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.equipmentLbx_Format);
             // 
             // tblEquipBindingSource
             // 
             this.tblEquipBindingSource.DataMember = "tblEquip";
             this.tblEquipBindingSource.DataSource = this.lUEquipmentDataSet;
             // 
-            // lUEquipmentDataSet
-            // 
-            this.lUEquipmentDataSet.DataSetName = "LUEquipmentDataSet";
-            this.lUEquipmentDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // categoriesTab
             // 
+            this.categoriesTab.Controls.Add(this.categoriesEndRangeDashLbl);
+            this.categoriesTab.Controls.Add(this.categoriesStartRangeDashLbl);
             this.categoriesTab.Controls.Add(this.categoriesEndRangeBTbx);
             this.categoriesTab.Controls.Add(this.categoriesStartRangeBTbx);
             this.categoriesTab.Controls.Add(this.categoriesEndRangeLbl);
@@ -601,25 +738,49 @@
             this.categoriesTab.Location = new System.Drawing.Point(4, 22);
             this.categoriesTab.Name = "categoriesTab";
             this.categoriesTab.Padding = new System.Windows.Forms.Padding(3);
-            this.categoriesTab.Size = new System.Drawing.Size(412, 400);
+            this.categoriesTab.Size = new System.Drawing.Size(552, 400);
             this.categoriesTab.TabIndex = 1;
             this.categoriesTab.Text = "Categories";
             this.categoriesTab.UseVisualStyleBackColor = true;
             // 
+            // categoriesEndRangeDashLbl
+            // 
+            this.categoriesEndRangeDashLbl.AutoSize = true;
+            this.categoriesEndRangeDashLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.categoriesEndRangeDashLbl.Location = new System.Drawing.Point(198, 187);
+            this.categoriesEndRangeDashLbl.Name = "categoriesEndRangeDashLbl";
+            this.categoriesEndRangeDashLbl.Size = new System.Drawing.Size(12, 15);
+            this.categoriesEndRangeDashLbl.TabIndex = 66;
+            this.categoriesEndRangeDashLbl.Text = "-";
+            // 
+            // categoriesStartRangeDashLbl
+            // 
+            this.categoriesStartRangeDashLbl.AutoSize = true;
+            this.categoriesStartRangeDashLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.categoriesStartRangeDashLbl.Location = new System.Drawing.Point(198, 161);
+            this.categoriesStartRangeDashLbl.Name = "categoriesStartRangeDashLbl";
+            this.categoriesStartRangeDashLbl.Size = new System.Drawing.Size(12, 15);
+            this.categoriesStartRangeDashLbl.TabIndex = 65;
+            this.categoriesStartRangeDashLbl.Text = "-";
+            // 
             // categoriesEndRangeBTbx
             // 
-            this.categoriesEndRangeBTbx.Location = new System.Drawing.Point(201, 186);
+            this.categoriesEndRangeBTbx.Location = new System.Drawing.Point(213, 186);
+            this.categoriesEndRangeBTbx.MaxLength = 3;
             this.categoriesEndRangeBTbx.Name = "categoriesEndRangeBTbx";
+            this.categoriesEndRangeBTbx.ShortcutsEnabled = false;
             this.categoriesEndRangeBTbx.Size = new System.Drawing.Size(89, 20);
-            this.categoriesEndRangeBTbx.TabIndex = 20;
+            this.categoriesEndRangeBTbx.TabIndex = 28;
             this.categoriesEndRangeBTbx.TextChanged += new System.EventHandler(this.adminFieldChanged);
             // 
             // categoriesStartRangeBTbx
             // 
-            this.categoriesStartRangeBTbx.Location = new System.Drawing.Point(201, 160);
+            this.categoriesStartRangeBTbx.Location = new System.Drawing.Point(213, 160);
+            this.categoriesStartRangeBTbx.MaxLength = 3;
             this.categoriesStartRangeBTbx.Name = "categoriesStartRangeBTbx";
+            this.categoriesStartRangeBTbx.ShortcutsEnabled = false;
             this.categoriesStartRangeBTbx.Size = new System.Drawing.Size(89, 20);
-            this.categoriesStartRangeBTbx.TabIndex = 19;
+            this.categoriesStartRangeBTbx.TabIndex = 26;
             this.categoriesStartRangeBTbx.TextChanged += new System.EventHandler(this.adminFieldChanged);
             // 
             // categoriesEndRangeLbl
@@ -634,10 +795,13 @@
             // categoriesEndRangeATbx
             // 
             this.categoriesEndRangeATbx.Location = new System.Drawing.Point(106, 186);
+            this.categoriesEndRangeATbx.MaxLength = 3;
             this.categoriesEndRangeATbx.Name = "categoriesEndRangeATbx";
+            this.categoriesEndRangeATbx.ShortcutsEnabled = false;
             this.categoriesEndRangeATbx.Size = new System.Drawing.Size(89, 20);
-            this.categoriesEndRangeATbx.TabIndex = 17;
+            this.categoriesEndRangeATbx.TabIndex = 27;
             this.categoriesEndRangeATbx.TextChanged += new System.EventHandler(this.adminFieldChanged);
+            this.categoriesEndRangeATbx.KeyUp += new System.Windows.Forms.KeyEventHandler(this.AutoTabItemNum);
             // 
             // categoriesStartRangeLbl
             // 
@@ -651,10 +815,14 @@
             // categoriesStartRangeATbx
             // 
             this.categoriesStartRangeATbx.Location = new System.Drawing.Point(106, 160);
+            this.categoriesStartRangeATbx.MaxLength = 3;
             this.categoriesStartRangeATbx.Name = "categoriesStartRangeATbx";
+            this.categoriesStartRangeATbx.ShortcutsEnabled = false;
             this.categoriesStartRangeATbx.Size = new System.Drawing.Size(89, 20);
-            this.categoriesStartRangeATbx.TabIndex = 15;
+            this.categoriesStartRangeATbx.TabIndex = 25;
             this.categoriesStartRangeATbx.TextChanged += new System.EventHandler(this.adminFieldChanged);
+            this.categoriesStartRangeATbx.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.HandleNumericOnly);
+            this.categoriesStartRangeATbx.KeyUp += new System.Windows.Forms.KeyEventHandler(this.AutoTabItemNum);
             // 
             // categoriesCategoryNameLbl
             // 
@@ -668,9 +836,10 @@
             // categoriesCategoryNameTbx
             // 
             this.categoriesCategoryNameTbx.Location = new System.Drawing.Point(106, 134);
+            this.categoriesCategoryNameTbx.MaxLength = 50;
             this.categoriesCategoryNameTbx.Name = "categoriesCategoryNameTbx";
-            this.categoriesCategoryNameTbx.Size = new System.Drawing.Size(185, 20);
-            this.categoriesCategoryNameTbx.TabIndex = 13;
+            this.categoriesCategoryNameTbx.Size = new System.Drawing.Size(196, 20);
+            this.categoriesCategoryNameTbx.TabIndex = 24;
             this.categoriesCategoryNameTbx.TextChanged += new System.EventHandler(this.adminFieldChanged);
             // 
             // categoriesLbx
@@ -698,7 +867,7 @@
             this.locationsTab.Controls.Add(this.locationsLbx);
             this.locationsTab.Location = new System.Drawing.Point(4, 22);
             this.locationsTab.Name = "locationsTab";
-            this.locationsTab.Size = new System.Drawing.Size(412, 400);
+            this.locationsTab.Size = new System.Drawing.Size(552, 400);
             this.locationsTab.TabIndex = 2;
             this.locationsTab.Text = "Locations";
             this.locationsTab.UseVisualStyleBackColor = true;
@@ -715,9 +884,10 @@
             // locationsLocationNameTbx
             // 
             this.locationsLocationNameTbx.Location = new System.Drawing.Point(106, 134);
+            this.locationsLocationNameTbx.MaxLength = 50;
             this.locationsLocationNameTbx.Name = "locationsLocationNameTbx";
             this.locationsLocationNameTbx.Size = new System.Drawing.Size(185, 20);
-            this.locationsLocationNameTbx.TabIndex = 11;
+            this.locationsLocationNameTbx.TabIndex = 29;
             this.locationsLocationNameTbx.TextChanged += new System.EventHandler(this.adminFieldChanged);
             // 
             // locationsLbx
@@ -733,15 +903,10 @@
             this.locationsLbx.ValueMember = "Loc_ID";
             this.locationsLbx.SelectedIndexChanged += new System.EventHandler(this.locationsLbx_SelectedIndexChanged);
             // 
-            // tblLocationBindingSource
-            // 
-            this.tblLocationBindingSource.DataMember = "tblLocation";
-            this.tblLocationBindingSource.DataSource = this.lUEquipmentDataSet;
-            // 
             // staffTab
             // 
-            this.staffTab.Controls.Add(this.textBox1);
-            this.staffTab.Controls.Add(this.label1);
+            this.staffTab.Controls.Add(this.staffPasswordResetTbx);
+            this.staffTab.Controls.Add(this.staffPasswordResetLbl);
             this.staffTab.Controls.Add(this.staffResetPasswordBtn);
             this.staffTab.Controls.Add(this.staffUsernameTbx);
             this.staffTab.Controls.Add(this.staffUsernameLbl);
@@ -754,17 +919,46 @@
             this.staffTab.Controls.Add(this.staffLbx);
             this.staffTab.Location = new System.Drawing.Point(4, 22);
             this.staffTab.Name = "staffTab";
-            this.staffTab.Size = new System.Drawing.Size(412, 400);
+            this.staffTab.Size = new System.Drawing.Size(552, 400);
             this.staffTab.TabIndex = 3;
             this.staffTab.Text = "Staff";
             this.staffTab.UseVisualStyleBackColor = true;
             // 
+            // staffPasswordResetTbx
+            // 
+            this.staffPasswordResetTbx.Location = new System.Drawing.Point(123, 208);
+            this.staffPasswordResetTbx.MaxLength = 16;
+            this.staffPasswordResetTbx.Name = "staffPasswordResetTbx";
+            this.staffPasswordResetTbx.Size = new System.Drawing.Size(90, 20);
+            this.staffPasswordResetTbx.TabIndex = 34;
+            this.staffPasswordResetTbx.UseSystemPasswordChar = true;
+            // 
+            // staffPasswordResetLbl
+            // 
+            this.staffPasswordResetLbl.AutoSize = true;
+            this.staffPasswordResetLbl.Location = new System.Drawing.Point(36, 211);
+            this.staffPasswordResetLbl.Name = "staffPasswordResetLbl";
+            this.staffPasswordResetLbl.Size = new System.Drawing.Size(81, 13);
+            this.staffPasswordResetLbl.TabIndex = 11;
+            this.staffPasswordResetLbl.Text = "New Password:";
+            // 
+            // staffResetPasswordBtn
+            // 
+            this.staffResetPasswordBtn.Location = new System.Drawing.Point(255, 208);
+            this.staffResetPasswordBtn.Name = "staffResetPasswordBtn";
+            this.staffResetPasswordBtn.Size = new System.Drawing.Size(99, 21);
+            this.staffResetPasswordBtn.TabIndex = 35;
+            this.staffResetPasswordBtn.Text = "Reset Password";
+            this.staffResetPasswordBtn.UseVisualStyleBackColor = true;
+            this.staffResetPasswordBtn.Click += new System.EventHandler(this.staffResetPasswordBtn_Click);
+            // 
             // staffUsernameTbx
             // 
             this.staffUsernameTbx.Location = new System.Drawing.Point(264, 171);
+            this.staffUsernameTbx.MaxLength = 8;
             this.staffUsernameTbx.Name = "staffUsernameTbx";
             this.staffUsernameTbx.Size = new System.Drawing.Size(90, 20);
-            this.staffUsernameTbx.TabIndex = 9;
+            this.staffUsernameTbx.TabIndex = 33;
             this.staffUsernameTbx.TextChanged += new System.EventHandler(this.adminFieldChanged);
             // 
             // staffUsernameLbl
@@ -795,7 +989,7 @@
             this.staffTypeCbx.Location = new System.Drawing.Point(264, 134);
             this.staffTypeCbx.Name = "staffTypeCbx";
             this.staffTypeCbx.Size = new System.Drawing.Size(90, 21);
-            this.staffTypeCbx.TabIndex = 5;
+            this.staffTypeCbx.TabIndex = 32;
             this.staffTypeCbx.SelectedIndexChanged += new System.EventHandler(this.adminFieldChanged);
             // 
             // staffFirstNameLbl
@@ -810,9 +1004,10 @@
             // staffFirstNameTbx
             // 
             this.staffFirstNameTbx.Location = new System.Drawing.Point(83, 171);
+            this.staffFirstNameTbx.MaxLength = 30;
             this.staffFirstNameTbx.Name = "staffFirstNameTbx";
             this.staffFirstNameTbx.Size = new System.Drawing.Size(90, 20);
-            this.staffFirstNameTbx.TabIndex = 3;
+            this.staffFirstNameTbx.TabIndex = 31;
             this.staffFirstNameTbx.TextChanged += new System.EventHandler(this.adminFieldChanged);
             // 
             // staffLastNameLbl
@@ -827,9 +1022,10 @@
             // staffLastNameTbx
             // 
             this.staffLastNameTbx.Location = new System.Drawing.Point(83, 134);
+            this.staffLastNameTbx.MaxLength = 30;
             this.staffLastNameTbx.Name = "staffLastNameTbx";
             this.staffLastNameTbx.Size = new System.Drawing.Size(90, 20);
-            this.staffLastNameTbx.TabIndex = 1;
+            this.staffLastNameTbx.TabIndex = 30;
             this.staffLastNameTbx.TextChanged += new System.EventHandler(this.adminFieldChanged);
             // 
             // staffLbx
@@ -862,7 +1058,7 @@
             this.statusTab.Controls.Add(this.statusLbx);
             this.statusTab.Location = new System.Drawing.Point(4, 22);
             this.statusTab.Name = "statusTab";
-            this.statusTab.Size = new System.Drawing.Size(412, 400);
+            this.statusTab.Size = new System.Drawing.Size(552, 400);
             this.statusTab.TabIndex = 4;
             this.statusTab.Text = "Status";
             this.statusTab.UseVisualStyleBackColor = true;
@@ -879,9 +1075,10 @@
             // statusNameTbx
             // 
             this.statusNameTbx.Location = new System.Drawing.Point(106, 134);
+            this.statusNameTbx.MaxLength = 25;
             this.statusNameTbx.Name = "statusNameTbx";
             this.statusNameTbx.Size = new System.Drawing.Size(185, 20);
-            this.statusNameTbx.TabIndex = 13;
+            this.statusNameTbx.TabIndex = 36;
             this.statusNameTbx.TextChanged += new System.EventHandler(this.adminFieldChanged);
             // 
             // statusLbx
@@ -897,11 +1094,6 @@
             this.statusLbx.ValueMember = "Status_ID";
             this.statusLbx.SelectedIndexChanged += new System.EventHandler(this.statusLbx_SelectedIndexChanged);
             // 
-            // tblStatusBindingSource
-            // 
-            this.tblStatusBindingSource.DataMember = "tblStatus";
-            this.tblStatusBindingSource.DataSource = this.lUEquipmentDataSet;
-            // 
             // suppliersTab
             // 
             this.suppliersTab.Controls.Add(this.suppliersNameLbl);
@@ -909,7 +1101,7 @@
             this.suppliersTab.Controls.Add(this.suppliersLbx);
             this.suppliersTab.Location = new System.Drawing.Point(4, 22);
             this.suppliersTab.Name = "suppliersTab";
-            this.suppliersTab.Size = new System.Drawing.Size(412, 400);
+            this.suppliersTab.Size = new System.Drawing.Size(552, 400);
             this.suppliersTab.TabIndex = 5;
             this.suppliersTab.Text = "Suppliers";
             this.suppliersTab.UseVisualStyleBackColor = true;
@@ -926,9 +1118,10 @@
             // suppliersNameTbx
             // 
             this.suppliersNameTbx.Location = new System.Drawing.Point(106, 134);
+            this.suppliersNameTbx.MaxLength = 40;
             this.suppliersNameTbx.Name = "suppliersNameTbx";
             this.suppliersNameTbx.Size = new System.Drawing.Size(185, 20);
-            this.suppliersNameTbx.TabIndex = 13;
+            this.suppliersNameTbx.TabIndex = 37;
             this.suppliersNameTbx.TextChanged += new System.EventHandler(this.adminFieldChanged);
             // 
             // suppliersLbx
@@ -943,11 +1136,6 @@
             this.suppliersLbx.TabIndex = 2;
             this.suppliersLbx.ValueMember = "Supp_ID";
             this.suppliersLbx.SelectedIndexChanged += new System.EventHandler(this.suppliersLbx_SelectedIndexChanged);
-            // 
-            // tblSupplierBindingSource
-            // 
-            this.tblSupplierBindingSource.DataMember = "tblSupplier";
-            this.tblSupplierBindingSource.DataSource = this.lUEquipmentDataSet;
             // 
             // tblEmployeeTableAdapter
             // 
@@ -973,37 +1161,15 @@
             // 
             this.tblSupplierTableAdapter.ClearBeforeFill = true;
             // 
-            // staffResetPasswordBtn
+            // tblRentalTableAdapter
             // 
-            this.staffResetPasswordBtn.Location = new System.Drawing.Point(264, 208);
-            this.staffResetPasswordBtn.Name = "staffResetPasswordBtn";
-            this.staffResetPasswordBtn.Size = new System.Drawing.Size(90, 40);
-            this.staffResetPasswordBtn.TabIndex = 10;
-            this.staffResetPasswordBtn.Text = "Reset Password";
-            this.staffResetPasswordBtn.UseVisualStyleBackColor = true;
-            this.staffResetPasswordBtn.Click += new System.EventHandler(this.staffResetPasswordBtn_Click);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(130, 219);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(90, 20);
-            this.textBox1.TabIndex = 12;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(43, 222);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(81, 13);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "New Password:";
+            this.tblRentalTableAdapter.ClearBeforeFill = true;
             // 
             // AdminMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(444, 527);
+            this.ClientSize = new System.Drawing.Size(584, 527);
             this.Controls.Add(this.adminTabControl);
             this.Controls.Add(this.exitBtn);
             this.Controls.Add(this.saveBtn);
@@ -1017,24 +1183,24 @@
             this.adminTabControl.ResumeLayout(false);
             this.equipmentTab.ResumeLayout(false);
             this.equipmentTab.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tblEquipBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblSupplierBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lUEquipmentDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblLocationBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblStatusBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblEquipBindingSource)).EndInit();
             this.categoriesTab.ResumeLayout(false);
             this.categoriesTab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tblCategoryBindingSource)).EndInit();
             this.locationsTab.ResumeLayout(false);
             this.locationsTab.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tblLocationBindingSource)).EndInit();
             this.staffTab.ResumeLayout(false);
             this.staffTab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tblEmployeeBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lUEquipmentDataSetBindingSource)).EndInit();
             this.statusTab.ResumeLayout(false);
             this.statusTab.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tblStatusBindingSource)).EndInit();
             this.suppliersTab.ResumeLayout(false);
             this.suppliersTab.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tblSupplierBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1081,9 +1247,9 @@
         private System.Windows.Forms.TextBox categoriesEndRangeBTbx;
         private System.Windows.Forms.TextBox categoriesStartRangeBTbx;
         private System.Windows.Forms.Button equipmentItemNumberSearchBtn;
-        private System.Windows.Forms.TextBox equipmentItemNumberSearchBTbx;
+        private System.Windows.Forms.TextBox equipmentItemNumberBTbx;
         private System.Windows.Forms.Label equipmentItemNumberSearchLbl;
-        private System.Windows.Forms.TextBox equipmentItemNumberSearchATbx;
+        private System.Windows.Forms.TextBox equipmentItemNumberATbx;
         private System.Windows.Forms.Label equipmentItemNameLbl;
         private System.Windows.Forms.TextBox equipmentItemNameTbx;
         private System.Windows.Forms.ListBox equipmentLbx;
@@ -1132,7 +1298,17 @@
         private System.Windows.Forms.ComboBox equipmentSupplierCbx;
         private System.Windows.Forms.TextBox equipmentNotesTbx;
         private System.Windows.Forms.Button staffResetPasswordBtn;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox staffPasswordResetTbx;
+        private System.Windows.Forms.Label staffPasswordResetLbl;
+        private System.Windows.Forms.TextBox equipmentItemNumberSearchingBTbx;
+        private System.Windows.Forms.TextBox equipmentItemNumberSearchingATbx;
+        private System.Windows.Forms.Label equipmentItemNumberSearchingDashLbl;
+        private System.Windows.Forms.Label equipmentItemNumberDashLbl;
+        private System.Windows.Forms.Button equipmentPurchaseDateClearBtn;
+        private System.Windows.Forms.Button equipmentLocationClearBtn;
+        private System.Windows.Forms.Button equipmentSupplierClearBtn;
+        private LUEquipmentDataSetTableAdapters.tblRentalTableAdapter tblRentalTableAdapter;
+        private System.Windows.Forms.Label categoriesStartRangeDashLbl;
+        private System.Windows.Forms.Label categoriesEndRangeDashLbl;
     }
 }
