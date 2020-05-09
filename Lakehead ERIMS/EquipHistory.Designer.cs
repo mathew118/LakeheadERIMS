@@ -49,6 +49,7 @@
             // searchTxtBox
             // 
             this.searchTxtBox.Location = new System.Drawing.Point(171, 45);
+            this.searchTxtBox.MaxLength = 6;
             this.searchTxtBox.Name = "searchTxtBox";
             this.searchTxtBox.Size = new System.Drawing.Size(100, 20);
             this.searchTxtBox.TabIndex = 1;
@@ -71,6 +72,7 @@
             this.exitBtn.TabIndex = 3;
             this.exitBtn.Text = "Exit";
             this.exitBtn.UseVisualStyleBackColor = true;
+            this.exitBtn.Click += new System.EventHandler(this.exitBtn_Click);
             // 
             // luEquipmentDataSet1
             // 
