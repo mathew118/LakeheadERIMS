@@ -104,7 +104,9 @@ namespace Lakehead_ERIMS
         {
             try
             {
-                LUEquipmentDataSet.tblEquipRow equipRow = luEquipmentDataSet1.tblEquip.FindByEquip_ID(array);
+                DataRow equipmentByItemNum = luEquipmentDataSet1.tblEquip.Select("Equip_Number = '" + itemNumberTextBox.Text + "'")[0];
+                int itemID = int.Parse(equipmentByItemNum[0].ToString());
+                LUEquipmentDataSet.tblEquipRow equipRow = luEquipmentDataSet1.tblEquip.FindByEquip_ID(itemID);
                 equipRow.Status_ID = 1;
                 tblEquipTableAdapter1.Update(equipRow);
                 MessageBox.Show("Item returned");
