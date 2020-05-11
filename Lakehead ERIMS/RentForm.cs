@@ -11,9 +11,9 @@ using System.Data.OleDb;
 
 namespace Lakehead_ERIMS
 {
-    public partial class form : Form
+    public partial class RentForm : Form
     {
-        public form()
+        public RentForm()
         {
             InitializeComponent();
         }

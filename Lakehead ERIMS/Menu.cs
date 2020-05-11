@@ -36,7 +36,7 @@ namespace Lakehead_ERIMS
 
         private void rentEquipmentBtn_Click(object sender, EventArgs e)
         {
-            var rent = new form();
+            var rent = new RentForm();
             rent.Show();
         }
 

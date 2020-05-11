@@ -1,6 +1,6 @@
 ﻿namespace Lakehead_ERIMS
 {
-    partial class form
+    partial class RentForm
     {
         /// <summary>
         /// Required designer variable.
@@ -174,9 +174,9 @@
             this.rentItem.Controls.Add(this.equipNumbTextBox);
             this.rentItem.Controls.Add(this.label9);
             this.rentItem.Location = new System.Drawing.Point(25, 371);
-            this.rentItem.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rentItem.Margin = new System.Windows.Forms.Padding(2);
             this.rentItem.Name = "rentItem";
-            this.rentItem.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rentItem.Padding = new System.Windows.Forms.Padding(2);
             this.rentItem.Size = new System.Drawing.Size(384, 272);
             this.rentItem.TabIndex = 8;
             this.rentItem.TabStop = false;
@@ -190,7 +190,7 @@
             this.Name,
             this.Price});
             this.itemGridView.Location = new System.Drawing.Point(33, 68);
-            this.itemGridView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.itemGridView.Margin = new System.Windows.Forms.Padding(2);
             this.itemGridView.Name = "itemGridView";
             this.itemGridView.RowTemplate.Height = 24;
             this.itemGridView.Size = new System.Drawing.Size(292, 131);
@@ -214,7 +214,7 @@
             // removeButton
             // 
             this.removeButton.Location = new System.Drawing.Point(209, 227);
-            this.removeButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.removeButton.Margin = new System.Windows.Forms.Padding(2);
             this.removeButton.Name = "removeButton";
             this.removeButton.Size = new System.Drawing.Size(92, 29);
             this.removeButton.TabIndex = 8;
@@ -225,7 +225,7 @@
             // deleteButton
             // 
             this.deleteButton.Location = new System.Drawing.Point(109, 226);
-            this.deleteButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.deleteButton.Margin = new System.Windows.Forms.Padding(2);
             this.deleteButton.Name = "deleteButton";
             this.deleteButton.Size = new System.Drawing.Size(88, 31);
             this.deleteButton.TabIndex = 6;
@@ -236,7 +236,7 @@
             // addButton
             // 
             this.addButton.Location = new System.Drawing.Point(20, 224);
-            this.addButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.addButton.Margin = new System.Windows.Forms.Padding(2);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(84, 32);
             this.addButton.TabIndex = 5;
@@ -247,7 +247,7 @@
             // equipNumbTextBox
             // 
             this.equipNumbTextBox.Location = new System.Drawing.Point(164, 33);
-            this.equipNumbTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.equipNumbTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.equipNumbTextBox.Name = "equipNumbTextBox";
             this.equipNumbTextBox.Size = new System.Drawing.Size(63, 20);
             this.equipNumbTextBox.TabIndex = 2;
@@ -285,7 +285,7 @@
             // dateRentedPicker
             // 
             this.dateRentedPicker.Location = new System.Drawing.Point(115, 299);
-            this.dateRentedPicker.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dateRentedPicker.Margin = new System.Windows.Forms.Padding(2);
             this.dateRentedPicker.Name = "dateRentedPicker";
             this.dateRentedPicker.Size = new System.Drawing.Size(122, 20);
             this.dateRentedPicker.TabIndex = 9;
@@ -293,7 +293,7 @@
             // dateDuePicker
             // 
             this.dateDuePicker.Location = new System.Drawing.Point(115, 322);
-            this.dateDuePicker.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dateDuePicker.Margin = new System.Windows.Forms.Padding(2);
             this.dateDuePicker.Name = "dateDuePicker";
             this.dateDuePicker.Size = new System.Drawing.Size(122, 20);
             this.dateDuePicker.TabIndex = 10;
@@ -351,7 +351,7 @@
             // studentNumberTextBox
             // 
             this.studentNumberTextBox.Location = new System.Drawing.Point(173, 28);
-            this.studentNumberTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.studentNumberTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.studentNumberTextBox.Name = "studentNumberTextBox";
             this.studentNumberTextBox.Size = new System.Drawing.Size(70, 20);
             this.studentNumberTextBox.TabIndex = 21;
@@ -363,9 +363,9 @@
             this.groupBox2.Controls.Add(this.studentNumberTextBox);
             this.groupBox2.Controls.Add(this.label12);
             this.groupBox2.Location = new System.Drawing.Point(45, 38);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox2.Size = new System.Drawing.Size(310, 108);
             this.groupBox2.TabIndex = 22;
             this.groupBox2.TabStop = false;
@@ -374,7 +374,7 @@
             // enterStudentNumberButton
             // 
             this.enterStudentNumberButton.Location = new System.Drawing.Point(44, 68);
-            this.enterStudentNumberButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.enterStudentNumberButton.Margin = new System.Windows.Forms.Padding(2);
             this.enterStudentNumberButton.Name = "enterStudentNumberButton";
             this.enterStudentNumberButton.Size = new System.Drawing.Size(170, 28);
             this.enterStudentNumberButton.TabIndex = 22;
@@ -414,9 +414,9 @@
             this.groupBox3.Controls.Add(this.subtotalLabel);
             this.groupBox3.Controls.Add(this.label14);
             this.groupBox3.Location = new System.Drawing.Point(424, 344);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox3.Size = new System.Drawing.Size(302, 241);
             this.groupBox3.TabIndex = 25;
             this.groupBox3.TabStop = false;
@@ -425,7 +425,7 @@
             // calcCost
             // 
             this.calcCost.Location = new System.Drawing.Point(94, 176);
-            this.calcCost.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.calcCost.Margin = new System.Windows.Forms.Padding(2);
             this.calcCost.Name = "calcCost";
             this.calcCost.Size = new System.Drawing.Size(127, 33);
             this.calcCost.TabIndex = 11;
@@ -457,7 +457,7 @@
             // 
             this.waiveCheckBox.AutoSize = true;
             this.waiveCheckBox.Location = new System.Drawing.Point(202, 54);
-            this.waiveCheckBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.waiveCheckBox.Margin = new System.Windows.Forms.Padding(2);
             this.waiveCheckBox.Name = "waiveCheckBox";
             this.waiveCheckBox.Size = new System.Drawing.Size(57, 17);
             this.waiveCheckBox.TabIndex = 8;
@@ -512,9 +512,9 @@
             this.groupBox4.Controls.Add(this.label11);
             this.groupBox4.Controls.Add(this.feeTextBox);
             this.groupBox4.Location = new System.Drawing.Point(432, 93);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox4.Size = new System.Drawing.Size(293, 211);
             this.groupBox4.TabIndex = 26;
             this.groupBox4.TabStop = false;
@@ -524,7 +524,7 @@
             // 
             this.deleteFeeRadioButton.AutoSize = true;
             this.deleteFeeRadioButton.Location = new System.Drawing.Point(64, 175);
-            this.deleteFeeRadioButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.deleteFeeRadioButton.Margin = new System.Windows.Forms.Padding(2);
             this.deleteFeeRadioButton.Name = "deleteFeeRadioButton";
             this.deleteFeeRadioButton.Size = new System.Drawing.Size(77, 17);
             this.deleteFeeRadioButton.TabIndex = 4;
@@ -536,7 +536,7 @@
             // 
             this.payFeeRadioButton.AutoSize = true;
             this.payFeeRadioButton.Location = new System.Drawing.Point(64, 145);
-            this.payFeeRadioButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.payFeeRadioButton.Margin = new System.Windows.Forms.Padding(2);
             this.payFeeRadioButton.Name = "payFeeRadioButton";
             this.payFeeRadioButton.Size = new System.Drawing.Size(64, 17);
             this.payFeeRadioButton.TabIndex = 3;
@@ -549,7 +549,7 @@
             this.ignoreRadioButton.AutoSize = true;
             this.ignoreRadioButton.Checked = true;
             this.ignoreRadioButton.Location = new System.Drawing.Point(64, 111);
-            this.ignoreRadioButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ignoreRadioButton.Margin = new System.Windows.Forms.Padding(2);
             this.ignoreRadioButton.Name = "ignoreRadioButton";
             this.ignoreRadioButton.Size = new System.Drawing.Size(76, 17);
             this.ignoreRadioButton.TabIndex = 2;
@@ -570,7 +570,7 @@
             // feeTextBox
             // 
             this.feeTextBox.Location = new System.Drawing.Point(148, 50);
-            this.feeTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.feeTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.feeTextBox.Name = "feeTextBox";
             this.feeTextBox.Size = new System.Drawing.Size(66, 20);
             this.feeTextBox.TabIndex = 0;
@@ -596,7 +596,7 @@
             // rentalButton
             // 
             this.rentalButton.Location = new System.Drawing.Point(439, 602);
-            this.rentalButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rentalButton.Margin = new System.Windows.Forms.Padding(2);
             this.rentalButton.Name = "rentalButton";
             this.rentalButton.Size = new System.Drawing.Size(95, 25);
             this.rentalButton.TabIndex = 27;
@@ -607,7 +607,7 @@
             // exitButton
             // 
             this.exitButton.Location = new System.Drawing.Point(574, 599);
-            this.exitButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.exitButton.Margin = new System.Windows.Forms.Padding(2);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(103, 28);
             this.exitButton.TabIndex = 28;
@@ -615,7 +615,7 @@
             this.exitButton.UseVisualStyleBackColor = true;
             this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
             // 
-            // form
+            // RentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -641,8 +641,8 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.Name = "form";
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Name = "RentForm";
             this.Text = "Rent Equipment";
             this.Load += new System.EventHandler(this.RentForm_Load);
             this.rentItem.ResumeLayout(false);
