@@ -83,6 +83,36 @@ namespace Lakehead_ERIMS
             EquipHistory equipHistory = new EquipHistory();
             equipHistory.Show();
         }
+
+        private void rentEquipmentBtn_Click(object sender, EventArgs e)
+        {
+            RentForm rentForm = new RentForm();
+            rentForm.ShowDialog();
+        }
+
+        private void returnEquipmentBtn_Click(object sender, EventArgs e)
+        {
+            ReturnEquip returnForm = new ReturnEquip();
+            returnForm.ShowDialog();
+        }
+
+        private void editRentalBtn_Click(object sender, EventArgs e)
+        {
+            editRental editRentalForm = new editRental();
+            editRentalForm.ShowDialog();
+        }
+
+        private void addUpdateStudentBtn_Click(object sender, EventArgs e)
+        {
+            addUpdateStudent addUpdateStudentForm = new addUpdateStudent();
+            addUpdateStudentForm.ShowDialog();
+        }
+
+        private void equipmentSnapshotBtn_Click(object sender, EventArgs e)
+        {
+            equipSummary equipmentSummaryForm = new equipSummary();
+            equipmentSummaryForm.ShowDialog();
+        }
     }
 }
 

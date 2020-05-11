@@ -121,6 +121,7 @@
             this.returnEquipmentBtn.TabIndex = 11;
             this.returnEquipmentBtn.Text = "Return Equipment";
             this.returnEquipmentBtn.UseVisualStyleBackColor = true;
+            this.returnEquipmentBtn.Click += new System.EventHandler(this.returnEquipmentBtn_Click);
             // 
             // editRentalBtn
             // 
@@ -130,6 +131,7 @@
             this.editRentalBtn.TabIndex = 10;
             this.editRentalBtn.Text = "Edit Rental";
             this.editRentalBtn.UseVisualStyleBackColor = true;
+            this.editRentalBtn.Click += new System.EventHandler(this.editRentalBtn_Click);
             // 
             // addUpdateStudentBtn
             // 
@@ -139,6 +141,7 @@
             this.addUpdateStudentBtn.TabIndex = 8;
             this.addUpdateStudentBtn.Text = "Add/Update Student";
             this.addUpdateStudentBtn.UseVisualStyleBackColor = true;
+            this.addUpdateStudentBtn.Click += new System.EventHandler(this.addUpdateStudentBtn_Click);
             // 
             // rentEquipmentBtn
             // 
@@ -148,6 +151,7 @@
             this.rentEquipmentBtn.TabIndex = 9;
             this.rentEquipmentBtn.Text = "Rent Equipment";
             this.rentEquipmentBtn.UseVisualStyleBackColor = true;
+            this.rentEquipmentBtn.Click += new System.EventHandler(this.rentEquipmentBtn_Click);
             // 
             // equipmentSnapshotBtn
             // 
@@ -157,6 +161,7 @@
             this.equipmentSnapshotBtn.TabIndex = 7;
             this.equipmentSnapshotBtn.Text = "Equipment Snapshot";
             this.equipmentSnapshotBtn.UseVisualStyleBackColor = true;
+            this.equipmentSnapshotBtn.Click += new System.EventHandler(this.equipmentSnapshotBtn_Click);
             // 
             // reportsMenuTab
             // 
