@@ -311,7 +311,9 @@
             this.equipmentItemNumberSearchingBTbx.Name = "equipmentItemNumberSearchingBTbx";
             this.equipmentItemNumberSearchingBTbx.Size = new System.Drawing.Size(42, 20);
             this.equipmentItemNumberSearchingBTbx.TabIndex = 22;
+            this.equipmentItemNumberSearchingBTbx.Enter += new System.EventHandler(this.equipmentSearchingEnterKeySearching);
             this.equipmentItemNumberSearchingBTbx.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.HandleNumericOnly);
+            this.equipmentItemNumberSearchingBTbx.Leave += new System.EventHandler(this.equipmentSearchingEnterKeySearching);
             // 
             // equipmentItemNumberSearchingATbx
             // 
@@ -320,8 +322,10 @@
             this.equipmentItemNumberSearchingATbx.Name = "equipmentItemNumberSearchingATbx";
             this.equipmentItemNumberSearchingATbx.Size = new System.Drawing.Size(42, 20);
             this.equipmentItemNumberSearchingATbx.TabIndex = 21;
+            this.equipmentItemNumberSearchingATbx.Enter += new System.EventHandler(this.equipmentSearchingEnterKeySearching);
             this.equipmentItemNumberSearchingATbx.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.HandleNumericOnly);
             this.equipmentItemNumberSearchingATbx.KeyUp += new System.Windows.Forms.KeyEventHandler(this.AutoTabItemNum);
+            this.equipmentItemNumberSearchingATbx.Leave += new System.EventHandler(this.equipmentSearchingEnterKeySearching);
             // 
             // equipmentDatePurchasedDpk
             // 

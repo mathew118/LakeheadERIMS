@@ -165,6 +165,19 @@ namespace Lakehead_ERIMS
             
         }
 
+        private void equipmentSearchingEnterKeySearching(object sender, EventArgs e)
+        {
+            Control sendingControl = (Control)sender;
+            if (sendingControl.Focused)
+            {
+                ActiveForm.AcceptButton = equipmentItemNumberSearchBtn;
+            }
+            else
+            {
+                ActiveForm.AcceptButton = null;
+            }
+        }
+
         private void equipmentDatePurchasedDpk_ValueChanged(object sender, EventArgs e)
         {
             //The DateTime.Today is so when the datepicker is opened it doesn't start at 1899 and instead starts at today.
@@ -211,6 +224,7 @@ namespace Lakehead_ERIMS
             if (sendingTbx.Text.Length == sendingTbx.MaxLength)
             {
                 sendingTbx.Parent.SelectNextControl(ActiveControl, true, true, true, true);
+                ActiveForm.AcceptButton = equipmentItemNumberSearchBtn;
             }
         }
 
