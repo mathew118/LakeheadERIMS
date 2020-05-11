@@ -29,24 +29,31 @@ namespace Lakehead_ERIMS
 
         private void invoiceButton_Click(object sender, EventArgs e)
         {
-            this.tblRentalTableAdapter1.Fill(this.luEquipmentDataSet1.tblRental);
-            DataRow rental;
-            rental = luEquipmentDataSet1.tblRental.Select("Inv_Num = '" + invoiceNumberTextbox.Text + "'")[0];
-            dateOutPicker.Text = rental[2].ToString();
-            DueDatePicker.Text = rental[3].ToString();
-            string stu_ID = rental[1].ToString();
-            this.tblStudentTableAdapter1.Fill(this.luEquipmentDataSet1.tblStudent);
-            DataRow student;
-            student = luEquipmentDataSet1.tblStudent.Select("Stu_ID = '" + stu_ID + "'")[0];
-            studentFirstNameLabel.Text = student[3].ToString();
-            studentLastNameLabel.Text = student[2].ToString();
-            studentNumberLabel.Text = student[1].ToString();
-            string equipID = rental[0].ToString();
-            this.tblEquipTableAdapter1.Fill(this.luEquipmentDataSet1.tblEquip);
-            DataRow equip;
-            equip = luEquipmentDataSet1.tblEquip.Select("Equip_ID = '" + equipID + "'")[0];
-            equipNameLabel.Text = equip[2].ToString();
-            equipNumberLabel.Text = equip[1].ToString();
+            try
+            {
+                this.tblRentalTableAdapter1.Fill(this.luEquipmentDataSet1.tblRental);
+                DataRow rental;
+                rental = luEquipmentDataSet1.tblRental.Select("Inv_Num = '" + invoiceNumberTextbox.Text + "'")[0];
+                dateOutPicker.Text = rental[2].ToString();
+                DueDatePicker.Text = rental[3].ToString();
+                string stu_ID = rental[1].ToString();
+                this.tblStudentTableAdapter1.Fill(this.luEquipmentDataSet1.tblStudent);
+                DataRow student;
+                student = luEquipmentDataSet1.tblStudent.Select("Stu_ID = '" + stu_ID + "'")[0];
+                studentFirstNameLabel.Text = student[3].ToString();
+                studentLastNameLabel.Text = student[2].ToString();
+                studentNumberLabel.Text = student[1].ToString();
+                string equipID = rental[0].ToString();
+                this.tblEquipTableAdapter1.Fill(this.luEquipmentDataSet1.tblEquip);
+                DataRow equip;
+                equip = luEquipmentDataSet1.tblEquip.Select("Equip_ID = '" + equipID + "'")[0];
+                equipNameLabel.Text = equip[2].ToString();
+                equipNumberLabel.Text = equip[1].ToString();
+            }
+            catch
+            {
+                MessageBox.Show("Invoice number not found");
+            }
 
         }
 

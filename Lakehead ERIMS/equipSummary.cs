@@ -28,10 +28,9 @@ namespace Lakehead_ERIMS
         {
             DataRow equipmentrow;
 
-            //if (lUEquipmentDataSet.tblEquip.Select("Equip_Number = '" + equipNumber.Text + "'").Length == 1)
-            //{
-    
-            
+
+            try
+            {
                 this.tblEquipTableAdapter.Fill(this.lUEquipmentDataSet.tblEquip);
                 equipmentrow = lUEquipmentDataSet.tblEquip.Select("Equip_Number = '" + equipNumber.Text + "'")[0];
                 itemNameLabel.Text = equipmentrow[2].ToString();
@@ -48,9 +47,12 @@ namespace Lakehead_ERIMS
                 if (statusID == "1")
                 {
                     statusLabel.Text = "Active";
-                }else if (statusID == "2"){
+                }
+                else if (statusID == "2")
+                {
                     statusLabel.Text = "Destroyed";
-                }else if (statusID == "3")
+                }
+                else if (statusID == "3")
                 {
                     statusLabel.Text = "Retired";
                 }
@@ -77,19 +79,19 @@ namespace Lakehead_ERIMS
                 else if (statusID == "9")
                 {
                     statusLabel.Text = "Out";
-                string EquipID = equipmentrow[0].ToString();
-                this.tblRentalTableAdapter1.Fill(this.lUEquipmentDataSet.tblRental);
-                DataRow rentalDS;
-                rentalDS = lUEquipmentDataSet.tblRental.Select("Equip_ID = '" + equipmentrow[0].ToString() + "'")[0];
-                dateDueLabel.Text = rentalDS[3].ToString();
-                string stuID = rentalDS[1].ToString();
-                this.tblStudentTableAdapter1.Fill(this.lUEquipmentDataSet.tblStudent);
-                DataRow info;
-                info = lUEquipmentDataSet.tblStudent.Select("Stu_ID = '" + stuID + "'")[0];
-                studentNumberLabel.Text = info[1].ToString();
-                studentNameLabel.Text = info[3].ToString();
-                studentPhoneLabel.Text = info[8].ToString();
-                
+                    string EquipID = equipmentrow[0].ToString();
+                    this.tblRentalTableAdapter1.Fill(this.lUEquipmentDataSet.tblRental);
+                    DataRow rentalDS;
+                    rentalDS = lUEquipmentDataSet.tblRental.Select("Equip_ID = '" + equipmentrow[0].ToString() + "'")[0];
+                    dateDueLabel.Text = rentalDS[3].ToString();
+                    string stuID = rentalDS[1].ToString();
+                    this.tblStudentTableAdapter1.Fill(this.lUEquipmentDataSet.tblStudent);
+                    DataRow info;
+                    info = lUEquipmentDataSet.tblStudent.Select("Stu_ID = '" + stuID + "'")[0];
+                    studentNumberLabel.Text = info[1].ToString();
+                    studentNameLabel.Text = info[3].ToString();
+                    studentPhoneLabel.Text = info[8].ToString();
+
                 }
                 else if (statusID == "10")
                 {
@@ -99,6 +101,11 @@ namespace Lakehead_ERIMS
                 {
                     statusLabel.Text = "Lost";
                 }
+            }
+            catch
+            {
+                MessageBox.Show("Invailid number");
+            }
 
 
             //}

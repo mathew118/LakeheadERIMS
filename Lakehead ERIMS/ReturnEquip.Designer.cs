@@ -42,15 +42,16 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.waiveRadio = new System.Windows.Forms.RadioButton();
-            this.payLateFee = new System.Windows.Forms.RadioButton();
+            this.lateFeeLaebl = new System.Windows.Forms.Label();
             this.accumulateLatefee = new System.Windows.Forms.RadioButton();
+            this.payLateFee = new System.Windows.Forms.RadioButton();
+            this.waiveRadio = new System.Windows.Forms.RadioButton();
+            this.label14 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.exitBttn = new System.Windows.Forms.Button();
-            this.clearItemBttn = new System.Windows.Forms.Button();
-            this.returnBttn = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.returnBttn = new System.Windows.Forms.Button();
+            this.clearItemBttn = new System.Windows.Forms.Button();
+            this.exitBttn = new System.Windows.Forms.Button();
             this.itemNameLabel = new System.Windows.Forms.Label();
             this.desc3Label = new System.Windows.Forms.Label();
             this.desc1Label = new System.Windows.Forms.Label();
@@ -62,7 +63,6 @@
             this.stuNumbLabel = new System.Windows.Forms.Label();
             this.stuNameLabel = new System.Windows.Forms.Label();
             this.accountBalanceLabel = new System.Windows.Forms.Label();
-            this.lateFeeLaebl = new System.Windows.Forms.Label();
             this.tblStudentTableAdapter1 = new Lakehead_ERIMS.LUEquipmentDataSetTableAdapters.tblStudentTableAdapter();
             this.luEquipmentDataSet1 = new Lakehead_ERIMS.LUEquipmentDataSet();
             this.tblEquipTableAdapter1 = new Lakehead_ERIMS.LUEquipmentDataSetTableAdapters.tblEquipTableAdapter();
@@ -201,25 +201,24 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Late Fees";
             // 
-            // label14
+            // lateFeeLaebl
             // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(24, 38);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(64, 17);
-            this.label14.TabIndex = 0;
-            this.label14.Text = "Late fee:";
+            this.lateFeeLaebl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lateFeeLaebl.Location = new System.Drawing.Point(95, 32);
+            this.lateFeeLaebl.Name = "lateFeeLaebl";
+            this.lateFeeLaebl.Size = new System.Drawing.Size(196, 26);
+            this.lateFeeLaebl.TabIndex = 28;
             // 
-            // waiveRadio
+            // accumulateLatefee
             // 
-            this.waiveRadio.AutoSize = true;
-            this.waiveRadio.Location = new System.Drawing.Point(52, 84);
-            this.waiveRadio.Name = "waiveRadio";
-            this.waiveRadio.Size = new System.Drawing.Size(125, 21);
-            this.waiveRadio.TabIndex = 1;
-            this.waiveRadio.TabStop = true;
-            this.waiveRadio.Text = "Wave Late Fee";
-            this.waiveRadio.UseVisualStyleBackColor = true;
+            this.accumulateLatefee.AutoSize = true;
+            this.accumulateLatefee.Location = new System.Drawing.Point(52, 135);
+            this.accumulateLatefee.Name = "accumulateLatefee";
+            this.accumulateLatefee.Size = new System.Drawing.Size(153, 21);
+            this.accumulateLatefee.TabIndex = 3;
+            this.accumulateLatefee.TabStop = true;
+            this.accumulateLatefee.Text = "Accumulate late fee";
+            this.accumulateLatefee.UseVisualStyleBackColor = true;
             // 
             // payLateFee
             // 
@@ -232,16 +231,25 @@
             this.payLateFee.Text = "Pay late fee";
             this.payLateFee.UseVisualStyleBackColor = true;
             // 
-            // accumulateLatefee
+            // waiveRadio
             // 
-            this.accumulateLatefee.AutoSize = true;
-            this.accumulateLatefee.Location = new System.Drawing.Point(52, 135);
-            this.accumulateLatefee.Name = "accumulateLatefee";
-            this.accumulateLatefee.Size = new System.Drawing.Size(153, 21);
-            this.accumulateLatefee.TabIndex = 3;
-            this.accumulateLatefee.TabStop = true;
-            this.accumulateLatefee.Text = "Accumulate late fee";
-            this.accumulateLatefee.UseVisualStyleBackColor = true;
+            this.waiveRadio.AutoSize = true;
+            this.waiveRadio.Location = new System.Drawing.Point(52, 84);
+            this.waiveRadio.Name = "waiveRadio";
+            this.waiveRadio.Size = new System.Drawing.Size(125, 21);
+            this.waiveRadio.TabIndex = 1;
+            this.waiveRadio.TabStop = true;
+            this.waiveRadio.Text = "Wave Late Fee";
+            this.waiveRadio.UseVisualStyleBackColor = true;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(24, 38);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(64, 17);
+            this.label14.TabIndex = 0;
+            this.label14.Text = "Late fee:";
             // 
             // groupBox2
             // 
@@ -255,15 +263,25 @@
             this.groupBox2.TabIndex = 15;
             this.groupBox2.TabStop = false;
             // 
-            // exitBttn
+            // button1
             // 
-            this.exitBttn.Location = new System.Drawing.Point(468, 21);
-            this.exitBttn.Name = "exitBttn";
-            this.exitBttn.Size = new System.Drawing.Size(86, 40);
-            this.exitBttn.TabIndex = 0;
-            this.exitBttn.Text = "Exit";
-            this.exitBttn.UseVisualStyleBackColor = true;
-            this.exitBttn.Click += new System.EventHandler(this.exitBttn_Click);
+            this.button1.Location = new System.Drawing.Point(15, 22);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(138, 38);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "Search Equpiment";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // returnBttn
+            // 
+            this.returnBttn.Location = new System.Drawing.Point(187, 21);
+            this.returnBttn.Name = "returnBttn";
+            this.returnBttn.Size = new System.Drawing.Size(120, 40);
+            this.returnBttn.TabIndex = 2;
+            this.returnBttn.Text = "Process Return";
+            this.returnBttn.UseVisualStyleBackColor = true;
+            this.returnBttn.Click += new System.EventHandler(this.returnBttn_Click);
             // 
             // clearItemBttn
             // 
@@ -274,24 +292,15 @@
             this.clearItemBttn.Text = "Clear Item";
             this.clearItemBttn.UseVisualStyleBackColor = true;
             // 
-            // returnBttn
+            // exitBttn
             // 
-            this.returnBttn.Location = new System.Drawing.Point(187, 21);
-            this.returnBttn.Name = "returnBttn";
-            this.returnBttn.Size = new System.Drawing.Size(120, 40);
-            this.returnBttn.TabIndex = 2;
-            this.returnBttn.Text = "Process Return";
-            this.returnBttn.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(15, 22);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(138, 38);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Search Equpiment";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.exitBttn.Location = new System.Drawing.Point(468, 21);
+            this.exitBttn.Name = "exitBttn";
+            this.exitBttn.Size = new System.Drawing.Size(86, 40);
+            this.exitBttn.TabIndex = 0;
+            this.exitBttn.Text = "Exit";
+            this.exitBttn.UseVisualStyleBackColor = true;
+            this.exitBttn.Click += new System.EventHandler(this.exitBttn_Click);
             // 
             // itemNameLabel
             // 
@@ -392,14 +401,6 @@
             this.accountBalanceLabel.Name = "accountBalanceLabel";
             this.accountBalanceLabel.Size = new System.Drawing.Size(196, 26);
             this.accountBalanceLabel.TabIndex = 27;
-            // 
-            // lateFeeLaebl
-            // 
-            this.lateFeeLaebl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lateFeeLaebl.Location = new System.Drawing.Point(95, 32);
-            this.lateFeeLaebl.Name = "lateFeeLaebl";
-            this.lateFeeLaebl.Size = new System.Drawing.Size(196, 26);
-            this.lateFeeLaebl.TabIndex = 28;
             // 
             // tblStudentTableAdapter1
             // 

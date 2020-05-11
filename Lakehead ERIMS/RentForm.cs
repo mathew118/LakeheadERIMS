@@ -34,15 +34,22 @@ namespace Lakehead_ERIMS
 
         private void enterStudentNumberButton_Click(object sender, EventArgs e)
         {
-            this.tblStudentTableAdapter1.Fill(this.luEquipmentDataSet1.tblStudent);
-            DataRow info;
-            info = luEquipmentDataSet1.tblStudent.Select("Stu_Number = '" + studentNumberTextBox.Text + "'")[0];
-            studentNumberLabel.Text = info[1].ToString();
-            studentFNameLabel.Text = info[3].ToString();
-            studentLNameLabel.Text = info[2].ToString();
-            studentAddressLabe.Text = info[4].ToString();
-            studentPhone.Text = info[8].ToString();
-            feeTextBox.Text = info[17].ToString();
+            try
+            {
+                this.tblStudentTableAdapter1.Fill(this.luEquipmentDataSet1.tblStudent);
+                DataRow info;
+                info = luEquipmentDataSet1.tblStudent.Select("Stu_Number = '" + studentNumberTextBox.Text + "'")[0];
+                studentNumberLabel.Text = info[1].ToString();
+                studentFNameLabel.Text = info[3].ToString();
+                studentLNameLabel.Text = info[2].ToString();
+                studentAddressLabe.Text = info[4].ToString();
+                studentPhone.Text = info[8].ToString();
+                feeTextBox.Text = info[17].ToString();
+            }
+            catch
+            {
+                MessageBox.Show("Student Number not found");
+            }
          
 
         }
@@ -54,12 +61,20 @@ namespace Lakehead_ERIMS
         int x = 0;
         private void addButton_Click(object sender, EventArgs e)
         {
-            this.tblEquipTableAdapter.Fill(this.lUEquipmentDataSet.tblEquip);
-            DataRow equipmentrow;
-            equipmentrow = lUEquipmentDataSet.tblEquip.Select("Equip_Number = '" + equipNumbTextBox.Text + "'")[0];
-            
-            itemGridView.Rows.Add(itemGridView.Rows[x].Cells[0].Value = equipmentrow[1].ToString(), itemGridView.Rows[x].Cells[1].Value = equipmentrow[2].ToString(), itemGridView.Rows[x].Cells[2].Value = equipmentrow[13].ToString());
-            x++;
+            try
+            {
+                this.tblEquipTableAdapter.Fill(this.lUEquipmentDataSet.tblEquip);
+                DataRow equipmentrow;
+                equipmentrow = lUEquipmentDataSet.tblEquip.Select("Equip_Number = '" + equipNumbTextBox.Text + "'")[0];
+
+                itemGridView.Rows.Add(itemGridView.Rows[x].Cells[0].Value = equipmentrow[1].ToString(), itemGridView.Rows[x].Cells[1].Value = equipmentrow[2].ToString(), itemGridView.Rows[x].Cells[2].Value = equipmentrow[13].ToString());
+                x++;
+            }
+            catch
+            {
+                MessageBox.Show("Item number not found");
+            }
+
 
         }
 
@@ -99,43 +114,59 @@ namespace Lakehead_ERIMS
 
         private void calcCost_Click(object sender, EventArgs e)
         {
-            List<int> values = new List<int>();
-            
-            foreach (DataGridViewRow row in itemGridView.Rows)
+            try
             {
-                values.Add(int.Parse(row.Cells["Price"].Value.ToString()));            
+                List<int> values = new List<int>();
+
+                foreach (DataGridViewRow row in itemGridView.Rows)
+                {
+                    values.Add(int.Parse(row.Cells["Price"].Value.ToString()));
+                }
+                int[] array = values.ToArray();
+                int[] finalArray = array.Take(array.Length - 1).ToArray();
+                DateTime rent = Convert.ToDateTime(dateRentedPicker.Text);
+                DateTime due = Convert.ToDateTime(dateDuePicker.Text);
+                TimeSpan days = due.Subtract(rent);
+                int totalDays = Convert.ToInt32(days.Days);
+
+                double sum = finalArray.Sum();
+
+                subtotalLabel.Text = sum.ToString();
+
+                double beforeDaysTotal = double.Parse(subtotalLabel.Text);
+                double final = totalDays * beforeDaysTotal;
+                subtotalLabel.Text = final.ToString();
+
+                if (payFeeRadioButton.Checked)
+                {
+                    double feeOwe = Convert.ToDouble(this.feeTextBox.Text);
+                    double fee = final + feeOwe;
+                    subtotalLabel.Text = fee.ToString();
+                }
+
+                double subtotalFinal = Convert.ToDouble(this.subtotalLabel.Text);
+
+                double total = subtotalFinal * 1.13;
+
+                double hst = subtotalFinal * 0.13;
+
+                hstLabel.Text = hst.ToString();
+
+                totalLabel.Text = total.ToString();
+
+
+
+                if (waiveCheckBox.Checked)
+                {
+                    subtotalLabel.Text = "0";
+                    hstLabel.Text = "0";
+                    totalLabel.Text = "0";
+                }
             }
-            int[] array = values.ToArray();
-            int[] finalArray = array.Take(array.Length - 1).ToArray();
-
-            double sum = finalArray.Sum();
-
-            subtotalLabel.Text = sum.ToString();
-
-            if (payFeeRadioButton.Checked)
+            catch
             {
-                double feeOwe = Convert.ToDouble(this.feeTextBox.Text);
-                double fee = sum + feeOwe;
-                subtotalLabel.Text = fee.ToString();
+                MessageBox.Show("Make sure all values are correct (Rental days, student number)");
             }
-
-            double subtotalFinal = Convert.ToDouble(this.subtotalLabel.Text);
-
-            double total = subtotalFinal * 1.13;
-
-            double hst = subtotalFinal * 0.13;
-
-            hstLabel.Text = hst.ToString();
-
-            totalLabel.Text = total.ToString();
-
-            if (waiveCheckBox.Checked)
-            {
-                subtotalLabel.Text = "0";
-                hstLabel.Text = "0";
-                totalLabel.Text = "0";
-            }
-             
 
         }
 
@@ -178,10 +209,14 @@ namespace Lakehead_ERIMS
             DateTime rent = Convert.ToDateTime(dateRentedPicker.Text);
             DateTime due = Convert.ToDateTime(dateDuePicker.Text);
 
+
             foreach (int i in equipIDarray)
             {
                 short array = Convert.ToInt16(equipIDarray[newCounter]);
                 tblRentalTableAdapter1.Insert(array,studentNum,rent,due," ",inNum + 1);
+                LUEquipmentDataSet.tblEquipRow equipRow = luEquipmentDataSet1.tblEquip.FindByEquip_ID(array);
+                equipRow.Status_ID = 9;
+                tblEquipTableAdapter.Update(equipRow);
                 this.tblRentalTableAdapter1.Fill(this.lUEquipmentDataSet.tblRental);
             }
             MessageBox.Show("Item rented");

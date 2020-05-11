@@ -46,12 +46,9 @@ namespace Lakehead_ERIMS
         private void addStudentbttn_Click(object sender, EventArgs e)
         {
 
-
-    
             tblStudentTableAdapter1.Insert(newNumberTextBox.Text, newLastTextBox.Text, newFirstTextBox.Text, newAddressTextBox.Text, newCityTextBox.Text, provComboBox.Text, newPostalCodeTextBox.Text, NewPhoneTextBox.Text, newExtTextBox.Text, newEmailTextBox.Text, " ", " ", " ", " ", " ", " ", 0, true);
             this.tblStudentTableAdapter1.Fill(this.luEquipmentDataSet1.tblStudent);
             MessageBox.Show("Added student");
-            
 
         }
 
@@ -62,21 +59,27 @@ namespace Lakehead_ERIMS
 
         private void searchStudentbttn_Click(object sender, EventArgs e)
         {
-
-            this.tblStudentTableAdapter1.Fill(this.luEquipmentDataSet1.tblStudent);
-            DataRow info;
-            info = luEquipmentDataSet1.tblStudent.Select("Stu_Number = '" + studentNumberTextBox.Text + "'")[0];
-            lastNameInfoTextBox.Text = info[2].ToString();
-            fristNameInfoTextBox.Text = info[3].ToString();
-            numberInfoTextBox.Text = info[1].ToString();
-            emailInfoTextBox.Text = info[10].ToString();
-            addressInfoTextBox.Text = info[4].ToString();
-            cityInfoTextBox.Text = info[5].ToString();
-            provInfoCombo.Text = info[6].ToString();
-            postalInfoText.Text = info[7].ToString();
-            phoneInfoTextBox.Text = info[8].ToString();
-            extInfoTextBox.Text = info[9].ToString();
-            feeTextBox.Text = info[17].ToString();
+            try
+            {
+                this.tblStudentTableAdapter1.Fill(this.luEquipmentDataSet1.tblStudent);
+                DataRow info;
+                info = luEquipmentDataSet1.tblStudent.Select("Stu_Number = '" + studentNumberTextBox.Text + "'")[0];
+                lastNameInfoTextBox.Text = info[2].ToString();
+                fristNameInfoTextBox.Text = info[3].ToString();
+                numberInfoTextBox.Text = info[1].ToString();
+                emailInfoTextBox.Text = info[10].ToString();
+                addressInfoTextBox.Text = info[4].ToString();
+                cityInfoTextBox.Text = info[5].ToString();
+                provInfoCombo.Text = info[6].ToString();
+                postalInfoText.Text = info[7].ToString();
+                phoneInfoTextBox.Text = info[8].ToString();
+                extInfoTextBox.Text = info[9].ToString();
+                feeTextBox.Text = info[17].ToString();
+            }
+            catch
+            {
+                MessageBox.Show("Student Number not found");
+            }
        
         }
 
@@ -99,19 +102,7 @@ namespace Lakehead_ERIMS
             studentRow.Stu_Owe = fees;
             MessageBox.Show("Updated Successfully");
             tblStudentTableAdapter1.Update(studentRow);
-            /*
-            this.tblStudentTableAdapter1.Fill(this.luEquipmentDataSet1.tblStudent);
-            DataRow id;
-            id = luEquipmentDataSet1.tblStudent.Select("Stu_Number = '" + studentNumberTextBox.Text + "'")[0];
-            string studentId = id[0].ToString();
-            int intStudentId = Int32.Parse(studentId);
-            float fee = (float)Convert.ToDouble(feeTextBox.Text);
-            float fee2 = (float)Convert.ToDouble(feeTextBox.Text);
 
-            tblStudentTableAdapter1.Update(numberInfoTextBox.Text, lastNameInfoTextBox.Text, fristNameInfoTextBox.Text, addressInfoTextBox.Text, cityInfoTextBox.Text, provInfoCombo.Text, postalInfoText.Text, phoneInfoTextBox.Text, extInfoTextBox.Text, emailInfoTextBox.Text, id[11].ToString(), id[12].ToString(), id[13].ToString(), id[14].ToString(), id[15].ToString(), id[16].ToString(), fee, true, intStudentId, id[1].ToString(), id[2].ToString(), id[3].ToString(), id[4].ToString(), id[5].ToString(), id[6].ToString(), id[7].ToString(), id[8].ToString(), id[9].ToString(), id[10].ToString(), id[11].ToString(), id[12].ToString(), id[13].ToString(), id[14].ToString(), id[15].ToString(), id[16].ToString(), fee2, false);
-            this.tblStudentTableAdapter1.Fill(this.luEquipmentDataSet1.tblStudent);
-            MessageBox.Show("Updated");
-       */
             
         }
     }
