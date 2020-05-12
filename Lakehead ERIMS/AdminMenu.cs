@@ -29,11 +29,17 @@ namespace Lakehead_ERIMS
             this.tblStatusTableAdapter.Fill(this.lUEquipmentDataSet.tblStatus);
             this.tblLocationTableAdapter.Fill(this.lUEquipmentDataSet.tblLocation);
 
-            //Set the first item as selected
+            /*Set the first item as selected
             if (equipmentLbx.Items.Count > 0)
             {
                 equipmentLbx.SetSelected(0, true);
             }
+            */
+
+            equipmentLbx.SelectedIndex = -1;
+            equipmentDatePurchasedDpk.Value = DateTime.FromOADate(0);
+            equipmentSupplierCbx.SelectedIndex = -1;
+            equipmentHomeLocationCbx.SelectedIndex = -1;
         }
 
         private void exitBtn_Click(object sender, EventArgs e)
@@ -223,8 +229,15 @@ namespace Lakehead_ERIMS
             TextBox sendingTbx = (TextBox)sender;
             if (sendingTbx.Text.Length == sendingTbx.MaxLength)
             {
-                sendingTbx.Parent.SelectNextControl(ActiveControl, true, true, true, true);
-                ActiveForm.AcceptButton = equipmentItemNumberSearchBtn;
+                sendingTbx.Parent.SelectNextControl(ActiveControl, true, true, true, true);              
+            }
+
+            if (sendingTbx.Tag != null)
+            {
+                if (sendingTbx.Tag.ToString() == "equipmentSearch")
+                {
+                    ActiveForm.AcceptButton = equipmentItemNumberSearchBtn;
+                }
             }
         }
 
@@ -289,6 +302,10 @@ namespace Lakehead_ERIMS
                 else if ((this.lUEquipmentDataSet.tblEquip.Select("Equip_Number = '" + newItemNum + "'").Length > 0) && (equipmentLbx.SelectedIndex == -1 || (equipmentLbx.SelectedIndex != -1 && lUEquipmentDataSet.tblEquip.FindByEquip_ID(int.Parse(equipmentLbx.SelectedValue.ToString())).Equip_Number != newItemNum)) )
                 {
                     MessageBox.Show("An item with that equipment number already exists.", "Error");
+                }
+                else if (newItemName.Length == 0)
+                {
+                    MessageBox.Show("Item name is invalid.", "Error");
                 }
                 else if (newPurchasePrice.Length != 0 && !float.TryParse(newPurchasePrice, System.Globalization.NumberStyles.Currency, System.Globalization.NumberFormatInfo.CurrentInfo, out newPurchasePriceFlt))
                 {
@@ -755,11 +772,7 @@ namespace Lakehead_ERIMS
                 equipmentDescription2Tbx.Clear();
                 equipmentDescription3Tbx.Clear();
                 equipmentStatusCbx.SelectedIndex = 0;
-                equipmentHomeLocationCbx.SelectedIndex = 0;
                 equipmentNotesTbx.Clear();
-                equipmentSupplierCbx.SelectedIndex = 0;
-                equipmentDatePurchasedDpk.Format = DateTimePickerFormat.Short;
-                equipmentDatePurchasedDpk.Value = DateTime.Today;
                 equipmentPurchasePriceTbx.Clear();
                 equipmentPONumberTbx.Clear();
                 equipmentManufacturerTbx.Clear();
@@ -767,7 +780,11 @@ namespace Lakehead_ERIMS
                 equipmentSerialNumberTbx.Clear();
                 equipmentRentalFeeTbx.Clear();
                 equipmentLateFeeTbx.Clear();
-                
+
+                equipmentDatePurchasedDpk.Value = DateTime.FromOADate(0);
+                equipmentSupplierCbx.SelectedIndex = -1;
+                equipmentHomeLocationCbx.SelectedIndex = -1;
+
             }
 
             //Categories

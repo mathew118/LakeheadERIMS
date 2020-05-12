@@ -322,6 +322,7 @@
             this.equipmentItemNumberSearchingATbx.Name = "equipmentItemNumberSearchingATbx";
             this.equipmentItemNumberSearchingATbx.Size = new System.Drawing.Size(42, 20);
             this.equipmentItemNumberSearchingATbx.TabIndex = 21;
+            this.equipmentItemNumberSearchingATbx.Tag = "equipmentSearch";
             this.equipmentItemNumberSearchingATbx.Enter += new System.EventHandler(this.equipmentSearchingEnterKeySearching);
             this.equipmentItemNumberSearchingATbx.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.HandleNumericOnly);
             this.equipmentItemNumberSearchingATbx.KeyUp += new System.Windows.Forms.KeyEventHandler(this.AutoTabItemNum);
