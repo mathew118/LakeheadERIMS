@@ -29,11 +29,13 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.searchTxtBox = new System.Windows.Forms.TextBox();
+            this.search1TxtBox = new System.Windows.Forms.TextBox();
             this.searchBtn = new System.Windows.Forms.Button();
             this.exitBtn = new System.Windows.Forms.Button();
             this.luEquipmentDataSet1 = new Lakehead_ERIMS.LUEquipmentDataSet();
             this.tblEquipTableAdapter1 = new Lakehead_ERIMS.LUEquipmentDataSetTableAdapters.tblEquipTableAdapter();
+            this.label2 = new System.Windows.Forms.Label();
+            this.search2TxtBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.luEquipmentDataSet1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -46,13 +48,14 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Emter Equipment Number :";
             // 
-            // searchTxtBox
+            // search1TxtBox
             // 
-            this.searchTxtBox.Location = new System.Drawing.Point(171, 45);
-            this.searchTxtBox.MaxLength = 6;
-            this.searchTxtBox.Name = "searchTxtBox";
-            this.searchTxtBox.Size = new System.Drawing.Size(100, 20);
-            this.searchTxtBox.TabIndex = 1;
+            this.search1TxtBox.Location = new System.Drawing.Point(171, 45);
+            this.search1TxtBox.MaxLength = 3;
+            this.search1TxtBox.Name = "search1TxtBox";
+            this.search1TxtBox.Size = new System.Drawing.Size(28, 20);
+            this.search1TxtBox.TabIndex = 1;
+            this.search1TxtBox.TextChanged += new System.EventHandler(this.search1TxtBox_TextChanged);
             // 
             // searchBtn
             // 
@@ -83,17 +86,37 @@
             // 
             this.tblEquipTableAdapter1.ClearBeforeFill = true;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(198, 48);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(10, 13);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "-";
+            // 
+            // search2TxtBox
+            // 
+            this.search2TxtBox.Location = new System.Drawing.Point(205, 45);
+            this.search2TxtBox.MaxLength = 3;
+            this.search2TxtBox.Name = "search2TxtBox";
+            this.search2TxtBox.Size = new System.Drawing.Size(28, 20);
+            this.search2TxtBox.TabIndex = 5;
+            // 
             // EquipHistory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(378, 164);
+            this.Controls.Add(this.search2TxtBox);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.exitBtn);
             this.Controls.Add(this.searchBtn);
-            this.Controls.Add(this.searchTxtBox);
+            this.Controls.Add(this.search1TxtBox);
             this.Controls.Add(this.label1);
             this.Name = "EquipHistory";
             this.Text = "Equipment History";
+            this.Load += new System.EventHandler(this.EquipHistory_Load);
             ((System.ComponentModel.ISupportInitialize)(this.luEquipmentDataSet1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -103,10 +126,12 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox searchTxtBox;
+        private System.Windows.Forms.TextBox search1TxtBox;
         private System.Windows.Forms.Button searchBtn;
         private System.Windows.Forms.Button exitBtn;
         private LUEquipmentDataSet luEquipmentDataSet1;
         private LUEquipmentDataSetTableAdapters.tblEquipTableAdapter tblEquipTableAdapter1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox search2TxtBox;
     }
 }

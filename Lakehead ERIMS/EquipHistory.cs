@@ -21,20 +21,22 @@ namespace Lakehead_ERIMS
 
         private void searchBtn_Click(object sender, EventArgs e)
         {
-            string equipNumber = searchTxtBox.Text;
-            string whereCond = "Equip_Number ='" + equipNumber + "'";
+            //create equipment number
+            string equipNumber = search1TxtBox.Text + search2TxtBox.Text;
+            string whereCond = "Equip_Number ='" + equipNumber + "'"; //whereCond will be use to filter result in Access
             this.tblEquipTableAdapter1.Fill(this.luEquipmentDataSet1.tblEquip);
             //input validation
-            if (equipNumber.Length !=6 || !int.TryParse(equipNumber, out int tempItemNumb))
+            if (equipNumber.Length != 6 || !int.TryParse(equipNumber, out int tempItemNumb))
             {
-                MessageBox.Show("Please enter a valid equipment number!","Error");
+                MessageBox.Show("Please enter a valid equipment number!", "Error");
             }
-            else if (this.luEquipmentDataSet1.tblEquip.Select("Equip_Number = '" + searchTxtBox.Text + "'").Length != 1)
+            else if (this.luEquipmentDataSet1.tblEquip.Select("Equip_Number = '" + equipNumber + "'").Length != 1)
             {
                 MessageBox.Show("There is no item with that number.", "Error");
             }
             else
             {
+                //open up Access => open Equipment History Report with preset condition
                 Access.Application oAccess = new Access.Application();
                 oAccess.Visible = true;
                 oAccess.OpenCurrentDatabase(Path.Combine(Environment.CurrentDirectory, "LUEquipment.mdb"), false);
@@ -44,11 +46,30 @@ namespace Lakehead_ERIMS
                    whereCond//WhereCondition
                    );
             }
+            //clear textbox
+            search2TxtBox.Clear();
+            search1TxtBox.Clear();
         }
 
         private void exitBtn_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+
+        //press Enter = trigger Search button
+        private void EquipHistory_Load(object sender, EventArgs e)
+        {
+            this.AcceptButton = searchBtn;
+        }
+
+        private void search1TxtBox_TextChanged(object sender, EventArgs e)
+        {
+            if (search1TxtBox.Text.Length == 3)
+            {
+                search2TxtBox.Focus();
+            }
+        }
+
+        //enter 3 numbers on the first textbox => automatically shift focus to the second textbox
     }
 }
