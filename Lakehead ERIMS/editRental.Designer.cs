@@ -59,7 +59,7 @@
             // invoiceButton
             // 
             this.invoiceButton.Location = new System.Drawing.Point(56, 73);
-            this.invoiceButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.invoiceButton.Margin = new System.Windows.Forms.Padding(2);
             this.invoiceButton.Name = "invoiceButton";
             this.invoiceButton.Size = new System.Drawing.Size(89, 22);
             this.invoiceButton.TabIndex = 0;
@@ -83,9 +83,9 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.invoiceButton);
             this.groupBox1.Location = new System.Drawing.Point(12, 17);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(235, 127);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
@@ -94,7 +94,7 @@
             // invoiceNumberTextbox
             // 
             this.invoiceNumberTextbox.Location = new System.Drawing.Point(129, 23);
-            this.invoiceNumberTextbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.invoiceNumberTextbox.Margin = new System.Windows.Forms.Padding(2);
             this.invoiceNumberTextbox.Name = "invoiceNumberTextbox";
             this.invoiceNumberTextbox.Size = new System.Drawing.Size(53, 20);
             this.invoiceNumberTextbox.TabIndex = 2;
@@ -162,7 +162,7 @@
             // dateOutPicker
             // 
             this.dateOutPicker.Location = new System.Drawing.Point(118, 272);
-            this.dateOutPicker.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dateOutPicker.Margin = new System.Windows.Forms.Padding(2);
             this.dateOutPicker.Name = "dateOutPicker";
             this.dateOutPicker.Size = new System.Drawing.Size(127, 20);
             this.dateOutPicker.TabIndex = 9;
@@ -170,7 +170,7 @@
             // DueDatePicker
             // 
             this.DueDatePicker.Location = new System.Drawing.Point(117, 304);
-            this.DueDatePicker.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.DueDatePicker.Margin = new System.Windows.Forms.Padding(2);
             this.DueDatePicker.Name = "DueDatePicker";
             this.DueDatePicker.Size = new System.Drawing.Size(127, 20);
             this.DueDatePicker.TabIndex = 10;
@@ -234,7 +234,7 @@
             // updateButton
             // 
             this.updateButton.Location = new System.Drawing.Point(377, 203);
-            this.updateButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.updateButton.Margin = new System.Windows.Forms.Padding(2);
             this.updateButton.Name = "updateButton";
             this.updateButton.Size = new System.Drawing.Size(98, 52);
             this.updateButton.TabIndex = 17;
@@ -245,7 +245,7 @@
             // exitButton
             // 
             this.exitButton.Location = new System.Drawing.Point(374, 284);
-            this.exitButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.exitButton.Margin = new System.Windows.Forms.Padding(2);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(100, 50);
             this.exitButton.TabIndex = 18;
@@ -292,8 +292,9 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "editRental";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Edit Rental";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

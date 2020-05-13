@@ -132,6 +132,7 @@
             this.tblStatusTableAdapter = new Lakehead_ERIMS.LUEquipmentDataSetTableAdapters.tblStatusTableAdapter();
             this.tblSupplierTableAdapter = new Lakehead_ERIMS.LUEquipmentDataSetTableAdapters.tblSupplierTableAdapter();
             this.tblRentalTableAdapter = new Lakehead_ERIMS.LUEquipmentDataSetTableAdapters.tblRentalTableAdapter();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.adminTabControl.SuspendLayout();
             this.equipmentTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tblSupplierBindingSource)).BeginInit();
@@ -147,6 +148,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.lUEquipmentDataSetBindingSource)).BeginInit();
             this.statusTab.SuspendLayout();
             this.suppliersTab.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // addBtn
@@ -200,10 +202,7 @@
             this.equipmentTab.Controls.Add(this.equipmentLocationClearBtn);
             this.equipmentTab.Controls.Add(this.equipmentSupplierClearBtn);
             this.equipmentTab.Controls.Add(this.equipmentPurchaseDateClearBtn);
-            this.equipmentTab.Controls.Add(this.equipmentItemNumberSearchingDashLbl);
             this.equipmentTab.Controls.Add(this.equipmentItemNumberDashLbl);
-            this.equipmentTab.Controls.Add(this.equipmentItemNumberSearchingBTbx);
-            this.equipmentTab.Controls.Add(this.equipmentItemNumberSearchingATbx);
             this.equipmentTab.Controls.Add(this.equipmentDatePurchasedDpk);
             this.equipmentTab.Controls.Add(this.equipmentSupplierCbx);
             this.equipmentTab.Controls.Add(this.equipmentHomeLocationCbx);
@@ -236,13 +235,13 @@
             this.equipmentTab.Controls.Add(this.equipmentDescription2Tbx);
             this.equipmentTab.Controls.Add(this.equipmentDescription1Lbl);
             this.equipmentTab.Controls.Add(this.equipmentDescription1Tbx);
-            this.equipmentTab.Controls.Add(this.equipmentItemNumberSearchBtn);
             this.equipmentTab.Controls.Add(this.equipmentItemNumberBTbx);
             this.equipmentTab.Controls.Add(this.equipmentItemNumberSearchLbl);
             this.equipmentTab.Controls.Add(this.equipmentItemNumberATbx);
             this.equipmentTab.Controls.Add(this.equipmentItemNameLbl);
             this.equipmentTab.Controls.Add(this.equipmentItemNameTbx);
             this.equipmentTab.Controls.Add(this.equipmentLbx);
+            this.equipmentTab.Controls.Add(this.panel1);
             this.equipmentTab.Location = new System.Drawing.Point(4, 22);
             this.equipmentTab.Name = "equipmentTab";
             this.equipmentTab.Padding = new System.Windows.Forms.Padding(3);
@@ -254,7 +253,7 @@
             // equipmentLocationClearBtn
             // 
             this.equipmentLocationClearBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.equipmentLocationClearBtn.Location = new System.Drawing.Point(256, 262);
+            this.equipmentLocationClearBtn.Location = new System.Drawing.Point(256, 276);
             this.equipmentLocationClearBtn.Name = "equipmentLocationClearBtn";
             this.equipmentLocationClearBtn.Size = new System.Drawing.Size(25, 20);
             this.equipmentLocationClearBtn.TabIndex = 91;
@@ -265,7 +264,7 @@
             // equipmentSupplierClearBtn
             // 
             this.equipmentSupplierClearBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.equipmentSupplierClearBtn.Location = new System.Drawing.Point(520, 132);
+            this.equipmentSupplierClearBtn.Location = new System.Drawing.Point(520, 146);
             this.equipmentSupplierClearBtn.Name = "equipmentSupplierClearBtn";
             this.equipmentSupplierClearBtn.Size = new System.Drawing.Size(25, 20);
             this.equipmentSupplierClearBtn.TabIndex = 92;
@@ -276,7 +275,7 @@
             // equipmentPurchaseDateClearBtn
             // 
             this.equipmentPurchaseDateClearBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.equipmentPurchaseDateClearBtn.Location = new System.Drawing.Point(520, 156);
+            this.equipmentPurchaseDateClearBtn.Location = new System.Drawing.Point(520, 170);
             this.equipmentPurchaseDateClearBtn.Name = "equipmentPurchaseDateClearBtn";
             this.equipmentPurchaseDateClearBtn.Size = new System.Drawing.Size(25, 20);
             this.equipmentPurchaseDateClearBtn.TabIndex = 93;
@@ -288,7 +287,7 @@
             // 
             this.equipmentItemNumberSearchingDashLbl.AutoSize = true;
             this.equipmentItemNumberSearchingDashLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.equipmentItemNumberSearchingDashLbl.Location = new System.Drawing.Point(410, 106);
+            this.equipmentItemNumberSearchingDashLbl.Location = new System.Drawing.Point(57, 7);
             this.equipmentItemNumberSearchingDashLbl.Name = "equipmentItemNumberSearchingDashLbl";
             this.equipmentItemNumberSearchingDashLbl.Size = new System.Drawing.Size(12, 15);
             this.equipmentItemNumberSearchingDashLbl.TabIndex = 64;
@@ -298,7 +297,7 @@
             // 
             this.equipmentItemNumberDashLbl.AutoSize = true;
             this.equipmentItemNumberDashLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.equipmentItemNumberDashLbl.Location = new System.Drawing.Point(145, 106);
+            this.equipmentItemNumberDashLbl.Location = new System.Drawing.Point(145, 120);
             this.equipmentItemNumberDashLbl.Name = "equipmentItemNumberDashLbl";
             this.equipmentItemNumberDashLbl.Size = new System.Drawing.Size(12, 15);
             this.equipmentItemNumberDashLbl.TabIndex = 63;
@@ -306,7 +305,7 @@
             // 
             // equipmentItemNumberSearchingBTbx
             // 
-            this.equipmentItemNumberSearchingBTbx.Location = new System.Drawing.Point(425, 105);
+            this.equipmentItemNumberSearchingBTbx.Location = new System.Drawing.Point(72, 6);
             this.equipmentItemNumberSearchingBTbx.MaxLength = 3;
             this.equipmentItemNumberSearchingBTbx.Name = "equipmentItemNumberSearchingBTbx";
             this.equipmentItemNumberSearchingBTbx.Size = new System.Drawing.Size(42, 20);
@@ -317,7 +316,7 @@
             // 
             // equipmentItemNumberSearchingATbx
             // 
-            this.equipmentItemNumberSearchingATbx.Location = new System.Drawing.Point(364, 105);
+            this.equipmentItemNumberSearchingATbx.Location = new System.Drawing.Point(11, 6);
             this.equipmentItemNumberSearchingATbx.MaxLength = 3;
             this.equipmentItemNumberSearchingATbx.Name = "equipmentItemNumberSearchingATbx";
             this.equipmentItemNumberSearchingATbx.Size = new System.Drawing.Size(42, 20);
@@ -331,7 +330,7 @@
             // equipmentDatePurchasedDpk
             // 
             this.equipmentDatePurchasedDpk.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.equipmentDatePurchasedDpk.Location = new System.Drawing.Point(364, 158);
+            this.equipmentDatePurchasedDpk.Location = new System.Drawing.Point(364, 172);
             this.equipmentDatePurchasedDpk.Name = "equipmentDatePurchasedDpk";
             this.equipmentDatePurchasedDpk.Size = new System.Drawing.Size(150, 20);
             this.equipmentDatePurchasedDpk.TabIndex = 11;
@@ -346,7 +345,7 @@
             this.equipmentSupplierCbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.equipmentSupplierCbx.FormattingEnabled = true;
             this.equipmentSupplierCbx.ItemHeight = 13;
-            this.equipmentSupplierCbx.Location = new System.Drawing.Point(364, 131);
+            this.equipmentSupplierCbx.Location = new System.Drawing.Point(364, 145);
             this.equipmentSupplierCbx.Name = "equipmentSupplierCbx";
             this.equipmentSupplierCbx.Size = new System.Drawing.Size(150, 21);
             this.equipmentSupplierCbx.TabIndex = 10;
@@ -370,7 +369,7 @@
             this.equipmentHomeLocationCbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.equipmentHomeLocationCbx.FormattingEnabled = true;
             this.equipmentHomeLocationCbx.ItemHeight = 13;
-            this.equipmentHomeLocationCbx.Location = new System.Drawing.Point(100, 261);
+            this.equipmentHomeLocationCbx.Location = new System.Drawing.Point(100, 275);
             this.equipmentHomeLocationCbx.Name = "equipmentHomeLocationCbx";
             this.equipmentHomeLocationCbx.Size = new System.Drawing.Size(150, 21);
             this.equipmentHomeLocationCbx.TabIndex = 8;
@@ -389,7 +388,7 @@
             this.equipmentStatusCbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.equipmentStatusCbx.FormattingEnabled = true;
             this.equipmentStatusCbx.ItemHeight = 13;
-            this.equipmentStatusCbx.Location = new System.Drawing.Point(100, 236);
+            this.equipmentStatusCbx.Location = new System.Drawing.Point(100, 250);
             this.equipmentStatusCbx.Name = "equipmentStatusCbx";
             this.equipmentStatusCbx.Size = new System.Drawing.Size(150, 21);
             this.equipmentStatusCbx.TabIndex = 7;
@@ -404,7 +403,7 @@
             // equipmentLateFeeLbl
             // 
             this.equipmentLateFeeLbl.AutoSize = true;
-            this.equipmentLateFeeLbl.Location = new System.Drawing.Point(306, 343);
+            this.equipmentLateFeeLbl.Location = new System.Drawing.Point(306, 357);
             this.equipmentLateFeeLbl.Name = "equipmentLateFeeLbl";
             this.equipmentLateFeeLbl.Size = new System.Drawing.Size(52, 13);
             this.equipmentLateFeeLbl.TabIndex = 57;
@@ -412,7 +411,7 @@
             // 
             // equipmentLateFeeTbx
             // 
-            this.equipmentLateFeeTbx.Location = new System.Drawing.Point(364, 340);
+            this.equipmentLateFeeTbx.Location = new System.Drawing.Point(364, 354);
             this.equipmentLateFeeTbx.Name = "equipmentLateFeeTbx";
             this.equipmentLateFeeTbx.Size = new System.Drawing.Size(150, 20);
             this.equipmentLateFeeTbx.TabIndex = 18;
@@ -421,7 +420,7 @@
             // equipmentRentalFeeLbl
             // 
             this.equipmentRentalFeeLbl.AutoSize = true;
-            this.equipmentRentalFeeLbl.Location = new System.Drawing.Point(292, 317);
+            this.equipmentRentalFeeLbl.Location = new System.Drawing.Point(292, 331);
             this.equipmentRentalFeeLbl.Name = "equipmentRentalFeeLbl";
             this.equipmentRentalFeeLbl.Size = new System.Drawing.Size(66, 13);
             this.equipmentRentalFeeLbl.TabIndex = 55;
@@ -429,7 +428,7 @@
             // 
             // equipmentRentalFeeTbx
             // 
-            this.equipmentRentalFeeTbx.Location = new System.Drawing.Point(364, 314);
+            this.equipmentRentalFeeTbx.Location = new System.Drawing.Point(364, 328);
             this.equipmentRentalFeeTbx.Name = "equipmentRentalFeeTbx";
             this.equipmentRentalFeeTbx.Size = new System.Drawing.Size(150, 20);
             this.equipmentRentalFeeTbx.TabIndex = 17;
@@ -438,7 +437,7 @@
             // equipmentSerialNumberLbl
             // 
             this.equipmentSerialNumberLbl.AutoSize = true;
-            this.equipmentSerialNumberLbl.Location = new System.Drawing.Point(282, 291);
+            this.equipmentSerialNumberLbl.Location = new System.Drawing.Point(282, 305);
             this.equipmentSerialNumberLbl.Name = "equipmentSerialNumberLbl";
             this.equipmentSerialNumberLbl.Size = new System.Drawing.Size(76, 13);
             this.equipmentSerialNumberLbl.TabIndex = 53;
@@ -446,7 +445,7 @@
             // 
             // equipmentSerialNumberTbx
             // 
-            this.equipmentSerialNumberTbx.Location = new System.Drawing.Point(364, 288);
+            this.equipmentSerialNumberTbx.Location = new System.Drawing.Point(364, 302);
             this.equipmentSerialNumberTbx.MaxLength = 20;
             this.equipmentSerialNumberTbx.Name = "equipmentSerialNumberTbx";
             this.equipmentSerialNumberTbx.Size = new System.Drawing.Size(150, 20);
@@ -456,7 +455,7 @@
             // equipmentModelLbl
             // 
             this.equipmentModelLbl.AutoSize = true;
-            this.equipmentModelLbl.Location = new System.Drawing.Point(319, 265);
+            this.equipmentModelLbl.Location = new System.Drawing.Point(319, 279);
             this.equipmentModelLbl.Name = "equipmentModelLbl";
             this.equipmentModelLbl.Size = new System.Drawing.Size(39, 13);
             this.equipmentModelLbl.TabIndex = 51;
@@ -464,7 +463,7 @@
             // 
             // equipmentModelTbx
             // 
-            this.equipmentModelTbx.Location = new System.Drawing.Point(364, 262);
+            this.equipmentModelTbx.Location = new System.Drawing.Point(364, 276);
             this.equipmentModelTbx.MaxLength = 20;
             this.equipmentModelTbx.Name = "equipmentModelTbx";
             this.equipmentModelTbx.Size = new System.Drawing.Size(150, 20);
@@ -474,7 +473,7 @@
             // equipmentManufacturerLbl
             // 
             this.equipmentManufacturerLbl.AutoSize = true;
-            this.equipmentManufacturerLbl.Location = new System.Drawing.Point(285, 239);
+            this.equipmentManufacturerLbl.Location = new System.Drawing.Point(285, 253);
             this.equipmentManufacturerLbl.Name = "equipmentManufacturerLbl";
             this.equipmentManufacturerLbl.Size = new System.Drawing.Size(73, 13);
             this.equipmentManufacturerLbl.TabIndex = 49;
@@ -482,7 +481,7 @@
             // 
             // equipmentManufacturerTbx
             // 
-            this.equipmentManufacturerTbx.Location = new System.Drawing.Point(364, 236);
+            this.equipmentManufacturerTbx.Location = new System.Drawing.Point(364, 250);
             this.equipmentManufacturerTbx.MaxLength = 40;
             this.equipmentManufacturerTbx.Name = "equipmentManufacturerTbx";
             this.equipmentManufacturerTbx.Size = new System.Drawing.Size(150, 20);
@@ -492,7 +491,7 @@
             // equipmentPONumberLbl
             // 
             this.equipmentPONumberLbl.AutoSize = true;
-            this.equipmentPONumberLbl.Location = new System.Drawing.Point(293, 213);
+            this.equipmentPONumberLbl.Location = new System.Drawing.Point(293, 227);
             this.equipmentPONumberLbl.Name = "equipmentPONumberLbl";
             this.equipmentPONumberLbl.Size = new System.Drawing.Size(65, 13);
             this.equipmentPONumberLbl.TabIndex = 47;
@@ -500,7 +499,7 @@
             // 
             // equipmentPONumberTbx
             // 
-            this.equipmentPONumberTbx.Location = new System.Drawing.Point(364, 210);
+            this.equipmentPONumberTbx.Location = new System.Drawing.Point(364, 224);
             this.equipmentPONumberTbx.Name = "equipmentPONumberTbx";
             this.equipmentPONumberTbx.Size = new System.Drawing.Size(150, 20);
             this.equipmentPONumberTbx.TabIndex = 13;
@@ -509,7 +508,7 @@
             // equipmentPurchasePriceLbl
             // 
             this.equipmentPurchasePriceLbl.AutoSize = true;
-            this.equipmentPurchasePriceLbl.Location = new System.Drawing.Point(276, 187);
+            this.equipmentPurchasePriceLbl.Location = new System.Drawing.Point(276, 201);
             this.equipmentPurchasePriceLbl.Name = "equipmentPurchasePriceLbl";
             this.equipmentPurchasePriceLbl.Size = new System.Drawing.Size(82, 13);
             this.equipmentPurchasePriceLbl.TabIndex = 45;
@@ -517,7 +516,7 @@
             // 
             // equipmentPurchasePriceTbx
             // 
-            this.equipmentPurchasePriceTbx.Location = new System.Drawing.Point(364, 184);
+            this.equipmentPurchasePriceTbx.Location = new System.Drawing.Point(364, 198);
             this.equipmentPurchasePriceTbx.Name = "equipmentPurchasePriceTbx";
             this.equipmentPurchasePriceTbx.Size = new System.Drawing.Size(150, 20);
             this.equipmentPurchasePriceTbx.TabIndex = 12;
@@ -526,7 +525,7 @@
             // equipmentDatePurchasedLbl
             // 
             this.equipmentDatePurchasedLbl.AutoSize = true;
-            this.equipmentDatePurchasedLbl.Location = new System.Drawing.Point(271, 161);
+            this.equipmentDatePurchasedLbl.Location = new System.Drawing.Point(271, 175);
             this.equipmentDatePurchasedLbl.Name = "equipmentDatePurchasedLbl";
             this.equipmentDatePurchasedLbl.Size = new System.Drawing.Size(87, 13);
             this.equipmentDatePurchasedLbl.TabIndex = 43;
@@ -535,7 +534,7 @@
             // equipmentSupplierLbl
             // 
             this.equipmentSupplierLbl.AutoSize = true;
-            this.equipmentSupplierLbl.Location = new System.Drawing.Point(310, 135);
+            this.equipmentSupplierLbl.Location = new System.Drawing.Point(310, 149);
             this.equipmentSupplierLbl.Name = "equipmentSupplierLbl";
             this.equipmentSupplierLbl.Size = new System.Drawing.Size(48, 13);
             this.equipmentSupplierLbl.TabIndex = 41;
@@ -544,7 +543,7 @@
             // equipmentNotesLbl
             // 
             this.equipmentNotesLbl.AutoSize = true;
-            this.equipmentNotesLbl.Location = new System.Drawing.Point(56, 321);
+            this.equipmentNotesLbl.Location = new System.Drawing.Point(56, 335);
             this.equipmentNotesLbl.Name = "equipmentNotesLbl";
             this.equipmentNotesLbl.Size = new System.Drawing.Size(38, 13);
             this.equipmentNotesLbl.TabIndex = 37;
@@ -552,7 +551,7 @@
             // 
             // equipmentNotesTbx
             // 
-            this.equipmentNotesTbx.Location = new System.Drawing.Point(100, 314);
+            this.equipmentNotesTbx.Location = new System.Drawing.Point(100, 328);
             this.equipmentNotesTbx.MaxLength = 255;
             this.equipmentNotesTbx.Multiline = true;
             this.equipmentNotesTbx.Name = "equipmentNotesTbx";
@@ -564,7 +563,7 @@
             // equipmentNightsRentedLbl
             // 
             this.equipmentNightsRentedLbl.AutoSize = true;
-            this.equipmentNightsRentedLbl.Location = new System.Drawing.Point(16, 291);
+            this.equipmentNightsRentedLbl.Location = new System.Drawing.Point(16, 305);
             this.equipmentNightsRentedLbl.Name = "equipmentNightsRentedLbl";
             this.equipmentNightsRentedLbl.Size = new System.Drawing.Size(78, 13);
             this.equipmentNightsRentedLbl.TabIndex = 35;
@@ -572,7 +571,7 @@
             // 
             // equipmentNightsRentedTbx
             // 
-            this.equipmentNightsRentedTbx.Location = new System.Drawing.Point(100, 288);
+            this.equipmentNightsRentedTbx.Location = new System.Drawing.Point(100, 302);
             this.equipmentNightsRentedTbx.Name = "equipmentNightsRentedTbx";
             this.equipmentNightsRentedTbx.ReadOnly = true;
             this.equipmentNightsRentedTbx.Size = new System.Drawing.Size(150, 20);
@@ -581,7 +580,7 @@
             // equipmentHomeLocationLbl
             // 
             this.equipmentHomeLocationLbl.AutoSize = true;
-            this.equipmentHomeLocationLbl.Location = new System.Drawing.Point(12, 265);
+            this.equipmentHomeLocationLbl.Location = new System.Drawing.Point(12, 279);
             this.equipmentHomeLocationLbl.Name = "equipmentHomeLocationLbl";
             this.equipmentHomeLocationLbl.Size = new System.Drawing.Size(82, 13);
             this.equipmentHomeLocationLbl.TabIndex = 33;
@@ -590,7 +589,7 @@
             // equipmentStatusLbl
             // 
             this.equipmentStatusLbl.AutoSize = true;
-            this.equipmentStatusLbl.Location = new System.Drawing.Point(50, 239);
+            this.equipmentStatusLbl.Location = new System.Drawing.Point(50, 253);
             this.equipmentStatusLbl.Name = "equipmentStatusLbl";
             this.equipmentStatusLbl.Size = new System.Drawing.Size(44, 13);
             this.equipmentStatusLbl.TabIndex = 31;
@@ -599,7 +598,7 @@
             // equipmentDescription3Lbl
             // 
             this.equipmentDescription3Lbl.AutoSize = true;
-            this.equipmentDescription3Lbl.Location = new System.Drawing.Point(22, 213);
+            this.equipmentDescription3Lbl.Location = new System.Drawing.Point(22, 227);
             this.equipmentDescription3Lbl.Name = "equipmentDescription3Lbl";
             this.equipmentDescription3Lbl.Size = new System.Drawing.Size(72, 13);
             this.equipmentDescription3Lbl.TabIndex = 29;
@@ -607,7 +606,7 @@
             // 
             // equipmentDescription3Tbx
             // 
-            this.equipmentDescription3Tbx.Location = new System.Drawing.Point(100, 210);
+            this.equipmentDescription3Tbx.Location = new System.Drawing.Point(100, 224);
             this.equipmentDescription3Tbx.MaxLength = 30;
             this.equipmentDescription3Tbx.Name = "equipmentDescription3Tbx";
             this.equipmentDescription3Tbx.Size = new System.Drawing.Size(150, 20);
@@ -617,7 +616,7 @@
             // equipmentDescription2Lbl
             // 
             this.equipmentDescription2Lbl.AutoSize = true;
-            this.equipmentDescription2Lbl.Location = new System.Drawing.Point(22, 187);
+            this.equipmentDescription2Lbl.Location = new System.Drawing.Point(22, 201);
             this.equipmentDescription2Lbl.Name = "equipmentDescription2Lbl";
             this.equipmentDescription2Lbl.Size = new System.Drawing.Size(72, 13);
             this.equipmentDescription2Lbl.TabIndex = 27;
@@ -625,7 +624,7 @@
             // 
             // equipmentDescription2Tbx
             // 
-            this.equipmentDescription2Tbx.Location = new System.Drawing.Point(100, 184);
+            this.equipmentDescription2Tbx.Location = new System.Drawing.Point(100, 198);
             this.equipmentDescription2Tbx.MaxLength = 30;
             this.equipmentDescription2Tbx.Name = "equipmentDescription2Tbx";
             this.equipmentDescription2Tbx.Size = new System.Drawing.Size(150, 20);
@@ -635,7 +634,7 @@
             // equipmentDescription1Lbl
             // 
             this.equipmentDescription1Lbl.AutoSize = true;
-            this.equipmentDescription1Lbl.Location = new System.Drawing.Point(22, 162);
+            this.equipmentDescription1Lbl.Location = new System.Drawing.Point(22, 176);
             this.equipmentDescription1Lbl.Name = "equipmentDescription1Lbl";
             this.equipmentDescription1Lbl.Size = new System.Drawing.Size(72, 13);
             this.equipmentDescription1Lbl.TabIndex = 25;
@@ -643,7 +642,7 @@
             // 
             // equipmentDescription1Tbx
             // 
-            this.equipmentDescription1Tbx.Location = new System.Drawing.Point(100, 158);
+            this.equipmentDescription1Tbx.Location = new System.Drawing.Point(100, 172);
             this.equipmentDescription1Tbx.MaxLength = 30;
             this.equipmentDescription1Tbx.Name = "equipmentDescription1Tbx";
             this.equipmentDescription1Tbx.Size = new System.Drawing.Size(150, 20);
@@ -652,7 +651,7 @@
             // 
             // equipmentItemNumberSearchBtn
             // 
-            this.equipmentItemNumberSearchBtn.Location = new System.Drawing.Point(473, 104);
+            this.equipmentItemNumberSearchBtn.Location = new System.Drawing.Point(120, 5);
             this.equipmentItemNumberSearchBtn.Name = "equipmentItemNumberSearchBtn";
             this.equipmentItemNumberSearchBtn.Size = new System.Drawing.Size(55, 21);
             this.equipmentItemNumberSearchBtn.TabIndex = 23;
@@ -662,7 +661,7 @@
             // 
             // equipmentItemNumberBTbx
             // 
-            this.equipmentItemNumberBTbx.Location = new System.Drawing.Point(160, 105);
+            this.equipmentItemNumberBTbx.Location = new System.Drawing.Point(160, 119);
             this.equipmentItemNumberBTbx.MaxLength = 3;
             this.equipmentItemNumberBTbx.Name = "equipmentItemNumberBTbx";
             this.equipmentItemNumberBTbx.Size = new System.Drawing.Size(42, 20);
@@ -673,7 +672,7 @@
             // equipmentItemNumberSearchLbl
             // 
             this.equipmentItemNumberSearchLbl.AutoSize = true;
-            this.equipmentItemNumberSearchLbl.Location = new System.Drawing.Point(20, 108);
+            this.equipmentItemNumberSearchLbl.Location = new System.Drawing.Point(20, 122);
             this.equipmentItemNumberSearchLbl.Name = "equipmentItemNumberSearchLbl";
             this.equipmentItemNumberSearchLbl.Size = new System.Drawing.Size(74, 13);
             this.equipmentItemNumberSearchLbl.TabIndex = 21;
@@ -681,7 +680,7 @@
             // 
             // equipmentItemNumberATbx
             // 
-            this.equipmentItemNumberATbx.Location = new System.Drawing.Point(100, 105);
+            this.equipmentItemNumberATbx.Location = new System.Drawing.Point(100, 119);
             this.equipmentItemNumberATbx.MaxLength = 3;
             this.equipmentItemNumberATbx.Name = "equipmentItemNumberATbx";
             this.equipmentItemNumberATbx.Size = new System.Drawing.Size(42, 20);
@@ -693,7 +692,7 @@
             // equipmentItemNameLbl
             // 
             this.equipmentItemNameLbl.AutoSize = true;
-            this.equipmentItemNameLbl.Location = new System.Drawing.Point(29, 135);
+            this.equipmentItemNameLbl.Location = new System.Drawing.Point(29, 149);
             this.equipmentItemNameLbl.Name = "equipmentItemNameLbl";
             this.equipmentItemNameLbl.Size = new System.Drawing.Size(65, 13);
             this.equipmentItemNameLbl.TabIndex = 16;
@@ -701,7 +700,7 @@
             // 
             // equipmentItemNameTbx
             // 
-            this.equipmentItemNameTbx.Location = new System.Drawing.Point(100, 132);
+            this.equipmentItemNameTbx.Location = new System.Drawing.Point(100, 146);
             this.equipmentItemNameTbx.MaxLength = 30;
             this.equipmentItemNameTbx.Name = "equipmentItemNameTbx";
             this.equipmentItemNameTbx.Size = new System.Drawing.Size(150, 20);
@@ -1170,6 +1169,18 @@
             // 
             this.tblRentalTableAdapter.ClearBeforeFill = true;
             // 
+            // panel1
+            // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.equipmentItemNumberSearchingBTbx);
+            this.panel1.Controls.Add(this.equipmentItemNumberSearchingATbx);
+            this.panel1.Controls.Add(this.equipmentItemNumberSearchBtn);
+            this.panel1.Controls.Add(this.equipmentItemNumberSearchingDashLbl);
+            this.panel1.Location = new System.Drawing.Point(364, 97);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(185, 34);
+            this.panel1.TabIndex = 94;
+            // 
             // AdminMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1183,6 +1194,7 @@
             this.MaximizeBox = false;
             this.Name = "AdminMenu";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Administrative Menu";
             this.Shown += new System.EventHandler(this.AdminMenu_Shown);
             this.adminTabControl.ResumeLayout(false);
@@ -1206,6 +1218,8 @@
             this.statusTab.PerformLayout();
             this.suppliersTab.ResumeLayout(false);
             this.suppliersTab.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1315,5 +1329,6 @@
         private LUEquipmentDataSetTableAdapters.tblRentalTableAdapter tblRentalTableAdapter;
         private System.Windows.Forms.Label categoriesStartRangeDashLbl;
         private System.Windows.Forms.Label categoriesEndRangeDashLbl;
+        private System.Windows.Forms.Panel panel1;
     }
 }

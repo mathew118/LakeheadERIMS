@@ -191,6 +191,7 @@
             this.Controls.Add(this.locationsLbx);
             this.Controls.Add(this.categoriesLbx);
             this.Name = "EquipInventory";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Equipment Inventory";
             this.Load += new System.EventHandler(this.EquipInventory_Load);
             ((System.ComponentModel.ISupportInitialize)(this.tblCategoryBindingSource)).EndInit();

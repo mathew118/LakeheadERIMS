@@ -75,7 +75,7 @@
             // itemNumberTextBox
             // 
             this.itemNumberTextBox.Location = new System.Drawing.Point(98, 27);
-            this.itemNumberTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.itemNumberTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.itemNumberTextBox.Name = "itemNumberTextBox";
             this.itemNumberTextBox.Size = new System.Drawing.Size(54, 20);
             this.itemNumberTextBox.TabIndex = 0;
@@ -208,9 +208,9 @@
             this.groupBox1.Controls.Add(this.waiveRadio);
             this.groupBox1.Controls.Add(this.label14);
             this.groupBox1.Location = new System.Drawing.Point(310, 183);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(223, 143);
             this.groupBox1.TabIndex = 14;
             this.groupBox1.TabStop = false;
@@ -229,7 +229,7 @@
             // 
             this.accumulateLatefee.AutoSize = true;
             this.accumulateLatefee.Location = new System.Drawing.Point(39, 110);
-            this.accumulateLatefee.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.accumulateLatefee.Margin = new System.Windows.Forms.Padding(2);
             this.accumulateLatefee.Name = "accumulateLatefee";
             this.accumulateLatefee.Size = new System.Drawing.Size(119, 17);
             this.accumulateLatefee.TabIndex = 3;
@@ -241,7 +241,7 @@
             // 
             this.payLateFee.AutoSize = true;
             this.payLateFee.Location = new System.Drawing.Point(39, 88);
-            this.payLateFee.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.payLateFee.Margin = new System.Windows.Forms.Padding(2);
             this.payLateFee.Name = "payLateFee";
             this.payLateFee.Size = new System.Drawing.Size(81, 17);
             this.payLateFee.TabIndex = 2;
@@ -253,7 +253,7 @@
             // 
             this.waiveRadio.AutoSize = true;
             this.waiveRadio.Location = new System.Drawing.Point(39, 68);
-            this.waiveRadio.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.waiveRadio.Margin = new System.Windows.Forms.Padding(2);
             this.waiveRadio.Name = "waiveRadio";
             this.waiveRadio.Size = new System.Drawing.Size(99, 17);
             this.waiveRadio.TabIndex = 1;
@@ -278,9 +278,9 @@
             this.groupBox2.Controls.Add(this.clearItemBttn);
             this.groupBox2.Controls.Add(this.exitBttn);
             this.groupBox2.Location = new System.Drawing.Point(48, 354);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox2.Size = new System.Drawing.Size(462, 57);
             this.groupBox2.TabIndex = 15;
             this.groupBox2.TabStop = false;
@@ -288,7 +288,7 @@
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(11, 18);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(104, 31);
             this.button1.TabIndex = 3;
@@ -299,7 +299,7 @@
             // returnBttn
             // 
             this.returnBttn.Location = new System.Drawing.Point(140, 17);
-            this.returnBttn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.returnBttn.Margin = new System.Windows.Forms.Padding(2);
             this.returnBttn.Name = "returnBttn";
             this.returnBttn.Size = new System.Drawing.Size(90, 32);
             this.returnBttn.TabIndex = 2;
@@ -310,7 +310,7 @@
             // clearItemBttn
             // 
             this.clearItemBttn.Location = new System.Drawing.Point(262, 16);
-            this.clearItemBttn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.clearItemBttn.Margin = new System.Windows.Forms.Padding(2);
             this.clearItemBttn.Name = "clearItemBttn";
             this.clearItemBttn.Size = new System.Drawing.Size(80, 32);
             this.clearItemBttn.TabIndex = 1;
@@ -320,7 +320,7 @@
             // exitBttn
             // 
             this.exitBttn.Location = new System.Drawing.Point(351, 17);
-            this.exitBttn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.exitBttn.Margin = new System.Windows.Forms.Padding(2);
             this.exitBttn.Name = "exitBttn";
             this.exitBttn.Size = new System.Drawing.Size(64, 32);
             this.exitBttn.TabIndex = 0;
@@ -380,7 +380,7 @@
             "Waiting repairs",
             "Lost"});
             this.comboBox1.Location = new System.Drawing.Point(88, 183);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(145, 21);
             this.comboBox1.TabIndex = 20;
@@ -487,8 +487,9 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.itemNumberTextBox);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ReturnEquip";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Return Equipment";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

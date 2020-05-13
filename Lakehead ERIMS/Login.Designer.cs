@@ -132,6 +132,7 @@
             this.MaximizeBox = false;
             this.Name = "Login";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ERIMS Login";
             ((System.ComponentModel.ISupportInitialize)(this.lUEquipmentDataSet)).EndInit();
             this.ResumeLayout(false);

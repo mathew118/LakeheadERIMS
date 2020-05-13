@@ -115,6 +115,7 @@
             this.Controls.Add(this.search1TxtBox);
             this.Controls.Add(this.label1);
             this.Name = "EquipHistory";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Equipment History";
             this.Load += new System.EventHandler(this.EquipHistory_Load);
             ((System.ComponentModel.ISupportInitialize)(this.luEquipmentDataSet1)).EndInit();

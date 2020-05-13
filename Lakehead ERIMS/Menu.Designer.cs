@@ -263,6 +263,7 @@
             this.MaximizeBox = false;
             this.Name = "Menu";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Equipment Room Inventory Management System";
             this.menuTabControl.ResumeLayout(false);
             this.mainMenuTab.ResumeLayout(false);
