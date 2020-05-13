@@ -113,6 +113,7 @@ namespace Lakehead_ERIMS
         private void addUpdateStudent_Shown(object sender, EventArgs e)
         {
             this.tblStudentTableAdapter1.Fill(this.luEquipmentDataSet1.tblStudent);
+            studentLbx.SelectedIndex = -1;
         }
 
         private void studentLbx_Format(object sender, ListControlConvertEventArgs e)
@@ -120,6 +121,92 @@ namespace Lakehead_ERIMS
             string studentFName = ((DataRowView)e.ListItem)[3].ToString();
 
             e.Value += ", " + studentFName;
+        }
+
+        private void studentLbx_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LUEquipmentDataSet.tblStudentRow studentRow;
+
+            //Checks if listbox isn't empty
+            if (studentLbx.SelectedValue != null && studentLbx.SelectedIndex != -1)
+            {
+                //Checks if query returns results and if so, assigns it to studentRow
+                if (this.luEquipmentDataSet1.tblStudent.Select("Stu_ID = '" + studentLbx.SelectedValue.ToString() + "'").Length == 1)
+                {
+                    studentRow = luEquipmentDataSet1.tblStudent.FindByStu_ID(int.Parse(studentLbx.SelectedValue.ToString()));
+
+                    //Assigns row data to textboxes
+                    studentLNameTbx.Text = studentRow.Stu_LName; //Cannot be null
+                    studentFNameTbx.Text = studentRow.Stu_FName; //Cannot be null
+                    studentNumberTbx.Text = studentRow.Stu_Number; //Cannot be null
+                    studentEmailTbx.Text = (!studentRow.IsStu_EmailNull()) ? studentRow.Stu_Email : string.Empty;
+                    studentAddressTbx.Text = (!studentRow.IsStu_LAddressNull()) ? studentRow.Stu_LAddress : string.Empty;
+                    studentCityTbx.Text = (!studentRow.IsStu_LCityNull()) ? studentRow.Stu_LCity : string.Empty;
+                    studentPostalTbx.Text = (!studentRow.IsStu_LPCodeNull()) ? studentRow.Stu_LPCode : string.Empty;
+                    studentPhoneTbx.Text = (!studentRow.IsStu_LPhoneNull()) ? studentRow.Stu_LPhone : string.Empty;
+                    studentExtTbx.Text = (!studentRow.IsStu_LExtNull()) ? studentRow.Stu_LExt : string.Empty;
+                    studentPAddressTbx.Text = (!studentRow.IsStu_HAddressNull()) ? studentRow.Stu_HAddress : string.Empty;
+                    studentPCityTbx.Text = (!studentRow.IsStu_HCityNull()) ? studentRow.Stu_HCity : string.Empty;
+                    studentPPostalTbx.Text = (!studentRow.IsStu_HPCodeNull()) ? studentRow.Stu_HPCode : string.Empty;
+                    studentPPhoneTbx.Text = (!studentRow.IsStu_HPhoneNull()) ? studentRow.Stu_HPhone : string.Empty;
+                    studentFeesTbx.Text = (!studentRow.IsStu_OweNull()) ? studentRow.Stu_Owe.ToString("C") : string.Empty;                
+                    studentORPTChbx.Checked = (!studentRow.IsStu_ORPTNull()) ? studentRow.Stu_ORPT : false;
+                    studentNotesTbx.Text = (!studentRow.IsStu_NotesNull()) ? studentRow.Stu_Notes : string.Empty;
+
+                    //Getting issues where empty province in database isn't null but instead empty
+                    studentProvinceCbx.SelectedIndex = -1;
+                    studentPProvinceCbx.SelectedIndex = -1;
+                    if (!studentRow.IsStu_LProvinceNull())
+                    {
+                        if (!string.IsNullOrEmpty(studentRow.Stu_LProvince))
+                        {
+                            studentProvinceCbx.Text = studentRow.Stu_LProvince;
+                        }
+                    }
+
+                    if (!studentRow.IsStu_HProvinceNull())
+                    {
+                        if (!string.IsNullOrEmpty(studentRow.Stu_HProvince))
+                        {
+                            studentPProvinceCbx.Text = studentRow.Stu_HProvince;
+                        }                     
+                    }                                                          
+
+                    //Lock save button until changes are made
+                    studentUpdateBtn.Enabled = false;
+                }
+                else
+                {
+                    //No student selected
+
+                    MessageBox.Show("Error! Student not found", "Error");
+                }
+            }
+        }
+
+        private void studentAddNewBtn_Click(object sender, EventArgs e)
+        {
+            studentLbx.SelectedIndex = -1;
+            studentLNameTbx.Clear();
+            studentFNameTbx.Clear();
+            studentNumberTbx.Clear();
+            studentEmailTbx.Clear();
+            studentAddressTbx.Clear();
+            studentCityTbx.Clear();
+            studentPostalTbx.Clear();
+            studentPhoneTbx.Clear();
+            studentExtTbx.Clear();
+            studentPAddressTbx.Clear();
+            studentPCityTbx.Clear();
+            studentPPostalTbx.Clear();
+            studentPPhoneTbx.Clear();
+            studentFeesTbx.Clear();
+            studentORPTChbx.Checked = false;
+            studentNotesTbx.Clear();
+            studentProvinceCbx.SelectedIndex = -1;
+            studentPProvinceCbx.SelectedIndex = -1;
+
+            studentUpdateBtn.Enabled = true;
         }
     }
 }

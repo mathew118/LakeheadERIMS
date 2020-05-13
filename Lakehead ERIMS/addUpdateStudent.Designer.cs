@@ -92,47 +92,53 @@
             this.studentLbx = new System.Windows.Forms.ListBox();
             this.tblStudentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.orptChbx = new System.Windows.Forms.CheckBox();
-            this.groupBox8 = new System.Windows.Forms.GroupBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.infoGbx = new System.Windows.Forms.GroupBox();
+            this.studentLNameLbl = new System.Windows.Forms.Label();
+            this.studentNumberLbl = new System.Windows.Forms.Label();
+            this.studentEmailLbl = new System.Windows.Forms.Label();
+            this.studentFNameLbl = new System.Windows.Forms.Label();
+            this.studentEmailTbx = new System.Windows.Forms.TextBox();
+            this.studentLNameTbx = new System.Windows.Forms.TextBox();
+            this.studentNumberTbx = new System.Windows.Forms.TextBox();
+            this.studentFNameTbx = new System.Windows.Forms.TextBox();
+            this.localGbx = new System.Windows.Forms.GroupBox();
+            this.studentAddressLbl = new System.Windows.Forms.Label();
+            this.studentPhoneLbl = new System.Windows.Forms.Label();
+            this.studentProvinceLbl = new System.Windows.Forms.Label();
+            this.studentExtLbl = new System.Windows.Forms.Label();
+            this.studentCityLbl = new System.Windows.Forms.Label();
+            this.studentPostalLbl = new System.Windows.Forms.Label();
+            this.studentProvinceCbx = new System.Windows.Forms.ComboBox();
+            this.studentPostalTbx = new System.Windows.Forms.TextBox();
+            this.studentPhoneTbx = new System.Windows.Forms.TextBox();
+            this.studentCityTbx = new System.Windows.Forms.TextBox();
+            this.studentExtTbx = new System.Windows.Forms.TextBox();
+            this.studentAddressTbx = new System.Windows.Forms.TextBox();
+            this.feesGbx = new System.Windows.Forms.GroupBox();
+            this.studentORPTChbx = new System.Windows.Forms.CheckBox();
+            this.studentFeesTbx = new System.Windows.Forms.TextBox();
+            this.studentFeesLbl = new System.Windows.Forms.Label();
+            this.permanentGbx = new System.Windows.Forms.GroupBox();
+            this.studentPAddressLbl = new System.Windows.Forms.Label();
+            this.studentPPhoneLbl = new System.Windows.Forms.Label();
+            this.studentPProvinceLbl = new System.Windows.Forms.Label();
+            this.studentPCityLbl = new System.Windows.Forms.Label();
+            this.studentPPostallLbl = new System.Windows.Forms.Label();
+            this.studentPPostalTbx = new System.Windows.Forms.TextBox();
+            this.studentPPhoneTbx = new System.Windows.Forms.TextBox();
+            this.studentPCityTbx = new System.Windows.Forms.TextBox();
+            this.studentPAddressTbx = new System.Windows.Forms.TextBox();
+            this.studentAddNewBtn = new System.Windows.Forms.Button();
+            this.studentUpdateBtn = new System.Windows.Forms.Button();
+            this.studentSearchBtn = new System.Windows.Forms.Button();
+            this.studentExitBtn = new System.Windows.Forms.Button();
+            this.studentPProvinceCbx = new System.Windows.Forms.ComboBox();
+            this.studentNotesTbx = new System.Windows.Forms.TextBox();
+            this.studentNotesLbl = new System.Windows.Forms.Label();
+            this.studentNumberSearchBtn = new System.Windows.Forms.Button();
             this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.groupBox9 = new System.Windows.Forms.GroupBox();
-            this.label27 = new System.Windows.Forms.Label();
-            this.label28 = new System.Windows.Forms.Label();
-            this.label29 = new System.Windows.Forms.Label();
-            this.label30 = new System.Windows.Forms.Label();
-            this.label31 = new System.Windows.Forms.Label();
-            this.label32 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.groupBox10 = new System.Windows.Forms.GroupBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.label33 = new System.Windows.Forms.Label();
-            this.groupBox11 = new System.Windows.Forms.GroupBox();
-            this.label34 = new System.Windows.Forms.Label();
-            this.label35 = new System.Windows.Forms.Label();
-            this.label36 = new System.Windows.Forms.Label();
-            this.label38 = new System.Windows.Forms.Label();
-            this.label39 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.textBox13 = new System.Windows.Forms.TextBox();
-            this.textBox15 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.searchByNumberRbn = new System.Windows.Forms.RadioButton();
+            this.searchByLNameRbn = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -143,10 +149,10 @@
             this.groupBox6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.luEquipmentDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblStudentBindingSource)).BeginInit();
-            this.groupBox8.SuspendLayout();
-            this.groupBox9.SuspendLayout();
-            this.groupBox10.SuspendLayout();
-            this.groupBox11.SuspendLayout();
+            this.infoGbx.SuspendLayout();
+            this.localGbx.SuspendLayout();
+            this.feesGbx.SuspendLayout();
+            this.permanentGbx.SuspendLayout();
             this.SuspendLayout();
             // 
             // addStudentbttn
@@ -797,6 +803,7 @@
             this.studentLbx.Size = new System.Drawing.Size(546, 95);
             this.studentLbx.TabIndex = 47;
             this.studentLbx.ValueMember = "Stu_ID";
+            this.studentLbx.SelectedIndexChanged += new System.EventHandler(this.studentLbx_SelectedIndexChanged);
             this.studentLbx.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.studentLbx_Format);
             // 
             // tblStudentBindingSource
@@ -814,464 +821,551 @@
             this.orptChbx.Text = "ORPT";
             this.orptChbx.UseVisualStyleBackColor = true;
             // 
-            // groupBox8
+            // infoGbx
             // 
-            this.groupBox8.Controls.Add(this.label3);
-            this.groupBox8.Controls.Add(this.label16);
-            this.groupBox8.Controls.Add(this.label25);
-            this.groupBox8.Controls.Add(this.label26);
-            this.groupBox8.Controls.Add(this.textBox1);
-            this.groupBox8.Controls.Add(this.textBox2);
-            this.groupBox8.Controls.Add(this.textBox3);
-            this.groupBox8.Controls.Add(this.textBox4);
-            this.groupBox8.Location = new System.Drawing.Point(52, 200);
-            this.groupBox8.Margin = new System.Windows.Forms.Padding(2);
-            this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox8.Size = new System.Drawing.Size(275, 150);
-            this.groupBox8.TabIndex = 41;
-            this.groupBox8.TabStop = false;
-            this.groupBox8.Text = "New Student";
+            this.infoGbx.Controls.Add(this.studentLNameLbl);
+            this.infoGbx.Controls.Add(this.studentNumberLbl);
+            this.infoGbx.Controls.Add(this.studentEmailLbl);
+            this.infoGbx.Controls.Add(this.studentFNameLbl);
+            this.infoGbx.Controls.Add(this.studentEmailTbx);
+            this.infoGbx.Controls.Add(this.studentLNameTbx);
+            this.infoGbx.Controls.Add(this.studentNumberTbx);
+            this.infoGbx.Controls.Add(this.studentFNameTbx);
+            this.infoGbx.Location = new System.Drawing.Point(52, 200);
+            this.infoGbx.Margin = new System.Windows.Forms.Padding(2);
+            this.infoGbx.Name = "infoGbx";
+            this.infoGbx.Padding = new System.Windows.Forms.Padding(2);
+            this.infoGbx.Size = new System.Drawing.Size(275, 150);
+            this.infoGbx.TabIndex = 41;
+            this.infoGbx.TabStop = false;
+            this.infoGbx.Text = "Student Information";
             // 
-            // label3
+            // studentLNameLbl
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(37, 49);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(61, 13);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Last Name:";
+            this.studentLNameLbl.AutoSize = true;
+            this.studentLNameLbl.Location = new System.Drawing.Point(33, 44);
+            this.studentLNameLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.studentLNameLbl.Name = "studentLNameLbl";
+            this.studentLNameLbl.Size = new System.Drawing.Size(65, 13);
+            this.studentLNameLbl.TabIndex = 4;
+            this.studentLNameLbl.Text = "*Last Name:";
             // 
-            // label16
+            // studentNumberLbl
             // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(11, 95);
-            this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(87, 13);
-            this.label16.TabIndex = 10;
-            this.label16.Text = "Student Number:";
+            this.studentNumberLbl.AutoSize = true;
+            this.studentNumberLbl.Location = new System.Drawing.Point(7, 20);
+            this.studentNumberLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.studentNumberLbl.Name = "studentNumberLbl";
+            this.studentNumberLbl.Size = new System.Drawing.Size(91, 13);
+            this.studentNumberLbl.TabIndex = 10;
+            this.studentNumberLbl.Text = "*Student Number:";
             // 
-            // label25
+            // studentEmailLbl
             // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(22, 117);
-            this.label25.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(76, 13);
-            this.label25.TabIndex = 16;
-            this.label25.Text = "Email Address:";
+            this.studentEmailLbl.AutoSize = true;
+            this.studentEmailLbl.Location = new System.Drawing.Point(22, 92);
+            this.studentEmailLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.studentEmailLbl.Name = "studentEmailLbl";
+            this.studentEmailLbl.Size = new System.Drawing.Size(76, 13);
+            this.studentEmailLbl.TabIndex = 16;
+            this.studentEmailLbl.Text = "Email Address:";
             // 
-            // label26
+            // studentFNameLbl
             // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(38, 72);
-            this.label26.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(60, 13);
-            this.label26.TabIndex = 17;
-            this.label26.Text = "First Name:";
+            this.studentFNameLbl.AutoSize = true;
+            this.studentFNameLbl.Location = new System.Drawing.Point(34, 68);
+            this.studentFNameLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.studentFNameLbl.Name = "studentFNameLbl";
+            this.studentFNameLbl.Size = new System.Drawing.Size(64, 13);
+            this.studentFNameLbl.TabIndex = 17;
+            this.studentFNameLbl.Text = "*First Name:";
             // 
-            // textBox1
+            // studentEmailTbx
             // 
-            this.textBox1.Location = new System.Drawing.Point(102, 114);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(164, 20);
-            this.textBox1.TabIndex = 22;
+            this.studentEmailTbx.Location = new System.Drawing.Point(102, 89);
+            this.studentEmailTbx.Margin = new System.Windows.Forms.Padding(2);
+            this.studentEmailTbx.MaxLength = 50;
+            this.studentEmailTbx.Name = "studentEmailTbx";
+            this.studentEmailTbx.Size = new System.Drawing.Size(164, 20);
+            this.studentEmailTbx.TabIndex = 22;
             // 
-            // textBox2
+            // studentLNameTbx
             // 
-            this.textBox2.Location = new System.Drawing.Point(102, 46);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(164, 20);
-            this.textBox2.TabIndex = 19;
+            this.studentLNameTbx.Location = new System.Drawing.Point(102, 41);
+            this.studentLNameTbx.Margin = new System.Windows.Forms.Padding(2);
+            this.studentLNameTbx.MaxLength = 30;
+            this.studentLNameTbx.Name = "studentLNameTbx";
+            this.studentLNameTbx.Size = new System.Drawing.Size(164, 20);
+            this.studentLNameTbx.TabIndex = 19;
+            // 
+            // studentNumberTbx
+            // 
+            this.studentNumberTbx.Location = new System.Drawing.Point(102, 17);
+            this.studentNumberTbx.Margin = new System.Windows.Forms.Padding(2);
+            this.studentNumberTbx.MaxLength = 20;
+            this.studentNumberTbx.Name = "studentNumberTbx";
+            this.studentNumberTbx.Size = new System.Drawing.Size(164, 20);
+            this.studentNumberTbx.TabIndex = 21;
+            // 
+            // studentFNameTbx
+            // 
+            this.studentFNameTbx.Location = new System.Drawing.Point(102, 65);
+            this.studentFNameTbx.Margin = new System.Windows.Forms.Padding(2);
+            this.studentFNameTbx.MaxLength = 30;
+            this.studentFNameTbx.Name = "studentFNameTbx";
+            this.studentFNameTbx.Size = new System.Drawing.Size(164, 20);
+            this.studentFNameTbx.TabIndex = 20;
+            // 
+            // localGbx
+            // 
+            this.localGbx.Controls.Add(this.studentAddressLbl);
+            this.localGbx.Controls.Add(this.studentPhoneLbl);
+            this.localGbx.Controls.Add(this.studentProvinceLbl);
+            this.localGbx.Controls.Add(this.studentExtLbl);
+            this.localGbx.Controls.Add(this.studentCityLbl);
+            this.localGbx.Controls.Add(this.studentPostalLbl);
+            this.localGbx.Controls.Add(this.studentProvinceCbx);
+            this.localGbx.Controls.Add(this.studentPostalTbx);
+            this.localGbx.Controls.Add(this.studentPhoneTbx);
+            this.localGbx.Controls.Add(this.studentCityTbx);
+            this.localGbx.Controls.Add(this.studentExtTbx);
+            this.localGbx.Controls.Add(this.studentAddressTbx);
+            this.localGbx.Location = new System.Drawing.Point(344, 200);
+            this.localGbx.Margin = new System.Windows.Forms.Padding(2);
+            this.localGbx.Name = "localGbx";
+            this.localGbx.Padding = new System.Windows.Forms.Padding(2);
+            this.localGbx.Size = new System.Drawing.Size(275, 150);
+            this.localGbx.TabIndex = 40;
+            this.localGbx.TabStop = false;
+            this.localGbx.Text = "Local Address";
+            // 
+            // studentAddressLbl
+            // 
+            this.studentAddressLbl.AutoSize = true;
+            this.studentAddressLbl.Location = new System.Drawing.Point(45, 20);
+            this.studentAddressLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.studentAddressLbl.Name = "studentAddressLbl";
+            this.studentAddressLbl.Size = new System.Drawing.Size(48, 13);
+            this.studentAddressLbl.TabIndex = 15;
+            this.studentAddressLbl.Text = "Address:";
+            // 
+            // studentPhoneLbl
+            // 
+            this.studentPhoneLbl.AutoSize = true;
+            this.studentPhoneLbl.Location = new System.Drawing.Point(52, 117);
+            this.studentPhoneLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.studentPhoneLbl.Name = "studentPhoneLbl";
+            this.studentPhoneLbl.Size = new System.Drawing.Size(41, 13);
+            this.studentPhoneLbl.TabIndex = 7;
+            this.studentPhoneLbl.Text = "Phone:";
+            // 
+            // studentProvinceLbl
+            // 
+            this.studentProvinceLbl.AutoSize = true;
+            this.studentProvinceLbl.Location = new System.Drawing.Point(41, 69);
+            this.studentProvinceLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.studentProvinceLbl.Name = "studentProvinceLbl";
+            this.studentProvinceLbl.Size = new System.Drawing.Size(52, 13);
+            this.studentProvinceLbl.TabIndex = 8;
+            this.studentProvinceLbl.Text = "Province:";
+            // 
+            // studentExtLbl
+            // 
+            this.studentExtLbl.AutoSize = true;
+            this.studentExtLbl.Location = new System.Drawing.Point(188, 117);
+            this.studentExtLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.studentExtLbl.Name = "studentExtLbl";
+            this.studentExtLbl.Size = new System.Drawing.Size(25, 13);
+            this.studentExtLbl.TabIndex = 33;
+            this.studentExtLbl.Text = "Ext:";
+            // 
+            // studentCityLbl
+            // 
+            this.studentCityLbl.AutoSize = true;
+            this.studentCityLbl.Location = new System.Drawing.Point(66, 45);
+            this.studentCityLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.studentCityLbl.Name = "studentCityLbl";
+            this.studentCityLbl.Size = new System.Drawing.Size(27, 13);
+            this.studentCityLbl.TabIndex = 9;
+            this.studentCityLbl.Text = "City:";
+            // 
+            // studentPostalLbl
+            // 
+            this.studentPostalLbl.AutoSize = true;
+            this.studentPostalLbl.Location = new System.Drawing.Point(26, 93);
+            this.studentPostalLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.studentPostalLbl.Name = "studentPostalLbl";
+            this.studentPostalLbl.Size = new System.Drawing.Size(67, 13);
+            this.studentPostalLbl.TabIndex = 14;
+            this.studentPostalLbl.Text = "Postal Code:";
+            // 
+            // studentProvinceCbx
+            // 
+            this.studentProvinceCbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.studentProvinceCbx.FormattingEnabled = true;
+            this.studentProvinceCbx.Items.AddRange(new object[] {
+            "ON",
+            "MB",
+            "SK",
+            "AB",
+            "BC",
+            "YT",
+            "NT",
+            "QU",
+            "NL",
+            "PE",
+            "NS",
+            "NB",
+            "NU"});
+            this.studentProvinceCbx.Location = new System.Drawing.Point(97, 65);
+            this.studentProvinceCbx.Margin = new System.Windows.Forms.Padding(2);
+            this.studentProvinceCbx.MaxLength = 2;
+            this.studentProvinceCbx.Name = "studentProvinceCbx";
+            this.studentProvinceCbx.Size = new System.Drawing.Size(164, 21);
+            this.studentProvinceCbx.TabIndex = 28;
+            // 
+            // studentPostalTbx
+            // 
+            this.studentPostalTbx.Location = new System.Drawing.Point(97, 90);
+            this.studentPostalTbx.Margin = new System.Windows.Forms.Padding(2);
+            this.studentPostalTbx.MaxLength = 6;
+            this.studentPostalTbx.Name = "studentPostalTbx";
+            this.studentPostalTbx.Size = new System.Drawing.Size(164, 20);
+            this.studentPostalTbx.TabIndex = 23;
+            // 
+            // studentPhoneTbx
+            // 
+            this.studentPhoneTbx.Location = new System.Drawing.Point(97, 114);
+            this.studentPhoneTbx.Margin = new System.Windows.Forms.Padding(2);
+            this.studentPhoneTbx.MaxLength = 10;
+            this.studentPhoneTbx.Name = "studentPhoneTbx";
+            this.studentPhoneTbx.Size = new System.Drawing.Size(87, 20);
+            this.studentPhoneTbx.TabIndex = 27;
+            // 
+            // studentCityTbx
+            // 
+            this.studentCityTbx.Location = new System.Drawing.Point(97, 41);
+            this.studentCityTbx.Margin = new System.Windows.Forms.Padding(2);
+            this.studentCityTbx.MaxLength = 30;
+            this.studentCityTbx.Name = "studentCityTbx";
+            this.studentCityTbx.Size = new System.Drawing.Size(164, 20);
+            this.studentCityTbx.TabIndex = 24;
+            // 
+            // studentExtTbx
+            // 
+            this.studentExtTbx.Location = new System.Drawing.Point(214, 114);
+            this.studentExtTbx.Margin = new System.Windows.Forms.Padding(2);
+            this.studentExtTbx.MaxLength = 4;
+            this.studentExtTbx.Name = "studentExtTbx";
+            this.studentExtTbx.Size = new System.Drawing.Size(47, 20);
+            this.studentExtTbx.TabIndex = 26;
+            // 
+            // studentAddressTbx
+            // 
+            this.studentAddressTbx.Location = new System.Drawing.Point(97, 17);
+            this.studentAddressTbx.Margin = new System.Windows.Forms.Padding(2);
+            this.studentAddressTbx.MaxLength = 30;
+            this.studentAddressTbx.Name = "studentAddressTbx";
+            this.studentAddressTbx.Size = new System.Drawing.Size(164, 20);
+            this.studentAddressTbx.TabIndex = 25;
+            // 
+            // feesGbx
+            // 
+            this.feesGbx.Controls.Add(this.studentNotesLbl);
+            this.feesGbx.Controls.Add(this.studentNotesTbx);
+            this.feesGbx.Controls.Add(this.studentORPTChbx);
+            this.feesGbx.Controls.Add(this.studentFeesTbx);
+            this.feesGbx.Controls.Add(this.studentFeesLbl);
+            this.feesGbx.Location = new System.Drawing.Point(924, 200);
+            this.feesGbx.Margin = new System.Windows.Forms.Padding(2);
+            this.feesGbx.Name = "feesGbx";
+            this.feesGbx.Padding = new System.Windows.Forms.Padding(2);
+            this.feesGbx.Size = new System.Drawing.Size(275, 150);
+            this.feesGbx.TabIndex = 44;
+            this.feesGbx.TabStop = false;
+            this.feesGbx.Text = "Additional Information";
+            // 
+            // studentORPTChbx
+            // 
+            this.studentORPTChbx.AutoSize = true;
+            this.studentORPTChbx.Location = new System.Drawing.Point(30, 41);
+            this.studentORPTChbx.Name = "studentORPTChbx";
+            this.studentORPTChbx.Size = new System.Drawing.Size(56, 17);
+            this.studentORPTChbx.TabIndex = 2;
+            this.studentORPTChbx.Text = "ORPT";
+            this.studentORPTChbx.UseVisualStyleBackColor = true;
+            // 
+            // studentFeesTbx
+            // 
+            this.studentFeesTbx.Location = new System.Drawing.Point(97, 17);
+            this.studentFeesTbx.Margin = new System.Windows.Forms.Padding(2);
+            this.studentFeesTbx.Name = "studentFeesTbx";
+            this.studentFeesTbx.Size = new System.Drawing.Size(86, 20);
+            this.studentFeesTbx.TabIndex = 1;
+            // 
+            // studentFeesLbl
+            // 
+            this.studentFeesLbl.AutoSize = true;
+            this.studentFeesLbl.Location = new System.Drawing.Point(27, 20);
+            this.studentFeesLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.studentFeesLbl.Name = "studentFeesLbl";
+            this.studentFeesLbl.Size = new System.Drawing.Size(66, 13);
+            this.studentFeesLbl.TabIndex = 0;
+            this.studentFeesLbl.Text = "Fees Owing:";
+            // 
+            // permanentGbx
+            // 
+            this.permanentGbx.Controls.Add(this.studentPProvinceCbx);
+            this.permanentGbx.Controls.Add(this.studentPAddressLbl);
+            this.permanentGbx.Controls.Add(this.studentPPhoneLbl);
+            this.permanentGbx.Controls.Add(this.studentPProvinceLbl);
+            this.permanentGbx.Controls.Add(this.studentPCityLbl);
+            this.permanentGbx.Controls.Add(this.studentPPostallLbl);
+            this.permanentGbx.Controls.Add(this.studentPPostalTbx);
+            this.permanentGbx.Controls.Add(this.studentPPhoneTbx);
+            this.permanentGbx.Controls.Add(this.studentPCityTbx);
+            this.permanentGbx.Controls.Add(this.studentPAddressTbx);
+            this.permanentGbx.Location = new System.Drawing.Point(635, 200);
+            this.permanentGbx.Margin = new System.Windows.Forms.Padding(2);
+            this.permanentGbx.Name = "permanentGbx";
+            this.permanentGbx.Padding = new System.Windows.Forms.Padding(2);
+            this.permanentGbx.Size = new System.Drawing.Size(275, 150);
+            this.permanentGbx.TabIndex = 41;
+            this.permanentGbx.TabStop = false;
+            this.permanentGbx.Text = "Permanent Address";
+            // 
+            // studentPAddressLbl
+            // 
+            this.studentPAddressLbl.AutoSize = true;
+            this.studentPAddressLbl.Location = new System.Drawing.Point(45, 20);
+            this.studentPAddressLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.studentPAddressLbl.Name = "studentPAddressLbl";
+            this.studentPAddressLbl.Size = new System.Drawing.Size(48, 13);
+            this.studentPAddressLbl.TabIndex = 15;
+            this.studentPAddressLbl.Text = "Address:";
+            // 
+            // studentPPhoneLbl
+            // 
+            this.studentPPhoneLbl.AutoSize = true;
+            this.studentPPhoneLbl.Location = new System.Drawing.Point(52, 117);
+            this.studentPPhoneLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.studentPPhoneLbl.Name = "studentPPhoneLbl";
+            this.studentPPhoneLbl.Size = new System.Drawing.Size(41, 13);
+            this.studentPPhoneLbl.TabIndex = 7;
+            this.studentPPhoneLbl.Text = "Phone:";
+            // 
+            // studentPProvinceLbl
+            // 
+            this.studentPProvinceLbl.AutoSize = true;
+            this.studentPProvinceLbl.Location = new System.Drawing.Point(41, 69);
+            this.studentPProvinceLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.studentPProvinceLbl.Name = "studentPProvinceLbl";
+            this.studentPProvinceLbl.Size = new System.Drawing.Size(52, 13);
+            this.studentPProvinceLbl.TabIndex = 8;
+            this.studentPProvinceLbl.Text = "Province:";
+            // 
+            // studentPCityLbl
+            // 
+            this.studentPCityLbl.AutoSize = true;
+            this.studentPCityLbl.Location = new System.Drawing.Point(66, 45);
+            this.studentPCityLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.studentPCityLbl.Name = "studentPCityLbl";
+            this.studentPCityLbl.Size = new System.Drawing.Size(27, 13);
+            this.studentPCityLbl.TabIndex = 9;
+            this.studentPCityLbl.Text = "City:";
+            // 
+            // studentPPostallLbl
+            // 
+            this.studentPPostallLbl.AutoSize = true;
+            this.studentPPostallLbl.Location = new System.Drawing.Point(26, 93);
+            this.studentPPostallLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.studentPPostallLbl.Name = "studentPPostallLbl";
+            this.studentPPostallLbl.Size = new System.Drawing.Size(67, 13);
+            this.studentPPostallLbl.TabIndex = 14;
+            this.studentPPostallLbl.Text = "Postal Code:";
+            // 
+            // studentPPostalTbx
+            // 
+            this.studentPPostalTbx.Location = new System.Drawing.Point(97, 90);
+            this.studentPPostalTbx.Margin = new System.Windows.Forms.Padding(2);
+            this.studentPPostalTbx.MaxLength = 6;
+            this.studentPPostalTbx.Name = "studentPPostalTbx";
+            this.studentPPostalTbx.Size = new System.Drawing.Size(164, 20);
+            this.studentPPostalTbx.TabIndex = 23;
+            // 
+            // studentPPhoneTbx
+            // 
+            this.studentPPhoneTbx.Location = new System.Drawing.Point(97, 114);
+            this.studentPPhoneTbx.Margin = new System.Windows.Forms.Padding(2);
+            this.studentPPhoneTbx.MaxLength = 10;
+            this.studentPPhoneTbx.Name = "studentPPhoneTbx";
+            this.studentPPhoneTbx.Size = new System.Drawing.Size(87, 20);
+            this.studentPPhoneTbx.TabIndex = 27;
+            // 
+            // studentPCityTbx
+            // 
+            this.studentPCityTbx.Location = new System.Drawing.Point(97, 41);
+            this.studentPCityTbx.Margin = new System.Windows.Forms.Padding(2);
+            this.studentPCityTbx.MaxLength = 30;
+            this.studentPCityTbx.Name = "studentPCityTbx";
+            this.studentPCityTbx.Size = new System.Drawing.Size(164, 20);
+            this.studentPCityTbx.TabIndex = 24;
+            // 
+            // studentPAddressTbx
+            // 
+            this.studentPAddressTbx.Location = new System.Drawing.Point(97, 17);
+            this.studentPAddressTbx.Margin = new System.Windows.Forms.Padding(2);
+            this.studentPAddressTbx.MaxLength = 30;
+            this.studentPAddressTbx.Name = "studentPAddressTbx";
+            this.studentPAddressTbx.Size = new System.Drawing.Size(164, 20);
+            this.studentPAddressTbx.TabIndex = 25;
+            // 
+            // studentAddNewBtn
+            // 
+            this.studentAddNewBtn.Location = new System.Drawing.Point(168, 367);
+            this.studentAddNewBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.studentAddNewBtn.Name = "studentAddNewBtn";
+            this.studentAddNewBtn.Size = new System.Drawing.Size(87, 26);
+            this.studentAddNewBtn.TabIndex = 4;
+            this.studentAddNewBtn.Text = "Add New";
+            this.studentAddNewBtn.UseVisualStyleBackColor = true;
+            this.studentAddNewBtn.Click += new System.EventHandler(this.studentAddNewBtn_Click);
+            // 
+            // studentUpdateBtn
+            // 
+            this.studentUpdateBtn.Enabled = false;
+            this.studentUpdateBtn.Location = new System.Drawing.Point(258, 367);
+            this.studentUpdateBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.studentUpdateBtn.Name = "studentUpdateBtn";
+            this.studentUpdateBtn.Size = new System.Drawing.Size(87, 26);
+            this.studentUpdateBtn.TabIndex = 5;
+            this.studentUpdateBtn.Text = "Save Changes";
+            this.studentUpdateBtn.UseVisualStyleBackColor = true;
+            // 
+            // studentSearchBtn
+            // 
+            this.studentSearchBtn.Location = new System.Drawing.Point(349, 367);
+            this.studentSearchBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.studentSearchBtn.Name = "studentSearchBtn";
+            this.studentSearchBtn.Size = new System.Drawing.Size(87, 26);
+            this.studentSearchBtn.TabIndex = 6;
+            this.studentSearchBtn.Text = "Search";
+            this.studentSearchBtn.UseVisualStyleBackColor = true;
+            // 
+            // studentExitBtn
+            // 
+            this.studentExitBtn.Location = new System.Drawing.Point(440, 367);
+            this.studentExitBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.studentExitBtn.Name = "studentExitBtn";
+            this.studentExitBtn.Size = new System.Drawing.Size(87, 26);
+            this.studentExitBtn.TabIndex = 7;
+            this.studentExitBtn.Text = "Exit";
+            this.studentExitBtn.UseVisualStyleBackColor = true;
+            this.studentExitBtn.Click += new System.EventHandler(this.exitBttn_Click);
+            // 
+            // studentPProvinceCbx
+            // 
+            this.studentPProvinceCbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.studentPProvinceCbx.FormattingEnabled = true;
+            this.studentPProvinceCbx.Items.AddRange(new object[] {
+            "ON",
+            "MB",
+            "SK",
+            "AB",
+            "BC",
+            "YT",
+            "NT",
+            "QU",
+            "NL",
+            "PE",
+            "NS",
+            "NB",
+            "NU"});
+            this.studentPProvinceCbx.Location = new System.Drawing.Point(97, 65);
+            this.studentPProvinceCbx.Margin = new System.Windows.Forms.Padding(2);
+            this.studentPProvinceCbx.MaxLength = 2;
+            this.studentPProvinceCbx.Name = "studentPProvinceCbx";
+            this.studentPProvinceCbx.Size = new System.Drawing.Size(164, 21);
+            this.studentPProvinceCbx.TabIndex = 34;
+            // 
+            // studentNotesTbx
+            // 
+            this.studentNotesTbx.Location = new System.Drawing.Point(30, 88);
+            this.studentNotesTbx.MaxLength = 255;
+            this.studentNotesTbx.Multiline = true;
+            this.studentNotesTbx.Name = "studentNotesTbx";
+            this.studentNotesTbx.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.studentNotesTbx.Size = new System.Drawing.Size(217, 46);
+            this.studentNotesTbx.TabIndex = 10;
+            // 
+            // studentNotesLbl
+            // 
+            this.studentNotesLbl.AutoSize = true;
+            this.studentNotesLbl.Location = new System.Drawing.Point(27, 72);
+            this.studentNotesLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.studentNotesLbl.Name = "studentNotesLbl";
+            this.studentNotesLbl.Size = new System.Drawing.Size(38, 13);
+            this.studentNotesLbl.TabIndex = 11;
+            this.studentNotesLbl.Text = "Notes:";
+            // 
+            // studentNumberSearchBtn
+            // 
+            this.studentNumberSearchBtn.Location = new System.Drawing.Point(506, 150);
+            this.studentNumberSearchBtn.Name = "studentNumberSearchBtn";
+            this.studentNumberSearchBtn.Size = new System.Drawing.Size(55, 21);
+            this.studentNumberSearchBtn.TabIndex = 67;
+            this.studentNumberSearchBtn.Text = "Search";
+            this.studentNumberSearchBtn.UseVisualStyleBackColor = true;
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(102, 92);
+            this.textBox3.Location = new System.Drawing.Point(337, 151);
             this.textBox3.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox3.MaxLength = 20;
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(164, 20);
-            this.textBox3.TabIndex = 21;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(102, 69);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(164, 20);
-            this.textBox4.TabIndex = 20;
-            // 
-            // groupBox9
-            // 
-            this.groupBox9.Controls.Add(this.label27);
-            this.groupBox9.Controls.Add(this.label28);
-            this.groupBox9.Controls.Add(this.label29);
-            this.groupBox9.Controls.Add(this.label30);
-            this.groupBox9.Controls.Add(this.label31);
-            this.groupBox9.Controls.Add(this.label32);
-            this.groupBox9.Controls.Add(this.comboBox1);
-            this.groupBox9.Controls.Add(this.textBox5);
-            this.groupBox9.Controls.Add(this.textBox6);
-            this.groupBox9.Controls.Add(this.textBox7);
-            this.groupBox9.Controls.Add(this.textBox8);
-            this.groupBox9.Controls.Add(this.textBox9);
-            this.groupBox9.Location = new System.Drawing.Point(344, 200);
-            this.groupBox9.Margin = new System.Windows.Forms.Padding(2);
-            this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox9.Size = new System.Drawing.Size(275, 150);
-            this.groupBox9.TabIndex = 40;
-            this.groupBox9.TabStop = false;
-            this.groupBox9.Text = "Local Address";
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(45, 20);
-            this.label27.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(48, 13);
-            this.label27.TabIndex = 15;
-            this.label27.Text = "Address:";
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(52, 117);
-            this.label28.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(41, 13);
-            this.label28.TabIndex = 7;
-            this.label28.Text = "Phone:";
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(41, 69);
-            this.label29.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(52, 13);
-            this.label29.TabIndex = 8;
-            this.label29.Text = "Province:";
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(188, 117);
-            this.label30.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(25, 13);
-            this.label30.TabIndex = 33;
-            this.label30.Text = "Ext:";
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(66, 45);
-            this.label31.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(27, 13);
-            this.label31.TabIndex = 9;
-            this.label31.Text = "City:";
-            // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(26, 93);
-            this.label32.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(67, 13);
-            this.label32.TabIndex = 14;
-            this.label32.Text = "Postal Code:";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "ON",
-            "MB",
-            "SK",
-            "AB",
-            "BC",
-            "YT",
-            "NT",
-            "QU",
-            "NL",
-            "PEI",
-            "NS",
-            "NB",
-            "NU"});
-            this.comboBox1.Location = new System.Drawing.Point(97, 65);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(164, 21);
-            this.comboBox1.TabIndex = 28;
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(97, 90);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(164, 20);
-            this.textBox5.TabIndex = 23;
-            // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(97, 114);
-            this.textBox6.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(87, 20);
-            this.textBox6.TabIndex = 27;
-            // 
-            // textBox7
-            // 
-            this.textBox7.Location = new System.Drawing.Point(97, 41);
-            this.textBox7.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(164, 20);
-            this.textBox7.TabIndex = 24;
-            // 
-            // textBox8
-            // 
-            this.textBox8.Location = new System.Drawing.Point(214, 114);
-            this.textBox8.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(47, 20);
-            this.textBox8.TabIndex = 26;
-            // 
-            // textBox9
-            // 
-            this.textBox9.Location = new System.Drawing.Point(97, 17);
-            this.textBox9.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(164, 20);
-            this.textBox9.TabIndex = 25;
-            // 
-            // groupBox10
-            // 
-            this.groupBox10.Controls.Add(this.checkBox1);
-            this.groupBox10.Controls.Add(this.textBox10);
-            this.groupBox10.Controls.Add(this.label33);
-            this.groupBox10.Location = new System.Drawing.Point(924, 200);
-            this.groupBox10.Margin = new System.Windows.Forms.Padding(2);
-            this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox10.Size = new System.Drawing.Size(275, 150);
-            this.groupBox10.TabIndex = 44;
-            this.groupBox10.TabStop = false;
-            this.groupBox10.Text = "Fees";
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(25, 65);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(56, 17);
-            this.checkBox1.TabIndex = 2;
-            this.checkBox1.Text = "ORPT";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            // 
-            // textBox10
-            // 
-            this.textBox10.Location = new System.Drawing.Point(98, 34);
-            this.textBox10.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(86, 20);
-            this.textBox10.TabIndex = 1;
-            // 
-            // label33
-            // 
-            this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(22, 34);
-            this.label33.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(73, 13);
-            this.label33.TabIndex = 0;
-            this.label33.Text = "Fees owing: $";
-            // 
-            // groupBox11
-            // 
-            this.groupBox11.Controls.Add(this.label34);
-            this.groupBox11.Controls.Add(this.label35);
-            this.groupBox11.Controls.Add(this.label36);
-            this.groupBox11.Controls.Add(this.label38);
-            this.groupBox11.Controls.Add(this.label39);
-            this.groupBox11.Controls.Add(this.comboBox2);
-            this.groupBox11.Controls.Add(this.textBox11);
-            this.groupBox11.Controls.Add(this.textBox12);
-            this.groupBox11.Controls.Add(this.textBox13);
-            this.groupBox11.Controls.Add(this.textBox15);
-            this.groupBox11.Location = new System.Drawing.Point(635, 200);
-            this.groupBox11.Margin = new System.Windows.Forms.Padding(2);
-            this.groupBox11.Name = "groupBox11";
-            this.groupBox11.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox11.Size = new System.Drawing.Size(275, 150);
-            this.groupBox11.TabIndex = 41;
-            this.groupBox11.TabStop = false;
-            this.groupBox11.Text = "Local Address";
-            // 
-            // label34
-            // 
-            this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(45, 20);
-            this.label34.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(48, 13);
-            this.label34.TabIndex = 15;
-            this.label34.Text = "Address:";
-            // 
-            // label35
-            // 
-            this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(52, 117);
-            this.label35.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(41, 13);
-            this.label35.TabIndex = 7;
-            this.label35.Text = "Phone:";
-            // 
-            // label36
-            // 
-            this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(41, 69);
-            this.label36.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(52, 13);
-            this.label36.TabIndex = 8;
-            this.label36.Text = "Province:";
-            // 
-            // label38
-            // 
-            this.label38.AutoSize = true;
-            this.label38.Location = new System.Drawing.Point(66, 45);
-            this.label38.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(27, 13);
-            this.label38.TabIndex = 9;
-            this.label38.Text = "City:";
-            // 
-            // label39
-            // 
-            this.label39.AutoSize = true;
-            this.label39.Location = new System.Drawing.Point(26, 93);
-            this.label39.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(67, 13);
-            this.label39.TabIndex = 14;
-            this.label39.Text = "Postal Code:";
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
-            "ON",
-            "MB",
-            "SK",
-            "AB",
-            "BC",
-            "YT",
-            "NT",
-            "QU",
-            "NL",
-            "PEI",
-            "NS",
-            "NB",
-            "NU"});
-            this.comboBox2.Location = new System.Drawing.Point(97, 65);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(164, 21);
-            this.comboBox2.TabIndex = 28;
-            // 
-            // textBox11
-            // 
-            this.textBox11.Location = new System.Drawing.Point(97, 90);
-            this.textBox11.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(164, 20);
-            this.textBox11.TabIndex = 23;
-            // 
-            // textBox12
-            // 
-            this.textBox12.Location = new System.Drawing.Point(97, 114);
-            this.textBox12.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(87, 20);
-            this.textBox12.TabIndex = 27;
-            // 
-            // textBox13
-            // 
-            this.textBox13.Location = new System.Drawing.Point(97, 41);
-            this.textBox13.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(164, 20);
-            this.textBox13.TabIndex = 24;
-            // 
-            // textBox15
-            // 
-            this.textBox15.Location = new System.Drawing.Point(97, 17);
-            this.textBox15.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(164, 20);
-            this.textBox15.TabIndex = 25;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(168, 367);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(87, 26);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Add New";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(258, 367);
-            this.button2.Margin = new System.Windows.Forms.Padding(2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(87, 26);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "Update";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(349, 367);
-            this.button3.Margin = new System.Windows.Forms.Padding(2);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(87, 26);
-            this.button3.TabIndex = 6;
-            this.button3.Text = "Search";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(440, 367);
-            this.button4.Margin = new System.Windows.Forms.Padding(2);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(87, 26);
-            this.button4.TabIndex = 7;
-            this.button4.Text = "Exit";
-            this.button4.UseVisualStyleBackColor = true;
+            this.textBox3.TabIndex = 23;
+            // 
+            // searchByNumberRbn
+            // 
+            this.searchByNumberRbn.AutoSize = true;
+            this.searchByNumberRbn.Checked = true;
+            this.searchByNumberRbn.Location = new System.Drawing.Point(337, 174);
+            this.searchByNumberRbn.Name = "searchByNumberRbn";
+            this.searchByNumberRbn.Size = new System.Drawing.Size(117, 17);
+            this.searchByNumberRbn.TabIndex = 68;
+            this.searchByNumberRbn.TabStop = true;
+            this.searchByNumberRbn.Text = "By Student Number";
+            this.searchByNumberRbn.UseVisualStyleBackColor = true;
+            // 
+            // searchByLNameRbn
+            // 
+            this.searchByLNameRbn.AutoSize = true;
+            this.searchByLNameRbn.Location = new System.Drawing.Point(460, 174);
+            this.searchByLNameRbn.Name = "searchByLNameRbn";
+            this.searchByLNameRbn.Size = new System.Drawing.Size(91, 17);
+            this.searchByLNameRbn.TabIndex = 69;
+            this.searchByLNameRbn.TabStop = true;
+            this.searchByLNameRbn.Text = "By Last Name";
+            this.searchByLNameRbn.UseVisualStyleBackColor = true;
             // 
             // addUpdateStudent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1284, 1061);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.groupBox11);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.groupBox10);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.groupBox9);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.groupBox8);
+            this.Controls.Add(this.searchByLNameRbn);
+            this.Controls.Add(this.searchByNumberRbn);
+            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.studentNumberSearchBtn);
+            this.Controls.Add(this.studentAddNewBtn);
+            this.Controls.Add(this.permanentGbx);
+            this.Controls.Add(this.studentUpdateBtn);
+            this.Controls.Add(this.feesGbx);
+            this.Controls.Add(this.studentSearchBtn);
+            this.Controls.Add(this.localGbx);
+            this.Controls.Add(this.studentExitBtn);
+            this.Controls.Add(this.infoGbx);
             this.Controls.Add(this.studentLbx);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
@@ -1298,14 +1392,14 @@
             this.groupBox6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.luEquipmentDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblStudentBindingSource)).EndInit();
-            this.groupBox8.ResumeLayout(false);
-            this.groupBox8.PerformLayout();
-            this.groupBox9.ResumeLayout(false);
-            this.groupBox9.PerformLayout();
-            this.groupBox10.ResumeLayout(false);
-            this.groupBox10.PerformLayout();
-            this.groupBox11.ResumeLayout(false);
-            this.groupBox11.PerformLayout();
+            this.infoGbx.ResumeLayout(false);
+            this.infoGbx.PerformLayout();
+            this.localGbx.ResumeLayout(false);
+            this.localGbx.PerformLayout();
+            this.feesGbx.ResumeLayout(false);
+            this.feesGbx.PerformLayout();
+            this.permanentGbx.ResumeLayout(false);
+            this.permanentGbx.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1376,46 +1470,52 @@
         private System.Windows.Forms.ListBox studentLbx;
         private System.Windows.Forms.BindingSource tblStudentBindingSource;
         private System.Windows.Forms.CheckBox orptChbx;
-        private System.Windows.Forms.GroupBox groupBox8;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.GroupBox infoGbx;
+        private System.Windows.Forms.Label studentLNameLbl;
+        private System.Windows.Forms.Label studentNumberLbl;
+        private System.Windows.Forms.Label studentEmailLbl;
+        private System.Windows.Forms.Label studentFNameLbl;
+        private System.Windows.Forms.TextBox studentEmailTbx;
+        private System.Windows.Forms.TextBox studentLNameTbx;
+        private System.Windows.Forms.TextBox studentNumberTbx;
+        private System.Windows.Forms.TextBox studentFNameTbx;
+        private System.Windows.Forms.GroupBox localGbx;
+        private System.Windows.Forms.Label studentAddressLbl;
+        private System.Windows.Forms.Label studentPhoneLbl;
+        private System.Windows.Forms.Label studentProvinceLbl;
+        private System.Windows.Forms.Label studentExtLbl;
+        private System.Windows.Forms.Label studentCityLbl;
+        private System.Windows.Forms.Label studentPostalLbl;
+        private System.Windows.Forms.ComboBox studentProvinceCbx;
+        private System.Windows.Forms.TextBox studentPostalTbx;
+        private System.Windows.Forms.TextBox studentPhoneTbx;
+        private System.Windows.Forms.TextBox studentCityTbx;
+        private System.Windows.Forms.TextBox studentExtTbx;
+        private System.Windows.Forms.TextBox studentAddressTbx;
+        private System.Windows.Forms.GroupBox feesGbx;
+        private System.Windows.Forms.CheckBox studentORPTChbx;
+        private System.Windows.Forms.TextBox studentFeesTbx;
+        private System.Windows.Forms.Label studentFeesLbl;
+        private System.Windows.Forms.GroupBox permanentGbx;
+        private System.Windows.Forms.Label studentPAddressLbl;
+        private System.Windows.Forms.Label studentPPhoneLbl;
+        private System.Windows.Forms.Label studentPProvinceLbl;
+        private System.Windows.Forms.Label studentPCityLbl;
+        private System.Windows.Forms.Label studentPPostallLbl;
+        private System.Windows.Forms.TextBox studentPPostalTbx;
+        private System.Windows.Forms.TextBox studentPPhoneTbx;
+        private System.Windows.Forms.TextBox studentPCityTbx;
+        private System.Windows.Forms.TextBox studentPAddressTbx;
+        private System.Windows.Forms.Button studentAddNewBtn;
+        private System.Windows.Forms.Button studentUpdateBtn;
+        private System.Windows.Forms.Button studentSearchBtn;
+        private System.Windows.Forms.Button studentExitBtn;
+        private System.Windows.Forms.ComboBox studentPProvinceCbx;
+        private System.Windows.Forms.Label studentNotesLbl;
+        private System.Windows.Forms.TextBox studentNotesTbx;
+        private System.Windows.Forms.Button studentNumberSearchBtn;
         private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.GroupBox groupBox9;
-        private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.Label label32;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.GroupBox groupBox10;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.Label label33;
-        private System.Windows.Forms.GroupBox groupBox11;
-        private System.Windows.Forms.Label label34;
-        private System.Windows.Forms.Label label35;
-        private System.Windows.Forms.Label label36;
-        private System.Windows.Forms.Label label38;
-        private System.Windows.Forms.Label label39;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.TextBox textBox11;
-        private System.Windows.Forms.TextBox textBox12;
-        private System.Windows.Forms.TextBox textBox13;
-        private System.Windows.Forms.TextBox textBox15;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.RadioButton searchByNumberRbn;
+        private System.Windows.Forms.RadioButton searchByLNameRbn;
     }
 }
