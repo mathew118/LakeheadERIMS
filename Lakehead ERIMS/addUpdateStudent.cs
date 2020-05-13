@@ -13,6 +13,10 @@ namespace Lakehead_ERIMS
 {
     public partial class addUpdateStudent : Form
     {
+
+        //Combine add and update sections
+        //Implement ORPT checkbox
+
         public addUpdateStudent()
         {
             InitializeComponent();
@@ -104,6 +108,18 @@ namespace Lakehead_ERIMS
             tblStudentTableAdapter1.Update(studentRow);
 
             
+        }
+
+        private void addUpdateStudent_Shown(object sender, EventArgs e)
+        {
+            this.tblStudentTableAdapter1.Fill(this.luEquipmentDataSet1.tblStudent);
+        }
+
+        private void studentLbx_Format(object sender, ListControlConvertEventArgs e)
+        {
+            string studentFName = ((DataRowView)e.ListItem)[3].ToString();
+
+            e.Value += ", " + studentFName;
         }
     }
 }

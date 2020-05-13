@@ -37,6 +37,7 @@
             this.usernameLbl = new System.Windows.Forms.Label();
             this.tblEmployeeTableAdapter = new Lakehead_ERIMS.LUEquipmentDataSetTableAdapters.tblEmployeeTableAdapter();
             this.lUEquipmentDataSet = new Lakehead_ERIMS.LUEquipmentDataSet();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.lUEquipmentDataSet)).BeginInit();
             this.SuspendLayout();
             // 
@@ -115,6 +116,17 @@
             this.lUEquipmentDataSet.DataSetName = "LUEquipmentDataSet";
             this.lUEquipmentDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
+            // button1
+            // 
+            this.button1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.button1.Location = new System.Drawing.Point(111, 163);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 15;
+            this.button1.Text = "Skip";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Login
             // 
             this.AcceptButton = this.loginBtn;
@@ -122,6 +134,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.exitBtn;
             this.ClientSize = new System.Drawing.Size(302, 209);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.exitBtn);
             this.Controls.Add(this.loginBtn);
             this.Controls.Add(this.passwordTbx);
@@ -151,5 +164,6 @@
         private System.Windows.Forms.Label usernameLbl;
         private LUEquipmentDataSetTableAdapters.tblEmployeeTableAdapter tblEmployeeTableAdapter;
         private LUEquipmentDataSet lUEquipmentDataSet;
+        private System.Windows.Forms.Button button1;
     }
 }
