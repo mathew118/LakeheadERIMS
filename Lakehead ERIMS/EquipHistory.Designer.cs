@@ -114,7 +114,10 @@
             this.Controls.Add(this.searchBtn);
             this.Controls.Add(this.search1TxtBox);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "EquipHistory";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Equipment History";
             this.Load += new System.EventHandler(this.EquipHistory_Load);

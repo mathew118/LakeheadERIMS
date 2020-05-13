@@ -208,5 +208,43 @@ namespace Lakehead_ERIMS
 
             studentUpdateBtn.Enabled = true;
         }
+
+        private void studentSearchingBtn_Click(object sender, EventArgs e)
+        {
+            string searchCriteria = studentSearchingTbx.Text.Trim();
+
+            if (studentLbx.Items.Count > 0)
+            {
+                if (searchCriteria.Length > 0)
+                {
+                    string searchColumn = (searchByLNameRbn.Checked) ? "Stu_LName" : "Stu_Number";                   
+                    DataRow[] searchResults = this.luEquipmentDataSet1.tblStudent.Select(searchColumn + " = '" + searchCriteria + "'");
+
+                    //Multiple students with same last name can be found.
+                    if (searchResults.Length > 0)
+                    {
+                        string studentLbxFormat = searchResults[0][2].ToString() + ", " + searchResults[0][3].ToString();
+                        int studentListboxIndex = studentLbx.FindStringExact(studentLbxFormat);
+                        if (studentListboxIndex != -1)
+                        {
+                            studentLbx.SetSelected(studentListboxIndex, true);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Student not found in list.", "Error");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Student not found.", "Error");
+                    }                                    
+                }
+                else
+                {
+                    MessageBox.Show("Please enter search criteria.", "Error");
+                }
+
+            }
+        }
     }
 }

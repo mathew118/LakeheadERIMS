@@ -62,6 +62,7 @@
             this.studentNumberTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.Fees = new System.Windows.Forms.GroupBox();
+            this.orptChbx = new System.Windows.Forms.CheckBox();
             this.feeTextBox = new System.Windows.Forms.TextBox();
             this.label24 = new System.Windows.Forms.Label();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
@@ -91,7 +92,6 @@
             this.tblEquipTableAdapter1 = new Lakehead_ERIMS.LUEquipmentDataSetTableAdapters.tblEquipTableAdapter();
             this.studentLbx = new System.Windows.Forms.ListBox();
             this.tblStudentBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.orptChbx = new System.Windows.Forms.CheckBox();
             this.infoGbx = new System.Windows.Forms.GroupBox();
             this.studentLNameLbl = new System.Windows.Forms.Label();
             this.studentNumberLbl = new System.Windows.Forms.Label();
@@ -115,10 +115,13 @@
             this.studentExtTbx = new System.Windows.Forms.TextBox();
             this.studentAddressTbx = new System.Windows.Forms.TextBox();
             this.feesGbx = new System.Windows.Forms.GroupBox();
+            this.studentNotesLbl = new System.Windows.Forms.Label();
+            this.studentNotesTbx = new System.Windows.Forms.TextBox();
             this.studentORPTChbx = new System.Windows.Forms.CheckBox();
             this.studentFeesTbx = new System.Windows.Forms.TextBox();
             this.studentFeesLbl = new System.Windows.Forms.Label();
             this.permanentGbx = new System.Windows.Forms.GroupBox();
+            this.studentPProvinceCbx = new System.Windows.Forms.ComboBox();
             this.studentPAddressLbl = new System.Windows.Forms.Label();
             this.studentPPhoneLbl = new System.Windows.Forms.Label();
             this.studentPProvinceLbl = new System.Windows.Forms.Label();
@@ -132,11 +135,8 @@
             this.studentUpdateBtn = new System.Windows.Forms.Button();
             this.studentSearchBtn = new System.Windows.Forms.Button();
             this.studentExitBtn = new System.Windows.Forms.Button();
-            this.studentPProvinceCbx = new System.Windows.Forms.ComboBox();
-            this.studentNotesTbx = new System.Windows.Forms.TextBox();
-            this.studentNotesLbl = new System.Windows.Forms.Label();
-            this.studentNumberSearchBtn = new System.Windows.Forms.Button();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.studentSearchingBtn = new System.Windows.Forms.Button();
+            this.studentSearchingTbx = new System.Windows.Forms.TextBox();
             this.searchByNumberRbn = new System.Windows.Forms.RadioButton();
             this.searchByLNameRbn = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
@@ -524,6 +524,16 @@
             this.Fees.TabStop = false;
             this.Fees.Text = "Fees";
             // 
+            // orptChbx
+            // 
+            this.orptChbx.AutoSize = true;
+            this.orptChbx.Location = new System.Drawing.Point(25, 65);
+            this.orptChbx.Name = "orptChbx";
+            this.orptChbx.Size = new System.Drawing.Size(56, 17);
+            this.orptChbx.TabIndex = 2;
+            this.orptChbx.Text = "ORPT";
+            this.orptChbx.UseVisualStyleBackColor = true;
+            // 
             // feeTextBox
             // 
             this.feeTextBox.Location = new System.Drawing.Point(98, 34);
@@ -811,16 +821,6 @@
             this.tblStudentBindingSource.DataMember = "tblStudent";
             this.tblStudentBindingSource.DataSource = this.luEquipmentDataSet1;
             // 
-            // orptChbx
-            // 
-            this.orptChbx.AutoSize = true;
-            this.orptChbx.Location = new System.Drawing.Point(25, 65);
-            this.orptChbx.Name = "orptChbx";
-            this.orptChbx.Size = new System.Drawing.Size(56, 17);
-            this.orptChbx.TabIndex = 2;
-            this.orptChbx.Text = "ORPT";
-            this.orptChbx.UseVisualStyleBackColor = true;
-            // 
             // infoGbx
             // 
             this.infoGbx.Controls.Add(this.studentLNameLbl);
@@ -831,7 +831,7 @@
             this.infoGbx.Controls.Add(this.studentLNameTbx);
             this.infoGbx.Controls.Add(this.studentNumberTbx);
             this.infoGbx.Controls.Add(this.studentFNameTbx);
-            this.infoGbx.Location = new System.Drawing.Point(52, 200);
+            this.infoGbx.Location = new System.Drawing.Point(52, 218);
             this.infoGbx.Margin = new System.Windows.Forms.Padding(2);
             this.infoGbx.Name = "infoGbx";
             this.infoGbx.Padding = new System.Windows.Forms.Padding(2);
@@ -930,7 +930,7 @@
             this.localGbx.Controls.Add(this.studentCityTbx);
             this.localGbx.Controls.Add(this.studentExtTbx);
             this.localGbx.Controls.Add(this.studentAddressTbx);
-            this.localGbx.Location = new System.Drawing.Point(344, 200);
+            this.localGbx.Location = new System.Drawing.Point(344, 218);
             this.localGbx.Margin = new System.Windows.Forms.Padding(2);
             this.localGbx.Name = "localGbx";
             this.localGbx.Padding = new System.Windows.Forms.Padding(2);
@@ -1076,7 +1076,7 @@
             this.feesGbx.Controls.Add(this.studentORPTChbx);
             this.feesGbx.Controls.Add(this.studentFeesTbx);
             this.feesGbx.Controls.Add(this.studentFeesLbl);
-            this.feesGbx.Location = new System.Drawing.Point(924, 200);
+            this.feesGbx.Location = new System.Drawing.Point(924, 218);
             this.feesGbx.Margin = new System.Windows.Forms.Padding(2);
             this.feesGbx.Name = "feesGbx";
             this.feesGbx.Padding = new System.Windows.Forms.Padding(2);
@@ -1084,6 +1084,26 @@
             this.feesGbx.TabIndex = 44;
             this.feesGbx.TabStop = false;
             this.feesGbx.Text = "Additional Information";
+            // 
+            // studentNotesLbl
+            // 
+            this.studentNotesLbl.AutoSize = true;
+            this.studentNotesLbl.Location = new System.Drawing.Point(27, 72);
+            this.studentNotesLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.studentNotesLbl.Name = "studentNotesLbl";
+            this.studentNotesLbl.Size = new System.Drawing.Size(38, 13);
+            this.studentNotesLbl.TabIndex = 11;
+            this.studentNotesLbl.Text = "Notes:";
+            // 
+            // studentNotesTbx
+            // 
+            this.studentNotesTbx.Location = new System.Drawing.Point(30, 88);
+            this.studentNotesTbx.MaxLength = 255;
+            this.studentNotesTbx.Multiline = true;
+            this.studentNotesTbx.Name = "studentNotesTbx";
+            this.studentNotesTbx.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.studentNotesTbx.Size = new System.Drawing.Size(217, 46);
+            this.studentNotesTbx.TabIndex = 10;
             // 
             // studentORPTChbx
             // 
@@ -1125,7 +1145,7 @@
             this.permanentGbx.Controls.Add(this.studentPPhoneTbx);
             this.permanentGbx.Controls.Add(this.studentPCityTbx);
             this.permanentGbx.Controls.Add(this.studentPAddressTbx);
-            this.permanentGbx.Location = new System.Drawing.Point(635, 200);
+            this.permanentGbx.Location = new System.Drawing.Point(635, 218);
             this.permanentGbx.Margin = new System.Windows.Forms.Padding(2);
             this.permanentGbx.Name = "permanentGbx";
             this.permanentGbx.Padding = new System.Windows.Forms.Padding(2);
@@ -1133,6 +1153,31 @@
             this.permanentGbx.TabIndex = 41;
             this.permanentGbx.TabStop = false;
             this.permanentGbx.Text = "Permanent Address";
+            // 
+            // studentPProvinceCbx
+            // 
+            this.studentPProvinceCbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.studentPProvinceCbx.FormattingEnabled = true;
+            this.studentPProvinceCbx.Items.AddRange(new object[] {
+            "ON",
+            "MB",
+            "SK",
+            "AB",
+            "BC",
+            "YT",
+            "NT",
+            "QU",
+            "NL",
+            "PE",
+            "NS",
+            "NB",
+            "NU"});
+            this.studentPProvinceCbx.Location = new System.Drawing.Point(97, 65);
+            this.studentPProvinceCbx.Margin = new System.Windows.Forms.Padding(2);
+            this.studentPProvinceCbx.MaxLength = 2;
+            this.studentPProvinceCbx.Name = "studentPProvinceCbx";
+            this.studentPProvinceCbx.Size = new System.Drawing.Size(164, 21);
+            this.studentPProvinceCbx.TabIndex = 34;
             // 
             // studentPAddressLbl
             // 
@@ -1222,7 +1267,7 @@
             // 
             // studentAddNewBtn
             // 
-            this.studentAddNewBtn.Location = new System.Drawing.Point(168, 367);
+            this.studentAddNewBtn.Location = new System.Drawing.Point(168, 385);
             this.studentAddNewBtn.Margin = new System.Windows.Forms.Padding(2);
             this.studentAddNewBtn.Name = "studentAddNewBtn";
             this.studentAddNewBtn.Size = new System.Drawing.Size(87, 26);
@@ -1234,7 +1279,7 @@
             // studentUpdateBtn
             // 
             this.studentUpdateBtn.Enabled = false;
-            this.studentUpdateBtn.Location = new System.Drawing.Point(258, 367);
+            this.studentUpdateBtn.Location = new System.Drawing.Point(258, 385);
             this.studentUpdateBtn.Margin = new System.Windows.Forms.Padding(2);
             this.studentUpdateBtn.Name = "studentUpdateBtn";
             this.studentUpdateBtn.Size = new System.Drawing.Size(87, 26);
@@ -1244,7 +1289,7 @@
             // 
             // studentSearchBtn
             // 
-            this.studentSearchBtn.Location = new System.Drawing.Point(349, 367);
+            this.studentSearchBtn.Location = new System.Drawing.Point(349, 385);
             this.studentSearchBtn.Margin = new System.Windows.Forms.Padding(2);
             this.studentSearchBtn.Name = "studentSearchBtn";
             this.studentSearchBtn.Size = new System.Drawing.Size(87, 26);
@@ -1254,7 +1299,7 @@
             // 
             // studentExitBtn
             // 
-            this.studentExitBtn.Location = new System.Drawing.Point(440, 367);
+            this.studentExitBtn.Location = new System.Drawing.Point(440, 385);
             this.studentExitBtn.Margin = new System.Windows.Forms.Padding(2);
             this.studentExitBtn.Name = "studentExitBtn";
             this.studentExitBtn.Size = new System.Drawing.Size(87, 26);
@@ -1263,68 +1308,24 @@
             this.studentExitBtn.UseVisualStyleBackColor = true;
             this.studentExitBtn.Click += new System.EventHandler(this.exitBttn_Click);
             // 
-            // studentPProvinceCbx
+            // studentSearchingBtn
             // 
-            this.studentPProvinceCbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.studentPProvinceCbx.FormattingEnabled = true;
-            this.studentPProvinceCbx.Items.AddRange(new object[] {
-            "ON",
-            "MB",
-            "SK",
-            "AB",
-            "BC",
-            "YT",
-            "NT",
-            "QU",
-            "NL",
-            "PE",
-            "NS",
-            "NB",
-            "NU"});
-            this.studentPProvinceCbx.Location = new System.Drawing.Point(97, 65);
-            this.studentPProvinceCbx.Margin = new System.Windows.Forms.Padding(2);
-            this.studentPProvinceCbx.MaxLength = 2;
-            this.studentPProvinceCbx.Name = "studentPProvinceCbx";
-            this.studentPProvinceCbx.Size = new System.Drawing.Size(164, 21);
-            this.studentPProvinceCbx.TabIndex = 34;
+            this.studentSearchingBtn.Location = new System.Drawing.Point(506, 150);
+            this.studentSearchingBtn.Name = "studentSearchingBtn";
+            this.studentSearchingBtn.Size = new System.Drawing.Size(55, 21);
+            this.studentSearchingBtn.TabIndex = 67;
+            this.studentSearchingBtn.Text = "Search";
+            this.studentSearchingBtn.UseVisualStyleBackColor = true;
+            this.studentSearchingBtn.Click += new System.EventHandler(this.studentSearchingBtn_Click);
             // 
-            // studentNotesTbx
+            // studentSearchingTbx
             // 
-            this.studentNotesTbx.Location = new System.Drawing.Point(30, 88);
-            this.studentNotesTbx.MaxLength = 255;
-            this.studentNotesTbx.Multiline = true;
-            this.studentNotesTbx.Name = "studentNotesTbx";
-            this.studentNotesTbx.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.studentNotesTbx.Size = new System.Drawing.Size(217, 46);
-            this.studentNotesTbx.TabIndex = 10;
-            // 
-            // studentNotesLbl
-            // 
-            this.studentNotesLbl.AutoSize = true;
-            this.studentNotesLbl.Location = new System.Drawing.Point(27, 72);
-            this.studentNotesLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.studentNotesLbl.Name = "studentNotesLbl";
-            this.studentNotesLbl.Size = new System.Drawing.Size(38, 13);
-            this.studentNotesLbl.TabIndex = 11;
-            this.studentNotesLbl.Text = "Notes:";
-            // 
-            // studentNumberSearchBtn
-            // 
-            this.studentNumberSearchBtn.Location = new System.Drawing.Point(506, 150);
-            this.studentNumberSearchBtn.Name = "studentNumberSearchBtn";
-            this.studentNumberSearchBtn.Size = new System.Drawing.Size(55, 21);
-            this.studentNumberSearchBtn.TabIndex = 67;
-            this.studentNumberSearchBtn.Text = "Search";
-            this.studentNumberSearchBtn.UseVisualStyleBackColor = true;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(337, 151);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox3.MaxLength = 20;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(164, 20);
-            this.textBox3.TabIndex = 23;
+            this.studentSearchingTbx.Location = new System.Drawing.Point(337, 151);
+            this.studentSearchingTbx.Margin = new System.Windows.Forms.Padding(2);
+            this.studentSearchingTbx.MaxLength = 20;
+            this.studentSearchingTbx.Name = "studentSearchingTbx";
+            this.studentSearchingTbx.Size = new System.Drawing.Size(164, 20);
+            this.studentSearchingTbx.TabIndex = 23;
             // 
             // searchByNumberRbn
             // 
@@ -1345,7 +1346,6 @@
             this.searchByLNameRbn.Name = "searchByLNameRbn";
             this.searchByLNameRbn.Size = new System.Drawing.Size(91, 17);
             this.searchByLNameRbn.TabIndex = 69;
-            this.searchByLNameRbn.TabStop = true;
             this.searchByLNameRbn.Text = "By Last Name";
             this.searchByLNameRbn.UseVisualStyleBackColor = true;
             // 
@@ -1356,8 +1356,8 @@
             this.ClientSize = new System.Drawing.Size(1284, 1061);
             this.Controls.Add(this.searchByLNameRbn);
             this.Controls.Add(this.searchByNumberRbn);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.studentNumberSearchBtn);
+            this.Controls.Add(this.studentSearchingTbx);
+            this.Controls.Add(this.studentSearchingBtn);
             this.Controls.Add(this.studentAddNewBtn);
             this.Controls.Add(this.permanentGbx);
             this.Controls.Add(this.studentUpdateBtn);
@@ -1371,8 +1371,11 @@
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.formTitle);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(2);
+            this.MaximizeBox = false;
             this.Name = "addUpdateStudent";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add or Update Students";
             this.Shown += new System.EventHandler(this.addUpdateStudent_Shown);
@@ -1513,8 +1516,8 @@
         private System.Windows.Forms.ComboBox studentPProvinceCbx;
         private System.Windows.Forms.Label studentNotesLbl;
         private System.Windows.Forms.TextBox studentNotesTbx;
-        private System.Windows.Forms.Button studentNumberSearchBtn;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Button studentSearchingBtn;
+        private System.Windows.Forms.TextBox studentSearchingTbx;
         private System.Windows.Forms.RadioButton searchByNumberRbn;
         private System.Windows.Forms.RadioButton searchByLNameRbn;
     }

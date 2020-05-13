@@ -142,6 +142,7 @@
             this.Controls.Add(this.passwordLbl);
             this.Controls.Add(this.usernameLbl);
             this.Controls.Add(this.formTitleLbl);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.Name = "Login";
             this.ShowIcon = false;

@@ -190,7 +190,10 @@
             this.Controls.Add(this.statusLbx);
             this.Controls.Add(this.locationsLbx);
             this.Controls.Add(this.categoriesLbx);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "EquipInventory";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Equipment Inventory";
             this.Load += new System.EventHandler(this.EquipInventory_Load);
