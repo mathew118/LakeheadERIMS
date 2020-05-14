@@ -46,6 +46,7 @@
             this.studentFNameTbx = new System.Windows.Forms.TextBox();
             this.localGbx = new System.Windows.Forms.GroupBox();
             this.studentAddressLbl = new System.Windows.Forms.Label();
+            this.studentProvinceClearBtn = new System.Windows.Forms.Button();
             this.studentPhoneLbl = new System.Windows.Forms.Label();
             this.studentProvinceLbl = new System.Windows.Forms.Label();
             this.studentExtLbl = new System.Windows.Forms.Label();
@@ -58,12 +59,14 @@
             this.studentExtTbx = new System.Windows.Forms.TextBox();
             this.studentAddressTbx = new System.Windows.Forms.TextBox();
             this.feesGbx = new System.Windows.Forms.GroupBox();
+            this.clearFeesBtn = new System.Windows.Forms.Button();
             this.studentNotesLbl = new System.Windows.Forms.Label();
             this.studentNotesTbx = new System.Windows.Forms.TextBox();
             this.studentORPTChbx = new System.Windows.Forms.CheckBox();
             this.studentFeesTbx = new System.Windows.Forms.TextBox();
             this.studentFeesLbl = new System.Windows.Forms.Label();
             this.permanentGbx = new System.Windows.Forms.GroupBox();
+            this.studentPProvinceClearBtn = new System.Windows.Forms.Button();
             this.studentPProvinceCbx = new System.Windows.Forms.ComboBox();
             this.studentPAddressLbl = new System.Windows.Forms.Label();
             this.studentPPhoneLbl = new System.Windows.Forms.Label();
@@ -81,9 +84,6 @@
             this.studentSearchingTbx = new System.Windows.Forms.TextBox();
             this.searchByNumberRbn = new System.Windows.Forms.RadioButton();
             this.searchByLNameRbn = new System.Windows.Forms.RadioButton();
-            this.studentProvinceClearBtn = new System.Windows.Forms.Button();
-            this.studentPProvinceClearBtn = new System.Windows.Forms.Button();
-            this.clearFeesBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.luEquipmentDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblStudentBindingSource)).BeginInit();
             this.infoGbx.SuspendLayout();
@@ -269,6 +269,17 @@
             this.studentAddressLbl.TabIndex = 94;
             this.studentAddressLbl.Text = "Address:";
             // 
+            // studentProvinceClearBtn
+            // 
+            this.studentProvinceClearBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.studentProvinceClearBtn.Location = new System.Drawing.Point(246, 65);
+            this.studentProvinceClearBtn.Name = "studentProvinceClearBtn";
+            this.studentProvinceClearBtn.Size = new System.Drawing.Size(25, 20);
+            this.studentProvinceClearBtn.TabIndex = 26;
+            this.studentProvinceClearBtn.Text = "C";
+            this.studentProvinceClearBtn.UseVisualStyleBackColor = true;
+            this.studentProvinceClearBtn.Click += new System.EventHandler(this.studentProvinceClearBtn_Click);
+            // 
             // studentPhoneLbl
             // 
             this.studentPhoneLbl.AutoSize = true;
@@ -412,6 +423,17 @@
             this.feesGbx.TabStop = false;
             this.feesGbx.Text = "Additional Information";
             // 
+            // clearFeesBtn
+            // 
+            this.clearFeesBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clearFeesBtn.Location = new System.Drawing.Point(188, 16);
+            this.clearFeesBtn.Name = "clearFeesBtn";
+            this.clearFeesBtn.Size = new System.Drawing.Size(55, 21);
+            this.clearFeesBtn.TabIndex = 106;
+            this.clearFeesBtn.Text = "Clear";
+            this.clearFeesBtn.UseVisualStyleBackColor = true;
+            this.clearFeesBtn.Click += new System.EventHandler(this.clearFeesBtn_Click);
+            // 
             // studentNotesLbl
             // 
             this.studentNotesLbl.AutoSize = true;
@@ -484,6 +506,17 @@
             this.permanentGbx.TabIndex = 109;
             this.permanentGbx.TabStop = false;
             this.permanentGbx.Text = "Permanent Address";
+            // 
+            // studentPProvinceClearBtn
+            // 
+            this.studentPProvinceClearBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.studentPProvinceClearBtn.Location = new System.Drawing.Point(246, 66);
+            this.studentPProvinceClearBtn.Name = "studentPProvinceClearBtn";
+            this.studentPProvinceClearBtn.Size = new System.Drawing.Size(25, 20);
+            this.studentPProvinceClearBtn.TabIndex = 27;
+            this.studentPProvinceClearBtn.Text = "C";
+            this.studentPProvinceClearBtn.UseVisualStyleBackColor = true;
+            this.studentPProvinceClearBtn.Click += new System.EventHandler(this.studentPProvinceClearBtn_Click);
             // 
             // studentPProvinceCbx
             // 
@@ -659,57 +692,24 @@
             // searchByNumberRbn
             // 
             this.searchByNumberRbn.AutoSize = true;
-            this.searchByNumberRbn.Checked = true;
-            this.searchByNumberRbn.Location = new System.Drawing.Point(346, 174);
+            this.searchByNumberRbn.Location = new System.Drawing.Point(443, 176);
             this.searchByNumberRbn.Name = "searchByNumberRbn";
             this.searchByNumberRbn.Size = new System.Drawing.Size(117, 17);
             this.searchByNumberRbn.TabIndex = 23;
-            this.searchByNumberRbn.TabStop = true;
             this.searchByNumberRbn.Text = "By Student Number";
             this.searchByNumberRbn.UseVisualStyleBackColor = true;
             // 
             // searchByLNameRbn
             // 
             this.searchByLNameRbn.AutoSize = true;
-            this.searchByLNameRbn.Location = new System.Drawing.Point(469, 174);
+            this.searchByLNameRbn.Checked = true;
+            this.searchByLNameRbn.Location = new System.Drawing.Point(346, 176);
             this.searchByLNameRbn.Name = "searchByLNameRbn";
             this.searchByLNameRbn.Size = new System.Drawing.Size(91, 17);
             this.searchByLNameRbn.TabIndex = 24;
+            this.searchByLNameRbn.TabStop = true;
             this.searchByLNameRbn.Text = "By Last Name";
             this.searchByLNameRbn.UseVisualStyleBackColor = true;
-            // 
-            // studentProvinceClearBtn
-            // 
-            this.studentProvinceClearBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.studentProvinceClearBtn.Location = new System.Drawing.Point(246, 65);
-            this.studentProvinceClearBtn.Name = "studentProvinceClearBtn";
-            this.studentProvinceClearBtn.Size = new System.Drawing.Size(25, 20);
-            this.studentProvinceClearBtn.TabIndex = 26;
-            this.studentProvinceClearBtn.Text = "C";
-            this.studentProvinceClearBtn.UseVisualStyleBackColor = true;
-            this.studentProvinceClearBtn.Click += new System.EventHandler(this.studentProvinceClearBtn_Click);
-            // 
-            // studentPProvinceClearBtn
-            // 
-            this.studentPProvinceClearBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.studentPProvinceClearBtn.Location = new System.Drawing.Point(246, 66);
-            this.studentPProvinceClearBtn.Name = "studentPProvinceClearBtn";
-            this.studentPProvinceClearBtn.Size = new System.Drawing.Size(25, 20);
-            this.studentPProvinceClearBtn.TabIndex = 27;
-            this.studentPProvinceClearBtn.Text = "C";
-            this.studentPProvinceClearBtn.UseVisualStyleBackColor = true;
-            this.studentPProvinceClearBtn.Click += new System.EventHandler(this.studentPProvinceClearBtn_Click);
-            // 
-            // clearFeesBtn
-            // 
-            this.clearFeesBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clearFeesBtn.Location = new System.Drawing.Point(188, 16);
-            this.clearFeesBtn.Name = "clearFeesBtn";
-            this.clearFeesBtn.Size = new System.Drawing.Size(55, 21);
-            this.clearFeesBtn.TabIndex = 106;
-            this.clearFeesBtn.Text = "Clear";
-            this.clearFeesBtn.UseVisualStyleBackColor = true;
-            this.clearFeesBtn.Click += new System.EventHandler(this.clearFeesBtn_Click);
             // 
             // addUpdateStudent
             // 
