@@ -14,9 +14,6 @@ namespace Lakehead_ERIMS
     public partial class addUpdateStudent : Form
     {
 
-        //Combine add and update sections
-        //Implement ORPT checkbox
-
         public addUpdateStudent()
         {
             InitializeComponent();
@@ -243,8 +240,139 @@ namespace Lakehead_ERIMS
                 {
                     MessageBox.Show("Please enter search criteria.", "Error");
                 }
-
             }
+            studentSearchingTbx.Clear();
+        }
+
+        private void HandleNumericOnly(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar) || (e.KeyChar == (char)8))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void studentFieldChanged(object sender, EventArgs e)
+        {
+            studentUpdateBtn.Enabled = true;
+
+        }
+
+        private void studentUpdateBtn_Click(object sender, EventArgs e)
+        {
+            string newStudentNum = studentNumberTbx.Text.Trim();
+            string newLastName = studentLNameTbx.Text.Trim();
+            string newFirstName = studentFNameTbx.Text.Trim();
+            string newEmail = studentEmailTbx.Text.Trim();
+            string newLAddress = studentAddressTbx.Text.Trim();
+            string newPAddress = studentPAddressTbx.Text.Trim();
+            string newLCity = studentCityTbx.Text.Trim();
+            string newPCity = studentPCityTbx.Text.Trim();
+            string newLPostal = studentPostalTbx.Text.Trim();
+            string newPPostal = studentPPostalTbx.Text.Trim();
+            string newLPhone = studentPhoneTbx.Text.Trim();
+            string newPPhone = studentPPhoneTbx.Text.Trim();
+            string newExt = studentExtTbx.Text.Trim();
+            string newLProvince = studentProvinceCbx.Text.Trim();
+            string newPProvince = studentPProvinceCbx.Text.Trim();
+            string newNotes = studentNotesTbx.Text.Trim();
+            float newFees = -1;         
+            bool newORPT = studentORPTChbx.Checked;
+
+            //Validate Fields
+            if (newStudentNum.Length < 1 || !int.TryParse(newStudentNum, out int tempItemNum))
+            {
+                MessageBox.Show("Student number is invalid.", "Error");
+                studentNumberTbx.Clear();
+            }
+            //If a student with the same number exists and you're adding new, or a student with the same number exists and you're not editing that same student, show an error
+            else if ((this.luEquipmentDataSet1.tblStudent.Select("Stu_Number = '" + newStudentNum + "'").Length > 0) && (studentLbx.SelectedIndex == -1 || (studentLbx.SelectedIndex != -1 && luEquipmentDataSet1.tblStudent.FindByStu_ID(int.Parse(studentLbx.SelectedValue.ToString())).Stu_Number != newStudentNum)))
+            {
+                MessageBox.Show("A student with that student number already exists.", "Error");
+                studentNumberTbx.Clear();
+            }
+            else if (newLastName.Length < 1)
+            {
+                MessageBox.Show("Last name is invalid.", "Error");
+                studentLNameTbx.Clear();
+            }
+            else if (newFirstName.Length < 1)
+            {
+                MessageBox.Show("First name is invalid.", "Error");
+                studentFNameTbx.Clear();
+            }
+            else if (studentFeesTbx.Text.Trim().Length != 0 && !float.TryParse(studentFeesTbx.Text.Trim(), System.Globalization.NumberStyles.Currency, System.Globalization.NumberFormatInfo.CurrentInfo, out newFees))
+            {
+                MessageBox.Show("Fees owing is invalid.", "Error");
+                studentFeesTbx.Clear();
+            }
+            else
+            {
+                //Update
+                if (studentLbx.SelectedIndex != -1)
+                {
+                    int studentID = -1;
+                    int.TryParse(studentLbx.SelectedValue.ToString(), out studentID);
+                    int studentListboxIndex = studentLbx.SelectedIndex;
+
+                    if (studentID != -1)
+                    {
+                        LUEquipmentDataSet.tblStudentRow studentRow = luEquipmentDataSet1.tblStudent.FindByStu_ID(studentID);
+
+                        if (!string.IsNullOrEmpty(newEmail)) { studentRow.Stu_Email = newEmail; } else { studentRow.SetStu_EmailNull(); }
+                        if (!string.IsNullOrEmpty(newLAddress)) { studentRow.Stu_LAddress = newLAddress; } else { studentRow.SetStu_LAddressNull(); }
+                        if (!string.IsNullOrEmpty(newPAddress)) { studentRow.Stu_HAddress = newPAddress; } else { studentRow.SetStu_HAddressNull(); }
+                        if (!string.IsNullOrEmpty(newLCity)) { studentRow.Stu_LCity = newLCity; } else { studentRow.SetStu_LCityNull(); }
+                        if (!string.IsNullOrEmpty(newPCity)) { studentRow.Stu_HCity = newPCity; } else { studentRow.SetStu_HCityNull(); }
+                        if (!string.IsNullOrEmpty(newLPostal)) { studentRow.Stu_LPCode = newLPostal; } else { studentRow.SetStu_LPCodeNull(); }
+                        if (!string.IsNullOrEmpty(newPPostal)) { studentRow.Stu_HPCode = newPPostal; } else { studentRow.SetStu_HPCodeNull(); }
+                        if (!string.IsNullOrEmpty(newLPhone)) { studentRow.Stu_LPhone = newLPhone; } else { studentRow.SetStu_LPhoneNull(); }
+                        if (!string.IsNullOrEmpty(newPPhone)) { studentRow.Stu_HPhone = newPPhone; } else { studentRow.SetStu_HPhoneNull(); }
+                        if (!string.IsNullOrEmpty(newExt)) { studentRow.Stu_LExt = newExt; } else { studentRow.SetStu_LExtNull(); }
+                        if (!string.IsNullOrEmpty(newLProvince)) { studentRow.Stu_LProvince = newLProvince; } else { studentRow.SetStu_LProvinceNull(); }
+                        if (!string.IsNullOrEmpty(newPProvince)) { studentRow.Stu_HProvince = newPProvince; } else { studentRow.SetStu_HProvinceNull(); }
+                        if (!string.IsNullOrEmpty(newNotes)) { studentRow.Stu_Notes = newNotes; } else { studentRow.SetStu_NotesNull(); }
+                        if (newFees != -1) { studentRow.Stu_Owe = newFees; } else { studentRow.SetStu_OweNull(); }
+                        studentRow.Stu_ORPT = newORPT;
+                        studentRow.Stu_Number = newStudentNum;
+                        studentRow.Stu_LName = newLastName;
+                        studentRow.Stu_FName = newFirstName;
+
+                        tblStudentTableAdapter1.Update(studentRow);
+                        this.tblStudentTableAdapter1.Fill(this.luEquipmentDataSet1.tblStudent);
+
+                        //Maintain current row selection
+                        studentListboxIndex = studentLbx.FindStringExact(newLastName + ", " + newFirstName);
+                        if (studentListboxIndex != -1)
+                        {
+                            studentLbx.SetSelected(studentListboxIndex, true);
+                        }
+                        studentUpdateBtn.Enabled = false;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Student does not exist.", "Error");
+                    }
+                }
+                //Add New
+                else
+                {
+                    tblStudentTableAdapter1.Insert(newStudentNum, newLastName, newFirstName, (!string.IsNullOrEmpty(newLAddress)) ? newLAddress : null, (!string.IsNullOrEmpty(newLCity)) ? newLCity : null, (!string.IsNullOrEmpty(newLProvince)) ? newLProvince : null, (!string.IsNullOrEmpty(newLPostal)) ? newLPostal : null, (!string.IsNullOrEmpty(newLPhone)) ? newLPhone : null, (!string.IsNullOrEmpty(newExt)) ? newExt : null, (!string.IsNullOrEmpty(newEmail)) ? newEmail : null, (!string.IsNullOrEmpty(newPAddress)) ? newPAddress : null, (!string.IsNullOrEmpty(newPCity)) ? newPCity : null, (!string.IsNullOrEmpty(newPProvince)) ? newPProvince : null, (!string.IsNullOrEmpty(newPPostal)) ? newPPostal : null, (!string.IsNullOrEmpty(newPPhone)) ? newPPhone : null, (!string.IsNullOrEmpty(newNotes)) ? newNotes : null, (newFees != -1) ? newFees : (float?)null, newORPT);
+                    this.tblStudentTableAdapter1.Fill(this.luEquipmentDataSet1.tblStudent);
+
+                    //Maintain current row selection
+                    int studentListboxIndex = studentLbx.FindStringExact(newLastName + ", " + newFirstName);
+                    if (studentListboxIndex != -1)
+                    {
+                        studentLbx.SetSelected(studentListboxIndex, true);
+                    }
+                    studentUpdateBtn.Enabled = false;
+                }
+            }           
         }
     }
 }

@@ -133,7 +133,6 @@
             this.studentPAddressTbx = new System.Windows.Forms.TextBox();
             this.studentAddNewBtn = new System.Windows.Forms.Button();
             this.studentUpdateBtn = new System.Windows.Forms.Button();
-            this.studentSearchBtn = new System.Windows.Forms.Button();
             this.studentExitBtn = new System.Windows.Forms.Button();
             this.studentSearchingBtn = new System.Windows.Forms.Button();
             this.studentSearchingTbx = new System.Windows.Forms.TextBox();
@@ -888,6 +887,7 @@
             this.studentEmailTbx.Name = "studentEmailTbx";
             this.studentEmailTbx.Size = new System.Drawing.Size(164, 20);
             this.studentEmailTbx.TabIndex = 22;
+            this.studentEmailTbx.TextChanged += new System.EventHandler(this.studentFieldChanged);
             // 
             // studentLNameTbx
             // 
@@ -897,6 +897,7 @@
             this.studentLNameTbx.Name = "studentLNameTbx";
             this.studentLNameTbx.Size = new System.Drawing.Size(164, 20);
             this.studentLNameTbx.TabIndex = 19;
+            this.studentLNameTbx.TextChanged += new System.EventHandler(this.studentFieldChanged);
             // 
             // studentNumberTbx
             // 
@@ -906,6 +907,8 @@
             this.studentNumberTbx.Name = "studentNumberTbx";
             this.studentNumberTbx.Size = new System.Drawing.Size(164, 20);
             this.studentNumberTbx.TabIndex = 21;
+            this.studentNumberTbx.TextChanged += new System.EventHandler(this.studentFieldChanged);
+            this.studentNumberTbx.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.HandleNumericOnly);
             // 
             // studentFNameTbx
             // 
@@ -915,6 +918,7 @@
             this.studentFNameTbx.Name = "studentFNameTbx";
             this.studentFNameTbx.Size = new System.Drawing.Size(164, 20);
             this.studentFNameTbx.TabIndex = 20;
+            this.studentFNameTbx.TextChanged += new System.EventHandler(this.studentFieldChanged);
             // 
             // localGbx
             // 
@@ -1023,6 +1027,7 @@
             this.studentProvinceCbx.Name = "studentProvinceCbx";
             this.studentProvinceCbx.Size = new System.Drawing.Size(164, 21);
             this.studentProvinceCbx.TabIndex = 28;
+            this.studentProvinceCbx.SelectedIndexChanged += new System.EventHandler(this.studentFieldChanged);
             // 
             // studentPostalTbx
             // 
@@ -1032,6 +1037,7 @@
             this.studentPostalTbx.Name = "studentPostalTbx";
             this.studentPostalTbx.Size = new System.Drawing.Size(164, 20);
             this.studentPostalTbx.TabIndex = 23;
+            this.studentPostalTbx.TextChanged += new System.EventHandler(this.studentFieldChanged);
             // 
             // studentPhoneTbx
             // 
@@ -1041,6 +1047,7 @@
             this.studentPhoneTbx.Name = "studentPhoneTbx";
             this.studentPhoneTbx.Size = new System.Drawing.Size(87, 20);
             this.studentPhoneTbx.TabIndex = 27;
+            this.studentPhoneTbx.TextChanged += new System.EventHandler(this.studentFieldChanged);
             // 
             // studentCityTbx
             // 
@@ -1050,6 +1057,7 @@
             this.studentCityTbx.Name = "studentCityTbx";
             this.studentCityTbx.Size = new System.Drawing.Size(164, 20);
             this.studentCityTbx.TabIndex = 24;
+            this.studentCityTbx.TextChanged += new System.EventHandler(this.studentFieldChanged);
             // 
             // studentExtTbx
             // 
@@ -1059,6 +1067,7 @@
             this.studentExtTbx.Name = "studentExtTbx";
             this.studentExtTbx.Size = new System.Drawing.Size(47, 20);
             this.studentExtTbx.TabIndex = 26;
+            this.studentExtTbx.TextChanged += new System.EventHandler(this.studentFieldChanged);
             // 
             // studentAddressTbx
             // 
@@ -1068,6 +1077,7 @@
             this.studentAddressTbx.Name = "studentAddressTbx";
             this.studentAddressTbx.Size = new System.Drawing.Size(164, 20);
             this.studentAddressTbx.TabIndex = 25;
+            this.studentAddressTbx.TextChanged += new System.EventHandler(this.studentFieldChanged);
             // 
             // feesGbx
             // 
@@ -1104,6 +1114,7 @@
             this.studentNotesTbx.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.studentNotesTbx.Size = new System.Drawing.Size(217, 46);
             this.studentNotesTbx.TabIndex = 10;
+            this.studentNotesTbx.TextChanged += new System.EventHandler(this.studentFieldChanged);
             // 
             // studentORPTChbx
             // 
@@ -1114,6 +1125,7 @@
             this.studentORPTChbx.TabIndex = 2;
             this.studentORPTChbx.Text = "ORPT";
             this.studentORPTChbx.UseVisualStyleBackColor = true;
+            this.studentORPTChbx.CheckedChanged += new System.EventHandler(this.studentFieldChanged);
             // 
             // studentFeesTbx
             // 
@@ -1122,6 +1134,7 @@
             this.studentFeesTbx.Name = "studentFeesTbx";
             this.studentFeesTbx.Size = new System.Drawing.Size(86, 20);
             this.studentFeesTbx.TabIndex = 1;
+            this.studentFeesTbx.TextChanged += new System.EventHandler(this.studentFieldChanged);
             // 
             // studentFeesLbl
             // 
@@ -1178,6 +1191,7 @@
             this.studentPProvinceCbx.Name = "studentPProvinceCbx";
             this.studentPProvinceCbx.Size = new System.Drawing.Size(164, 21);
             this.studentPProvinceCbx.TabIndex = 34;
+            this.studentPProvinceCbx.SelectedIndexChanged += new System.EventHandler(this.studentFieldChanged);
             // 
             // studentPAddressLbl
             // 
@@ -1237,6 +1251,7 @@
             this.studentPPostalTbx.Name = "studentPPostalTbx";
             this.studentPPostalTbx.Size = new System.Drawing.Size(164, 20);
             this.studentPPostalTbx.TabIndex = 23;
+            this.studentPPostalTbx.TextChanged += new System.EventHandler(this.studentFieldChanged);
             // 
             // studentPPhoneTbx
             // 
@@ -1246,6 +1261,7 @@
             this.studentPPhoneTbx.Name = "studentPPhoneTbx";
             this.studentPPhoneTbx.Size = new System.Drawing.Size(87, 20);
             this.studentPPhoneTbx.TabIndex = 27;
+            this.studentPPhoneTbx.TextChanged += new System.EventHandler(this.studentFieldChanged);
             // 
             // studentPCityTbx
             // 
@@ -1255,6 +1271,7 @@
             this.studentPCityTbx.Name = "studentPCityTbx";
             this.studentPCityTbx.Size = new System.Drawing.Size(164, 20);
             this.studentPCityTbx.TabIndex = 24;
+            this.studentPCityTbx.TextChanged += new System.EventHandler(this.studentFieldChanged);
             // 
             // studentPAddressTbx
             // 
@@ -1264,6 +1281,7 @@
             this.studentPAddressTbx.Name = "studentPAddressTbx";
             this.studentPAddressTbx.Size = new System.Drawing.Size(164, 20);
             this.studentPAddressTbx.TabIndex = 25;
+            this.studentPAddressTbx.TextChanged += new System.EventHandler(this.studentFieldChanged);
             // 
             // studentAddNewBtn
             // 
@@ -1286,20 +1304,11 @@
             this.studentUpdateBtn.TabIndex = 5;
             this.studentUpdateBtn.Text = "Save Changes";
             this.studentUpdateBtn.UseVisualStyleBackColor = true;
-            // 
-            // studentSearchBtn
-            // 
-            this.studentSearchBtn.Location = new System.Drawing.Point(349, 385);
-            this.studentSearchBtn.Margin = new System.Windows.Forms.Padding(2);
-            this.studentSearchBtn.Name = "studentSearchBtn";
-            this.studentSearchBtn.Size = new System.Drawing.Size(87, 26);
-            this.studentSearchBtn.TabIndex = 6;
-            this.studentSearchBtn.Text = "Search";
-            this.studentSearchBtn.UseVisualStyleBackColor = true;
+            this.studentUpdateBtn.Click += new System.EventHandler(this.studentUpdateBtn_Click);
             // 
             // studentExitBtn
             // 
-            this.studentExitBtn.Location = new System.Drawing.Point(440, 385);
+            this.studentExitBtn.Location = new System.Drawing.Point(350, 385);
             this.studentExitBtn.Margin = new System.Windows.Forms.Padding(2);
             this.studentExitBtn.Name = "studentExitBtn";
             this.studentExitBtn.Size = new System.Drawing.Size(87, 26);
@@ -1362,7 +1371,6 @@
             this.Controls.Add(this.permanentGbx);
             this.Controls.Add(this.studentUpdateBtn);
             this.Controls.Add(this.feesGbx);
-            this.Controls.Add(this.studentSearchBtn);
             this.Controls.Add(this.localGbx);
             this.Controls.Add(this.studentExitBtn);
             this.Controls.Add(this.infoGbx);
@@ -1511,7 +1519,6 @@
         private System.Windows.Forms.TextBox studentPAddressTbx;
         private System.Windows.Forms.Button studentAddNewBtn;
         private System.Windows.Forms.Button studentUpdateBtn;
-        private System.Windows.Forms.Button studentSearchBtn;
         private System.Windows.Forms.Button studentExitBtn;
         private System.Windows.Forms.ComboBox studentPProvinceCbx;
         private System.Windows.Forms.Label studentNotesLbl;
