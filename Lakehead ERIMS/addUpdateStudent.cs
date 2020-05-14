@@ -59,7 +59,7 @@ namespace Lakehead_ERIMS
                     studentPCityTbx.Text = (!studentRow.IsStu_HCityNull()) ? studentRow.Stu_HCity : string.Empty;
                     studentPPostalTbx.Text = (!studentRow.IsStu_HPCodeNull()) ? studentRow.Stu_HPCode : string.Empty;
                     studentPPhoneTbx.Text = (!studentRow.IsStu_HPhoneNull()) ? studentRow.Stu_HPhone : string.Empty;
-                    studentFeesTbx.Text = (!studentRow.IsStu_OweNull()) ? studentRow.Stu_Owe.ToString("C") : string.Empty;                
+                    studentFeesTbx.Text = (!studentRow.IsStu_OweNull()) ? studentRow.Stu_Owe.ToString("C") : "$0.00";                
                     studentORPTChbx.Checked = (!studentRow.IsStu_ORPTNull()) ? studentRow.Stu_ORPT : false;
                     studentNotesTbx.Text = (!studentRow.IsStu_NotesNull()) ? studentRow.Stu_Notes : string.Empty;
 
@@ -110,7 +110,7 @@ namespace Lakehead_ERIMS
             studentPCityTbx.Clear();
             studentPPostalTbx.Clear();
             studentPPhoneTbx.Clear();
-            studentFeesTbx.Clear();
+            studentFeesTbx.Text = "$0.00";
             studentORPTChbx.Checked = false;
             studentNotesTbx.Clear();
             studentProvinceCbx.SelectedIndex = -1;
@@ -155,6 +155,7 @@ namespace Lakehead_ERIMS
                 }
             }
             studentSearchingTbx.Clear();
+            ActiveForm.AcceptButton = null;
         }
 
         private void HandleNumericOnly(object sender, KeyPressEventArgs e)
@@ -249,7 +250,7 @@ namespace Lakehead_ERIMS
                         if (!string.IsNullOrEmpty(newLProvince)) { studentRow.Stu_LProvince = newLProvince; } else { studentRow.SetStu_LProvinceNull(); }
                         if (!string.IsNullOrEmpty(newPProvince)) { studentRow.Stu_HProvince = newPProvince; } else { studentRow.SetStu_HProvinceNull(); }
                         if (!string.IsNullOrEmpty(newNotes)) { studentRow.Stu_Notes = newNotes; } else { studentRow.SetStu_NotesNull(); }
-                        if (newFees != -1) { studentRow.Stu_Owe = newFees; } else { studentRow.SetStu_OweNull(); }
+                        if (newFees != -1) { studentRow.Stu_Owe = newFees; } else { studentRow.Stu_Owe = 0; }
                         studentRow.Stu_ORPT = newORPT;
                         studentRow.Stu_Number = newStudentNum;
                         studentRow.Stu_LName = newLastName;
@@ -301,6 +302,24 @@ namespace Lakehead_ERIMS
         private void exitBtn_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void clearFeesBtn_Click(object sender, EventArgs e)
+        {
+            studentFeesTbx.Text = "$0.00";
+        }
+
+        private void studentEnterKeySearching(object sender, EventArgs e)
+        {
+            Control sendingControl = (Control)sender;
+            if (sendingControl.Focused)
+            {
+                ActiveForm.AcceptButton = studentSearchingBtn;
+            }
+            else
+            {
+                ActiveForm.AcceptButton = null;
+            }
         }
     }
 }

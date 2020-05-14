@@ -83,6 +83,7 @@
             this.searchByLNameRbn = new System.Windows.Forms.RadioButton();
             this.studentProvinceClearBtn = new System.Windows.Forms.Button();
             this.studentPProvinceClearBtn = new System.Windows.Forms.Button();
+            this.clearFeesBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.luEquipmentDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblStudentBindingSource)).BeginInit();
             this.infoGbx.SuspendLayout();
@@ -396,6 +397,7 @@
             // 
             // feesGbx
             // 
+            this.feesGbx.Controls.Add(this.clearFeesBtn);
             this.feesGbx.Controls.Add(this.studentNotesLbl);
             this.feesGbx.Controls.Add(this.studentNotesTbx);
             this.feesGbx.Controls.Add(this.studentORPTChbx);
@@ -651,6 +653,8 @@
             this.studentSearchingTbx.Name = "studentSearchingTbx";
             this.studentSearchingTbx.Size = new System.Drawing.Size(164, 20);
             this.studentSearchingTbx.TabIndex = 22;
+            this.studentSearchingTbx.Enter += new System.EventHandler(this.studentEnterKeySearching);
+            this.studentSearchingTbx.Leave += new System.EventHandler(this.studentEnterKeySearching);
             // 
             // searchByNumberRbn
             // 
@@ -695,6 +699,17 @@
             this.studentPProvinceClearBtn.Text = "C";
             this.studentPProvinceClearBtn.UseVisualStyleBackColor = true;
             this.studentPProvinceClearBtn.Click += new System.EventHandler(this.studentPProvinceClearBtn_Click);
+            // 
+            // clearFeesBtn
+            // 
+            this.clearFeesBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clearFeesBtn.Location = new System.Drawing.Point(188, 16);
+            this.clearFeesBtn.Name = "clearFeesBtn";
+            this.clearFeesBtn.Size = new System.Drawing.Size(55, 21);
+            this.clearFeesBtn.TabIndex = 106;
+            this.clearFeesBtn.Text = "Clear";
+            this.clearFeesBtn.UseVisualStyleBackColor = true;
+            this.clearFeesBtn.Click += new System.EventHandler(this.clearFeesBtn_Click);
             // 
             // addUpdateStudent
             // 
@@ -792,5 +807,6 @@
         private System.Windows.Forms.RadioButton searchByLNameRbn;
         private System.Windows.Forms.Button studentProvinceClearBtn;
         private System.Windows.Forms.Button studentPProvinceClearBtn;
+        private System.Windows.Forms.Button clearFeesBtn;
     }
 }
