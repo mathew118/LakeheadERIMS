@@ -52,11 +52,11 @@ namespace Lakehead_ERIMS
             //Sets the form size based on which tab is selected
             if(adminTabControl.SelectedIndex == 0)
             {            
-                ActiveForm.Size = new Size(600, 566);
-                adminTabControl.Size = new Size(560, 426);
-                addBtn.Location = new Point(40, 460);
-                saveBtn.Location = new Point(249, 460);
-                exitBtn.Location = new Point(458, 460);
+                ActiveForm.Size = new Size(600, 600);
+                adminTabControl.Size = new Size(560, 460);
+                addBtn.Location = new Point(40, 494);
+                saveBtn.Location = new Point(249, 494);
+                exitBtn.Location = new Point(458, 494);
             }
             else
             {
