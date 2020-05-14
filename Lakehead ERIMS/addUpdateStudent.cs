@@ -109,6 +109,7 @@ namespace Lakehead_ERIMS
 
         private void addUpdateStudent_Shown(object sender, EventArgs e)
         {
+            Application.DoEvents();
             this.tblStudentTableAdapter1.Fill(this.luEquipmentDataSet1.tblStudent);
             studentLbx.SelectedIndex = -1;
         }
@@ -373,6 +374,16 @@ namespace Lakehead_ERIMS
                     studentUpdateBtn.Enabled = false;
                 }
             }           
+        }
+
+        private void studentProvinceClearBtn_Click(object sender, EventArgs e)
+        {
+            studentProvinceCbx.SelectedIndex = -1;
+        }
+
+        private void studentPProvinceClearBtn_Click(object sender, EventArgs e)
+        {
+            studentPProvinceCbx.SelectedIndex = -1;
         }
     }
 }

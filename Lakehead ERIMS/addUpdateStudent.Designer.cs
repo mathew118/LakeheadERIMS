@@ -138,6 +138,8 @@
             this.studentSearchingTbx = new System.Windows.Forms.TextBox();
             this.searchByNumberRbn = new System.Windows.Forms.RadioButton();
             this.searchByLNameRbn = new System.Windows.Forms.RadioButton();
+            this.studentProvinceClearBtn = new System.Windows.Forms.Button();
+            this.studentPProvinceClearBtn = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -946,7 +948,7 @@
             // studentAddressLbl
             // 
             this.studentAddressLbl.AutoSize = true;
-            this.studentAddressLbl.Location = new System.Drawing.Point(45, 20);
+            this.studentAddressLbl.Location = new System.Drawing.Point(25, 20);
             this.studentAddressLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.studentAddressLbl.Name = "studentAddressLbl";
             this.studentAddressLbl.Size = new System.Drawing.Size(48, 13);
@@ -956,7 +958,7 @@
             // studentPhoneLbl
             // 
             this.studentPhoneLbl.AutoSize = true;
-            this.studentPhoneLbl.Location = new System.Drawing.Point(52, 117);
+            this.studentPhoneLbl.Location = new System.Drawing.Point(32, 117);
             this.studentPhoneLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.studentPhoneLbl.Name = "studentPhoneLbl";
             this.studentPhoneLbl.Size = new System.Drawing.Size(41, 13);
@@ -966,7 +968,7 @@
             // studentProvinceLbl
             // 
             this.studentProvinceLbl.AutoSize = true;
-            this.studentProvinceLbl.Location = new System.Drawing.Point(41, 69);
+            this.studentProvinceLbl.Location = new System.Drawing.Point(21, 69);
             this.studentProvinceLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.studentProvinceLbl.Name = "studentProvinceLbl";
             this.studentProvinceLbl.Size = new System.Drawing.Size(52, 13);
@@ -976,7 +978,7 @@
             // studentExtLbl
             // 
             this.studentExtLbl.AutoSize = true;
-            this.studentExtLbl.Location = new System.Drawing.Point(188, 117);
+            this.studentExtLbl.Location = new System.Drawing.Point(168, 117);
             this.studentExtLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.studentExtLbl.Name = "studentExtLbl";
             this.studentExtLbl.Size = new System.Drawing.Size(25, 13);
@@ -986,7 +988,7 @@
             // studentCityLbl
             // 
             this.studentCityLbl.AutoSize = true;
-            this.studentCityLbl.Location = new System.Drawing.Point(66, 45);
+            this.studentCityLbl.Location = new System.Drawing.Point(46, 45);
             this.studentCityLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.studentCityLbl.Name = "studentCityLbl";
             this.studentCityLbl.Size = new System.Drawing.Size(27, 13);
@@ -996,7 +998,7 @@
             // studentPostalLbl
             // 
             this.studentPostalLbl.AutoSize = true;
-            this.studentPostalLbl.Location = new System.Drawing.Point(26, 93);
+            this.studentPostalLbl.Location = new System.Drawing.Point(6, 93);
             this.studentPostalLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.studentPostalLbl.Name = "studentPostalLbl";
             this.studentPostalLbl.Size = new System.Drawing.Size(67, 13);
@@ -1021,7 +1023,7 @@
             "NS",
             "NB",
             "NU"});
-            this.studentProvinceCbx.Location = new System.Drawing.Point(97, 65);
+            this.studentProvinceCbx.Location = new System.Drawing.Point(77, 65);
             this.studentProvinceCbx.Margin = new System.Windows.Forms.Padding(2);
             this.studentProvinceCbx.MaxLength = 2;
             this.studentProvinceCbx.Name = "studentProvinceCbx";
@@ -1031,7 +1033,7 @@
             // 
             // studentPostalTbx
             // 
-            this.studentPostalTbx.Location = new System.Drawing.Point(97, 90);
+            this.studentPostalTbx.Location = new System.Drawing.Point(77, 90);
             this.studentPostalTbx.Margin = new System.Windows.Forms.Padding(2);
             this.studentPostalTbx.MaxLength = 6;
             this.studentPostalTbx.Name = "studentPostalTbx";
@@ -1041,7 +1043,7 @@
             // 
             // studentPhoneTbx
             // 
-            this.studentPhoneTbx.Location = new System.Drawing.Point(97, 114);
+            this.studentPhoneTbx.Location = new System.Drawing.Point(77, 114);
             this.studentPhoneTbx.Margin = new System.Windows.Forms.Padding(2);
             this.studentPhoneTbx.MaxLength = 10;
             this.studentPhoneTbx.Name = "studentPhoneTbx";
@@ -1051,7 +1053,7 @@
             // 
             // studentCityTbx
             // 
-            this.studentCityTbx.Location = new System.Drawing.Point(97, 41);
+            this.studentCityTbx.Location = new System.Drawing.Point(77, 41);
             this.studentCityTbx.Margin = new System.Windows.Forms.Padding(2);
             this.studentCityTbx.MaxLength = 30;
             this.studentCityTbx.Name = "studentCityTbx";
@@ -1061,7 +1063,7 @@
             // 
             // studentExtTbx
             // 
-            this.studentExtTbx.Location = new System.Drawing.Point(214, 114);
+            this.studentExtTbx.Location = new System.Drawing.Point(194, 114);
             this.studentExtTbx.Margin = new System.Windows.Forms.Padding(2);
             this.studentExtTbx.MaxLength = 4;
             this.studentExtTbx.Name = "studentExtTbx";
@@ -1071,7 +1073,7 @@
             // 
             // studentAddressTbx
             // 
-            this.studentAddressTbx.Location = new System.Drawing.Point(97, 17);
+            this.studentAddressTbx.Location = new System.Drawing.Point(77, 17);
             this.studentAddressTbx.Margin = new System.Windows.Forms.Padding(2);
             this.studentAddressTbx.MaxLength = 30;
             this.studentAddressTbx.Name = "studentAddressTbx";
@@ -1185,7 +1187,7 @@
             "NS",
             "NB",
             "NU"});
-            this.studentPProvinceCbx.Location = new System.Drawing.Point(97, 65);
+            this.studentPProvinceCbx.Location = new System.Drawing.Point(77, 65);
             this.studentPProvinceCbx.Margin = new System.Windows.Forms.Padding(2);
             this.studentPProvinceCbx.MaxLength = 2;
             this.studentPProvinceCbx.Name = "studentPProvinceCbx";
@@ -1196,7 +1198,7 @@
             // studentPAddressLbl
             // 
             this.studentPAddressLbl.AutoSize = true;
-            this.studentPAddressLbl.Location = new System.Drawing.Point(45, 20);
+            this.studentPAddressLbl.Location = new System.Drawing.Point(25, 20);
             this.studentPAddressLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.studentPAddressLbl.Name = "studentPAddressLbl";
             this.studentPAddressLbl.Size = new System.Drawing.Size(48, 13);
@@ -1206,7 +1208,7 @@
             // studentPPhoneLbl
             // 
             this.studentPPhoneLbl.AutoSize = true;
-            this.studentPPhoneLbl.Location = new System.Drawing.Point(52, 117);
+            this.studentPPhoneLbl.Location = new System.Drawing.Point(32, 117);
             this.studentPPhoneLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.studentPPhoneLbl.Name = "studentPPhoneLbl";
             this.studentPPhoneLbl.Size = new System.Drawing.Size(41, 13);
@@ -1216,7 +1218,7 @@
             // studentPProvinceLbl
             // 
             this.studentPProvinceLbl.AutoSize = true;
-            this.studentPProvinceLbl.Location = new System.Drawing.Point(41, 69);
+            this.studentPProvinceLbl.Location = new System.Drawing.Point(21, 69);
             this.studentPProvinceLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.studentPProvinceLbl.Name = "studentPProvinceLbl";
             this.studentPProvinceLbl.Size = new System.Drawing.Size(52, 13);
@@ -1226,7 +1228,7 @@
             // studentPCityLbl
             // 
             this.studentPCityLbl.AutoSize = true;
-            this.studentPCityLbl.Location = new System.Drawing.Point(66, 45);
+            this.studentPCityLbl.Location = new System.Drawing.Point(46, 45);
             this.studentPCityLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.studentPCityLbl.Name = "studentPCityLbl";
             this.studentPCityLbl.Size = new System.Drawing.Size(27, 13);
@@ -1236,7 +1238,7 @@
             // studentPPostallLbl
             // 
             this.studentPPostallLbl.AutoSize = true;
-            this.studentPPostallLbl.Location = new System.Drawing.Point(26, 93);
+            this.studentPPostallLbl.Location = new System.Drawing.Point(6, 93);
             this.studentPPostallLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.studentPPostallLbl.Name = "studentPPostallLbl";
             this.studentPPostallLbl.Size = new System.Drawing.Size(67, 13);
@@ -1245,7 +1247,7 @@
             // 
             // studentPPostalTbx
             // 
-            this.studentPPostalTbx.Location = new System.Drawing.Point(97, 90);
+            this.studentPPostalTbx.Location = new System.Drawing.Point(77, 90);
             this.studentPPostalTbx.Margin = new System.Windows.Forms.Padding(2);
             this.studentPPostalTbx.MaxLength = 6;
             this.studentPPostalTbx.Name = "studentPPostalTbx";
@@ -1255,7 +1257,7 @@
             // 
             // studentPPhoneTbx
             // 
-            this.studentPPhoneTbx.Location = new System.Drawing.Point(97, 114);
+            this.studentPPhoneTbx.Location = new System.Drawing.Point(77, 114);
             this.studentPPhoneTbx.Margin = new System.Windows.Forms.Padding(2);
             this.studentPPhoneTbx.MaxLength = 10;
             this.studentPPhoneTbx.Name = "studentPPhoneTbx";
@@ -1265,7 +1267,7 @@
             // 
             // studentPCityTbx
             // 
-            this.studentPCityTbx.Location = new System.Drawing.Point(97, 41);
+            this.studentPCityTbx.Location = new System.Drawing.Point(77, 41);
             this.studentPCityTbx.Margin = new System.Windows.Forms.Padding(2);
             this.studentPCityTbx.MaxLength = 30;
             this.studentPCityTbx.Name = "studentPCityTbx";
@@ -1275,7 +1277,7 @@
             // 
             // studentPAddressTbx
             // 
-            this.studentPAddressTbx.Location = new System.Drawing.Point(97, 17);
+            this.studentPAddressTbx.Location = new System.Drawing.Point(77, 17);
             this.studentPAddressTbx.Margin = new System.Windows.Forms.Padding(2);
             this.studentPAddressTbx.MaxLength = 30;
             this.studentPAddressTbx.Name = "studentPAddressTbx";
@@ -1358,11 +1360,35 @@
             this.searchByLNameRbn.Text = "By Last Name";
             this.searchByLNameRbn.UseVisualStyleBackColor = true;
             // 
+            // studentProvinceClearBtn
+            // 
+            this.studentProvinceClearBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.studentProvinceClearBtn.Location = new System.Drawing.Point(590, 283);
+            this.studentProvinceClearBtn.Name = "studentProvinceClearBtn";
+            this.studentProvinceClearBtn.Size = new System.Drawing.Size(25, 20);
+            this.studentProvinceClearBtn.TabIndex = 93;
+            this.studentProvinceClearBtn.Text = "C";
+            this.studentProvinceClearBtn.UseVisualStyleBackColor = true;
+            this.studentProvinceClearBtn.Click += new System.EventHandler(this.studentProvinceClearBtn_Click);
+            // 
+            // studentPProvinceClearBtn
+            // 
+            this.studentPProvinceClearBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.studentPProvinceClearBtn.Location = new System.Drawing.Point(881, 283);
+            this.studentPProvinceClearBtn.Name = "studentPProvinceClearBtn";
+            this.studentPProvinceClearBtn.Size = new System.Drawing.Size(25, 20);
+            this.studentPProvinceClearBtn.TabIndex = 94;
+            this.studentPProvinceClearBtn.Text = "C";
+            this.studentPProvinceClearBtn.UseVisualStyleBackColor = true;
+            this.studentPProvinceClearBtn.Click += new System.EventHandler(this.studentPProvinceClearBtn_Click);
+            // 
             // addUpdateStudent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1284, 1061);
+            this.Controls.Add(this.studentPProvinceClearBtn);
+            this.Controls.Add(this.studentProvinceClearBtn);
             this.Controls.Add(this.searchByLNameRbn);
             this.Controls.Add(this.searchByNumberRbn);
             this.Controls.Add(this.studentSearchingTbx);
@@ -1527,5 +1553,7 @@
         private System.Windows.Forms.TextBox studentSearchingTbx;
         private System.Windows.Forms.RadioButton searchByNumberRbn;
         private System.Windows.Forms.RadioButton searchByLNameRbn;
+        private System.Windows.Forms.Button studentProvinceClearBtn;
+        private System.Windows.Forms.Button studentPProvinceClearBtn;
     }
 }
