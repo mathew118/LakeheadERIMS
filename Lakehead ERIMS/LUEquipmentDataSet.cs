@@ -9,10 +9,4 @@
 
 namespace Lakehead_ERIMS.LUEquipmentDataSetTableAdapters
 {
-    partial class tblEquipTableAdapter
-    {
-    }
-
-    public partial class tblCategoryTableAdapter {
-    }
 }
