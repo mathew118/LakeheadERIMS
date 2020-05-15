@@ -88,6 +88,8 @@ namespace Lakehead_ERIMS
                 stuNumbLabel.Text = student[1].ToString();
                 stuNameLabel.Text = student[3].ToString() + student[2].ToString();
                 accountBalanceLabel.Text = student[17].ToString();
+
+                DateTime now = DateTime.Now;
             }
             catch
             {
@@ -115,6 +117,23 @@ namespace Lakehead_ERIMS
             {
                 MessageBox.Show("Error");
             }
+        }
+
+        private void clearItemBttn_Click(object sender, EventArgs e)
+        {
+            itemNumberTextBox.Clear();
+            itemNameLabel.Text = " ";
+            desc1Label.Text = " ";
+            desc2Label.Text = " ";
+            desc3Label.Text = " ";
+            comboBox1.Text = " ";
+            dateDueLabel.Text = " ";
+            dateOutLabel.Text = " ";
+            invoiceNumLabel.Text = " ";
+            stuNumbLabel.Text = " ";
+            stuNameLabel.Text = " ";
+            accountBalanceLabel.Text = " ";
+            lateFeeLaebl.Text = " "; 
         }
     }
 }

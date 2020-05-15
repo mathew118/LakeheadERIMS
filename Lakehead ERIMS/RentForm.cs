@@ -48,7 +48,8 @@ namespace Lakehead_ERIMS
             }
             catch
             {
-                MessageBox.Show("Student Number not found");
+                addStudent add = new addStudent();
+                add.ShowDialog();
             }
          
 
@@ -63,12 +64,23 @@ namespace Lakehead_ERIMS
         {
             try
             {
+
+
                 this.tblEquipTableAdapter.Fill(this.lUEquipmentDataSet.tblEquip);
                 DataRow equipmentrow;
-                equipmentrow = lUEquipmentDataSet.tblEquip.Select("Equip_Number = '" + equipNumbTextBox.Text + "'")[0];
-
-                itemGridView.Rows.Add(itemGridView.Rows[x].Cells[0].Value = equipmentrow[1].ToString(), itemGridView.Rows[x].Cells[1].Value = equipmentrow[2].ToString(), itemGridView.Rows[x].Cells[2].Value = equipmentrow[13].ToString());
-                x++;
+                equipmentrow = lUEquipmentDataSet.tblEquip.Select("Equip_Number = '" + equipNumberTextBox.Text + "'")[0];
+                string status = equipmentrow[17].ToString();
+                string outStatus = "9";
+                if (status != outStatus)
+                {
+                    itemGridView.Rows.Add(itemGridView.Rows[x].Cells[0].Value = equipmentrow[1].ToString(), itemGridView.Rows[x].Cells[1].Value = equipmentrow[2].ToString(), itemGridView.Rows[x].Cells[2].Value = equipmentrow[13].ToString());
+                    x++;
+                    equipNumberTextBox.Clear();
+                }
+                else
+                {
+                    MessageBox.Show("Item is out, please selected another item");
+                }
             }
             catch
             {
@@ -214,6 +226,7 @@ namespace Lakehead_ERIMS
             {
                 short array = Convert.ToInt16(equipIDarray[newCounter]);
                 tblRentalTableAdapter1.Insert(array,studentNum,rent,due," ",inNum + 1);
+                //LUEquipmentDataSet.tblEquipRow equipRow = luEquipmentDataSet1.tblEquip.FindByEquip_ID(array);
                 LUEquipmentDataSet.tblEquipRow equipRow = luEquipmentDataSet1.tblEquip.FindByEquip_ID(array);
                 equipRow.Status_ID = 9;
                 tblEquipTableAdapter.Update(equipRow);
