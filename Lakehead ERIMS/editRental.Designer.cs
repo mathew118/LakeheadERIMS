@@ -88,6 +88,8 @@
             this.updateRentalBtn = new System.Windows.Forms.Button();
             this.voidRentalBtn = new System.Windows.Forms.Button();
             this.exitBtn = new System.Windows.Forms.Button();
+            this.searchByInvoiceRbn = new System.Windows.Forms.RadioButton();
+            this.searchByLNameRbn = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.luEquipmentDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblRentalBindingSource)).BeginInit();
             this.studentInformationGbx.SuspendLayout();
@@ -671,11 +673,35 @@
             this.exitBtn.UseVisualStyleBackColor = true;
             this.exitBtn.Click += new System.EventHandler(this.exitButton_Click);
             // 
+            // searchByInvoiceRbn
+            // 
+            this.searchByInvoiceRbn.AutoSize = true;
+            this.searchByInvoiceRbn.Checked = true;
+            this.searchByInvoiceRbn.Location = new System.Drawing.Point(346, 176);
+            this.searchByInvoiceRbn.Name = "searchByInvoiceRbn";
+            this.searchByInvoiceRbn.Size = new System.Drawing.Size(115, 17);
+            this.searchByInvoiceRbn.TabIndex = 115;
+            this.searchByInvoiceRbn.TabStop = true;
+            this.searchByInvoiceRbn.Text = "By Invoice Number";
+            this.searchByInvoiceRbn.UseVisualStyleBackColor = true;
+            // 
+            // searchByLNameRbn
+            // 
+            this.searchByLNameRbn.AutoSize = true;
+            this.searchByLNameRbn.Location = new System.Drawing.Point(467, 176);
+            this.searchByLNameRbn.Name = "searchByLNameRbn";
+            this.searchByLNameRbn.Size = new System.Drawing.Size(91, 17);
+            this.searchByLNameRbn.TabIndex = 114;
+            this.searchByLNameRbn.Text = "By Last Name";
+            this.searchByLNameRbn.UseVisualStyleBackColor = true;
+            // 
             // editRental
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(584, 661);
+            this.Controls.Add(this.searchByInvoiceRbn);
+            this.Controls.Add(this.searchByLNameRbn);
             this.Controls.Add(this.exitBtn);
             this.Controls.Add(this.voidRentalBtn);
             this.Controls.Add(this.updateRentalBtn);
@@ -768,5 +794,7 @@
         private System.Windows.Forms.Button updateRentalBtn;
         private System.Windows.Forms.Button voidRentalBtn;
         private System.Windows.Forms.Button exitBtn;
+        private System.Windows.Forms.RadioButton searchByInvoiceRbn;
+        private System.Windows.Forms.RadioButton searchByLNameRbn;
     }
 }

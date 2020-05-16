@@ -29,7 +29,6 @@ namespace Lakehead_ERIMS
                 tblStudentTableAdapter1.Fill(luEquipmentDataSet1.tblStudent);
             }
 
-
             try
             {
                 int studentID = int.Parse(((DataRowView)e.ListItem)[1].ToString());
@@ -40,19 +39,17 @@ namespace Lakehead_ERIMS
             catch
             {
                 //Display only invoice number if student is not found
-
             }
             
         }
 
         private void editRental_Load(object sender, EventArgs e)
-        {
-            tblRentalTableAdapter1.Fill(luEquipmentDataSet1.tblRental);
-
+        {           
             if (luEquipmentDataSet1.tblStudent.Count == 0)
             {
                 tblStudentTableAdapter1.Fill(luEquipmentDataSet1.tblStudent);
             }
+            tblRentalTableAdapter1.Fill(luEquipmentDataSet1.tblRental);
         }
 
         private void RentalDpk_ValueChanged(object sender, EventArgs e)
@@ -92,10 +89,36 @@ namespace Lakehead_ERIMS
             updateRentalBtn.Enabled = true;
         }
 
+        private void clearFields()
+        {
+            studentCourseTbx.Clear();
+            rentalDateDueDpk.Value = DateTime.FromOADate(0);
+            rentalDateOutDpk.Value = DateTime.FromOADate(0);
+            studentNumberTbx.Clear();
+            studentNameTbx.Clear();
+            studentAddressTbx.Clear();
+            studentPhoneTbx.Clear();
+            itemNumberATbx.Clear();
+            itemNumberBTbx.Clear();
+            itemQuantityTbx.Clear();
+            paymentRentalDaysTbx.Clear();
+            paymentOtherFeesTbx.Clear();
+            paymentSubtotalTbx.Clear();
+            paymentPSTTbx.Clear();
+            paymentGSTTbx.Clear();
+            paymentTotalTbx.Clear();
+            paymentSubtotalWaiveChbx.Checked = false;
+            paymentPSTWaiveChbx.Checked = false;
+            paymentGSTWaiveChbx.Checked = false;
+            rentalItemsDgv.Rows.Clear();
+        }
+
         private void rentalLbx_SelectedIndexChanged(object sender, EventArgs e)
         {
+            clearFields();
+
             LUEquipmentDataSet.tblRentalRow rentalRow;
-            LUEquipmentDataSet.tblStudentRow studentRow;
+            LUEquipmentDataSet.tblStudentRow studentRow;            
 
             //Checks if listbox isn't empty
             if (rentalLbx.SelectedValue != null && rentalLbx.SelectedIndex != -1)
@@ -107,6 +130,11 @@ namespace Lakehead_ERIMS
 
                     //Assigns values to textboxes
                     studentCourseTbx.Text = (!rentalRow.IsRent_CourseNull()) ? rentalRow.Rent_Course : string.Empty;
+                    rentalDateDueDpk.Value = (!rentalRow.IsRent_DateDueNull()) ? rentalRow.Rent_DateDue : DateTime.FromOADate(0);
+                    rentalDateOutDpk.Value = (!rentalRow.IsRent_DateOutNull()) ? rentalRow.Rent_DateOut : DateTime.FromOADate(0);
+
+                    if(rentalDateDueDpk.Value == DateTime.FromOADate(0)) { rentalDateDueDpk.Format = DateTimePickerFormat.Custom; } else { rentalDateDueDpk.Format = DateTimePickerFormat.Long; }
+                    if (rentalDateOutDpk.Value == DateTime.FromOADate(0)) { rentalDateOutDpk.Format = DateTimePickerFormat.Custom; } else { rentalDateOutDpk.Format = DateTimePickerFormat.Long; }
 
                     //Attempts to get student information
                     if (this.luEquipmentDataSet1.tblStudent.Select("Stu_ID = '" + ((!rentalRow.IsStu_IDNull()) ? rentalRow.Stu_ID : -1) + "'").Length > 0)
