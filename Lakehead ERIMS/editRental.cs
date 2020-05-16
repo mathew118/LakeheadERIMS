@@ -12,6 +12,9 @@ namespace Lakehead_ERIMS
 {
     public partial class editRental : Form
     {
+
+        public LUEquipmentDataSet.tblRentalDataTable uniqueInvoices = new LUEquipmentDataSet.tblRentalDataTable();
+
         public editRental()
         {
             InitializeComponent();
@@ -43,13 +46,35 @@ namespace Lakehead_ERIMS
             
         }
 
-        private void editRental_Load(object sender, EventArgs e)
-        {           
+        private void editRental_Shown(object sender, EventArgs e)
+        {
+            Application.DoEvents();
+
             if (luEquipmentDataSet1.tblStudent.Count == 0)
             {
                 tblStudentTableAdapter1.Fill(luEquipmentDataSet1.tblStudent);
             }
+
+            updateRentalList();
+        }
+
+        private void updateRentalList()
+        {
             tblRentalTableAdapter1.Fill(luEquipmentDataSet1.tblRental);
+            uniqueInvoices.Clear();
+
+            List<int> addedInvoices = new List<int>();
+            foreach (LUEquipmentDataSet.tblRentalRow rentalRow in luEquipmentDataSet1.tblRental)
+            {
+                if (!addedInvoices.Contains(rentalRow.Inv_Num))
+                {
+                    addedInvoices.Add(rentalRow.Inv_Num);
+                    uniqueInvoices.ImportRow(rentalRow);
+                }
+            }
+
+            uniqueInvoices.DefaultView.Sort = "Inv_Num";
+            rentalLbx.DataSource = uniqueInvoices;
         }
 
         private void RentalDpk_ValueChanged(object sender, EventArgs e)

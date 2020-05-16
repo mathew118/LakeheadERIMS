@@ -719,7 +719,7 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Edit Rental";
-            this.Load += new System.EventHandler(this.editRental_Load);
+            this.Shown += new System.EventHandler(this.editRental_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.luEquipmentDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblRentalBindingSource)).EndInit();
             this.studentInformationGbx.ResumeLayout(false);
