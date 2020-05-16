@@ -126,10 +126,10 @@
             // 
             // studentNumberTbx
             // 
-            this.studentNumberTbx.Enabled = false;
             this.studentNumberTbx.Location = new System.Drawing.Point(110, 28);
             this.studentNumberTbx.MaxLength = 30;
             this.studentNumberTbx.Name = "studentNumberTbx";
+            this.studentNumberTbx.ReadOnly = true;
             this.studentNumberTbx.Size = new System.Drawing.Size(150, 20);
             this.studentNumberTbx.TabIndex = 26;
             // 
@@ -144,10 +144,10 @@
             // 
             // studentNameTbx
             // 
-            this.studentNameTbx.Enabled = false;
             this.studentNameTbx.Location = new System.Drawing.Point(110, 54);
             this.studentNameTbx.MaxLength = 30;
             this.studentNameTbx.Name = "studentNameTbx";
+            this.studentNameTbx.ReadOnly = true;
             this.studentNameTbx.Size = new System.Drawing.Size(150, 20);
             this.studentNameTbx.TabIndex = 28;
             // 
@@ -162,10 +162,10 @@
             // 
             // studentAddressTbx
             // 
-            this.studentAddressTbx.Enabled = false;
             this.studentAddressTbx.Location = new System.Drawing.Point(110, 80);
             this.studentAddressTbx.MaxLength = 30;
             this.studentAddressTbx.Name = "studentAddressTbx";
+            this.studentAddressTbx.ReadOnly = true;
             this.studentAddressTbx.Size = new System.Drawing.Size(150, 20);
             this.studentAddressTbx.TabIndex = 30;
             // 
@@ -180,10 +180,10 @@
             // 
             // studentPhoneTbx
             // 
-            this.studentPhoneTbx.Enabled = false;
             this.studentPhoneTbx.Location = new System.Drawing.Point(110, 106);
             this.studentPhoneTbx.MaxLength = 30;
             this.studentPhoneTbx.Name = "studentPhoneTbx";
+            this.studentPhoneTbx.ReadOnly = true;
             this.studentPhoneTbx.Size = new System.Drawing.Size(150, 20);
             this.studentPhoneTbx.TabIndex = 32;
             // 
@@ -420,10 +420,10 @@
             // 
             // itemQuantityTbx
             // 
-            this.itemQuantityTbx.Enabled = false;
             this.itemQuantityTbx.Location = new System.Drawing.Point(259, 28);
             this.itemQuantityTbx.MaxLength = 30;
             this.itemQuantityTbx.Name = "itemQuantityTbx";
+            this.itemQuantityTbx.ReadOnly = true;
             this.itemQuantityTbx.Size = new System.Drawing.Size(95, 20);
             this.itemQuantityTbx.TabIndex = 105;
             // 
@@ -539,10 +539,10 @@
             // 
             // paymentTotalTbx
             // 
-            this.paymentTotalTbx.Enabled = false;
             this.paymentTotalTbx.Location = new System.Drawing.Point(84, 179);
             this.paymentTotalTbx.MaxLength = 30;
             this.paymentTotalTbx.Name = "paymentTotalTbx";
+            this.paymentTotalTbx.ReadOnly = true;
             this.paymentTotalTbx.Size = new System.Drawing.Size(53, 20);
             this.paymentTotalTbx.TabIndex = 117;
             // 
@@ -557,10 +557,10 @@
             // 
             // paymentGSTTbx
             // 
-            this.paymentGSTTbx.Enabled = false;
             this.paymentGSTTbx.Location = new System.Drawing.Point(84, 153);
             this.paymentGSTTbx.MaxLength = 30;
             this.paymentGSTTbx.Name = "paymentGSTTbx";
+            this.paymentGSTTbx.ReadOnly = true;
             this.paymentGSTTbx.Size = new System.Drawing.Size(53, 20);
             this.paymentGSTTbx.TabIndex = 115;
             // 
@@ -575,10 +575,10 @@
             // 
             // paymentPSTTbx
             // 
-            this.paymentPSTTbx.Enabled = false;
             this.paymentPSTTbx.Location = new System.Drawing.Point(84, 127);
             this.paymentPSTTbx.MaxLength = 30;
             this.paymentPSTTbx.Name = "paymentPSTTbx";
+            this.paymentPSTTbx.ReadOnly = true;
             this.paymentPSTTbx.Size = new System.Drawing.Size(53, 20);
             this.paymentPSTTbx.TabIndex = 113;
             // 
@@ -593,10 +593,10 @@
             // 
             // paymentSubtotalTbx
             // 
-            this.paymentSubtotalTbx.Enabled = false;
             this.paymentSubtotalTbx.Location = new System.Drawing.Point(84, 101);
             this.paymentSubtotalTbx.MaxLength = 30;
             this.paymentSubtotalTbx.Name = "paymentSubtotalTbx";
+            this.paymentSubtotalTbx.ReadOnly = true;
             this.paymentSubtotalTbx.Size = new System.Drawing.Size(53, 20);
             this.paymentSubtotalTbx.TabIndex = 111;
             // 

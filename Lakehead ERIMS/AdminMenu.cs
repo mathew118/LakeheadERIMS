@@ -40,6 +40,7 @@ namespace Lakehead_ERIMS
             equipmentDatePurchasedDpk.Value = DateTime.FromOADate(0);
             equipmentSupplierCbx.SelectedIndex = -1;
             equipmentHomeLocationCbx.SelectedIndex = -1;
+            saveBtn.Enabled = false;
         }
 
         private void exitBtn_Click(object sender, EventArgs e)

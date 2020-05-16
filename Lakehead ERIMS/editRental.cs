@@ -173,6 +173,8 @@ namespace Lakehead_ERIMS
                         studentPhoneTbx.Text = (!studentRow.IsStu_LPhoneNull()) ? studentRow.Stu_LPhone : string.Empty;
                     }
 
+                    updateRentalBtn.Enabled = false;
+
                 }
                 else
                 {
