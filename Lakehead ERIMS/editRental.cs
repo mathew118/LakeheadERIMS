@@ -13,6 +13,22 @@ namespace Lakehead_ERIMS
     public partial class editRental : Form
     {
 
+        /*
+            Voiding seems to make the invoice number no longer valid? removes the rental entry?
+            Quantity seems to display the total number of rentals, not the quantity of a particular item
+            Entering an item number adds the equipment to the rental list
+            Waiving subtotal pretty much makes the rental free (It calculates into the tax)
+
+            Is equip nights calculated from the values in the rental table? or is it modified each time a
+            rental is created or modified
+
+            Set textbox max lengths
+            tab index
+            item number autotabbing
+            How does it keep track of waives?
+        */
+
+
         public LUEquipmentDataSet.tblRentalDataTable uniqueInvoices = new LUEquipmentDataSet.tblRentalDataTable();
 
         public editRental()
@@ -137,6 +153,10 @@ namespace Lakehead_ERIMS
             paymentPSTWaiveChbx.Checked = false;
             paymentGSTWaiveChbx.Checked = false;
             rentalItemsDgv.Rows.Clear();
+            removeAllItemsBtn.Enabled = false;
+            deleteItemBtn.Enabled = false;
+            itemNumberATbx.Enabled = false;
+            itemNumberBTbx.Enabled = false;
         }
 
         private void rentalLbx_SelectedIndexChanged(object sender, EventArgs e)
@@ -144,15 +164,16 @@ namespace Lakehead_ERIMS
             clearFields();
 
             LUEquipmentDataSet.tblRentalRow rentalRow;
-            LUEquipmentDataSet.tblStudentRow studentRow;            
+            LUEquipmentDataSet.tblStudentRow studentRow;
 
             //Checks if listbox isn't empty
             if (rentalLbx.SelectedValue != null && rentalLbx.SelectedIndex != -1)
             {
                 //Checks if query returns results and if so, assigns it to rentalRow
-                if (this.luEquipmentDataSet1.tblRental.Select("Inv_Num = '" + rentalLbx.SelectedValue.ToString() + "'").Length > 0)
+                DataRow[] searchResults = this.luEquipmentDataSet1.tblRental.Select("Inv_Num = '" + rentalLbx.SelectedValue.ToString() + "'");
+                if (searchResults.Length > 0)
                 {
-                    rentalRow = (LUEquipmentDataSet.tblRentalRow)luEquipmentDataSet1.tblRental.Select("Inv_Num = '" + rentalLbx.SelectedValue.ToString() + "'")[0];
+                    rentalRow = (LUEquipmentDataSet.tblRentalRow)searchResults[0];
 
                     //Assigns values to textboxes
                     studentCourseTbx.Text = (!rentalRow.IsRent_CourseNull()) ? rentalRow.Rent_Course : string.Empty;
@@ -173,7 +194,32 @@ namespace Lakehead_ERIMS
                         studentPhoneTbx.Text = (!studentRow.IsStu_LPhoneNull()) ? studentRow.Stu_LPhone : string.Empty;
                     }
 
+                    //Get items
+                    if(luEquipmentDataSet1.tblEquip.Count == 0)
+                    {
+                        tblEquipTableAdapter1.Fill(luEquipmentDataSet1.tblEquip);
+                    }
+
+                    itemQuantityTbx.Text = searchResults.Length.ToString();
+                    removeAllItemsBtn.Enabled = true;
+                    itemNumberATbx.Enabled = true;
+                    itemNumberBTbx.Enabled = true;
+                    foreach (DataRow row in searchResults)
+                    {
+                        try
+                        {
+                            LUEquipmentDataSet.tblEquipRow equipmentRow = luEquipmentDataSet1.tblEquip.FindByEquip_ID(int.Parse(row[0].ToString()));                           
+                            rentalItemsDgv.Rows.Add(equipmentRow.Equip_Number, equipmentRow.Equip_Name, equipmentRow.Equip_RentalPrice.ToString("C"));                          
+                        }
+                        catch
+                        {
+                            //Equip ID doesn't match any item in tblEquip
+                            rentalItemsDgv.Rows.Add(row[0].ToString() + " (ID)", "Equipment Not Found", "");
+                        }
+                    }
+
                     updateRentalBtn.Enabled = false;
+                    rentalItemsDgv.ClearSelection();
 
                 }
                 else
@@ -188,10 +234,40 @@ namespace Lakehead_ERIMS
         private void itemNumberTbx_TextChanged(object sender, EventArgs e)
         {
             int totalLength = itemNumberATbx.Text.Length + itemNumberBTbx.Text.Length;
-            if (totalLength == 6)
+            if (totalLength == 6 && rentalLbx.SelectedIndex != -1)
             {
-                //Add item
+                if (luEquipmentDataSet1.tblEquip.Count == 0)
+                {
+                    tblEquipTableAdapter1.Fill(luEquipmentDataSet1.tblEquip);
+                }
 
+                //Add item
+                try
+                {
+                    string equipNum = itemNumberATbx.Text + itemNumberBTbx.Text;
+                    MessageBox.Show(equipNum);
+
+                    if(this.luEquipmentDataSet1.tblEquip.Select("Equip_Number = '" + equipNum + "'").Length > 0)
+                    {
+                        int equipID = int.Parse(this.luEquipmentDataSet1.tblEquip.Select("Equip_Number = '" + equipNum + "'")[0][0].ToString());
+                        LUEquipmentDataSet.tblEquipRow equipmentRow = luEquipmentDataSet1.tblEquip.FindByEquip_ID(equipID);
+
+                        rentalItemsDgv.Rows.Add(equipmentRow.Equip_Number, equipmentRow.Equip_Name, equipmentRow.Equip_RentalPrice.ToString("C"));
+
+                        updateRentalBtn.Enabled = true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Equipment not found.", "Error");
+                    }
+                }
+                catch
+                {
+                    MessageBox.Show("Equipment not found.", "Error");
+                }
+
+                itemNumberATbx.Clear();
+                itemNumberBTbx.Clear();
             }
         }
 
@@ -255,5 +331,18 @@ namespace Lakehead_ERIMS
             }
             rentalSearchingTbx.Clear();
         }
+
+        private void rentalItemsDgv_SelectionChanged(object sender, EventArgs e)
+        {
+            if(rentalItemsDgv.SelectedRows.Count == 1)
+            {
+                deleteItemBtn.Enabled = true;
+            }
+            else
+            {
+                deleteItemBtn.Enabled = false;
+            }
+        }
     }
 }
+ 

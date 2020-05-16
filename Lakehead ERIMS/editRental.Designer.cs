@@ -59,9 +59,6 @@
             this.removeAllItemsBtn = new System.Windows.Forms.Button();
             this.deleteItemBtn = new System.Windows.Forms.Button();
             this.rentalItemsDgv = new System.Windows.Forms.DataGridView();
-            this.itemNumberClm = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.itemNameClm = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.itemRentalClm = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.itemQuantityTbx = new System.Windows.Forms.TextBox();
             this.itemQuantityLbl = new System.Windows.Forms.Label();
             this.itemNumberDashLbl = new System.Windows.Forms.Label();
@@ -90,6 +87,9 @@
             this.exitBtn = new System.Windows.Forms.Button();
             this.searchByInvoiceRbn = new System.Windows.Forms.RadioButton();
             this.searchByLNameRbn = new System.Windows.Forms.RadioButton();
+            this.itemNumberClm = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemNameClm = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemRentalClm = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.luEquipmentDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblRentalBindingSource)).BeginInit();
             this.studentInformationGbx.SuspendLayout();
@@ -385,6 +385,9 @@
             // 
             // rentalItemsDgv
             // 
+            this.rentalItemsDgv.AllowUserToAddRows = false;
+            this.rentalItemsDgv.AllowUserToDeleteRows = false;
+            this.rentalItemsDgv.AllowUserToResizeRows = false;
             this.rentalItemsDgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.rentalItemsDgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.rentalItemsDgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -395,6 +398,7 @@
             this.rentalItemsDgv.Location = new System.Drawing.Point(6, 67);
             this.rentalItemsDgv.MultiSelect = false;
             this.rentalItemsDgv.Name = "rentalItemsDgv";
+            this.rentalItemsDgv.ReadOnly = true;
             this.rentalItemsDgv.RowHeadersVisible = false;
             this.rentalItemsDgv.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.rentalItemsDgv.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
@@ -402,21 +406,7 @@
             this.rentalItemsDgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.rentalItemsDgv.Size = new System.Drawing.Size(348, 103);
             this.rentalItemsDgv.TabIndex = 107;
-            // 
-            // itemNumberClm
-            // 
-            this.itemNumberClm.HeaderText = "Number";
-            this.itemNumberClm.Name = "itemNumberClm";
-            // 
-            // itemNameClm
-            // 
-            this.itemNameClm.HeaderText = "Name";
-            this.itemNameClm.Name = "itemNameClm";
-            // 
-            // itemRentalClm
-            // 
-            this.itemRentalClm.HeaderText = "Rental";
-            this.itemRentalClm.Name = "itemRentalClm";
+            this.rentalItemsDgv.SelectionChanged += new System.EventHandler(this.rentalItemsDgv_SelectionChanged);
             // 
             // itemQuantityTbx
             // 
@@ -448,6 +438,7 @@
             // 
             // itemNumberATbx
             // 
+            this.itemNumberATbx.Enabled = false;
             this.itemNumberATbx.Location = new System.Drawing.Point(88, 28);
             this.itemNumberATbx.MaxLength = 3;
             this.itemNumberATbx.Name = "itemNumberATbx";
@@ -466,6 +457,7 @@
             // 
             // itemNumberBTbx
             // 
+            this.itemNumberBTbx.Enabled = false;
             this.itemNumberBTbx.Location = new System.Drawing.Point(148, 28);
             this.itemNumberBTbx.MaxLength = 3;
             this.itemNumberBTbx.Name = "itemNumberBTbx";
@@ -696,6 +688,26 @@
             this.searchByLNameRbn.Text = "By Last Name";
             this.searchByLNameRbn.UseVisualStyleBackColor = true;
             // 
+            // itemNumberClm
+            // 
+            this.itemNumberClm.FillWeight = 30F;
+            this.itemNumberClm.HeaderText = "Number";
+            this.itemNumberClm.Name = "itemNumberClm";
+            this.itemNumberClm.ReadOnly = true;
+            // 
+            // itemNameClm
+            // 
+            this.itemNameClm.HeaderText = "Name";
+            this.itemNameClm.Name = "itemNameClm";
+            this.itemNameClm.ReadOnly = true;
+            // 
+            // itemRentalClm
+            // 
+            this.itemRentalClm.FillWeight = 30F;
+            this.itemRentalClm.HeaderText = "Rental";
+            this.itemRentalClm.Name = "itemRentalClm";
+            this.itemRentalClm.ReadOnly = true;
+            // 
             // editRental
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -787,9 +799,6 @@
         private System.Windows.Forms.CheckBox paymentSubtotalWaiveChbx;
         private System.Windows.Forms.Label paymentWaiveLbl;
         private System.Windows.Forms.DataGridView rentalItemsDgv;
-        private System.Windows.Forms.DataGridViewTextBoxColumn itemNumberClm;
-        private System.Windows.Forms.DataGridViewTextBoxColumn itemNameClm;
-        private System.Windows.Forms.DataGridViewTextBoxColumn itemRentalClm;
         private System.Windows.Forms.Button removeAllItemsBtn;
         private System.Windows.Forms.Button deleteItemBtn;
         private System.Windows.Forms.Button updateRentalBtn;
@@ -797,5 +806,8 @@
         private System.Windows.Forms.Button exitBtn;
         private System.Windows.Forms.RadioButton searchByInvoiceRbn;
         private System.Windows.Forms.RadioButton searchByLNameRbn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn itemNumberClm;
+        private System.Windows.Forms.DataGridViewTextBoxColumn itemNameClm;
+        private System.Windows.Forms.DataGridViewTextBoxColumn itemRentalClm;
     }
 }
