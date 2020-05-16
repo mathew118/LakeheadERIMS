@@ -17,79 +17,126 @@ namespace Lakehead_ERIMS
             InitializeComponent();
         }
 
-        private void label8_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void exitButton_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void invoiceButton_Click(object sender, EventArgs e)
+        private void rentalLbx_Format(object sender, ListControlConvertEventArgs e)
         {
+            if (luEquipmentDataSet1.tblStudent.Count == 0)
+            {
+                tblStudentTableAdapter1.Fill(luEquipmentDataSet1.tblStudent);
+            }
+
+
             try
             {
-                this.tblRentalTableAdapter1.Fill(this.luEquipmentDataSet1.tblRental);
-                DataRow rental;
-                rental = luEquipmentDataSet1.tblRental.Select("Inv_Num = '" + invoiceNumberTextbox.Text + "'")[0];
-                dateOutPicker.Text = rental[2].ToString();
-                DueDatePicker.Text = rental[3].ToString();
-                string stu_ID = rental[1].ToString();
-                this.tblStudentTableAdapter1.Fill(this.luEquipmentDataSet1.tblStudent);
-                DataRow student;
-                student = luEquipmentDataSet1.tblStudent.Select("Stu_ID = '" + stu_ID + "'")[0];
-                studentFirstNameLabel.Text = student[3].ToString();
-                studentLastNameLabel.Text = student[2].ToString();
-                studentNumberLabel.Text = student[1].ToString();
-                string equipID = rental[0].ToString();
-                this.tblEquipTableAdapter1.Fill(this.luEquipmentDataSet1.tblEquip);
-                DataRow equip;
-                equip = luEquipmentDataSet1.tblEquip.Select("Equip_ID = '" + equipID + "'")[0];
-                equipNameLabel.Text = equip[2].ToString();
-                equipNumberLabel.Text = equip[1].ToString();
+                int studentID = int.Parse(((DataRowView)e.ListItem)[1].ToString());
+                LUEquipmentDataSet.tblStudentRow invStudentRow = luEquipmentDataSet1.tblStudent.FindByStu_ID(studentID);
+
+                e.Value += " - " + invStudentRow.Stu_FName + " " + invStudentRow.Stu_LName;
             }
             catch
             {
-                MessageBox.Show("Invoice number not found");
-            }
+                //Display only invoice number if student is not found
 
+            }
+            
         }
 
-        private void updateButton_Click(object sender, EventArgs e)
+        private void editRental_Load(object sender, EventArgs e)
         {
-            /*
-            this.tblRentalTableAdapter1.Fill(this.luEquipmentDataSet1.tblRental);
-            DataRow rental;
-            rental = luEquipmentDataSet1.tblRental.Select("Inv_Num = '" + invoiceNumberTextbox.Text + "'")[0];
-            int stuID = Int32.Parse(rental[1].ToString());
-            DateTime datetime = DateTime.Parse(dateOutPicker.Text);
-            DateTime datetimeDue = DateTime.Parse(DueDatePicker.Text);
-            short st = Convert.ToInt16(rental[5].ToString());
-            DateTime oldDate = DateTime.Parse(rental[2].ToString());
-            DateTime oldDate2 = DateTime.Parse(rental[3].ToString());
-            int invoice = int.Parse(rental[5].ToString());
-            tblRentalTableAdapter1.Update(stuID, datetime, datetimeDue, rental[4].ToString(), st, stuID, oldDate, oldDate2, rental[4].ToString(), invoice);
-            MessageBox.Show("Updated");
-            */
+            tblRentalTableAdapter1.Fill(luEquipmentDataSet1.tblRental);
 
-            this.tblRentalTableAdapter1.Fill(this.luEquipmentDataSet1.tblRental);
-            DataRow rental;
-            rental = luEquipmentDataSet1.tblRental.Select("Inv_Num = '" + invoiceNumberTextbox.Text + "'")[0];
-            short equipID = Convert.ToInt16(rental[0].ToString());
+            if (luEquipmentDataSet1.tblStudent.Count == 0)
+            {
+                tblStudentTableAdapter1.Fill(luEquipmentDataSet1.tblStudent);
+            }
+        }
 
-            int invoice = Convert.ToInt32(invoiceNumberTextbox.Text);
-            LUEquipmentDataSet.tblRentalRow rentalRow = luEquipmentDataSet1.tblRental.FindByEquip_IDInv_Num(equipID, invoice);
-            DateTime dateOut = Convert.ToDateTime(dateOutPicker.Text);
-            DateTime dateDue = Convert.ToDateTime(DueDatePicker.Text);
-            rentalRow.Rent_DateOut = dateOut;
-            rentalRow.Rent_DateOut = dateDue;
-            
-            tblRentalTableAdapter1.Update(rentalRow);
-            MessageBox.Show("Updated Successfully");
+        private void RentalDpk_ValueChanged(object sender, EventArgs e)
+        {
+            //The DateTime.Today is so when the datepicker is opened it doesn't start at 1899 and instead starts at today.
+            //Should rework
 
+            DateTimePicker sendingDpk = (DateTimePicker)sender;
 
+            if (sendingDpk.Value == DateTime.FromOADate(0))
+            {
+                sendingDpk.Format = DateTimePickerFormat.Custom;
+                sendingDpk.CustomFormat = " ";
+                sendingDpk.Value = DateTime.Today;
+            }
+            else if (sendingDpk.Value != DateTime.Today)
+            {
+                sendingDpk.Format = DateTimePickerFormat.Long;
+            }
+
+            RentalFieldChanged(sender, e);
+        }
+
+        private void RentalDpk_CloseUp(object sender, EventArgs e)
+        {
+            DateTimePicker sendingDpk = (DateTimePicker)sender;
+
+            if (sendingDpk.Value == DateTime.Today)
+            {
+                sendingDpk.Format = DateTimePickerFormat.Long;
+                RentalFieldChanged(sender, e);
+            }
+        }
+
+        private void RentalFieldChanged(object sender, EventArgs e)
+        {
+            updateRentalBtn.Enabled = true;
+        }
+
+        private void rentalLbx_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LUEquipmentDataSet.tblRentalRow rentalRow;
+            LUEquipmentDataSet.tblStudentRow studentRow;
+
+            //Checks if listbox isn't empty
+            if (rentalLbx.SelectedValue != null && rentalLbx.SelectedIndex != -1)
+            {
+                //Checks if query returns results and if so, assigns it to rentalRow
+                if (this.luEquipmentDataSet1.tblRental.Select("Inv_Num = '" + rentalLbx.SelectedValue.ToString() + "'").Length > 0)
+                {
+                    rentalRow = (LUEquipmentDataSet.tblRentalRow)luEquipmentDataSet1.tblRental.Select("Inv_Num = '" + rentalLbx.SelectedValue.ToString() + "'")[0];
+
+                    //Assigns values to textboxes
+                    studentCourseTbx.Text = (!rentalRow.IsRent_CourseNull()) ? rentalRow.Rent_Course : string.Empty;
+
+                    //Attempts to get student information
+                    if (this.luEquipmentDataSet1.tblStudent.Select("Stu_ID = '" + ((!rentalRow.IsStu_IDNull()) ? rentalRow.Stu_ID : -1) + "'").Length > 0)
+                    {
+                        studentRow = (LUEquipmentDataSet.tblStudentRow)this.luEquipmentDataSet1.tblStudent.Select("Stu_ID = '" + rentalRow.Stu_ID + "'")[0];
+
+                        studentNumberTbx.Text = (!studentRow.IsStu_NumberNull()) ? studentRow.Stu_Number : string.Empty;
+                        studentNameTbx.Text = ((!studentRow.IsStu_FNameNull()) ? studentRow.Stu_FName : string.Empty) + " " + ((!studentRow.IsStu_LNameNull()) ? studentRow.Stu_LName : string.Empty);
+                        studentAddressTbx.Text = (!studentRow.IsStu_LAddressNull()) ? studentRow.Stu_LAddress : string.Empty;
+                        studentPhoneTbx.Text = (!studentRow.IsStu_LPhoneNull()) ? studentRow.Stu_LPhone : string.Empty;
+                    }
+
+                }
+                else
+                {
+                    //No rental selected
+
+                    MessageBox.Show("Error! Rental not found", "Error");
+                }
+            }
+        }
+
+        private void itemNumberTbx_TextChanged(object sender, EventArgs e)
+        {
+            int totalLength = itemNumberATbx.Text.Length + itemNumberBTbx.Text.Length;
+            if (totalLength == 6)
+            {
+                //Add item
+
+            }
         }
     }
 }
