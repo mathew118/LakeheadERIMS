@@ -56,6 +56,7 @@ namespace Lakehead_ERIMS
             }
 
             updateRentalList();
+            rentalLbx.SelectedIndex = -1;
         }
 
         private void updateRentalList()
@@ -190,6 +191,67 @@ namespace Lakehead_ERIMS
                 //Add item
 
             }
+        }
+
+        private void rentalSearchingBtn_Click(object sender, EventArgs e)
+        {
+            string searchCriteria = rentalSearchingTbx.Text.Trim();
+
+            if (rentalLbx.Items.Count > 0)
+            {
+                if (searchCriteria.Length > 0)
+                {
+                    DataRow[] searchResults = new DataRow[0];
+
+                    if (searchByInvoiceRbn.Checked)
+                    {
+                        searchResults = this.luEquipmentDataSet1.tblRental.Select("Inv_Num = '" + searchCriteria + "'");
+                    }
+                    else
+                    {
+                        DataRow[] studentData = this.luEquipmentDataSet1.tblStudent.Select("Stu_LName = '" + searchCriteria + "'");
+                        if(studentData.Length > 0)
+                        {
+                            //Loops through students until either one is found that rented equipment or no students with that last name are left
+                            for (int i = 0; i < studentData.Length; i++)
+                            {
+                                searchResults = this.luEquipmentDataSet1.tblRental.Select("Stu_ID = '" + studentData[i][0].ToString() + "'");
+
+                                if(searchResults.Length > 0)
+                                {
+                                    break;
+                                }
+                            }                        
+                        }
+                    }
+
+                    if(searchResults.Length > 0)
+                    {
+                        DataRow[] studentInfo = this.luEquipmentDataSet1.tblStudent.Select("Stu_ID = '" + searchResults[0][1] + "'");
+
+
+                        string rentalLbxFormat = (studentInfo.Length > 0) ? searchResults[0][5].ToString() + " - " + studentInfo[0][3].ToString() + " " + studentInfo[0][2].ToString() : searchResults[0][5].ToString();
+                        int rentalListboxIndex = rentalLbx.FindStringExact(rentalLbxFormat);
+                        if (rentalListboxIndex != -1)
+                        {
+                            rentalLbx.SetSelected(rentalListboxIndex, true);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Rental not found in list.", "Error");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Rental not found.", "Error");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Please enter search criteria.", "Error");
+                }
+            }
+            rentalSearchingTbx.Clear();
         }
     }
 }

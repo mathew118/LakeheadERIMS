@@ -286,6 +286,7 @@
             this.rentalSearchingBtn.TabIndex = 106;
             this.rentalSearchingBtn.Text = "Search";
             this.rentalSearchingBtn.UseVisualStyleBackColor = true;
+            this.rentalSearchingBtn.Click += new System.EventHandler(this.rentalSearchingBtn_Click);
             // 
             // rentalLbx
             // 
