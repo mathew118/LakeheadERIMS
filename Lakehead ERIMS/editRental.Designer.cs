@@ -59,6 +59,9 @@
             this.removeAllItemsBtn = new System.Windows.Forms.Button();
             this.deleteItemBtn = new System.Windows.Forms.Button();
             this.rentalItemsDgv = new System.Windows.Forms.DataGridView();
+            this.itemNumberClm = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemNameClm = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemRentalClm = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.itemQuantityTbx = new System.Windows.Forms.TextBox();
             this.itemQuantityLbl = new System.Windows.Forms.Label();
             this.itemNumberDashLbl = new System.Windows.Forms.Label();
@@ -67,15 +70,12 @@
             this.itemNumberBTbx = new System.Windows.Forms.TextBox();
             this.paymentSummaryGbx = new System.Windows.Forms.GroupBox();
             this.paymentWaiveLbl = new System.Windows.Forms.Label();
-            this.paymentGSTWaiveChbx = new System.Windows.Forms.CheckBox();
-            this.paymentPSTWaiveChbx = new System.Windows.Forms.CheckBox();
+            this.paymentHSTWaiveChbx = new System.Windows.Forms.CheckBox();
             this.paymentSubtotalWaiveChbx = new System.Windows.Forms.CheckBox();
             this.paymentTotalTbx = new System.Windows.Forms.TextBox();
             this.paymentTotalLbl = new System.Windows.Forms.Label();
-            this.paymentGSTTbx = new System.Windows.Forms.TextBox();
-            this.paymentGSTLbl = new System.Windows.Forms.Label();
-            this.paymentPSTTbx = new System.Windows.Forms.TextBox();
-            this.paymentPSTLbl = new System.Windows.Forms.Label();
+            this.paymentHSTTbx = new System.Windows.Forms.TextBox();
+            this.paymentHSTLbl = new System.Windows.Forms.Label();
             this.paymentSubtotalTbx = new System.Windows.Forms.TextBox();
             this.paymentSubtotalLbl = new System.Windows.Forms.Label();
             this.paymentOtherFeesTbx = new System.Windows.Forms.TextBox();
@@ -87,9 +87,7 @@
             this.exitBtn = new System.Windows.Forms.Button();
             this.searchByInvoiceRbn = new System.Windows.Forms.RadioButton();
             this.searchByLNameRbn = new System.Windows.Forms.RadioButton();
-            this.itemNumberClm = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.itemNameClm = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.itemRentalClm = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tblStatusTableAdapter1 = new Lakehead_ERIMS.LUEquipmentDataSetTableAdapters.tblStatusTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.luEquipmentDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblRentalBindingSource)).BeginInit();
             this.studentInformationGbx.SuspendLayout();
@@ -372,6 +370,7 @@
             this.removeAllItemsBtn.TabIndex = 109;
             this.removeAllItemsBtn.Text = "Remove All";
             this.removeAllItemsBtn.UseVisualStyleBackColor = true;
+            this.removeAllItemsBtn.Click += new System.EventHandler(this.removeAllItemsBtn_Click);
             // 
             // deleteItemBtn
             // 
@@ -382,6 +381,7 @@
             this.deleteItemBtn.TabIndex = 108;
             this.deleteItemBtn.Text = "Delete Item";
             this.deleteItemBtn.UseVisualStyleBackColor = true;
+            this.deleteItemBtn.Click += new System.EventHandler(this.deleteItemBtn_Click);
             // 
             // rentalItemsDgv
             // 
@@ -406,7 +406,29 @@
             this.rentalItemsDgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.rentalItemsDgv.Size = new System.Drawing.Size(348, 103);
             this.rentalItemsDgv.TabIndex = 107;
+            this.rentalItemsDgv.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.rentalItemsDgv_RowsChanged);
+            this.rentalItemsDgv.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.rentalItemsDgv_RowsRemoved);
             this.rentalItemsDgv.SelectionChanged += new System.EventHandler(this.rentalItemsDgv_SelectionChanged);
+            // 
+            // itemNumberClm
+            // 
+            this.itemNumberClm.FillWeight = 30F;
+            this.itemNumberClm.HeaderText = "Number";
+            this.itemNumberClm.Name = "itemNumberClm";
+            this.itemNumberClm.ReadOnly = true;
+            // 
+            // itemNameClm
+            // 
+            this.itemNameClm.HeaderText = "Name";
+            this.itemNameClm.Name = "itemNameClm";
+            this.itemNameClm.ReadOnly = true;
+            // 
+            // itemRentalClm
+            // 
+            this.itemRentalClm.FillWeight = 30F;
+            this.itemRentalClm.HeaderText = "Rental";
+            this.itemRentalClm.Name = "itemRentalClm";
+            this.itemRentalClm.ReadOnly = true;
             // 
             // itemQuantityTbx
             // 
@@ -445,6 +467,8 @@
             this.itemNumberATbx.Size = new System.Drawing.Size(42, 20);
             this.itemNumberATbx.TabIndex = 64;
             this.itemNumberATbx.TextChanged += new System.EventHandler(this.itemNumberTbx_TextChanged);
+            this.itemNumberATbx.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.HandleNumericOnly);
+            this.itemNumberATbx.KeyUp += new System.Windows.Forms.KeyEventHandler(this.AutoTabItemNum);
             // 
             // itemNumberLbl
             // 
@@ -464,19 +488,17 @@
             this.itemNumberBTbx.Size = new System.Drawing.Size(42, 20);
             this.itemNumberBTbx.TabIndex = 65;
             this.itemNumberBTbx.TextChanged += new System.EventHandler(this.itemNumberTbx_TextChanged);
+            this.itemNumberBTbx.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.HandleNumericOnly);
             // 
             // paymentSummaryGbx
             // 
             this.paymentSummaryGbx.Controls.Add(this.paymentWaiveLbl);
-            this.paymentSummaryGbx.Controls.Add(this.paymentGSTWaiveChbx);
-            this.paymentSummaryGbx.Controls.Add(this.paymentPSTWaiveChbx);
+            this.paymentSummaryGbx.Controls.Add(this.paymentHSTWaiveChbx);
             this.paymentSummaryGbx.Controls.Add(this.paymentSubtotalWaiveChbx);
             this.paymentSummaryGbx.Controls.Add(this.paymentTotalTbx);
             this.paymentSummaryGbx.Controls.Add(this.paymentTotalLbl);
-            this.paymentSummaryGbx.Controls.Add(this.paymentGSTTbx);
-            this.paymentSummaryGbx.Controls.Add(this.paymentGSTLbl);
-            this.paymentSummaryGbx.Controls.Add(this.paymentPSTTbx);
-            this.paymentSummaryGbx.Controls.Add(this.paymentPSTLbl);
+            this.paymentSummaryGbx.Controls.Add(this.paymentHSTTbx);
+            this.paymentSummaryGbx.Controls.Add(this.paymentHSTLbl);
             this.paymentSummaryGbx.Controls.Add(this.paymentSubtotalTbx);
             this.paymentSummaryGbx.Controls.Add(this.paymentSubtotalLbl);
             this.paymentSummaryGbx.Controls.Add(this.paymentOtherFeesTbx);
@@ -499,25 +521,15 @@
             this.paymentWaiveLbl.TabIndex = 122;
             this.paymentWaiveLbl.Text = "Waive";
             // 
-            // paymentGSTWaiveChbx
+            // paymentHSTWaiveChbx
             // 
-            this.paymentGSTWaiveChbx.AutoSize = true;
-            this.paymentGSTWaiveChbx.Location = new System.Drawing.Point(156, 156);
-            this.paymentGSTWaiveChbx.Name = "paymentGSTWaiveChbx";
-            this.paymentGSTWaiveChbx.Size = new System.Drawing.Size(15, 14);
-            this.paymentGSTWaiveChbx.TabIndex = 121;
-            this.paymentGSTWaiveChbx.UseVisualStyleBackColor = true;
-            this.paymentGSTWaiveChbx.CheckedChanged += new System.EventHandler(this.RentalFieldChanged);
-            // 
-            // paymentPSTWaiveChbx
-            // 
-            this.paymentPSTWaiveChbx.AutoSize = true;
-            this.paymentPSTWaiveChbx.Location = new System.Drawing.Point(156, 130);
-            this.paymentPSTWaiveChbx.Name = "paymentPSTWaiveChbx";
-            this.paymentPSTWaiveChbx.Size = new System.Drawing.Size(15, 14);
-            this.paymentPSTWaiveChbx.TabIndex = 120;
-            this.paymentPSTWaiveChbx.UseVisualStyleBackColor = true;
-            this.paymentPSTWaiveChbx.CheckedChanged += new System.EventHandler(this.RentalFieldChanged);
+            this.paymentHSTWaiveChbx.AutoSize = true;
+            this.paymentHSTWaiveChbx.Location = new System.Drawing.Point(156, 130);
+            this.paymentHSTWaiveChbx.Name = "paymentHSTWaiveChbx";
+            this.paymentHSTWaiveChbx.Size = new System.Drawing.Size(15, 14);
+            this.paymentHSTWaiveChbx.TabIndex = 120;
+            this.paymentHSTWaiveChbx.UseVisualStyleBackColor = true;
+            this.paymentHSTWaiveChbx.CheckedChanged += new System.EventHandler(this.paymentChanged);
             // 
             // paymentSubtotalWaiveChbx
             // 
@@ -527,11 +539,11 @@
             this.paymentSubtotalWaiveChbx.Size = new System.Drawing.Size(15, 14);
             this.paymentSubtotalWaiveChbx.TabIndex = 119;
             this.paymentSubtotalWaiveChbx.UseVisualStyleBackColor = true;
-            this.paymentSubtotalWaiveChbx.CheckedChanged += new System.EventHandler(this.RentalFieldChanged);
+            this.paymentSubtotalWaiveChbx.CheckedChanged += new System.EventHandler(this.paymentChanged);
             // 
             // paymentTotalTbx
             // 
-            this.paymentTotalTbx.Location = new System.Drawing.Point(84, 179);
+            this.paymentTotalTbx.Location = new System.Drawing.Point(84, 153);
             this.paymentTotalTbx.MaxLength = 30;
             this.paymentTotalTbx.Name = "paymentTotalTbx";
             this.paymentTotalTbx.ReadOnly = true;
@@ -541,47 +553,29 @@
             // paymentTotalLbl
             // 
             this.paymentTotalLbl.AutoSize = true;
-            this.paymentTotalLbl.Location = new System.Drawing.Point(44, 182);
+            this.paymentTotalLbl.Location = new System.Drawing.Point(44, 156);
             this.paymentTotalLbl.Name = "paymentTotalLbl";
             this.paymentTotalLbl.Size = new System.Drawing.Size(34, 13);
             this.paymentTotalLbl.TabIndex = 118;
             this.paymentTotalLbl.Text = "Total:";
             // 
-            // paymentGSTTbx
+            // paymentHSTTbx
             // 
-            this.paymentGSTTbx.Location = new System.Drawing.Point(84, 153);
-            this.paymentGSTTbx.MaxLength = 30;
-            this.paymentGSTTbx.Name = "paymentGSTTbx";
-            this.paymentGSTTbx.ReadOnly = true;
-            this.paymentGSTTbx.Size = new System.Drawing.Size(53, 20);
-            this.paymentGSTTbx.TabIndex = 115;
+            this.paymentHSTTbx.Location = new System.Drawing.Point(84, 127);
+            this.paymentHSTTbx.MaxLength = 30;
+            this.paymentHSTTbx.Name = "paymentHSTTbx";
+            this.paymentHSTTbx.ReadOnly = true;
+            this.paymentHSTTbx.Size = new System.Drawing.Size(53, 20);
+            this.paymentHSTTbx.TabIndex = 113;
             // 
-            // paymentGSTLbl
+            // paymentHSTLbl
             // 
-            this.paymentGSTLbl.AutoSize = true;
-            this.paymentGSTLbl.Location = new System.Drawing.Point(46, 157);
-            this.paymentGSTLbl.Name = "paymentGSTLbl";
-            this.paymentGSTLbl.Size = new System.Drawing.Size(32, 13);
-            this.paymentGSTLbl.TabIndex = 116;
-            this.paymentGSTLbl.Text = "GST:";
-            // 
-            // paymentPSTTbx
-            // 
-            this.paymentPSTTbx.Location = new System.Drawing.Point(84, 127);
-            this.paymentPSTTbx.MaxLength = 30;
-            this.paymentPSTTbx.Name = "paymentPSTTbx";
-            this.paymentPSTTbx.ReadOnly = true;
-            this.paymentPSTTbx.Size = new System.Drawing.Size(53, 20);
-            this.paymentPSTTbx.TabIndex = 113;
-            // 
-            // paymentPSTLbl
-            // 
-            this.paymentPSTLbl.AutoSize = true;
-            this.paymentPSTLbl.Location = new System.Drawing.Point(47, 130);
-            this.paymentPSTLbl.Name = "paymentPSTLbl";
-            this.paymentPSTLbl.Size = new System.Drawing.Size(31, 13);
-            this.paymentPSTLbl.TabIndex = 114;
-            this.paymentPSTLbl.Text = "PST:";
+            this.paymentHSTLbl.AutoSize = true;
+            this.paymentHSTLbl.Location = new System.Drawing.Point(47, 130);
+            this.paymentHSTLbl.Name = "paymentHSTLbl";
+            this.paymentHSTLbl.Size = new System.Drawing.Size(32, 13);
+            this.paymentHSTLbl.TabIndex = 114;
+            this.paymentHSTLbl.Text = "HST:";
             // 
             // paymentSubtotalTbx
             // 
@@ -608,7 +602,7 @@
             this.paymentOtherFeesTbx.Name = "paymentOtherFeesTbx";
             this.paymentOtherFeesTbx.Size = new System.Drawing.Size(53, 20);
             this.paymentOtherFeesTbx.TabIndex = 109;
-            this.paymentOtherFeesTbx.TextChanged += new System.EventHandler(this.RentalFieldChanged);
+            this.paymentOtherFeesTbx.TextChanged += new System.EventHandler(this.paymentChanged);
             // 
             // paymentOtherFeesLbl
             // 
@@ -626,7 +620,7 @@
             this.paymentRentalDaysTbx.Name = "paymentRentalDaysTbx";
             this.paymentRentalDaysTbx.Size = new System.Drawing.Size(53, 20);
             this.paymentRentalDaysTbx.TabIndex = 107;
-            this.paymentRentalDaysTbx.TextChanged += new System.EventHandler(this.RentalFieldChanged);
+            this.paymentRentalDaysTbx.TextChanged += new System.EventHandler(this.paymentChanged);
             // 
             // paymentRentalDaysLbl
             // 
@@ -688,25 +682,9 @@
             this.searchByLNameRbn.Text = "By Last Name";
             this.searchByLNameRbn.UseVisualStyleBackColor = true;
             // 
-            // itemNumberClm
+            // tblStatusTableAdapter1
             // 
-            this.itemNumberClm.FillWeight = 30F;
-            this.itemNumberClm.HeaderText = "Number";
-            this.itemNumberClm.Name = "itemNumberClm";
-            this.itemNumberClm.ReadOnly = true;
-            // 
-            // itemNameClm
-            // 
-            this.itemNameClm.HeaderText = "Name";
-            this.itemNameClm.Name = "itemNameClm";
-            this.itemNameClm.ReadOnly = true;
-            // 
-            // itemRentalClm
-            // 
-            this.itemRentalClm.FillWeight = 30F;
-            this.itemRentalClm.HeaderText = "Rental";
-            this.itemRentalClm.Name = "itemRentalClm";
-            this.itemRentalClm.ReadOnly = true;
+            this.tblStatusTableAdapter1.ClearBeforeFill = true;
             // 
             // editRental
             // 
@@ -784,18 +762,15 @@
         private System.Windows.Forms.TextBox itemNumberBTbx;
         private System.Windows.Forms.TextBox paymentTotalTbx;
         private System.Windows.Forms.Label paymentTotalLbl;
-        private System.Windows.Forms.TextBox paymentGSTTbx;
-        private System.Windows.Forms.Label paymentGSTLbl;
-        private System.Windows.Forms.TextBox paymentPSTTbx;
-        private System.Windows.Forms.Label paymentPSTLbl;
+        private System.Windows.Forms.TextBox paymentHSTTbx;
+        private System.Windows.Forms.Label paymentHSTLbl;
         private System.Windows.Forms.TextBox paymentSubtotalTbx;
         private System.Windows.Forms.Label paymentSubtotalLbl;
         private System.Windows.Forms.TextBox paymentOtherFeesTbx;
         private System.Windows.Forms.Label paymentOtherFeesLbl;
         private System.Windows.Forms.TextBox paymentRentalDaysTbx;
         private System.Windows.Forms.Label paymentRentalDaysLbl;
-        private System.Windows.Forms.CheckBox paymentGSTWaiveChbx;
-        private System.Windows.Forms.CheckBox paymentPSTWaiveChbx;
+        private System.Windows.Forms.CheckBox paymentHSTWaiveChbx;
         private System.Windows.Forms.CheckBox paymentSubtotalWaiveChbx;
         private System.Windows.Forms.Label paymentWaiveLbl;
         private System.Windows.Forms.DataGridView rentalItemsDgv;
@@ -809,5 +784,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn itemNumberClm;
         private System.Windows.Forms.DataGridViewTextBoxColumn itemNameClm;
         private System.Windows.Forms.DataGridViewTextBoxColumn itemRentalClm;
+        private LUEquipmentDataSetTableAdapters.tblStatusTableAdapter tblStatusTableAdapter1;
     }
 }

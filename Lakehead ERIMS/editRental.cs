@@ -14,18 +14,28 @@ namespace Lakehead_ERIMS
     {
 
         /*
+            If I have the datepicker automatically shift when I change rentalDays field, and rentalDays field to change everytime datepicker shifts, I need to be careful not to have a loop.
+            
             Voiding seems to make the invoice number no longer valid? removes the rental entry?
-            Quantity seems to display the total number of rentals, not the quantity of a particular item
-            Entering an item number adds the equipment to the rental list
-            Waiving subtotal pretty much makes the rental free (It calculates into the tax)
 
             Is equip nights calculated from the values in the rental table? or is it modified each time a
             rental is created or modified
 
             Set textbox max lengths
             tab index
-            item number autotabbing
             How does it keep track of waives?
+
+
+            Add datagridview row changed event that recalculates the total quantity, and prices
+            also remove quantity changing in addItem removeItem and removeAllItems
+
+
+            Is all equipment, when brought back from a rental, have to be manually returned via "Return Equipment"?
+
+            Does return equipment remove the rental row?
+
+            How does it keep track of rental fees? Other fees, etc?
+            Student has owes column but can have multiple rentals, how does it keep track of "other fees" for each?
         */
 
 
@@ -94,27 +104,6 @@ namespace Lakehead_ERIMS
             rentalLbx.DataSource = uniqueInvoices;
         }
 
-        private void RentalDpk_ValueChanged(object sender, EventArgs e)
-        {
-            //The DateTime.Today is so when the datepicker is opened it doesn't start at 1899 and instead starts at today.
-            //Should rework
-
-            DateTimePicker sendingDpk = (DateTimePicker)sender;
-
-            if (sendingDpk.Value == DateTime.FromOADate(0))
-            {
-                sendingDpk.Format = DateTimePickerFormat.Custom;
-                sendingDpk.CustomFormat = " ";
-                sendingDpk.Value = DateTime.Today;
-            }
-            else if (sendingDpk.Value != DateTime.Today)
-            {
-                sendingDpk.Format = DateTimePickerFormat.Long;
-            }
-
-            RentalFieldChanged(sender, e);
-        }
-
         private void RentalDpk_CloseUp(object sender, EventArgs e)
         {
             DateTimePicker sendingDpk = (DateTimePicker)sender;
@@ -146,12 +135,10 @@ namespace Lakehead_ERIMS
             paymentRentalDaysTbx.Clear();
             paymentOtherFeesTbx.Clear();
             paymentSubtotalTbx.Clear();
-            paymentPSTTbx.Clear();
-            paymentGSTTbx.Clear();
+            paymentHSTTbx.Clear();
             paymentTotalTbx.Clear();
             paymentSubtotalWaiveChbx.Checked = false;
-            paymentPSTWaiveChbx.Checked = false;
-            paymentGSTWaiveChbx.Checked = false;
+            paymentHSTWaiveChbx.Checked = false;
             rentalItemsDgv.Rows.Clear();
             removeAllItemsBtn.Enabled = false;
             deleteItemBtn.Enabled = false;
@@ -192,6 +179,17 @@ namespace Lakehead_ERIMS
                         studentNameTbx.Text = ((!studentRow.IsStu_FNameNull()) ? studentRow.Stu_FName : string.Empty) + " " + ((!studentRow.IsStu_LNameNull()) ? studentRow.Stu_LName : string.Empty);
                         studentAddressTbx.Text = (!studentRow.IsStu_LAddressNull()) ? studentRow.Stu_LAddress : string.Empty;
                         studentPhoneTbx.Text = (!studentRow.IsStu_LPhoneNull()) ? studentRow.Stu_LPhone : string.Empty;
+                    }
+
+                    //Get rental days
+                    if(rentalDateDueDpk.Value != DateTime.FromOADate(0) && rentalDateOutDpk.Value != DateTime.FromOADate(0))
+                    {
+                        double totalDays = (rentalDateDueDpk.Value - rentalDateOutDpk.Value).TotalDays;
+                        paymentRentalDaysTbx.Text = ((int)totalDays).ToString();
+                    }
+                    else
+                    {
+                        paymentRentalDaysTbx.Text = "0";
                     }
 
                     //Get items
@@ -240,21 +238,51 @@ namespace Lakehead_ERIMS
                 {
                     tblEquipTableAdapter1.Fill(luEquipmentDataSet1.tblEquip);
                 }
+                if (luEquipmentDataSet1.tblStatus.Count == 0)
+                {
+                    tblStatusTableAdapter1.Fill(luEquipmentDataSet1.tblStatus);
+                }
 
                 //Add item
                 try
                 {
                     string equipNum = itemNumberATbx.Text + itemNumberBTbx.Text;
-                    MessageBox.Show(equipNum);
 
                     if(this.luEquipmentDataSet1.tblEquip.Select("Equip_Number = '" + equipNum + "'").Length > 0)
                     {
                         int equipID = int.Parse(this.luEquipmentDataSet1.tblEquip.Select("Equip_Number = '" + equipNum + "'")[0][0].ToString());
                         LUEquipmentDataSet.tblEquipRow equipmentRow = luEquipmentDataSet1.tblEquip.FindByEquip_ID(equipID);
 
-                        rentalItemsDgv.Rows.Add(equipmentRow.Equip_Number, equipmentRow.Equip_Name, equipmentRow.Equip_RentalPrice.ToString("C"));
+                        //Check if equipment is already in list
+                        bool hasRow = false;
+                        foreach(DataGridViewRow dgvRow in rentalItemsDgv.Rows)
+                        {
+                            if(dgvRow.Cells[0].Value.ToString() == equipmentRow.Equip_Number)
+                            {
+                                hasRow = true;
+                            }
+                        }
 
-                        updateRentalBtn.Enabled = true;
+                        if (!hasRow)
+                        {
+                            //Check if equipment is available
+                            if (equipmentRow.Status_ID == 1)
+                            {
+                                rentalItemsDgv.Rows.Add(equipmentRow.Equip_Number, equipmentRow.Equip_Name, equipmentRow.Equip_RentalPrice.ToString("C"));
+                                updateRentalBtn.Enabled = true;
+
+                                itemQuantityTbx.Text = rentalItemsDgv.Rows.Count.ToString();
+                            }
+                            else
+                            {
+                                string equipmentStatus = luEquipmentDataSet1.tblStatus.FindByStatus_ID(equipmentRow.Status_ID).Status_Name;
+                                MessageBox.Show("Equipment is not available.\nReason: " + equipmentStatus + ".", "Error");
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Equipment already added to rental.", "Error");
+                        }
                     }
                     else
                     {
@@ -263,11 +291,12 @@ namespace Lakehead_ERIMS
                 }
                 catch
                 {
-                    MessageBox.Show("Equipment not found.", "Error");
+                    MessageBox.Show("Equipment invalid.", "Error");
                 }
 
                 itemNumberATbx.Clear();
                 itemNumberBTbx.Clear();
+                itemNumberATbx.Focus();
             }
         }
 
@@ -342,6 +371,135 @@ namespace Lakehead_ERIMS
             {
                 deleteItemBtn.Enabled = false;
             }
+        }
+
+        private void AutoTabItemNum(object sender, KeyEventArgs e)
+        {
+            TextBox sendingTbx = (TextBox)sender;
+            if (sendingTbx.Text.Length == sendingTbx.MaxLength)
+            {
+                sendingTbx.Parent.SelectNextControl(ActiveControl, true, true, true, true);
+            }
+        }
+
+        private void HandleNumericOnly(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar) || (e.KeyChar == (char)8))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void removeAllItemsBtn_Click(object sender, EventArgs e)
+        {
+            rentalItemsDgv.Rows.Clear();
+            updateRentalBtn.Enabled = true;
+            itemQuantityTbx.Text = rentalItemsDgv.Rows.Count.ToString();
+        }
+
+        private void deleteItemBtn_Click(object sender, EventArgs e)
+        {
+            if(rentalItemsDgv.SelectedRows != null && rentalItemsDgv.SelectedRows.Count > 0)
+            {
+                rentalItemsDgv.Rows.Remove(rentalItemsDgv.SelectedRows[0]);
+                updateRentalBtn.Enabled = true;
+                itemQuantityTbx.Text = rentalItemsDgv.Rows.Count.ToString();
+            }
+        }
+
+
+        private void rentalItemsDgv_RowsChanged(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            recalculateTotal();
+        }
+
+        private void rentalItemsDgv_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+        {
+            rentalItemsDgv_RowsChanged(sender, new DataGridViewRowsAddedEventArgs(e.RowIndex, e.RowCount));
+        }
+
+
+        private void RentalDpk_ValueChanged(object sender, EventArgs e)
+        {
+            //The DateTime.Today is so when the datepicker is opened it doesn't start at 1899 and instead starts at today.
+            //Should rework
+
+            DateTimePicker sendingDpk = (DateTimePicker)sender;
+
+            if (sendingDpk.Value == DateTime.FromOADate(0))
+            {
+                sendingDpk.Format = DateTimePickerFormat.Custom;
+                sendingDpk.CustomFormat = " ";
+                sendingDpk.Value = DateTime.Today;
+            }
+            else if (sendingDpk.Value != DateTime.Today)
+            {
+                sendingDpk.Format = DateTimePickerFormat.Long;
+            }
+
+            RentalFieldChanged(sender, e);
+        }
+
+        private void paymentChanged(object sender, EventArgs e)
+        {
+            recalculateTotal();
+            updateRentalBtn.Enabled = true;
+        }
+
+        private void recalculateTotal()
+        {
+            //Calcualte subtotal
+            if (rentalItemsDgv.Rows.Count > 0 && paymentRentalDaysTbx.Text != string.Empty && !paymentSubtotalWaiveChbx.Checked)
+            {
+                if (int.TryParse(paymentRentalDaysTbx.Text, out int rentalDays))
+                {
+                    if (rentalDays > 0)
+                    {
+                        double sub = 0;
+                        foreach (DataGridViewRow row in rentalItemsDgv.Rows)
+                        {
+                            if (row.Cells[2].Value.ToString() != string.Empty)
+                            {
+                                if (double.TryParse(row.Cells[2].Value.ToString(), System.Globalization.NumberStyles.Currency, System.Globalization.NumberFormatInfo.CurrentInfo, out double rentalPrice))
+                                {
+                                    sub += (rentalPrice * rentalDays);
+                                }
+                            }
+                        }
+
+                        paymentSubtotalTbx.Text = sub.ToString("C");
+                    }
+                }
+            }
+            else
+            {
+                paymentSubtotalTbx.Text = "$0.00";
+            }
+
+
+            //Recalculate total
+            double total = 0;
+            if (double.TryParse(paymentSubtotalTbx.Text, System.Globalization.NumberStyles.Currency, System.Globalization.NumberFormatInfo.CurrentInfo, out double subTotal))
+            {
+                if (!paymentSubtotalWaiveChbx.Checked)
+                {
+                    total += subTotal;
+                }
+            }
+            if (double.TryParse(paymentOtherFeesTbx.Text, System.Globalization.NumberStyles.Currency, System.Globalization.NumberFormatInfo.CurrentInfo, out double otherFees))
+            {
+                total += otherFees;
+            }
+
+            double HST = (!paymentHSTWaiveChbx.Checked) ? (total * 0.13) : 0;
+            paymentHSTTbx.Text = HST.ToString("C");
+
+            total += HST;
+            paymentTotalTbx.Text = total.ToString("C");
         }
     }
 }
