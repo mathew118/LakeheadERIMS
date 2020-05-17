@@ -104,17 +104,6 @@ namespace Lakehead_ERIMS
             rentalLbx.DataSource = uniqueInvoices;
         }
 
-        private void RentalDpk_CloseUp(object sender, EventArgs e)
-        {
-            DateTimePicker sendingDpk = (DateTimePicker)sender;
-
-            if (sendingDpk.Value == DateTime.Today)
-            {
-                sendingDpk.Format = DateTimePickerFormat.Long;
-                RentalFieldChanged(sender, e);
-            }
-        }
-
         private void RentalFieldChanged(object sender, EventArgs e)
         {
             updateRentalBtn.Enabled = true;
@@ -501,6 +490,54 @@ namespace Lakehead_ERIMS
             total += HST;
             paymentTotalTbx.Text = total.ToString("C");
         }
+
+        private void rentalDaysTbxChanged(object sender, KeyEventArgs e)
+        {
+            //MessageBox.Show("USER changed rental days");
+            if (rentalDateOutDpk.Value != DateTime.FromOADate(0))
+            {
+                if (int.TryParse(paymentRentalDaysTbx.Text, out int rentalDays))
+                {
+                    if (rentalDays > 0)
+                    {
+                        DateTime newDate = rentalDateOutDpk.Value.AddDays(rentalDays);
+                        rentalDateDueDpk.Value = newDate;
+                    }
+                }
+            }
+        }
+
+        private void RentalDpk_CloseUp(object sender, EventArgs e)
+        {
+            //MessageBox.Show("USER changed date");
+
+            DateTimePicker sendingDpk = (DateTimePicker)sender;
+
+            if (sendingDpk.Value == DateTime.Today)
+            {
+                sendingDpk.Format = DateTimePickerFormat.Long;
+                RentalFieldChanged(sender, e);
+            }
+
+
+            if(rentalDateOutDpk.Value != DateTime.FromOADate(0) && rentalDateDueDpk.Value != DateTime.FromOADate(0))
+            {
+                if(rentalDateDueDpk.Value > rentalDateOutDpk.Value)
+                {
+                    int rentalDays = 0;
+                    rentalDays = (int)(rentalDateDueDpk.Value - rentalDateOutDpk.Value).TotalDays;
+                    paymentRentalDaysTbx.Text = rentalDays.ToString();
+                }
+            }
+        }
+
+        private void voidRentalBtn_Click(object sender, EventArgs e)
+        {
+            //Need to change Student Owes, equip nights, etc
+            //tblRentalTableAdapter1.Delete()
+        }
+
+
     }
 }
  

@@ -621,6 +621,7 @@
             this.paymentRentalDaysTbx.Size = new System.Drawing.Size(53, 20);
             this.paymentRentalDaysTbx.TabIndex = 107;
             this.paymentRentalDaysTbx.TextChanged += new System.EventHandler(this.paymentChanged);
+            this.paymentRentalDaysTbx.KeyUp += new System.Windows.Forms.KeyEventHandler(this.rentalDaysTbxChanged);
             // 
             // paymentRentalDaysLbl
             // 
@@ -649,6 +650,7 @@
             this.voidRentalBtn.TabIndex = 112;
             this.voidRentalBtn.Text = "Void Rental";
             this.voidRentalBtn.UseVisualStyleBackColor = true;
+            this.voidRentalBtn.Click += new System.EventHandler(this.voidRentalBtn_Click);
             // 
             // exitBtn
             // 
