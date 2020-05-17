@@ -43,9 +43,7 @@
             this.studentPhoneTbx = new System.Windows.Forms.TextBox();
             this.studentCourseLbl = new System.Windows.Forms.Label();
             this.studentCourseTbx = new System.Windows.Forms.TextBox();
-            this.rentalDateOutClearBtn = new System.Windows.Forms.Button();
             this.rentalDateOutDpk = new System.Windows.Forms.DateTimePicker();
-            this.rentalDateDueClearBtn = new System.Windows.Forms.Button();
             this.rentalDateDueDpk = new System.Windows.Forms.DateTimePicker();
             this.rentalDateOutLbl = new System.Windows.Forms.Label();
             this.rentalDateDueLbl = new System.Windows.Forms.Label();
@@ -203,16 +201,6 @@
             this.studentCourseTbx.TabIndex = 35;
             this.studentCourseTbx.TextChanged += new System.EventHandler(this.RentalFieldChanged);
             // 
-            // rentalDateOutClearBtn
-            // 
-            this.rentalDateOutClearBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rentalDateOutClearBtn.Location = new System.Drawing.Point(522, 54);
-            this.rentalDateOutClearBtn.Name = "rentalDateOutClearBtn";
-            this.rentalDateOutClearBtn.Size = new System.Drawing.Size(25, 20);
-            this.rentalDateOutClearBtn.TabIndex = 100;
-            this.rentalDateOutClearBtn.Text = "C";
-            this.rentalDateOutClearBtn.UseVisualStyleBackColor = true;
-            // 
             // rentalDateOutDpk
             // 
             this.rentalDateOutDpk.CustomFormat = " ";
@@ -225,16 +213,6 @@
             this.rentalDateOutDpk.Value = new System.DateTime(2020, 4, 24, 0, 0, 0, 0);
             this.rentalDateOutDpk.CloseUp += new System.EventHandler(this.RentalDpk_CloseUp);
             this.rentalDateOutDpk.ValueChanged += new System.EventHandler(this.RentalDpk_ValueChanged);
-            // 
-            // rentalDateDueClearBtn
-            // 
-            this.rentalDateDueClearBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rentalDateDueClearBtn.Location = new System.Drawing.Point(522, 80);
-            this.rentalDateDueClearBtn.Name = "rentalDateDueClearBtn";
-            this.rentalDateDueClearBtn.Size = new System.Drawing.Size(25, 20);
-            this.rentalDateDueClearBtn.TabIndex = 102;
-            this.rentalDateDueClearBtn.Text = "C";
-            this.rentalDateDueClearBtn.UseVisualStyleBackColor = true;
             // 
             // rentalDateDueDpk
             // 
@@ -329,11 +307,9 @@
             this.studentInformationGbx.Controls.Add(this.studentAddressLbl);
             this.studentInformationGbx.Controls.Add(this.rentalDateOutLbl);
             this.studentInformationGbx.Controls.Add(this.studentPhoneTbx);
-            this.studentInformationGbx.Controls.Add(this.rentalDateDueClearBtn);
             this.studentInformationGbx.Controls.Add(this.studentPhoneLbl);
             this.studentInformationGbx.Controls.Add(this.rentalDateDueDpk);
             this.studentInformationGbx.Controls.Add(this.studentCourseTbx);
-            this.studentInformationGbx.Controls.Add(this.rentalDateOutClearBtn);
             this.studentInformationGbx.Controls.Add(this.studentCourseLbl);
             this.studentInformationGbx.Controls.Add(this.rentalDateOutDpk);
             this.studentInformationGbx.Location = new System.Drawing.Point(15, 200);
@@ -742,9 +718,7 @@
         private System.Windows.Forms.TextBox studentPhoneTbx;
         private System.Windows.Forms.Label studentCourseLbl;
         private System.Windows.Forms.TextBox studentCourseTbx;
-        private System.Windows.Forms.Button rentalDateOutClearBtn;
         private System.Windows.Forms.DateTimePicker rentalDateOutDpk;
-        private System.Windows.Forms.Button rentalDateDueClearBtn;
         private System.Windows.Forms.DateTimePicker rentalDateDueDpk;
         private System.Windows.Forms.Label rentalDateOutLbl;
         private System.Windows.Forms.Label rentalDateDueLbl;
