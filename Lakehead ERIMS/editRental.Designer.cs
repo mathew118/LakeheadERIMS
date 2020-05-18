@@ -195,7 +195,7 @@
             // studentCourseTbx
             // 
             this.studentCourseTbx.Location = new System.Drawing.Point(366, 28);
-            this.studentCourseTbx.MaxLength = 30;
+            this.studentCourseTbx.MaxLength = 20;
             this.studentCourseTbx.Name = "studentCourseTbx";
             this.studentCourseTbx.Size = new System.Drawing.Size(150, 20);
             this.studentCourseTbx.TabIndex = 35;
@@ -253,6 +253,8 @@
             this.rentalSearchingTbx.Name = "rentalSearchingTbx";
             this.rentalSearchingTbx.Size = new System.Drawing.Size(164, 20);
             this.rentalSearchingTbx.TabIndex = 105;
+            this.rentalSearchingTbx.Enter += new System.EventHandler(this.rentalSearchingTbx_Enter);
+            this.rentalSearchingTbx.Leave += new System.EventHandler(this.rentalSearchingTbx_Enter);
             // 
             // rentalSearchingBtn
             // 

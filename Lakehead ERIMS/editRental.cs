@@ -14,17 +14,11 @@ namespace Lakehead_ERIMS
     {
 
         /*
-            If I have the datepicker automatically shift when I change rentalDays field, and rentalDays field to change everytime datepicker shifts, I need to be careful not to have a loop.
-            
-            Voiding seems to make the invoice number no longer valid? removes the rental entry?
 
             Is equip nights calculated from the values in the rental table? or is it modified each time a
             rental is created or modified
 
-            Set textbox max lengths
             tab index
-            How does it keep track of waives?
-
 
             Add datagridview row changed event that recalculates the total quantity, and prices
             also remove quantity changing in addItem removeItem and removeAllItems
@@ -220,6 +214,7 @@ namespace Lakehead_ERIMS
                 rentalDateDueDpk.Enabled = false;
                 paymentRentalDaysTbx.Enabled = false;
                 paymentOtherFeesTbx.Enabled = false;
+                updateRentalBtn.Enabled = false;
             }
         }
 
@@ -264,8 +259,6 @@ namespace Lakehead_ERIMS
                             {
                                 rentalItemsDgv.Rows.Add(equipmentRow.Equip_Number, equipmentRow.Equip_Name, equipmentRow.Equip_RentalPrice.ToString("C"));
                                 updateRentalBtn.Enabled = true;
-
-                                itemQuantityTbx.Text = rentalItemsDgv.Rows.Count.ToString();
                             }
                             else
                             {
@@ -336,6 +329,7 @@ namespace Lakehead_ERIMS
                         if (rentalListboxIndex != -1)
                         {
                             rentalLbx.SetSelected(rentalListboxIndex, true);
+                            ActiveForm.AcceptButton = null;
                         }
                         else
                         {
@@ -392,7 +386,6 @@ namespace Lakehead_ERIMS
         {
             rentalItemsDgv.Rows.Clear();
             updateRentalBtn.Enabled = true;
-            itemQuantityTbx.Text = rentalItemsDgv.Rows.Count.ToString();
         }
 
         private void deleteItemBtn_Click(object sender, EventArgs e)
@@ -401,10 +394,8 @@ namespace Lakehead_ERIMS
             {
                 rentalItemsDgv.Rows.Remove(rentalItemsDgv.SelectedRows[0]);
                 updateRentalBtn.Enabled = true;
-                itemQuantityTbx.Text = rentalItemsDgv.Rows.Count.ToString();
             }
         }
-
 
         private void rentalItemsDgv_RowsChanged(object sender, DataGridViewRowsAddedEventArgs e)
         {
@@ -415,7 +406,6 @@ namespace Lakehead_ERIMS
         {
             rentalItemsDgv_RowsChanged(sender, new DataGridViewRowsAddedEventArgs(e.RowIndex, e.RowCount));
         }
-
 
         private void RentalDpk_ValueChanged(object sender, EventArgs e)
         {
@@ -501,6 +491,8 @@ namespace Lakehead_ERIMS
 
         private void recalculateTotal()
         {
+            itemQuantityTbx.Text = rentalItemsDgv.Rows.Count.ToString();
+
             //Calculate subtotal
             if (rentalItemsDgv.Rows.Count > 0 && paymentRentalDaysTbx.Text != string.Empty && !paymentSubtotalWaiveChbx.Checked)
             {
@@ -566,7 +558,11 @@ namespace Lakehead_ERIMS
                     foreach(DataRow invoiceRow in searchResults)
                     {
                         LUEquipmentDataSet.tblRentalRow rentalRow = (LUEquipmentDataSet.tblRentalRow)invoiceRow;
+                        LUEquipmentDataSet.tblEquipRow equipRow = luEquipmentDataSet1.tblEquip.FindByEquip_ID(rentalRow.Equip_ID);
                         tblRentalTableAdapter1.Delete(rentalRow.Equip_ID, (!rentalRow.IsStu_IDNull()) ? rentalRow.Stu_ID : (int?)null, (!rentalRow.IsRent_DateOutNull()) ? rentalRow.Rent_DateOut : (DateTime?)null, (!rentalRow.IsRent_DateDueNull()) ? rentalRow.Rent_DateDue : (DateTime?)null, (!rentalRow.IsRent_CourseNull()) ? rentalRow.Rent_Course : null, rentalRow.Inv_Num);
+
+                        equipRow.Status_ID = 1;
+                        tblEquipTableAdapter1.Update(equipRow);
                     }
 
                     updateRentalList();
@@ -583,6 +579,104 @@ namespace Lakehead_ERIMS
         {
             //Need to change Student Owes, equip nights, etc
 
+            //Checks if listbox isn't empty
+            if (rentalLbx.SelectedValue != null && rentalLbx.SelectedIndex != -1)
+            {
+                //Need to validate dates and course
+                //Also need to check if any items were changed/added and add rental entries for those
+                if (studentCourseTbx.Text.Length >= 20)
+                {
+                    MessageBox.Show("Course too long.", "Error");
+                }
+                else if (rentalDateOutDpk.Value == DateTime.FromOADate(0) || rentalDateDueDpk.Value == DateTime.FromOADate(0))
+                {
+                    MessageBox.Show("Date not set.", "Error");
+                }
+                else if (rentalDateOutDpk.Value > rentalDateDueDpk.Value)
+                {
+                    MessageBox.Show("Due date must be after date out.", "Error");
+                }
+                else
+                {
+                    DataRow[] searchResults = this.luEquipmentDataSet1.tblRental.Select("Inv_Num = '" + rentalLbx.SelectedValue.ToString() + "'");
+                    if (searchResults.Length > 0)
+                    {
+                        List<int> existingItems = new List<int>();
+                        LUEquipmentDataSet.tblRentalRow tempRow = (LUEquipmentDataSet.tblRentalRow)searchResults[0];
+                        int? studentId = (!tempRow.IsStu_IDNull()) ? tempRow.Stu_ID : (int?)null;
+                        int InvoiceNum = tempRow.Inv_Num;
+                        string course = (studentCourseTbx.Text.Length > 0) ? studentCourseTbx.Text : null;
+
+                        foreach (DataRow invoiceRow in searchResults)
+                        {
+                            LUEquipmentDataSet.tblRentalRow rentalRow = (LUEquipmentDataSet.tblRentalRow)invoiceRow;
+                            rentalRow.Rent_Course = course;
+                            rentalRow.Rent_DateOut = rentalDateOutDpk.Value;
+                            rentalRow.Rent_DateDue = rentalDateDueDpk.Value;
+                            existingItems.Add(rentalRow.Equip_ID);
+
+                            tblRentalTableAdapter1.Update(rentalRow);
+                        }
+
+                        //Update items
+                        foreach (DataGridViewRow row in rentalItemsDgv.Rows)
+                        {
+                            LUEquipmentDataSet.tblEquipRow equipRow = (LUEquipmentDataSet.tblEquipRow)luEquipmentDataSet1.tblEquip.Select("Equip_Number = '" + row.Cells[0].Value.ToString() + "'")[0];
+                            int equipID = equipRow.Equip_ID;
+
+                            if (existingItems.Contains(equipID))
+                            {
+                                //Item was not changed
+                                existingItems.Remove(equipID);
+                            }
+                            else if (!existingItems.Contains(equipID)){
+                                //Item was added
+                                tblRentalTableAdapter1.Insert(Convert.ToInt16(equipID), studentId, rentalDateOutDpk.Value, rentalDateDueDpk.Value, course, InvoiceNum);
+                                equipRow.Status_ID = 9;
+                                tblEquipTableAdapter1.Update(equipRow);
+                            }                                                      
+                        }
+
+                        //Whats left in existingItems are items that were removed
+                        foreach(short equipNum in existingItems)
+                        {
+                            LUEquipmentDataSet.tblEquipRow equipRow = luEquipmentDataSet1.tblEquip.FindByEquip_ID(equipNum);
+                            tblRentalTableAdapter1.Delete(equipNum, studentId, rentalDateOutDpk.Value, rentalDateDueDpk.Value, course, InvoiceNum);
+                            equipRow.Status_ID = 1;
+                        }
+
+                        updateRentalList();
+
+                        int lbxSearching = rentalLbx.FindString(InvoiceNum.ToString());
+                        if(lbxSearching != -1)
+                        {
+                            rentalLbx.SetSelected(lbxSearching, true);
+                        }
+                        else
+                        {
+                            rentalLbx.SelectedIndex = -1;
+                        }
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("No invoice selected.", "Error");
+                    }
+                }
+            }
+        }
+
+        private void rentalSearchingTbx_Enter(object sender, EventArgs e)
+        {
+            Control sendingControl = (Control)sender;
+            if (sendingControl.Focused)
+            {
+                ActiveForm.AcceptButton = rentalSearchingBtn;
+            }
+            else
+            {
+                ActiveForm.AcceptButton = null;
+            }
         }
     }
 }
