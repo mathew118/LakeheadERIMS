@@ -8,12 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.OleDb;
+using Access = Microsoft.Office.Interop.Access;
+using System.IO;
 
 namespace Lakehead_ERIMS
 {
-    public partial class RentForm : Form
+    public partial class RenCheckBtn : Form
     {
-        public RentForm()
+        public RenCheckBtn()
         {
             InitializeComponent();
         }
@@ -45,6 +47,7 @@ namespace Lakehead_ERIMS
                 studentAddressLabe.Text = info[4].ToString();
                 studentPhone.Text = info[8].ToString();
                 feeTextBox.Text = info[17].ToString();
+                renBtnCheck.Enabled = true;
             }
             catch
             {
@@ -238,6 +241,21 @@ namespace Lakehead_ERIMS
 
         private void studentNumberTextBox_TextChanged(object sender, EventArgs e)
         {
+
+        }
+
+        private void renBtnCheck_Click(object sender, EventArgs e)
+        {
+            int studentNum = Convert.ToInt32(studentNumberTextBox.Text);
+            string strCriteria = "Stu_Number ='" + studentNum+ "'";
+            Access.Application oAccess = new Access.Application();
+            oAccess.Visible = true;
+            oAccess.OpenCurrentDatabase(Path.Combine(Environment.CurrentDirectory, "LUEquipment.mdb"), false);
+            //this report is opened in Access and ready to print
+            oAccess.DoCmd.OpenReport("rptOnLoan", Access.AcView.acViewPreview, //View
+               System.Reflection.Missing.Value, //FilterName
+               strCriteria //where condition
+               );
 
         }
     }

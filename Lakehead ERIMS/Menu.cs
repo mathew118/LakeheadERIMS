@@ -86,7 +86,7 @@ namespace Lakehead_ERIMS
 
         private void rentEquipmentBtn_Click(object sender, EventArgs e)
         {
-            RentForm rentForm = new RentForm();
+            RenCheckBtn rentForm = new RenCheckBtn();
             rentForm.ShowDialog();
         }
 
