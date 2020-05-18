@@ -510,6 +510,8 @@
             // paymentSubtotalWaiveChbx
             // 
             this.paymentSubtotalWaiveChbx.AutoSize = true;
+            this.paymentSubtotalWaiveChbx.Checked = true;
+            this.paymentSubtotalWaiveChbx.CheckState = System.Windows.Forms.CheckState.Checked;
             this.paymentSubtotalWaiveChbx.Location = new System.Drawing.Point(156, 104);
             this.paymentSubtotalWaiveChbx.Name = "paymentSubtotalWaiveChbx";
             this.paymentSubtotalWaiveChbx.Size = new System.Drawing.Size(15, 14);
@@ -617,6 +619,7 @@
             this.updateRentalBtn.TabIndex = 110;
             this.updateRentalBtn.Text = "Update Rental";
             this.updateRentalBtn.UseVisualStyleBackColor = true;
+            this.updateRentalBtn.Click += new System.EventHandler(this.updateRentalBtn_Click);
             // 
             // voidRentalBtn
             // 

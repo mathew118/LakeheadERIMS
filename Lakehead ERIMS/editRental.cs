@@ -88,6 +88,7 @@ namespace Lakehead_ERIMS
         private void updateRentalList()
         {
             tblRentalTableAdapter1.Fill(luEquipmentDataSet1.tblRental);
+            rentalLbx.DataSource = luEquipmentDataSet1.tblRental;
             uniqueInvoices.Clear();
 
             List<int> addedInvoices = new List<int>();
@@ -102,6 +103,7 @@ namespace Lakehead_ERIMS
 
             uniqueInvoices.DefaultView.Sort = "Inv_Num";
             rentalLbx.DataSource = uniqueInvoices;
+
         }
 
         private void RentalFieldChanged(object sender, EventArgs e)
@@ -126,8 +128,8 @@ namespace Lakehead_ERIMS
             paymentSubtotalTbx.Clear();
             paymentHSTTbx.Clear();
             paymentTotalTbx.Clear();
-            paymentSubtotalWaiveChbx.Checked = false;
-            paymentHSTWaiveChbx.Checked = false;
+            //paymentSubtotalWaiveChbx.Checked = false;
+            //paymentHSTWaiveChbx.Checked = false;
             rentalItemsDgv.Rows.Clear();
             removeAllItemsBtn.Enabled = false;
             deleteItemBtn.Enabled = false;
@@ -145,6 +147,12 @@ namespace Lakehead_ERIMS
             //Checks if listbox isn't empty
             if (rentalLbx.SelectedValue != null && rentalLbx.SelectedIndex != -1)
             {
+                studentCourseTbx.Enabled = true;
+                rentalDateOutDpk.Enabled = true;
+                rentalDateDueDpk.Enabled = true;
+                paymentRentalDaysTbx.Enabled = true;
+                paymentOtherFeesTbx.Enabled = true;
+
                 //Checks if query returns results and if so, assigns it to rentalRow
                 DataRow[] searchResults = this.luEquipmentDataSet1.tblRental.Select("Inv_Num = '" + rentalLbx.SelectedValue.ToString() + "'");
                 if (searchResults.Length > 0)
@@ -168,17 +176,6 @@ namespace Lakehead_ERIMS
                         studentNameTbx.Text = ((!studentRow.IsStu_FNameNull()) ? studentRow.Stu_FName : string.Empty) + " " + ((!studentRow.IsStu_LNameNull()) ? studentRow.Stu_LName : string.Empty);
                         studentAddressTbx.Text = (!studentRow.IsStu_LAddressNull()) ? studentRow.Stu_LAddress : string.Empty;
                         studentPhoneTbx.Text = (!studentRow.IsStu_LPhoneNull()) ? studentRow.Stu_LPhone : string.Empty;
-                    }
-
-                    //Get rental days
-                    if(rentalDateDueDpk.Value != DateTime.FromOADate(0) && rentalDateOutDpk.Value != DateTime.FromOADate(0))
-                    {
-                        double totalDays = (rentalDateDueDpk.Value - rentalDateOutDpk.Value).TotalDays;
-                        paymentRentalDaysTbx.Text = ((int)totalDays).ToString();
-                    }
-                    else
-                    {
-                        paymentRentalDaysTbx.Text = "0";
                     }
 
                     //Get items
@@ -215,6 +212,14 @@ namespace Lakehead_ERIMS
 
                     MessageBox.Show("Error! Rental not found", "Error");
                 }
+            }
+            else
+            {
+                studentCourseTbx.Enabled = false;
+                rentalDateOutDpk.Enabled = false;
+                rentalDateDueDpk.Enabled = false;
+                paymentRentalDaysTbx.Enabled = false;
+                paymentOtherFeesTbx.Enabled = false;
             }
         }
 
@@ -430,7 +435,62 @@ namespace Lakehead_ERIMS
                 sendingDpk.Format = DateTimePickerFormat.Long;
             }
 
+            //Get rental days
+            if (rentalDateOutDpk.Value != DateTime.FromOADate(0) && rentalDateDueDpk.Value != DateTime.FromOADate(0))
+            {
+                if (rentalDateDueDpk.Value > rentalDateOutDpk.Value)
+                {
+                    int rentalDays = 0;
+                    rentalDays = (int)(rentalDateDueDpk.Value - rentalDateOutDpk.Value).TotalDays;
+                    paymentRentalDaysTbx.Text = rentalDays.ToString();
+                }
+                else
+                {
+                    paymentRentalDaysTbx.Text = "0";
+                }
+            }
+            else
+            {
+                paymentRentalDaysTbx.Text = "0";
+            }
+
             RentalFieldChanged(sender, e);
+        }
+
+        private void RentalDpk_CloseUp(object sender, EventArgs e)
+        {
+            //MessageBox.Show("USER changed date");
+
+            DateTimePicker sendingDpk = (DateTimePicker)sender;
+
+            if (sendingDpk.Value == DateTime.Today)
+            {
+                sendingDpk.Format = DateTimePickerFormat.Long;
+                RentalFieldChanged(sender, e);
+            }
+        }
+
+        private void rentalDaysTbxChanged(object sender, KeyEventArgs e)
+        {
+            //MessageBox.Show("USER changed rental days");
+            if (rentalDateOutDpk.Value != DateTime.FromOADate(0))
+            {
+                if (int.TryParse(paymentRentalDaysTbx.Text, out int rentalDays))
+                {
+                    if (rentalDays > 0)
+                    {
+                        try
+                        {
+                            DateTime newDate = rentalDateOutDpk.Value.AddDays(rentalDays);
+                            rentalDateDueDpk.Value = newDate;
+                        }
+                        catch
+                        {
+                            MessageBox.Show("Date out of bounds.", "Error");
+                        }                        
+                    }
+                }
+            }
         }
 
         private void paymentChanged(object sender, EventArgs e)
@@ -441,12 +501,12 @@ namespace Lakehead_ERIMS
 
         private void recalculateTotal()
         {
-            //Calcualte subtotal
+            //Calculate subtotal
             if (rentalItemsDgv.Rows.Count > 0 && paymentRentalDaysTbx.Text != string.Empty && !paymentSubtotalWaiveChbx.Checked)
             {
                 if (int.TryParse(paymentRentalDaysTbx.Text, out int rentalDays))
                 {
-                    if (rentalDays > 0)
+                    if (rentalDays >= 0)
                     {
                         double sub = 0;
                         foreach (DataGridViewRow row in rentalItemsDgv.Rows)
@@ -458,6 +518,11 @@ namespace Lakehead_ERIMS
                                     sub += (rentalPrice * rentalDays);
                                 }
                             }
+                        }
+
+                        if (double.TryParse(paymentOtherFeesTbx.Text, System.Globalization.NumberStyles.Currency, System.Globalization.NumberFormatInfo.CurrentInfo, out double otherFees))
+                        {
+                            sub += otherFees;
                         }
 
                         paymentSubtotalTbx.Text = sub.ToString("C");
@@ -479,10 +544,7 @@ namespace Lakehead_ERIMS
                     total += subTotal;
                 }
             }
-            if (double.TryParse(paymentOtherFeesTbx.Text, System.Globalization.NumberStyles.Currency, System.Globalization.NumberFormatInfo.CurrentInfo, out double otherFees))
-            {
-                total += otherFees;
-            }
+            
 
             double HST = (!paymentHSTWaiveChbx.Checked) ? (total * 0.13) : 0;
             paymentHSTTbx.Text = HST.ToString("C");
@@ -491,53 +553,37 @@ namespace Lakehead_ERIMS
             paymentTotalTbx.Text = total.ToString("C");
         }
 
-        private void rentalDaysTbxChanged(object sender, KeyEventArgs e)
-        {
-            //MessageBox.Show("USER changed rental days");
-            if (rentalDateOutDpk.Value != DateTime.FromOADate(0))
-            {
-                if (int.TryParse(paymentRentalDaysTbx.Text, out int rentalDays))
-                {
-                    if (rentalDays > 0)
-                    {
-                        DateTime newDate = rentalDateOutDpk.Value.AddDays(rentalDays);
-                        rentalDateDueDpk.Value = newDate;
-                    }
-                }
-            }
-        }
-
-        private void RentalDpk_CloseUp(object sender, EventArgs e)
-        {
-            //MessageBox.Show("USER changed date");
-
-            DateTimePicker sendingDpk = (DateTimePicker)sender;
-
-            if (sendingDpk.Value == DateTime.Today)
-            {
-                sendingDpk.Format = DateTimePickerFormat.Long;
-                RentalFieldChanged(sender, e);
-            }
-
-
-            if(rentalDateOutDpk.Value != DateTime.FromOADate(0) && rentalDateDueDpk.Value != DateTime.FromOADate(0))
-            {
-                if(rentalDateDueDpk.Value > rentalDateOutDpk.Value)
-                {
-                    int rentalDays = 0;
-                    rentalDays = (int)(rentalDateDueDpk.Value - rentalDateOutDpk.Value).TotalDays;
-                    paymentRentalDaysTbx.Text = rentalDays.ToString();
-                }
-            }
-        }
-
         private void voidRentalBtn_Click(object sender, EventArgs e)
         {
             //Need to change Student Owes, equip nights, etc
-            //tblRentalTableAdapter1.Delete()
+
+            //Checks if listbox isn't empty
+            if (rentalLbx.SelectedValue != null && rentalLbx.SelectedIndex != -1)
+            {
+                DataRow[] searchResults = this.luEquipmentDataSet1.tblRental.Select("Inv_Num = '" + rentalLbx.SelectedValue.ToString() + "'");
+                if (searchResults.Length > 0)
+                {
+                    foreach(DataRow invoiceRow in searchResults)
+                    {
+                        LUEquipmentDataSet.tblRentalRow rentalRow = (LUEquipmentDataSet.tblRentalRow)invoiceRow;
+                        tblRentalTableAdapter1.Delete(rentalRow.Equip_ID, (!rentalRow.IsStu_IDNull()) ? rentalRow.Stu_ID : (int?)null, (!rentalRow.IsRent_DateOutNull()) ? rentalRow.Rent_DateOut : (DateTime?)null, (!rentalRow.IsRent_DateDueNull()) ? rentalRow.Rent_DateDue : (DateTime?)null, (!rentalRow.IsRent_CourseNull()) ? rentalRow.Rent_Course : null, rentalRow.Inv_Num);
+                    }
+
+                    updateRentalList();
+                    rentalLbx.SelectedIndex = -1;
+                }
+                else
+                {
+                    MessageBox.Show("No invoice selected.", "Error");
+                }
+            }
         }
 
+        private void updateRentalBtn_Click(object sender, EventArgs e)
+        {
+            //Need to change Student Owes, equip nights, etc
 
+        }
     }
 }
  
