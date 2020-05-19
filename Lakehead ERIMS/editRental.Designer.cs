@@ -127,7 +127,7 @@
             this.studentNumberTbx.Name = "studentNumberTbx";
             this.studentNumberTbx.ReadOnly = true;
             this.studentNumberTbx.Size = new System.Drawing.Size(150, 20);
-            this.studentNumberTbx.TabIndex = 26;
+            this.studentNumberTbx.TabIndex = 5;
             // 
             // studentNameLbl
             // 
@@ -145,7 +145,7 @@
             this.studentNameTbx.Name = "studentNameTbx";
             this.studentNameTbx.ReadOnly = true;
             this.studentNameTbx.Size = new System.Drawing.Size(150, 20);
-            this.studentNameTbx.TabIndex = 28;
+            this.studentNameTbx.TabIndex = 6;
             // 
             // studentAddressLbl
             // 
@@ -163,7 +163,7 @@
             this.studentAddressTbx.Name = "studentAddressTbx";
             this.studentAddressTbx.ReadOnly = true;
             this.studentAddressTbx.Size = new System.Drawing.Size(150, 20);
-            this.studentAddressTbx.TabIndex = 30;
+            this.studentAddressTbx.TabIndex = 7;
             // 
             // studentPhoneLbl
             // 
@@ -181,7 +181,7 @@
             this.studentPhoneTbx.Name = "studentPhoneTbx";
             this.studentPhoneTbx.ReadOnly = true;
             this.studentPhoneTbx.Size = new System.Drawing.Size(150, 20);
-            this.studentPhoneTbx.TabIndex = 32;
+            this.studentPhoneTbx.TabIndex = 8;
             // 
             // studentCourseLbl
             // 
@@ -198,7 +198,7 @@
             this.studentCourseTbx.MaxLength = 20;
             this.studentCourseTbx.Name = "studentCourseTbx";
             this.studentCourseTbx.Size = new System.Drawing.Size(150, 20);
-            this.studentCourseTbx.TabIndex = 35;
+            this.studentCourseTbx.TabIndex = 9;
             this.studentCourseTbx.TextChanged += new System.EventHandler(this.RentalFieldChanged);
             // 
             // rentalDateOutDpk
@@ -209,7 +209,7 @@
             this.rentalDateOutDpk.Location = new System.Drawing.Point(366, 54);
             this.rentalDateOutDpk.Name = "rentalDateOutDpk";
             this.rentalDateOutDpk.Size = new System.Drawing.Size(150, 20);
-            this.rentalDateOutDpk.TabIndex = 99;
+            this.rentalDateOutDpk.TabIndex = 10;
             this.rentalDateOutDpk.Value = new System.DateTime(2020, 4, 24, 0, 0, 0, 0);
             this.rentalDateOutDpk.CloseUp += new System.EventHandler(this.RentalDpk_CloseUp);
             this.rentalDateOutDpk.ValueChanged += new System.EventHandler(this.RentalDpk_ValueChanged);
@@ -222,7 +222,7 @@
             this.rentalDateDueDpk.Location = new System.Drawing.Point(366, 80);
             this.rentalDateDueDpk.Name = "rentalDateDueDpk";
             this.rentalDateDueDpk.Size = new System.Drawing.Size(150, 20);
-            this.rentalDateDueDpk.TabIndex = 101;
+            this.rentalDateDueDpk.TabIndex = 11;
             this.rentalDateDueDpk.Value = new System.DateTime(2020, 4, 24, 0, 0, 0, 0);
             this.rentalDateDueDpk.CloseUp += new System.EventHandler(this.RentalDpk_CloseUp);
             this.rentalDateDueDpk.ValueChanged += new System.EventHandler(this.RentalDpk_ValueChanged);
@@ -252,7 +252,7 @@
             this.rentalSearchingTbx.MaxLength = 20;
             this.rentalSearchingTbx.Name = "rentalSearchingTbx";
             this.rentalSearchingTbx.Size = new System.Drawing.Size(164, 20);
-            this.rentalSearchingTbx.TabIndex = 105;
+            this.rentalSearchingTbx.TabIndex = 0;
             this.rentalSearchingTbx.Enter += new System.EventHandler(this.rentalSearchingTbx_Enter);
             this.rentalSearchingTbx.Leave += new System.EventHandler(this.rentalSearchingTbx_Enter);
             // 
@@ -261,7 +261,7 @@
             this.rentalSearchingBtn.Location = new System.Drawing.Point(515, 150);
             this.rentalSearchingBtn.Name = "rentalSearchingBtn";
             this.rentalSearchingBtn.Size = new System.Drawing.Size(55, 21);
-            this.rentalSearchingBtn.TabIndex = 106;
+            this.rentalSearchingBtn.TabIndex = 1;
             this.rentalSearchingBtn.Text = "Search";
             this.rentalSearchingBtn.UseVisualStyleBackColor = true;
             this.rentalSearchingBtn.Click += new System.EventHandler(this.rentalSearchingBtn_Click);
@@ -317,7 +317,7 @@
             this.studentInformationGbx.Location = new System.Drawing.Point(15, 200);
             this.studentInformationGbx.Name = "studentInformationGbx";
             this.studentInformationGbx.Size = new System.Drawing.Size(554, 143);
-            this.studentInformationGbx.TabIndex = 109;
+            this.studentInformationGbx.TabIndex = 4;
             this.studentInformationGbx.TabStop = false;
             this.studentInformationGbx.Text = "Student Information";
             // 
@@ -335,7 +335,7 @@
             this.rentalItemsGbx.Location = new System.Drawing.Point(15, 350);
             this.rentalItemsGbx.Name = "rentalItemsGbx";
             this.rentalItemsGbx.Size = new System.Drawing.Size(360, 223);
-            this.rentalItemsGbx.TabIndex = 110;
+            this.rentalItemsGbx.TabIndex = 12;
             this.rentalItemsGbx.TabStop = false;
             this.rentalItemsGbx.Text = "Rental Items";
             // 
@@ -345,7 +345,7 @@
             this.removeAllItemsBtn.Location = new System.Drawing.Point(207, 179);
             this.removeAllItemsBtn.Name = "removeAllItemsBtn";
             this.removeAllItemsBtn.Size = new System.Drawing.Size(90, 34);
-            this.removeAllItemsBtn.TabIndex = 109;
+            this.removeAllItemsBtn.TabIndex = 18;
             this.removeAllItemsBtn.Text = "Remove All";
             this.removeAllItemsBtn.UseVisualStyleBackColor = true;
             this.removeAllItemsBtn.Click += new System.EventHandler(this.removeAllItemsBtn_Click);
@@ -356,7 +356,7 @@
             this.deleteItemBtn.Location = new System.Drawing.Point(55, 179);
             this.deleteItemBtn.Name = "deleteItemBtn";
             this.deleteItemBtn.Size = new System.Drawing.Size(90, 34);
-            this.deleteItemBtn.TabIndex = 108;
+            this.deleteItemBtn.TabIndex = 17;
             this.deleteItemBtn.Text = "Delete Item";
             this.deleteItemBtn.UseVisualStyleBackColor = true;
             this.deleteItemBtn.Click += new System.EventHandler(this.deleteItemBtn_Click);
@@ -383,7 +383,7 @@
             this.rentalItemsDgv.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.rentalItemsDgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.rentalItemsDgv.Size = new System.Drawing.Size(348, 103);
-            this.rentalItemsDgv.TabIndex = 107;
+            this.rentalItemsDgv.TabIndex = 16;
             this.rentalItemsDgv.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.rentalItemsDgv_RowsChanged);
             this.rentalItemsDgv.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.rentalItemsDgv_RowsRemoved);
             this.rentalItemsDgv.SelectionChanged += new System.EventHandler(this.rentalItemsDgv_SelectionChanged);
@@ -415,7 +415,7 @@
             this.itemQuantityTbx.Name = "itemQuantityTbx";
             this.itemQuantityTbx.ReadOnly = true;
             this.itemQuantityTbx.Size = new System.Drawing.Size(95, 20);
-            this.itemQuantityTbx.TabIndex = 105;
+            this.itemQuantityTbx.TabIndex = 15;
             // 
             // itemQuantityLbl
             // 
@@ -443,7 +443,7 @@
             this.itemNumberATbx.MaxLength = 3;
             this.itemNumberATbx.Name = "itemNumberATbx";
             this.itemNumberATbx.Size = new System.Drawing.Size(42, 20);
-            this.itemNumberATbx.TabIndex = 64;
+            this.itemNumberATbx.TabIndex = 13;
             this.itemNumberATbx.TextChanged += new System.EventHandler(this.itemNumberTbx_TextChanged);
             this.itemNumberATbx.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.HandleNumericOnly);
             this.itemNumberATbx.KeyUp += new System.Windows.Forms.KeyEventHandler(this.AutoTabItemNum);
@@ -464,7 +464,7 @@
             this.itemNumberBTbx.MaxLength = 3;
             this.itemNumberBTbx.Name = "itemNumberBTbx";
             this.itemNumberBTbx.Size = new System.Drawing.Size(42, 20);
-            this.itemNumberBTbx.TabIndex = 65;
+            this.itemNumberBTbx.TabIndex = 14;
             this.itemNumberBTbx.TextChanged += new System.EventHandler(this.itemNumberTbx_TextChanged);
             this.itemNumberBTbx.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.HandleNumericOnly);
             // 
@@ -486,7 +486,7 @@
             this.paymentSummaryGbx.Location = new System.Drawing.Point(381, 350);
             this.paymentSummaryGbx.Name = "paymentSummaryGbx";
             this.paymentSummaryGbx.Size = new System.Drawing.Size(188, 223);
-            this.paymentSummaryGbx.TabIndex = 111;
+            this.paymentSummaryGbx.TabIndex = 19;
             this.paymentSummaryGbx.TabStop = false;
             this.paymentSummaryGbx.Text = "Payment Summary";
             // 
@@ -505,7 +505,7 @@
             this.paymentHSTWaiveChbx.Location = new System.Drawing.Point(156, 130);
             this.paymentHSTWaiveChbx.Name = "paymentHSTWaiveChbx";
             this.paymentHSTWaiveChbx.Size = new System.Drawing.Size(15, 14);
-            this.paymentHSTWaiveChbx.TabIndex = 120;
+            this.paymentHSTWaiveChbx.TabIndex = 25;
             this.paymentHSTWaiveChbx.UseVisualStyleBackColor = true;
             this.paymentHSTWaiveChbx.CheckedChanged += new System.EventHandler(this.paymentChanged);
             // 
@@ -517,7 +517,7 @@
             this.paymentSubtotalWaiveChbx.Location = new System.Drawing.Point(156, 104);
             this.paymentSubtotalWaiveChbx.Name = "paymentSubtotalWaiveChbx";
             this.paymentSubtotalWaiveChbx.Size = new System.Drawing.Size(15, 14);
-            this.paymentSubtotalWaiveChbx.TabIndex = 119;
+            this.paymentSubtotalWaiveChbx.TabIndex = 24;
             this.paymentSubtotalWaiveChbx.UseVisualStyleBackColor = true;
             this.paymentSubtotalWaiveChbx.CheckedChanged += new System.EventHandler(this.paymentChanged);
             // 
@@ -528,7 +528,7 @@
             this.paymentTotalTbx.Name = "paymentTotalTbx";
             this.paymentTotalTbx.ReadOnly = true;
             this.paymentTotalTbx.Size = new System.Drawing.Size(53, 20);
-            this.paymentTotalTbx.TabIndex = 117;
+            this.paymentTotalTbx.TabIndex = 23;
             // 
             // paymentTotalLbl
             // 
@@ -546,7 +546,7 @@
             this.paymentHSTTbx.Name = "paymentHSTTbx";
             this.paymentHSTTbx.ReadOnly = true;
             this.paymentHSTTbx.Size = new System.Drawing.Size(53, 20);
-            this.paymentHSTTbx.TabIndex = 113;
+            this.paymentHSTTbx.TabIndex = 22;
             // 
             // paymentHSTLbl
             // 
@@ -564,7 +564,7 @@
             this.paymentSubtotalTbx.Name = "paymentSubtotalTbx";
             this.paymentSubtotalTbx.ReadOnly = true;
             this.paymentSubtotalTbx.Size = new System.Drawing.Size(53, 20);
-            this.paymentSubtotalTbx.TabIndex = 111;
+            this.paymentSubtotalTbx.TabIndex = 21;
             // 
             // paymentSubtotalLbl
             // 
@@ -581,7 +581,7 @@
             this.paymentOtherFeesTbx.MaxLength = 30;
             this.paymentOtherFeesTbx.Name = "paymentOtherFeesTbx";
             this.paymentOtherFeesTbx.Size = new System.Drawing.Size(53, 20);
-            this.paymentOtherFeesTbx.TabIndex = 109;
+            this.paymentOtherFeesTbx.TabIndex = 20;
             this.paymentOtherFeesTbx.TextChanged += new System.EventHandler(this.paymentChanged);
             // 
             // paymentOtherFeesLbl
@@ -599,7 +599,7 @@
             this.paymentRentalDaysTbx.MaxLength = 30;
             this.paymentRentalDaysTbx.Name = "paymentRentalDaysTbx";
             this.paymentRentalDaysTbx.Size = new System.Drawing.Size(53, 20);
-            this.paymentRentalDaysTbx.TabIndex = 107;
+            this.paymentRentalDaysTbx.TabIndex = 19;
             this.paymentRentalDaysTbx.TextChanged += new System.EventHandler(this.paymentChanged);
             this.paymentRentalDaysTbx.KeyUp += new System.Windows.Forms.KeyEventHandler(this.rentalDaysTbxChanged);
             // 
@@ -618,7 +618,7 @@
             this.updateRentalBtn.Location = new System.Drawing.Point(76, 599);
             this.updateRentalBtn.Name = "updateRentalBtn";
             this.updateRentalBtn.Size = new System.Drawing.Size(90, 34);
-            this.updateRentalBtn.TabIndex = 110;
+            this.updateRentalBtn.TabIndex = 26;
             this.updateRentalBtn.Text = "Update Rental";
             this.updateRentalBtn.UseVisualStyleBackColor = true;
             this.updateRentalBtn.Click += new System.EventHandler(this.updateRentalBtn_Click);
@@ -628,7 +628,7 @@
             this.voidRentalBtn.Location = new System.Drawing.Point(247, 599);
             this.voidRentalBtn.Name = "voidRentalBtn";
             this.voidRentalBtn.Size = new System.Drawing.Size(90, 34);
-            this.voidRentalBtn.TabIndex = 112;
+            this.voidRentalBtn.TabIndex = 27;
             this.voidRentalBtn.Text = "Void Rental";
             this.voidRentalBtn.UseVisualStyleBackColor = true;
             this.voidRentalBtn.Click += new System.EventHandler(this.voidRentalBtn_Click);
@@ -638,7 +638,7 @@
             this.exitBtn.Location = new System.Drawing.Point(420, 599);
             this.exitBtn.Name = "exitBtn";
             this.exitBtn.Size = new System.Drawing.Size(90, 34);
-            this.exitBtn.TabIndex = 113;
+            this.exitBtn.TabIndex = 28;
             this.exitBtn.Text = "Exit";
             this.exitBtn.UseVisualStyleBackColor = true;
             this.exitBtn.Click += new System.EventHandler(this.exitButton_Click);
@@ -650,7 +650,7 @@
             this.searchByInvoiceRbn.Location = new System.Drawing.Point(346, 176);
             this.searchByInvoiceRbn.Name = "searchByInvoiceRbn";
             this.searchByInvoiceRbn.Size = new System.Drawing.Size(115, 17);
-            this.searchByInvoiceRbn.TabIndex = 115;
+            this.searchByInvoiceRbn.TabIndex = 2;
             this.searchByInvoiceRbn.TabStop = true;
             this.searchByInvoiceRbn.Text = "By Invoice Number";
             this.searchByInvoiceRbn.UseVisualStyleBackColor = true;
@@ -661,7 +661,7 @@
             this.searchByLNameRbn.Location = new System.Drawing.Point(467, 176);
             this.searchByLNameRbn.Name = "searchByLNameRbn";
             this.searchByLNameRbn.Size = new System.Drawing.Size(91, 17);
-            this.searchByLNameRbn.TabIndex = 114;
+            this.searchByLNameRbn.TabIndex = 3;
             this.searchByLNameRbn.Text = "By Last Name";
             this.searchByLNameRbn.UseVisualStyleBackColor = true;
             // 

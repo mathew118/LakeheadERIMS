@@ -20,10 +20,6 @@ namespace Lakehead_ERIMS
 
             tab index
 
-            Add datagridview row changed event that recalculates the total quantity, and prices
-            also remove quantity changing in addItem removeItem and removeAllItems
-
-
             Is all equipment, when brought back from a rental, have to be manually returned via "Return Equipment"?
 
             Does return equipment remove the rental row?

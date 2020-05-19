@@ -116,5 +116,12 @@ namespace Lakehead_ERIMS
                 MessageBox.Show("Error");
             }
         }
+
+        private void ReturnEquip_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'luEquipmentDataSet1.tblStatus' table. You can move, or remove it, as needed.
+            this.tblStatusTableAdapter.Fill(this.luEquipmentDataSet1.tblStatus);
+
+        }
     }
 }
