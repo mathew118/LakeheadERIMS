@@ -82,14 +82,15 @@
             this.invoiceNumberTbx = new System.Windows.Forms.TextBox();
             this.invoiceNumberLbl = new System.Windows.Forms.Label();
             this.lateFeesGbx = new System.Windows.Forms.GroupBox();
+            this.invoiceLateFeesTbx = new System.Windows.Forms.TextBox();
             this.accumulateLateFeesCbx = new System.Windows.Forms.RadioButton();
             this.payLateFeesCbx = new System.Windows.Forms.RadioButton();
             this.waiveLateFeesCbx = new System.Windows.Forms.RadioButton();
             this.invoiceLateFeesLbl = new System.Windows.Forms.Label();
-            this.invoiceLateFeesTbx = new System.Windows.Forms.TextBox();
             this.itemsQueuedTbx = new System.Windows.Forms.TextBox();
             this.itemsQueuedLbl = new System.Windows.Forms.Label();
             this.statusCbx = new System.Windows.Forms.ComboBox();
+            this.tblStatusBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dateOutLbl = new System.Windows.Forms.Label();
             this.statusLbl = new System.Windows.Forms.Label();
             this.description3Lbl = new System.Windows.Forms.Label();
@@ -103,10 +104,14 @@
             this.dateDueLbl = new System.Windows.Forms.Label();
             this.accountBalanceTbx = new System.Windows.Forms.TextBox();
             this.accountBalanceLbl = new System.Windows.Forms.Label();
-            this.tblStatusBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tblStatusTableAdapter = new Lakehead_ERIMS.LUEquipmentDataSetTableAdapters.tblStatusTableAdapter();
             this.dateOutTbx = new System.Windows.Forms.TextBox();
             this.dateDueTbx = new System.Windows.Forms.TextBox();
+            this.queueBtn = new System.Windows.Forms.Button();
+            this.processReturnsBtn = new System.Windows.Forms.Button();
+            this.clearItemBtn = new System.Windows.Forms.Button();
+            this.exitBtn = new System.Windows.Forms.Button();
+            this.tblStatusTableAdapter1 = new Lakehead_ERIMS.LUEquipmentDataSetTableAdapters.tblStatusTableAdapter();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.luEquipmentDataSet1)).BeginInit();
@@ -521,12 +526,13 @@
             // 
             // itemNumberATbx
             // 
-            this.itemNumberATbx.Enabled = false;
             this.itemNumberATbx.Location = new System.Drawing.Point(105, 53);
             this.itemNumberATbx.MaxLength = 3;
             this.itemNumberATbx.Name = "itemNumberATbx";
             this.itemNumberATbx.Size = new System.Drawing.Size(42, 20);
             this.itemNumberATbx.TabIndex = 68;
+            this.itemNumberATbx.TextChanged += new System.EventHandler(this.itemNumberTbx_TextChanged);
+            this.itemNumberATbx.KeyUp += new System.Windows.Forms.KeyEventHandler(this.AutoTabItemNum);
             // 
             // itemNumberLbl
             // 
@@ -539,12 +545,12 @@
             // 
             // itemNumberBTbx
             // 
-            this.itemNumberBTbx.Enabled = false;
             this.itemNumberBTbx.Location = new System.Drawing.Point(165, 53);
             this.itemNumberBTbx.MaxLength = 3;
             this.itemNumberBTbx.Name = "itemNumberBTbx";
             this.itemNumberBTbx.Size = new System.Drawing.Size(42, 20);
             this.itemNumberBTbx.TabIndex = 69;
+            this.itemNumberBTbx.TextChanged += new System.EventHandler(this.itemNumberTbx_TextChanged);
             // 
             // stillOutTbx
             // 
@@ -638,6 +644,16 @@
             this.lateFeesGbx.TabStop = false;
             this.lateFeesGbx.Text = "Late Fees";
             // 
+            // invoiceLateFeesTbx
+            // 
+            this.invoiceLateFeesTbx.Enabled = false;
+            this.invoiceLateFeesTbx.Location = new System.Drawing.Point(112, 21);
+            this.invoiceLateFeesTbx.MaxLength = 3;
+            this.invoiceLateFeesTbx.Name = "invoiceLateFeesTbx";
+            this.invoiceLateFeesTbx.ReadOnly = true;
+            this.invoiceLateFeesTbx.Size = new System.Drawing.Size(104, 20);
+            this.invoiceLateFeesTbx.TabIndex = 94;
+            // 
             // accumulateLateFeesCbx
             // 
             this.accumulateLateFeesCbx.AutoSize = true;
@@ -684,16 +700,6 @@
             this.invoiceLateFeesLbl.TabIndex = 0;
             this.invoiceLateFeesLbl.Text = "Invoice Late Fees:";
             // 
-            // invoiceLateFeesTbx
-            // 
-            this.invoiceLateFeesTbx.Enabled = false;
-            this.invoiceLateFeesTbx.Location = new System.Drawing.Point(112, 21);
-            this.invoiceLateFeesTbx.MaxLength = 3;
-            this.invoiceLateFeesTbx.Name = "invoiceLateFeesTbx";
-            this.invoiceLateFeesTbx.ReadOnly = true;
-            this.invoiceLateFeesTbx.Size = new System.Drawing.Size(104, 20);
-            this.invoiceLateFeesTbx.TabIndex = 94;
-            // 
             // itemsQueuedTbx
             // 
             this.itemsQueuedTbx.Enabled = false;
@@ -703,6 +709,7 @@
             this.itemsQueuedTbx.ReadOnly = true;
             this.itemsQueuedTbx.Size = new System.Drawing.Size(150, 20);
             this.itemsQueuedTbx.TabIndex = 94;
+            this.itemsQueuedTbx.Text = "0";
             // 
             // itemsQueuedLbl
             // 
@@ -718,6 +725,7 @@
             this.statusCbx.DataSource = this.tblStatusBindingSource;
             this.statusCbx.DisplayMember = "Status_Name";
             this.statusCbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.statusCbx.Enabled = false;
             this.statusCbx.FormattingEnabled = true;
             this.statusCbx.ItemHeight = 13;
             this.statusCbx.Location = new System.Drawing.Point(105, 195);
@@ -725,6 +733,11 @@
             this.statusCbx.Size = new System.Drawing.Size(150, 21);
             this.statusCbx.TabIndex = 100;
             this.statusCbx.ValueMember = "Status_ID";
+            // 
+            // tblStatusBindingSource
+            // 
+            this.tblStatusBindingSource.DataMember = "tblStatus";
+            this.tblStatusBindingSource.DataSource = this.luEquipmentDataSet1;
             // 
             // dateOutLbl
             // 
@@ -844,11 +857,6 @@
             this.accountBalanceLbl.TabIndex = 111;
             this.accountBalanceLbl.Text = "Account Balance:";
             // 
-            // tblStatusBindingSource
-            // 
-            this.tblStatusBindingSource.DataMember = "tblStatus";
-            this.tblStatusBindingSource.DataSource = this.luEquipmentDataSet1;
-            // 
             // tblStatusTableAdapter
             // 
             this.tblStatusTableAdapter.ClearBeforeFill = true;
@@ -873,11 +881,61 @@
             this.dateDueTbx.Size = new System.Drawing.Size(150, 20);
             this.dateDueTbx.TabIndex = 113;
             // 
+            // queueBtn
+            // 
+            this.queueBtn.Enabled = false;
+            this.queueBtn.Location = new System.Drawing.Point(70, 315);
+            this.queueBtn.Name = "queueBtn";
+            this.queueBtn.Size = new System.Drawing.Size(100, 34);
+            this.queueBtn.TabIndex = 114;
+            this.queueBtn.Text = "Queue Record";
+            this.queueBtn.UseVisualStyleBackColor = true;
+            this.queueBtn.Click += new System.EventHandler(this.queueBtn_Click);
+            // 
+            // processReturnsBtn
+            // 
+            this.processReturnsBtn.Enabled = false;
+            this.processReturnsBtn.Location = new System.Drawing.Point(176, 315);
+            this.processReturnsBtn.Name = "processReturnsBtn";
+            this.processReturnsBtn.Size = new System.Drawing.Size(100, 34);
+            this.processReturnsBtn.TabIndex = 115;
+            this.processReturnsBtn.Text = "Process Returns";
+            this.processReturnsBtn.UseVisualStyleBackColor = true;
+            this.processReturnsBtn.Click += new System.EventHandler(this.processReturnsBtn_Click);
+            // 
+            // clearItemBtn
+            // 
+            this.clearItemBtn.Enabled = false;
+            this.clearItemBtn.Location = new System.Drawing.Point(282, 315);
+            this.clearItemBtn.Name = "clearItemBtn";
+            this.clearItemBtn.Size = new System.Drawing.Size(100, 34);
+            this.clearItemBtn.TabIndex = 116;
+            this.clearItemBtn.Text = "Clear Item";
+            this.clearItemBtn.UseVisualStyleBackColor = true;
+            // 
+            // exitBtn
+            // 
+            this.exitBtn.Location = new System.Drawing.Point(388, 315);
+            this.exitBtn.Name = "exitBtn";
+            this.exitBtn.Size = new System.Drawing.Size(100, 34);
+            this.exitBtn.TabIndex = 117;
+            this.exitBtn.Text = "Exit";
+            this.exitBtn.UseVisualStyleBackColor = true;
+            this.exitBtn.Click += new System.EventHandler(this.exitBttn_Click);
+            // 
+            // tblStatusTableAdapter1
+            // 
+            this.tblStatusTableAdapter1.ClearBeforeFill = true;
+            // 
             // ReturnEquip
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(600, 908);
+            this.Controls.Add(this.exitBtn);
+            this.Controls.Add(this.clearItemBtn);
+            this.Controls.Add(this.processReturnsBtn);
+            this.Controls.Add(this.queueBtn);
             this.Controls.Add(this.dateDueTbx);
             this.Controls.Add(this.dateOutTbx);
             this.Controls.Add(this.accountBalanceTbx);
@@ -942,7 +1000,7 @@
             this.Name = "ReturnEquip";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "4";
+            this.Text = "Return Equipment";
             this.Load += new System.EventHandler(this.ReturnEquip_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -1036,5 +1094,10 @@
         private LUEquipmentDataSetTableAdapters.tblStatusTableAdapter tblStatusTableAdapter;
         private System.Windows.Forms.TextBox dateOutTbx;
         private System.Windows.Forms.TextBox dateDueTbx;
+        private System.Windows.Forms.Button queueBtn;
+        private System.Windows.Forms.Button processReturnsBtn;
+        private System.Windows.Forms.Button clearItemBtn;
+        private System.Windows.Forms.Button exitBtn;
+        private LUEquipmentDataSetTableAdapters.tblStatusTableAdapter tblStatusTableAdapter1;
     }
 }
