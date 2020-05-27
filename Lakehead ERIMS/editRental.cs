@@ -16,13 +16,12 @@ namespace Lakehead_ERIMS
         /*
 
             Is equip nights calculated from the values in the rental table? or is it modified each time a
-            rental is created or modified
+            rental is created or modified. (Pretty sure it is calculated manually instead of gathering all rental values
+            because rental entries are deleted pretty often)
 
-            tab index
+            Is all equipment, when brought back from a rental, have to be manually returned via "Return Equipment"? (Yes)
 
-            Is all equipment, when brought back from a rental, have to be manually returned via "Return Equipment"?
-
-            Does return equipment remove the rental row?
+            Does return equipment remove the rental row? (Yes)
 
             How does it keep track of rental fees? Other fees, etc?
             Student has owes column but can have multiple rentals, how does it keep track of "other fees" for each?

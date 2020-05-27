@@ -29,239 +29,79 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.rentItem = new System.Windows.Forms.GroupBox();
-            this.itemGridView = new System.Windows.Forms.DataGridView();
-            this.Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.removeButton = new System.Windows.Forms.Button();
-            this.deleteButton = new System.Windows.Forms.Button();
-            this.addButton = new System.Windows.Forms.Button();
-            this.equipNumbTextBox = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
             this.lUEquipmentDataSetBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.lUEquipmentDataSet = new Lakehead_ERIMS.LUEquipmentDataSet();
             this.tblEquipBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tblEquipTableAdapter = new Lakehead_ERIMS.LUEquipmentDataSetTableAdapters.tblEquipTableAdapter();
-            this.dateRentedPicker = new System.Windows.Forms.DateTimePicker();
-            this.dateDuePicker = new System.Windows.Forms.DateTimePicker();
-            this.studentNumberLabel = new System.Windows.Forms.Label();
-            this.studentFNameLabel = new System.Windows.Forms.Label();
-            this.studentAddressLabe = new System.Windows.Forms.Label();
-            this.studentPhone = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.studentNumberTextBox = new System.Windows.Forms.TextBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.enterStudentNumberButton = new System.Windows.Forms.Button();
-            this.studentLNameLabel = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.calcCost = new System.Windows.Forms.Button();
-            this.totalLabel = new System.Windows.Forms.Label();
-            this.hstLabel = new System.Windows.Forms.Label();
-            this.waiveCheckBox = new System.Windows.Forms.CheckBox();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.subtotalLabel = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.deleteFeeRadioButton = new System.Windows.Forms.RadioButton();
-            this.payFeeRadioButton = new System.Windows.Forms.RadioButton();
-            this.ignoreRadioButton = new System.Windows.Forms.RadioButton();
-            this.label11 = new System.Windows.Forms.Label();
-            this.feeTextBox = new System.Windows.Forms.TextBox();
             this.lUEquipmentDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tblRentalTableAdapter1 = new Lakehead_ERIMS.LUEquipmentDataSetTableAdapters.tblRentalTableAdapter();
             this.tblStudentTableAdapter1 = new Lakehead_ERIMS.LUEquipmentDataSetTableAdapters.tblStudentTableAdapter();
-            this.luEquipmentDataSet1 = new Lakehead_ERIMS.LUEquipmentDataSet();
-            this.rentalButton = new System.Windows.Forms.Button();
-            this.exitButton = new System.Windows.Forms.Button();
-            this.rentItem.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.itemGridView)).BeginInit();
+            this.rentalItemsGbx = new System.Windows.Forms.GroupBox();
+            this.removeAllItemsBtn = new System.Windows.Forms.Button();
+            this.deleteItemBtn = new System.Windows.Forms.Button();
+            this.rentalItemsDgv = new System.Windows.Forms.DataGridView();
+            this.itemNumberClm = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemNameClm = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemRentalClm = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemQuantityTbx = new System.Windows.Forms.TextBox();
+            this.itemQuantityLbl = new System.Windows.Forms.Label();
+            this.itemNumberDashLbl = new System.Windows.Forms.Label();
+            this.itemNumberATbx = new System.Windows.Forms.TextBox();
+            this.itemNumberLbl = new System.Windows.Forms.Label();
+            this.itemNumberBTbx = new System.Windows.Forms.TextBox();
+            this.studentInformationGbx = new System.Windows.Forms.GroupBox();
+            this.studentNumberTbx = new System.Windows.Forms.TextBox();
+            this.studentNumberLbl = new System.Windows.Forms.Label();
+            this.studentNameTbx = new System.Windows.Forms.TextBox();
+            this.studentNameLbl = new System.Windows.Forms.Label();
+            this.studentAddressTbx = new System.Windows.Forms.TextBox();
+            this.rentalDateDueLbl = new System.Windows.Forms.Label();
+            this.studentAddressLbl = new System.Windows.Forms.Label();
+            this.rentalDateOutLbl = new System.Windows.Forms.Label();
+            this.studentPhoneTbx = new System.Windows.Forms.TextBox();
+            this.studentPhoneLbl = new System.Windows.Forms.Label();
+            this.rentalDateDueDpk = new System.Windows.Forms.DateTimePicker();
+            this.studentCourseTbx = new System.Windows.Forms.TextBox();
+            this.studentCourseLbl = new System.Windows.Forms.Label();
+            this.rentalDateOutDpk = new System.Windows.Forms.DateTimePicker();
+            this.paymentSummaryGbx = new System.Windows.Forms.GroupBox();
+            this.paymentWaiveLbl = new System.Windows.Forms.Label();
+            this.paymentHSTWaiveChbx = new System.Windows.Forms.CheckBox();
+            this.paymentSubtotalWaiveChbx = new System.Windows.Forms.CheckBox();
+            this.paymentTotalTbx = new System.Windows.Forms.TextBox();
+            this.paymentTotalLbl = new System.Windows.Forms.Label();
+            this.paymentHSTTbx = new System.Windows.Forms.TextBox();
+            this.paymentHSTLbl = new System.Windows.Forms.Label();
+            this.paymentSubtotalTbx = new System.Windows.Forms.TextBox();
+            this.paymentSubtotalLbl = new System.Windows.Forms.Label();
+            this.paymentRentalDaysTbx = new System.Windows.Forms.TextBox();
+            this.paymentRentalDaysLbl = new System.Windows.Forms.Label();
+            this.accountBalanceGbx = new System.Windows.Forms.GroupBox();
+            this.outstandingFeeTbx = new System.Windows.Forms.TextBox();
+            this.outstandingFeeLbl = new System.Windows.Forms.Label();
+            this.ignoreFeeChbx = new System.Windows.Forms.RadioButton();
+            this.payFeeChbx = new System.Windows.Forms.RadioButton();
+            this.deleteFeeChbx = new System.Windows.Forms.RadioButton();
+            this.updateStudentBtn = new System.Windows.Forms.Button();
+            this.existingRentalsBtn = new System.Windows.Forms.Button();
+            this.enterStudentNumberTbx = new System.Windows.Forms.TextBox();
+            this.enterStudentNumberLbl = new System.Windows.Forms.Label();
+            this.enterStudentNumberBtn = new System.Windows.Forms.Button();
+            this.exitBtn = new System.Windows.Forms.Button();
+            this.resetRentalBtn = new System.Windows.Forms.Button();
+            this.processRentalBtn = new System.Windows.Forms.Button();
+            this.orptChbx = new System.Windows.Forms.CheckBox();
+            this.tblStatusTableAdapter1 = new Lakehead_ERIMS.LUEquipmentDataSetTableAdapters.tblStatusTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.lUEquipmentDataSetBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lUEquipmentDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblEquipBindingSource)).BeginInit();
-            this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lUEquipmentDataSetBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.luEquipmentDataSet1)).BeginInit();
+            this.rentalItemsGbx.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.rentalItemsDgv)).BeginInit();
+            this.studentInformationGbx.SuspendLayout();
+            this.paymentSummaryGbx.SuspendLayout();
+            this.accountBalanceGbx.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(43, 172);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(87, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Student Number:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(43, 193);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(100, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Student First Name:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(43, 247);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(77, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Local Address:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(43, 271);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(41, 13);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Phone:";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(17, 15);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(63, 13);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "New Rental";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(43, 299);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(71, 13);
-            this.label7.TabIndex = 6;
-            this.label7.Text = "Date Rented:";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(43, 326);
-            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(56, 13);
-            this.label8.TabIndex = 7;
-            this.label8.Text = "Date Due:";
-            // 
-            // rentItem
-            // 
-            this.rentItem.Controls.Add(this.itemGridView);
-            this.rentItem.Controls.Add(this.removeButton);
-            this.rentItem.Controls.Add(this.deleteButton);
-            this.rentItem.Controls.Add(this.addButton);
-            this.rentItem.Controls.Add(this.equipNumbTextBox);
-            this.rentItem.Controls.Add(this.label9);
-            this.rentItem.Location = new System.Drawing.Point(25, 371);
-            this.rentItem.Margin = new System.Windows.Forms.Padding(2);
-            this.rentItem.Name = "rentItem";
-            this.rentItem.Padding = new System.Windows.Forms.Padding(2);
-            this.rentItem.Size = new System.Drawing.Size(384, 272);
-            this.rentItem.TabIndex = 8;
-            this.rentItem.TabStop = false;
-            this.rentItem.Text = "Rent Items";
-            // 
-            // itemGridView
-            // 
-            this.itemGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.itemGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Number,
-            this.colName,
-            this.Price});
-            this.itemGridView.Location = new System.Drawing.Point(33, 68);
-            this.itemGridView.Margin = new System.Windows.Forms.Padding(2);
-            this.itemGridView.Name = "itemGridView";
-            this.itemGridView.RowTemplate.Height = 24;
-            this.itemGridView.Size = new System.Drawing.Size(292, 131);
-            this.itemGridView.TabIndex = 9;
-            // 
-            // Number
-            // 
-            this.Number.HeaderText = "Number";
-            this.Number.Name = "Number";
-            // 
-            // colName
-            // 
-            this.colName.HeaderText = "Name";
-            this.colName.Name = "colName";
-            // 
-            // Price
-            // 
-            this.Price.HeaderText = "Price";
-            this.Price.Name = "Price";
-            // 
-            // removeButton
-            // 
-            this.removeButton.Location = new System.Drawing.Point(209, 227);
-            this.removeButton.Margin = new System.Windows.Forms.Padding(2);
-            this.removeButton.Name = "removeButton";
-            this.removeButton.Size = new System.Drawing.Size(92, 29);
-            this.removeButton.TabIndex = 8;
-            this.removeButton.Text = "Remove All";
-            this.removeButton.UseVisualStyleBackColor = true;
-            this.removeButton.Click += new System.EventHandler(this.removeButton_Click);
-            // 
-            // deleteButton
-            // 
-            this.deleteButton.Location = new System.Drawing.Point(109, 226);
-            this.deleteButton.Margin = new System.Windows.Forms.Padding(2);
-            this.deleteButton.Name = "deleteButton";
-            this.deleteButton.Size = new System.Drawing.Size(88, 31);
-            this.deleteButton.TabIndex = 6;
-            this.deleteButton.Text = "Delete Item";
-            this.deleteButton.UseVisualStyleBackColor = true;
-            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
-            // 
-            // addButton
-            // 
-            this.addButton.Location = new System.Drawing.Point(20, 224);
-            this.addButton.Margin = new System.Windows.Forms.Padding(2);
-            this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(84, 32);
-            this.addButton.TabIndex = 5;
-            this.addButton.Text = "Add";
-            this.addButton.UseVisualStyleBackColor = true;
-            this.addButton.Click += new System.EventHandler(this.addButton_Click);
-            // 
-            // equipNumbTextBox
-            // 
-            this.equipNumbTextBox.Location = new System.Drawing.Point(164, 33);
-            this.equipNumbTextBox.Margin = new System.Windows.Forms.Padding(2);
-            this.equipNumbTextBox.Name = "equipNumbTextBox";
-            this.equipNumbTextBox.Size = new System.Drawing.Size(63, 20);
-            this.equipNumbTextBox.TabIndex = 2;
-            this.equipNumbTextBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(31, 32);
-            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(128, 13);
-            this.label9.TabIndex = 1;
-            this.label9.Text = "Enter Equipment Number:";
             // 
             // lUEquipmentDataSetBindingSource1
             // 
@@ -282,299 +122,6 @@
             // 
             this.tblEquipTableAdapter.ClearBeforeFill = true;
             // 
-            // dateRentedPicker
-            // 
-            this.dateRentedPicker.Location = new System.Drawing.Point(115, 299);
-            this.dateRentedPicker.Margin = new System.Windows.Forms.Padding(2);
-            this.dateRentedPicker.Name = "dateRentedPicker";
-            this.dateRentedPicker.Size = new System.Drawing.Size(122, 20);
-            this.dateRentedPicker.TabIndex = 9;
-            // 
-            // dateDuePicker
-            // 
-            this.dateDuePicker.Location = new System.Drawing.Point(115, 322);
-            this.dateDuePicker.Margin = new System.Windows.Forms.Padding(2);
-            this.dateDuePicker.Name = "dateDuePicker";
-            this.dateDuePicker.Size = new System.Drawing.Size(122, 20);
-            this.dateDuePicker.TabIndex = 10;
-            // 
-            // studentNumberLabel
-            // 
-            this.studentNumberLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.studentNumberLabel.Location = new System.Drawing.Point(151, 174);
-            this.studentNumberLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.studentNumberLabel.Name = "studentNumberLabel";
-            this.studentNumberLabel.Size = new System.Drawing.Size(119, 15);
-            this.studentNumberLabel.TabIndex = 11;
-            this.studentNumberLabel.Text = "                 ";
-            // 
-            // studentFNameLabel
-            // 
-            this.studentFNameLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.studentFNameLabel.Location = new System.Drawing.Point(151, 192);
-            this.studentFNameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.studentFNameLabel.Name = "studentFNameLabel";
-            this.studentFNameLabel.Size = new System.Drawing.Size(119, 15);
-            this.studentFNameLabel.TabIndex = 16;
-            this.studentFNameLabel.Text = "                 ";
-            // 
-            // studentAddressLabe
-            // 
-            this.studentAddressLabe.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.studentAddressLabe.Location = new System.Drawing.Point(151, 245);
-            this.studentAddressLabe.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.studentAddressLabe.Name = "studentAddressLabe";
-            this.studentAddressLabe.Size = new System.Drawing.Size(119, 15);
-            this.studentAddressLabe.TabIndex = 17;
-            this.studentAddressLabe.Text = "                 ";
-            // 
-            // studentPhone
-            // 
-            this.studentPhone.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.studentPhone.Location = new System.Drawing.Point(151, 269);
-            this.studentPhone.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.studentPhone.Name = "studentPhone";
-            this.studentPhone.Size = new System.Drawing.Size(119, 15);
-            this.studentPhone.TabIndex = 18;
-            this.studentPhone.Text = "                 ";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(32, 32);
-            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(115, 13);
-            this.label12.TabIndex = 20;
-            this.label12.Text = "Enter Student Number:";
-            // 
-            // studentNumberTextBox
-            // 
-            this.studentNumberTextBox.Location = new System.Drawing.Point(173, 28);
-            this.studentNumberTextBox.Margin = new System.Windows.Forms.Padding(2);
-            this.studentNumberTextBox.Name = "studentNumberTextBox";
-            this.studentNumberTextBox.Size = new System.Drawing.Size(70, 20);
-            this.studentNumberTextBox.TabIndex = 21;
-            this.studentNumberTextBox.TextChanged += new System.EventHandler(this.studentNumberTextBox_TextChanged);
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.enterStudentNumberButton);
-            this.groupBox2.Controls.Add(this.studentNumberTextBox);
-            this.groupBox2.Controls.Add(this.label12);
-            this.groupBox2.Location = new System.Drawing.Point(45, 38);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox2.Size = new System.Drawing.Size(310, 108);
-            this.groupBox2.TabIndex = 22;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Enter Student Number";
-            // 
-            // enterStudentNumberButton
-            // 
-            this.enterStudentNumberButton.Location = new System.Drawing.Point(44, 68);
-            this.enterStudentNumberButton.Margin = new System.Windows.Forms.Padding(2);
-            this.enterStudentNumberButton.Name = "enterStudentNumberButton";
-            this.enterStudentNumberButton.Size = new System.Drawing.Size(170, 28);
-            this.enterStudentNumberButton.TabIndex = 22;
-            this.enterStudentNumberButton.Text = "Enter";
-            this.enterStudentNumberButton.UseVisualStyleBackColor = true;
-            this.enterStudentNumberButton.Click += new System.EventHandler(this.enterStudentNumberButton_Click);
-            // 
-            // studentLNameLabel
-            // 
-            this.studentLNameLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.studentLNameLabel.Location = new System.Drawing.Point(151, 217);
-            this.studentLNameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.studentLNameLabel.Name = "studentLNameLabel";
-            this.studentLNameLabel.Size = new System.Drawing.Size(119, 15);
-            this.studentLNameLabel.TabIndex = 24;
-            this.studentLNameLabel.Text = "                 ";
-            this.studentLNameLabel.Click += new System.EventHandler(this.label11_Click);
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(43, 217);
-            this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(101, 13);
-            this.label13.TabIndex = 23;
-            this.label13.Text = "Student Last Name:";
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.calcCost);
-            this.groupBox3.Controls.Add(this.totalLabel);
-            this.groupBox3.Controls.Add(this.hstLabel);
-            this.groupBox3.Controls.Add(this.waiveCheckBox);
-            this.groupBox3.Controls.Add(this.label24);
-            this.groupBox3.Controls.Add(this.label16);
-            this.groupBox3.Controls.Add(this.subtotalLabel);
-            this.groupBox3.Controls.Add(this.label14);
-            this.groupBox3.Location = new System.Drawing.Point(424, 344);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox3.Size = new System.Drawing.Size(302, 241);
-            this.groupBox3.TabIndex = 25;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Payment Summary";
-            // 
-            // calcCost
-            // 
-            this.calcCost.Location = new System.Drawing.Point(94, 176);
-            this.calcCost.Margin = new System.Windows.Forms.Padding(2);
-            this.calcCost.Name = "calcCost";
-            this.calcCost.Size = new System.Drawing.Size(127, 33);
-            this.calcCost.TabIndex = 11;
-            this.calcCost.Text = "Calculate Cost";
-            this.calcCost.UseVisualStyleBackColor = true;
-            this.calcCost.Click += new System.EventHandler(this.calcCost_Click);
-            // 
-            // totalLabel
-            // 
-            this.totalLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.totalLabel.Location = new System.Drawing.Point(143, 124);
-            this.totalLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.totalLabel.Name = "totalLabel";
-            this.totalLabel.Size = new System.Drawing.Size(41, 14);
-            this.totalLabel.TabIndex = 10;
-            this.totalLabel.Text = "    ";
-            // 
-            // hstLabel
-            // 
-            this.hstLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.hstLabel.Location = new System.Drawing.Point(143, 89);
-            this.hstLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.hstLabel.Name = "hstLabel";
-            this.hstLabel.Size = new System.Drawing.Size(41, 14);
-            this.hstLabel.TabIndex = 9;
-            this.hstLabel.Text = "    ";
-            // 
-            // waiveCheckBox
-            // 
-            this.waiveCheckBox.AutoSize = true;
-            this.waiveCheckBox.Location = new System.Drawing.Point(202, 54);
-            this.waiveCheckBox.Margin = new System.Windows.Forms.Padding(2);
-            this.waiveCheckBox.Name = "waiveCheckBox";
-            this.waiveCheckBox.Size = new System.Drawing.Size(57, 17);
-            this.waiveCheckBox.TabIndex = 8;
-            this.waiveCheckBox.Text = "Waive";
-            this.waiveCheckBox.UseVisualStyleBackColor = true;
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(40, 125);
-            this.label24.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(34, 13);
-            this.label24.TabIndex = 7;
-            this.label24.Text = "Total:";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(40, 89);
-            this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(32, 13);
-            this.label16.TabIndex = 2;
-            this.label16.Text = "HST:";
-            // 
-            // subtotalLabel
-            // 
-            this.subtotalLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.subtotalLabel.Location = new System.Drawing.Point(143, 54);
-            this.subtotalLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.subtotalLabel.Name = "subtotalLabel";
-            this.subtotalLabel.Size = new System.Drawing.Size(41, 14);
-            this.subtotalLabel.TabIndex = 1;
-            this.subtotalLabel.Text = "    ";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(40, 50);
-            this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(49, 13);
-            this.label14.TabIndex = 0;
-            this.label14.Text = "Subtotal:";
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.deleteFeeRadioButton);
-            this.groupBox4.Controls.Add(this.payFeeRadioButton);
-            this.groupBox4.Controls.Add(this.ignoreRadioButton);
-            this.groupBox4.Controls.Add(this.label11);
-            this.groupBox4.Controls.Add(this.feeTextBox);
-            this.groupBox4.Location = new System.Drawing.Point(432, 93);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(2);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox4.Size = new System.Drawing.Size(293, 211);
-            this.groupBox4.TabIndex = 26;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Account Balance";
-            // 
-            // deleteFeeRadioButton
-            // 
-            this.deleteFeeRadioButton.AutoSize = true;
-            this.deleteFeeRadioButton.Location = new System.Drawing.Point(64, 175);
-            this.deleteFeeRadioButton.Margin = new System.Windows.Forms.Padding(2);
-            this.deleteFeeRadioButton.Name = "deleteFeeRadioButton";
-            this.deleteFeeRadioButton.Size = new System.Drawing.Size(77, 17);
-            this.deleteFeeRadioButton.TabIndex = 4;
-            this.deleteFeeRadioButton.TabStop = true;
-            this.deleteFeeRadioButton.Text = "Delete Fee";
-            this.deleteFeeRadioButton.UseVisualStyleBackColor = true;
-            // 
-            // payFeeRadioButton
-            // 
-            this.payFeeRadioButton.AutoSize = true;
-            this.payFeeRadioButton.Location = new System.Drawing.Point(64, 145);
-            this.payFeeRadioButton.Margin = new System.Windows.Forms.Padding(2);
-            this.payFeeRadioButton.Name = "payFeeRadioButton";
-            this.payFeeRadioButton.Size = new System.Drawing.Size(64, 17);
-            this.payFeeRadioButton.TabIndex = 3;
-            this.payFeeRadioButton.TabStop = true;
-            this.payFeeRadioButton.Text = "Pay Fee";
-            this.payFeeRadioButton.UseVisualStyleBackColor = true;
-            // 
-            // ignoreRadioButton
-            // 
-            this.ignoreRadioButton.AutoSize = true;
-            this.ignoreRadioButton.Checked = true;
-            this.ignoreRadioButton.Location = new System.Drawing.Point(64, 111);
-            this.ignoreRadioButton.Margin = new System.Windows.Forms.Padding(2);
-            this.ignoreRadioButton.Name = "ignoreRadioButton";
-            this.ignoreRadioButton.Size = new System.Drawing.Size(76, 17);
-            this.ignoreRadioButton.TabIndex = 2;
-            this.ignoreRadioButton.TabStop = true;
-            this.ignoreRadioButton.Text = "Ignore Fee";
-            this.ignoreRadioButton.UseVisualStyleBackColor = true;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(56, 52);
-            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(88, 13);
-            this.label11.TabIndex = 1;
-            this.label11.Text = "Outstanding Fee:";
-            // 
-            // feeTextBox
-            // 
-            this.feeTextBox.Location = new System.Drawing.Point(148, 50);
-            this.feeTextBox.Margin = new System.Windows.Forms.Padding(2);
-            this.feeTextBox.Name = "feeTextBox";
-            this.feeTextBox.Size = new System.Drawing.Size(66, 20);
-            this.feeTextBox.TabIndex = 0;
-            // 
             // lUEquipmentDataSetBindingSource
             // 
             this.lUEquipmentDataSetBindingSource.DataSource = this.lUEquipmentDataSet;
@@ -588,59 +135,632 @@
             // 
             this.tblStudentTableAdapter1.ClearBeforeFill = true;
             // 
-            // luEquipmentDataSet1
+            // rentalItemsGbx
             // 
-            this.luEquipmentDataSet1.DataSetName = "LUEquipmentDataSet";
-            this.luEquipmentDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.rentalItemsGbx.Controls.Add(this.removeAllItemsBtn);
+            this.rentalItemsGbx.Controls.Add(this.deleteItemBtn);
+            this.rentalItemsGbx.Controls.Add(this.rentalItemsDgv);
+            this.rentalItemsGbx.Controls.Add(this.itemQuantityTbx);
+            this.rentalItemsGbx.Controls.Add(this.itemQuantityLbl);
+            this.rentalItemsGbx.Controls.Add(this.itemNumberDashLbl);
+            this.rentalItemsGbx.Controls.Add(this.itemNumberATbx);
+            this.rentalItemsGbx.Controls.Add(this.itemNumberLbl);
+            this.rentalItemsGbx.Controls.Add(this.itemNumberBTbx);
+            this.rentalItemsGbx.Location = new System.Drawing.Point(12, 342);
+            this.rentalItemsGbx.Name = "rentalItemsGbx";
+            this.rentalItemsGbx.Size = new System.Drawing.Size(360, 223);
+            this.rentalItemsGbx.TabIndex = 13;
+            this.rentalItemsGbx.TabStop = false;
+            this.rentalItemsGbx.Text = "Rental Items";
             // 
-            // rentalButton
+            // removeAllItemsBtn
             // 
-            this.rentalButton.Location = new System.Drawing.Point(439, 602);
-            this.rentalButton.Margin = new System.Windows.Forms.Padding(2);
-            this.rentalButton.Name = "rentalButton";
-            this.rentalButton.Size = new System.Drawing.Size(95, 25);
-            this.rentalButton.TabIndex = 27;
-            this.rentalButton.Text = "Process Rental";
-            this.rentalButton.UseVisualStyleBackColor = true;
-            this.rentalButton.Click += new System.EventHandler(this.rentalButton_Click);
+            this.removeAllItemsBtn.Enabled = false;
+            this.removeAllItemsBtn.Location = new System.Drawing.Point(207, 179);
+            this.removeAllItemsBtn.Name = "removeAllItemsBtn";
+            this.removeAllItemsBtn.Size = new System.Drawing.Size(90, 34);
+            this.removeAllItemsBtn.TabIndex = 18;
+            this.removeAllItemsBtn.Text = "Remove All";
+            this.removeAllItemsBtn.UseVisualStyleBackColor = true;
+            this.removeAllItemsBtn.Click += new System.EventHandler(this.removeAllItemsBtn_Click);
             // 
-            // exitButton
+            // deleteItemBtn
             // 
-            this.exitButton.Location = new System.Drawing.Point(574, 599);
-            this.exitButton.Margin = new System.Windows.Forms.Padding(2);
-            this.exitButton.Name = "exitButton";
-            this.exitButton.Size = new System.Drawing.Size(103, 28);
-            this.exitButton.TabIndex = 28;
-            this.exitButton.Text = "Exit";
-            this.exitButton.UseVisualStyleBackColor = true;
-            this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
+            this.deleteItemBtn.Enabled = false;
+            this.deleteItemBtn.Location = new System.Drawing.Point(55, 179);
+            this.deleteItemBtn.Name = "deleteItemBtn";
+            this.deleteItemBtn.Size = new System.Drawing.Size(90, 34);
+            this.deleteItemBtn.TabIndex = 17;
+            this.deleteItemBtn.Text = "Delete Item";
+            this.deleteItemBtn.UseVisualStyleBackColor = true;
+            this.deleteItemBtn.Click += new System.EventHandler(this.deleteItemBtn_Click);
+            // 
+            // rentalItemsDgv
+            // 
+            this.rentalItemsDgv.AllowUserToAddRows = false;
+            this.rentalItemsDgv.AllowUserToDeleteRows = false;
+            this.rentalItemsDgv.AllowUserToResizeRows = false;
+            this.rentalItemsDgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.rentalItemsDgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.rentalItemsDgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.itemNumberClm,
+            this.itemNameClm,
+            this.itemRentalClm});
+            this.rentalItemsDgv.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.rentalItemsDgv.Location = new System.Drawing.Point(6, 67);
+            this.rentalItemsDgv.MultiSelect = false;
+            this.rentalItemsDgv.Name = "rentalItemsDgv";
+            this.rentalItemsDgv.ReadOnly = true;
+            this.rentalItemsDgv.RowHeadersVisible = false;
+            this.rentalItemsDgv.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.rentalItemsDgv.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.rentalItemsDgv.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.rentalItemsDgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.rentalItemsDgv.Size = new System.Drawing.Size(348, 103);
+            this.rentalItemsDgv.TabIndex = 16;
+            this.rentalItemsDgv.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.rentalItemsDgv_RowsChanged);
+            this.rentalItemsDgv.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.rentalItemsDgv_RowsRemoved);
+            this.rentalItemsDgv.SelectionChanged += new System.EventHandler(this.rentalItemsDgv_SelectionChanged);
+            // 
+            // itemNumberClm
+            // 
+            this.itemNumberClm.FillWeight = 30F;
+            this.itemNumberClm.HeaderText = "Number";
+            this.itemNumberClm.Name = "itemNumberClm";
+            this.itemNumberClm.ReadOnly = true;
+            // 
+            // itemNameClm
+            // 
+            this.itemNameClm.HeaderText = "Name";
+            this.itemNameClm.Name = "itemNameClm";
+            this.itemNameClm.ReadOnly = true;
+            // 
+            // itemRentalClm
+            // 
+            this.itemRentalClm.FillWeight = 30F;
+            this.itemRentalClm.HeaderText = "Rental";
+            this.itemRentalClm.Name = "itemRentalClm";
+            this.itemRentalClm.ReadOnly = true;
+            // 
+            // itemQuantityTbx
+            // 
+            this.itemQuantityTbx.Enabled = false;
+            this.itemQuantityTbx.Location = new System.Drawing.Point(259, 28);
+            this.itemQuantityTbx.MaxLength = 30;
+            this.itemQuantityTbx.Name = "itemQuantityTbx";
+            this.itemQuantityTbx.ReadOnly = true;
+            this.itemQuantityTbx.Size = new System.Drawing.Size(95, 20);
+            this.itemQuantityTbx.TabIndex = 15;
+            this.itemQuantityTbx.Text = "0";
+            // 
+            // itemQuantityLbl
+            // 
+            this.itemQuantityLbl.AutoSize = true;
+            this.itemQuantityLbl.Location = new System.Drawing.Point(204, 31);
+            this.itemQuantityLbl.Name = "itemQuantityLbl";
+            this.itemQuantityLbl.Size = new System.Drawing.Size(49, 13);
+            this.itemQuantityLbl.TabIndex = 106;
+            this.itemQuantityLbl.Text = "Quantity:";
+            // 
+            // itemNumberDashLbl
+            // 
+            this.itemNumberDashLbl.AutoSize = true;
+            this.itemNumberDashLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.itemNumberDashLbl.Location = new System.Drawing.Point(133, 29);
+            this.itemNumberDashLbl.Name = "itemNumberDashLbl";
+            this.itemNumberDashLbl.Size = new System.Drawing.Size(12, 15);
+            this.itemNumberDashLbl.TabIndex = 67;
+            this.itemNumberDashLbl.Text = "-";
+            // 
+            // itemNumberATbx
+            // 
+            this.itemNumberATbx.Enabled = false;
+            this.itemNumberATbx.Location = new System.Drawing.Point(88, 28);
+            this.itemNumberATbx.MaxLength = 3;
+            this.itemNumberATbx.Name = "itemNumberATbx";
+            this.itemNumberATbx.Size = new System.Drawing.Size(42, 20);
+            this.itemNumberATbx.TabIndex = 13;
+            this.itemNumberATbx.TextChanged += new System.EventHandler(this.itemNumberTbx_TextChanged);
+            this.itemNumberATbx.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.HandleNumericOnly);
+            this.itemNumberATbx.KeyUp += new System.Windows.Forms.KeyEventHandler(this.AutoTabItemNum);
+            // 
+            // itemNumberLbl
+            // 
+            this.itemNumberLbl.AutoSize = true;
+            this.itemNumberLbl.Location = new System.Drawing.Point(12, 31);
+            this.itemNumberLbl.Name = "itemNumberLbl";
+            this.itemNumberLbl.Size = new System.Drawing.Size(70, 13);
+            this.itemNumberLbl.TabIndex = 66;
+            this.itemNumberLbl.Text = "Item Number:";
+            // 
+            // itemNumberBTbx
+            // 
+            this.itemNumberBTbx.Enabled = false;
+            this.itemNumberBTbx.Location = new System.Drawing.Point(148, 28);
+            this.itemNumberBTbx.MaxLength = 3;
+            this.itemNumberBTbx.Name = "itemNumberBTbx";
+            this.itemNumberBTbx.Size = new System.Drawing.Size(42, 20);
+            this.itemNumberBTbx.TabIndex = 14;
+            this.itemNumberBTbx.TextChanged += new System.EventHandler(this.itemNumberTbx_TextChanged);
+            this.itemNumberBTbx.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.HandleNumericOnly);
+            // 
+            // studentInformationGbx
+            // 
+            this.studentInformationGbx.Controls.Add(this.orptChbx);
+            this.studentInformationGbx.Controls.Add(this.studentNumberTbx);
+            this.studentInformationGbx.Controls.Add(this.studentNumberLbl);
+            this.studentInformationGbx.Controls.Add(this.studentNameTbx);
+            this.studentInformationGbx.Controls.Add(this.studentNameLbl);
+            this.studentInformationGbx.Controls.Add(this.studentAddressTbx);
+            this.studentInformationGbx.Controls.Add(this.rentalDateDueLbl);
+            this.studentInformationGbx.Controls.Add(this.studentAddressLbl);
+            this.studentInformationGbx.Controls.Add(this.rentalDateOutLbl);
+            this.studentInformationGbx.Controls.Add(this.studentPhoneTbx);
+            this.studentInformationGbx.Controls.Add(this.studentPhoneLbl);
+            this.studentInformationGbx.Controls.Add(this.rentalDateDueDpk);
+            this.studentInformationGbx.Controls.Add(this.studentCourseTbx);
+            this.studentInformationGbx.Controls.Add(this.studentCourseLbl);
+            this.studentInformationGbx.Controls.Add(this.rentalDateOutDpk);
+            this.studentInformationGbx.Location = new System.Drawing.Point(12, 79);
+            this.studentInformationGbx.Name = "studentInformationGbx";
+            this.studentInformationGbx.Size = new System.Drawing.Size(324, 257);
+            this.studentInformationGbx.TabIndex = 14;
+            this.studentInformationGbx.TabStop = false;
+            this.studentInformationGbx.Text = "Student Information";
+            // 
+            // studentNumberTbx
+            // 
+            this.studentNumberTbx.Enabled = false;
+            this.studentNumberTbx.Location = new System.Drawing.Point(110, 28);
+            this.studentNumberTbx.MaxLength = 30;
+            this.studentNumberTbx.Name = "studentNumberTbx";
+            this.studentNumberTbx.ReadOnly = true;
+            this.studentNumberTbx.Size = new System.Drawing.Size(150, 20);
+            this.studentNumberTbx.TabIndex = 5;
+            // 
+            // studentNumberLbl
+            // 
+            this.studentNumberLbl.AutoSize = true;
+            this.studentNumberLbl.Location = new System.Drawing.Point(17, 31);
+            this.studentNumberLbl.Name = "studentNumberLbl";
+            this.studentNumberLbl.Size = new System.Drawing.Size(87, 13);
+            this.studentNumberLbl.TabIndex = 27;
+            this.studentNumberLbl.Text = "Student Number:";
+            // 
+            // studentNameTbx
+            // 
+            this.studentNameTbx.Enabled = false;
+            this.studentNameTbx.Location = new System.Drawing.Point(110, 54);
+            this.studentNameTbx.MaxLength = 30;
+            this.studentNameTbx.Name = "studentNameTbx";
+            this.studentNameTbx.ReadOnly = true;
+            this.studentNameTbx.Size = new System.Drawing.Size(150, 20);
+            this.studentNameTbx.TabIndex = 6;
+            // 
+            // studentNameLbl
+            // 
+            this.studentNameLbl.AutoSize = true;
+            this.studentNameLbl.Location = new System.Drawing.Point(26, 57);
+            this.studentNameLbl.Name = "studentNameLbl";
+            this.studentNameLbl.Size = new System.Drawing.Size(78, 13);
+            this.studentNameLbl.TabIndex = 29;
+            this.studentNameLbl.Text = "Student Name:";
+            // 
+            // studentAddressTbx
+            // 
+            this.studentAddressTbx.Enabled = false;
+            this.studentAddressTbx.Location = new System.Drawing.Point(110, 80);
+            this.studentAddressTbx.MaxLength = 30;
+            this.studentAddressTbx.Name = "studentAddressTbx";
+            this.studentAddressTbx.ReadOnly = true;
+            this.studentAddressTbx.Size = new System.Drawing.Size(150, 20);
+            this.studentAddressTbx.TabIndex = 7;
+            // 
+            // rentalDateDueLbl
+            // 
+            this.rentalDateDueLbl.AutoSize = true;
+            this.rentalDateDueLbl.Location = new System.Drawing.Point(48, 187);
+            this.rentalDateDueLbl.Name = "rentalDateDueLbl";
+            this.rentalDateDueLbl.Size = new System.Drawing.Size(56, 13);
+            this.rentalDateDueLbl.TabIndex = 104;
+            this.rentalDateDueLbl.Text = "Date Due:";
+            // 
+            // studentAddressLbl
+            // 
+            this.studentAddressLbl.AutoSize = true;
+            this.studentAddressLbl.Location = new System.Drawing.Point(27, 83);
+            this.studentAddressLbl.Name = "studentAddressLbl";
+            this.studentAddressLbl.Size = new System.Drawing.Size(77, 13);
+            this.studentAddressLbl.TabIndex = 31;
+            this.studentAddressLbl.Text = "Local Address:";
+            // 
+            // rentalDateOutLbl
+            // 
+            this.rentalDateOutLbl.AutoSize = true;
+            this.rentalDateOutLbl.Location = new System.Drawing.Point(51, 161);
+            this.rentalDateOutLbl.Name = "rentalDateOutLbl";
+            this.rentalDateOutLbl.Size = new System.Drawing.Size(53, 13);
+            this.rentalDateOutLbl.TabIndex = 103;
+            this.rentalDateOutLbl.Text = "Date Out:";
+            // 
+            // studentPhoneTbx
+            // 
+            this.studentPhoneTbx.Enabled = false;
+            this.studentPhoneTbx.Location = new System.Drawing.Point(110, 106);
+            this.studentPhoneTbx.MaxLength = 30;
+            this.studentPhoneTbx.Name = "studentPhoneTbx";
+            this.studentPhoneTbx.ReadOnly = true;
+            this.studentPhoneTbx.Size = new System.Drawing.Size(150, 20);
+            this.studentPhoneTbx.TabIndex = 8;
+            // 
+            // studentPhoneLbl
+            // 
+            this.studentPhoneLbl.AutoSize = true;
+            this.studentPhoneLbl.Location = new System.Drawing.Point(34, 109);
+            this.studentPhoneLbl.Name = "studentPhoneLbl";
+            this.studentPhoneLbl.Size = new System.Drawing.Size(70, 13);
+            this.studentPhoneLbl.TabIndex = 33;
+            this.studentPhoneLbl.Text = "Local Phone:";
+            // 
+            // rentalDateDueDpk
+            // 
+            this.rentalDateDueDpk.CustomFormat = " ";
+            this.rentalDateDueDpk.Enabled = false;
+            this.rentalDateDueDpk.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rentalDateDueDpk.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.rentalDateDueDpk.Location = new System.Drawing.Point(110, 184);
+            this.rentalDateDueDpk.Name = "rentalDateDueDpk";
+            this.rentalDateDueDpk.Size = new System.Drawing.Size(150, 20);
+            this.rentalDateDueDpk.TabIndex = 11;
+            this.rentalDateDueDpk.Value = new System.DateTime(2020, 4, 24, 0, 0, 0, 0);
+            this.rentalDateDueDpk.ValueChanged += new System.EventHandler(this.rentalDateDpk_ValueChanged);
+            // 
+            // studentCourseTbx
+            // 
+            this.studentCourseTbx.Enabled = false;
+            this.studentCourseTbx.Location = new System.Drawing.Point(110, 132);
+            this.studentCourseTbx.MaxLength = 20;
+            this.studentCourseTbx.Name = "studentCourseTbx";
+            this.studentCourseTbx.Size = new System.Drawing.Size(150, 20);
+            this.studentCourseTbx.TabIndex = 9;
+            // 
+            // studentCourseLbl
+            // 
+            this.studentCourseLbl.AutoSize = true;
+            this.studentCourseLbl.Location = new System.Drawing.Point(61, 135);
+            this.studentCourseLbl.Name = "studentCourseLbl";
+            this.studentCourseLbl.Size = new System.Drawing.Size(43, 13);
+            this.studentCourseLbl.TabIndex = 36;
+            this.studentCourseLbl.Text = "Course:";
+            // 
+            // rentalDateOutDpk
+            // 
+            this.rentalDateOutDpk.CustomFormat = " ";
+            this.rentalDateOutDpk.Enabled = false;
+            this.rentalDateOutDpk.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rentalDateOutDpk.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.rentalDateOutDpk.Location = new System.Drawing.Point(110, 158);
+            this.rentalDateOutDpk.Name = "rentalDateOutDpk";
+            this.rentalDateOutDpk.Size = new System.Drawing.Size(150, 20);
+            this.rentalDateOutDpk.TabIndex = 10;
+            this.rentalDateOutDpk.Value = new System.DateTime(2020, 4, 24, 0, 0, 0, 0);
+            this.rentalDateOutDpk.ValueChanged += new System.EventHandler(this.rentalDateDpk_ValueChanged);
+            // 
+            // paymentSummaryGbx
+            // 
+            this.paymentSummaryGbx.Controls.Add(this.paymentWaiveLbl);
+            this.paymentSummaryGbx.Controls.Add(this.paymentHSTWaiveChbx);
+            this.paymentSummaryGbx.Controls.Add(this.paymentSubtotalWaiveChbx);
+            this.paymentSummaryGbx.Controls.Add(this.paymentTotalTbx);
+            this.paymentSummaryGbx.Controls.Add(this.paymentTotalLbl);
+            this.paymentSummaryGbx.Controls.Add(this.paymentHSTTbx);
+            this.paymentSummaryGbx.Controls.Add(this.paymentHSTLbl);
+            this.paymentSummaryGbx.Controls.Add(this.paymentSubtotalTbx);
+            this.paymentSummaryGbx.Controls.Add(this.paymentSubtotalLbl);
+            this.paymentSummaryGbx.Controls.Add(this.paymentRentalDaysTbx);
+            this.paymentSummaryGbx.Controls.Add(this.paymentRentalDaysLbl);
+            this.paymentSummaryGbx.Location = new System.Drawing.Point(378, 342);
+            this.paymentSummaryGbx.Name = "paymentSummaryGbx";
+            this.paymentSummaryGbx.Size = new System.Drawing.Size(188, 223);
+            this.paymentSummaryGbx.TabIndex = 20;
+            this.paymentSummaryGbx.TabStop = false;
+            this.paymentSummaryGbx.Text = "Payment Summary";
+            // 
+            // paymentWaiveLbl
+            // 
+            this.paymentWaiveLbl.AutoSize = true;
+            this.paymentWaiveLbl.Location = new System.Drawing.Point(144, 28);
+            this.paymentWaiveLbl.Name = "paymentWaiveLbl";
+            this.paymentWaiveLbl.Size = new System.Drawing.Size(38, 13);
+            this.paymentWaiveLbl.TabIndex = 122;
+            this.paymentWaiveLbl.Text = "Waive";
+            // 
+            // paymentHSTWaiveChbx
+            // 
+            this.paymentHSTWaiveChbx.AutoSize = true;
+            this.paymentHSTWaiveChbx.Enabled = false;
+            this.paymentHSTWaiveChbx.Location = new System.Drawing.Point(156, 117);
+            this.paymentHSTWaiveChbx.Name = "paymentHSTWaiveChbx";
+            this.paymentHSTWaiveChbx.Size = new System.Drawing.Size(15, 14);
+            this.paymentHSTWaiveChbx.TabIndex = 25;
+            this.paymentHSTWaiveChbx.UseVisualStyleBackColor = true;
+            this.paymentHSTWaiveChbx.CheckedChanged += new System.EventHandler(this.paymentChanged);
+            // 
+            // paymentSubtotalWaiveChbx
+            // 
+            this.paymentSubtotalWaiveChbx.AutoSize = true;
+            this.paymentSubtotalWaiveChbx.Checked = true;
+            this.paymentSubtotalWaiveChbx.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.paymentSubtotalWaiveChbx.Enabled = false;
+            this.paymentSubtotalWaiveChbx.Location = new System.Drawing.Point(156, 91);
+            this.paymentSubtotalWaiveChbx.Name = "paymentSubtotalWaiveChbx";
+            this.paymentSubtotalWaiveChbx.Size = new System.Drawing.Size(15, 14);
+            this.paymentSubtotalWaiveChbx.TabIndex = 24;
+            this.paymentSubtotalWaiveChbx.UseVisualStyleBackColor = true;
+            this.paymentSubtotalWaiveChbx.CheckedChanged += new System.EventHandler(this.paymentChanged);
+            // 
+            // paymentTotalTbx
+            // 
+            this.paymentTotalTbx.Enabled = false;
+            this.paymentTotalTbx.Location = new System.Drawing.Point(84, 140);
+            this.paymentTotalTbx.MaxLength = 30;
+            this.paymentTotalTbx.Name = "paymentTotalTbx";
+            this.paymentTotalTbx.ReadOnly = true;
+            this.paymentTotalTbx.Size = new System.Drawing.Size(53, 20);
+            this.paymentTotalTbx.TabIndex = 23;
+            this.paymentTotalTbx.Text = "$0.00";
+            // 
+            // paymentTotalLbl
+            // 
+            this.paymentTotalLbl.AutoSize = true;
+            this.paymentTotalLbl.Location = new System.Drawing.Point(44, 143);
+            this.paymentTotalLbl.Name = "paymentTotalLbl";
+            this.paymentTotalLbl.Size = new System.Drawing.Size(34, 13);
+            this.paymentTotalLbl.TabIndex = 118;
+            this.paymentTotalLbl.Text = "Total:";
+            // 
+            // paymentHSTTbx
+            // 
+            this.paymentHSTTbx.Enabled = false;
+            this.paymentHSTTbx.Location = new System.Drawing.Point(84, 114);
+            this.paymentHSTTbx.MaxLength = 30;
+            this.paymentHSTTbx.Name = "paymentHSTTbx";
+            this.paymentHSTTbx.ReadOnly = true;
+            this.paymentHSTTbx.Size = new System.Drawing.Size(53, 20);
+            this.paymentHSTTbx.TabIndex = 22;
+            this.paymentHSTTbx.Text = "$0.00";
+            // 
+            // paymentHSTLbl
+            // 
+            this.paymentHSTLbl.AutoSize = true;
+            this.paymentHSTLbl.Location = new System.Drawing.Point(47, 117);
+            this.paymentHSTLbl.Name = "paymentHSTLbl";
+            this.paymentHSTLbl.Size = new System.Drawing.Size(32, 13);
+            this.paymentHSTLbl.TabIndex = 114;
+            this.paymentHSTLbl.Text = "HST:";
+            // 
+            // paymentSubtotalTbx
+            // 
+            this.paymentSubtotalTbx.Enabled = false;
+            this.paymentSubtotalTbx.Location = new System.Drawing.Point(84, 88);
+            this.paymentSubtotalTbx.MaxLength = 30;
+            this.paymentSubtotalTbx.Name = "paymentSubtotalTbx";
+            this.paymentSubtotalTbx.ReadOnly = true;
+            this.paymentSubtotalTbx.Size = new System.Drawing.Size(53, 20);
+            this.paymentSubtotalTbx.TabIndex = 21;
+            this.paymentSubtotalTbx.Text = "$0.00";
+            // 
+            // paymentSubtotalLbl
+            // 
+            this.paymentSubtotalLbl.AutoSize = true;
+            this.paymentSubtotalLbl.Location = new System.Drawing.Point(29, 92);
+            this.paymentSubtotalLbl.Name = "paymentSubtotalLbl";
+            this.paymentSubtotalLbl.Size = new System.Drawing.Size(49, 13);
+            this.paymentSubtotalLbl.TabIndex = 112;
+            this.paymentSubtotalLbl.Text = "Subtotal:";
+            // 
+            // paymentRentalDaysTbx
+            // 
+            this.paymentRentalDaysTbx.Enabled = false;
+            this.paymentRentalDaysTbx.Location = new System.Drawing.Point(84, 62);
+            this.paymentRentalDaysTbx.MaxLength = 30;
+            this.paymentRentalDaysTbx.Name = "paymentRentalDaysTbx";
+            this.paymentRentalDaysTbx.Size = new System.Drawing.Size(53, 20);
+            this.paymentRentalDaysTbx.TabIndex = 19;
+            this.paymentRentalDaysTbx.KeyUp += new System.Windows.Forms.KeyEventHandler(this.rentalDaysTbxChanged);
+            // 
+            // paymentRentalDaysLbl
+            // 
+            this.paymentRentalDaysLbl.AutoSize = true;
+            this.paymentRentalDaysLbl.Location = new System.Drawing.Point(10, 65);
+            this.paymentRentalDaysLbl.Name = "paymentRentalDaysLbl";
+            this.paymentRentalDaysLbl.Size = new System.Drawing.Size(68, 13);
+            this.paymentRentalDaysLbl.TabIndex = 108;
+            this.paymentRentalDaysLbl.Text = "Rental Days:";
+            // 
+            // accountBalanceGbx
+            // 
+            this.accountBalanceGbx.Controls.Add(this.deleteFeeChbx);
+            this.accountBalanceGbx.Controls.Add(this.payFeeChbx);
+            this.accountBalanceGbx.Controls.Add(this.ignoreFeeChbx);
+            this.accountBalanceGbx.Controls.Add(this.outstandingFeeTbx);
+            this.accountBalanceGbx.Controls.Add(this.outstandingFeeLbl);
+            this.accountBalanceGbx.Location = new System.Drawing.Point(342, 185);
+            this.accountBalanceGbx.Name = "accountBalanceGbx";
+            this.accountBalanceGbx.Size = new System.Drawing.Size(224, 151);
+            this.accountBalanceGbx.TabIndex = 123;
+            this.accountBalanceGbx.TabStop = false;
+            this.accountBalanceGbx.Text = "Account Balance";
+            // 
+            // outstandingFeeTbx
+            // 
+            this.outstandingFeeTbx.Enabled = false;
+            this.outstandingFeeTbx.Location = new System.Drawing.Point(124, 30);
+            this.outstandingFeeTbx.MaxLength = 30;
+            this.outstandingFeeTbx.Name = "outstandingFeeTbx";
+            this.outstandingFeeTbx.ReadOnly = true;
+            this.outstandingFeeTbx.Size = new System.Drawing.Size(69, 20);
+            this.outstandingFeeTbx.TabIndex = 19;
+            this.outstandingFeeTbx.Text = "$0.00";
+            // 
+            // outstandingFeeLbl
+            // 
+            this.outstandingFeeLbl.AutoSize = true;
+            this.outstandingFeeLbl.Location = new System.Drawing.Point(30, 32);
+            this.outstandingFeeLbl.Name = "outstandingFeeLbl";
+            this.outstandingFeeLbl.Size = new System.Drawing.Size(88, 13);
+            this.outstandingFeeLbl.TabIndex = 108;
+            this.outstandingFeeLbl.Text = "Outstanding Fee:";
+            // 
+            // ignoreFeeChbx
+            // 
+            this.ignoreFeeChbx.AutoSize = true;
+            this.ignoreFeeChbx.Enabled = false;
+            this.ignoreFeeChbx.Location = new System.Drawing.Point(56, 63);
+            this.ignoreFeeChbx.Name = "ignoreFeeChbx";
+            this.ignoreFeeChbx.Size = new System.Drawing.Size(76, 17);
+            this.ignoreFeeChbx.TabIndex = 109;
+            this.ignoreFeeChbx.TabStop = true;
+            this.ignoreFeeChbx.Text = "Ignore Fee";
+            this.ignoreFeeChbx.UseVisualStyleBackColor = true;
+            // 
+            // payFeeChbx
+            // 
+            this.payFeeChbx.AutoSize = true;
+            this.payFeeChbx.Enabled = false;
+            this.payFeeChbx.Location = new System.Drawing.Point(56, 86);
+            this.payFeeChbx.Name = "payFeeChbx";
+            this.payFeeChbx.Size = new System.Drawing.Size(64, 17);
+            this.payFeeChbx.TabIndex = 110;
+            this.payFeeChbx.TabStop = true;
+            this.payFeeChbx.Text = "Pay Fee";
+            this.payFeeChbx.UseVisualStyleBackColor = true;
+            // 
+            // deleteFeeChbx
+            // 
+            this.deleteFeeChbx.AutoSize = true;
+            this.deleteFeeChbx.Enabled = false;
+            this.deleteFeeChbx.Location = new System.Drawing.Point(56, 109);
+            this.deleteFeeChbx.Name = "deleteFeeChbx";
+            this.deleteFeeChbx.Size = new System.Drawing.Size(77, 17);
+            this.deleteFeeChbx.TabIndex = 111;
+            this.deleteFeeChbx.TabStop = true;
+            this.deleteFeeChbx.Text = "Delete Fee";
+            this.deleteFeeChbx.UseVisualStyleBackColor = true;
+            // 
+            // updateStudentBtn
+            // 
+            this.updateStudentBtn.Location = new System.Drawing.Point(358, 114);
+            this.updateStudentBtn.Name = "updateStudentBtn";
+            this.updateStudentBtn.Size = new System.Drawing.Size(90, 34);
+            this.updateStudentBtn.TabIndex = 107;
+            this.updateStudentBtn.Text = "Update Student";
+            this.updateStudentBtn.UseVisualStyleBackColor = true;
+            this.updateStudentBtn.Click += new System.EventHandler(this.updateStudentBtn_Click);
+            // 
+            // existingRentalsBtn
+            // 
+            this.existingRentalsBtn.Location = new System.Drawing.Point(468, 114);
+            this.existingRentalsBtn.Name = "existingRentalsBtn";
+            this.existingRentalsBtn.Size = new System.Drawing.Size(90, 34);
+            this.existingRentalsBtn.TabIndex = 124;
+            this.existingRentalsBtn.Text = "Existing Rentals";
+            this.existingRentalsBtn.UseVisualStyleBackColor = true;
+            // 
+            // enterStudentNumberTbx
+            // 
+            this.enterStudentNumberTbx.Location = new System.Drawing.Point(136, 33);
+            this.enterStudentNumberTbx.MaxLength = 20;
+            this.enterStudentNumberTbx.Name = "enterStudentNumberTbx";
+            this.enterStudentNumberTbx.Size = new System.Drawing.Size(106, 20);
+            this.enterStudentNumberTbx.TabIndex = 105;
+            this.enterStudentNumberTbx.Enter += new System.EventHandler(this.rentalSearchingTbx_Enter);
+            this.enterStudentNumberTbx.Leave += new System.EventHandler(this.rentalSearchingTbx_Enter);
+            // 
+            // enterStudentNumberLbl
+            // 
+            this.enterStudentNumberLbl.AutoSize = true;
+            this.enterStudentNumberLbl.Location = new System.Drawing.Point(15, 36);
+            this.enterStudentNumberLbl.Name = "enterStudentNumberLbl";
+            this.enterStudentNumberLbl.Size = new System.Drawing.Size(115, 13);
+            this.enterStudentNumberLbl.TabIndex = 106;
+            this.enterStudentNumberLbl.Text = "Enter Student Number:";
+            // 
+            // enterStudentNumberBtn
+            // 
+            this.enterStudentNumberBtn.Location = new System.Drawing.Point(248, 32);
+            this.enterStudentNumberBtn.Name = "enterStudentNumberBtn";
+            this.enterStudentNumberBtn.Size = new System.Drawing.Size(75, 23);
+            this.enterStudentNumberBtn.TabIndex = 125;
+            this.enterStudentNumberBtn.Text = "Enter";
+            this.enterStudentNumberBtn.UseVisualStyleBackColor = true;
+            this.enterStudentNumberBtn.Click += new System.EventHandler(this.enterStudentNumberBtn_Click);
+            // 
+            // exitBtn
+            // 
+            this.exitBtn.Location = new System.Drawing.Point(419, 589);
+            this.exitBtn.Name = "exitBtn";
+            this.exitBtn.Size = new System.Drawing.Size(90, 34);
+            this.exitBtn.TabIndex = 128;
+            this.exitBtn.Text = "Exit";
+            this.exitBtn.UseVisualStyleBackColor = true;
+            this.exitBtn.Click += new System.EventHandler(this.exitBtn_Click);
+            // 
+            // resetRentalBtn
+            // 
+            this.resetRentalBtn.Enabled = false;
+            this.resetRentalBtn.Location = new System.Drawing.Point(246, 589);
+            this.resetRentalBtn.Name = "resetRentalBtn";
+            this.resetRentalBtn.Size = new System.Drawing.Size(90, 34);
+            this.resetRentalBtn.TabIndex = 127;
+            this.resetRentalBtn.Text = "Reset Form";
+            this.resetRentalBtn.UseVisualStyleBackColor = true;
+            this.resetRentalBtn.Click += new System.EventHandler(this.resetRentalBtn_Click);
+            // 
+            // processRentalBtn
+            // 
+            this.processRentalBtn.Enabled = false;
+            this.processRentalBtn.Location = new System.Drawing.Point(75, 589);
+            this.processRentalBtn.Name = "processRentalBtn";
+            this.processRentalBtn.Size = new System.Drawing.Size(90, 34);
+            this.processRentalBtn.TabIndex = 126;
+            this.processRentalBtn.Text = "Process Rental";
+            this.processRentalBtn.UseVisualStyleBackColor = true;
+            this.processRentalBtn.Click += new System.EventHandler(this.processRentalBtn_Click);
+            // 
+            // orptChbx
+            // 
+            this.orptChbx.AutoCheck = false;
+            this.orptChbx.AutoSize = true;
+            this.orptChbx.Enabled = false;
+            this.orptChbx.Location = new System.Drawing.Point(267, 134);
+            this.orptChbx.Name = "orptChbx";
+            this.orptChbx.Size = new System.Drawing.Size(56, 17);
+            this.orptChbx.TabIndex = 105;
+            this.orptChbx.Text = "ORPT";
+            this.orptChbx.UseVisualStyleBackColor = true;
+            // 
+            // tblStatusTableAdapter1
+            // 
+            this.tblStatusTableAdapter1.ClearBeforeFill = true;
             // 
             // RentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(756, 657);
-            this.Controls.Add(this.exitButton);
-            this.Controls.Add(this.rentalButton);
-            this.Controls.Add(this.groupBox4);
-            this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.studentLNameLabel);
-            this.Controls.Add(this.label13);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.studentPhone);
-            this.Controls.Add(this.studentAddressLabe);
-            this.Controls.Add(this.studentFNameLabel);
-            this.Controls.Add(this.studentNumberLabel);
-            this.Controls.Add(this.dateDuePicker);
-            this.Controls.Add(this.dateRentedPicker);
-            this.Controls.Add(this.rentItem);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(579, 651);
+            this.Controls.Add(this.exitBtn);
+            this.Controls.Add(this.resetRentalBtn);
+            this.Controls.Add(this.processRentalBtn);
+            this.Controls.Add(this.enterStudentNumberBtn);
+            this.Controls.Add(this.enterStudentNumberTbx);
+            this.Controls.Add(this.enterStudentNumberLbl);
+            this.Controls.Add(this.existingRentalsBtn);
+            this.Controls.Add(this.updateStudentBtn);
+            this.Controls.Add(this.accountBalanceGbx);
+            this.Controls.Add(this.paymentSummaryGbx);
+            this.Controls.Add(this.studentInformationGbx);
+            this.Controls.Add(this.rentalItemsGbx);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
@@ -649,80 +769,87 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Rent Equipment";
             this.Load += new System.EventHandler(this.RentForm_Load);
-            this.rentItem.ResumeLayout(false);
-            this.rentItem.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.itemGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lUEquipmentDataSetBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lUEquipmentDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblEquipBindingSource)).EndInit();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lUEquipmentDataSetBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.luEquipmentDataSet1)).EndInit();
+            this.rentalItemsGbx.ResumeLayout(false);
+            this.rentalItemsGbx.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.rentalItemsDgv)).EndInit();
+            this.studentInformationGbx.ResumeLayout(false);
+            this.studentInformationGbx.PerformLayout();
+            this.paymentSummaryGbx.ResumeLayout(false);
+            this.paymentSummaryGbx.PerformLayout();
+            this.accountBalanceGbx.ResumeLayout(false);
+            this.accountBalanceGbx.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.GroupBox rentItem;
-        private System.Windows.Forms.TextBox equipNumbTextBox;
-        private System.Windows.Forms.Label label9;
         private LUEquipmentDataSet lUEquipmentDataSet;
         private System.Windows.Forms.BindingSource tblEquipBindingSource;
         private LUEquipmentDataSetTableAdapters.tblEquipTableAdapter tblEquipTableAdapter;
-        private System.Windows.Forms.Button deleteButton;
-        private System.Windows.Forms.Button addButton;
-        private System.Windows.Forms.DateTimePicker dateRentedPicker;
-        private System.Windows.Forms.DateTimePicker dateDuePicker;
-        private System.Windows.Forms.Label studentNumberLabel;
-        private System.Windows.Forms.Label studentFNameLabel;
-        private System.Windows.Forms.Label studentAddressLabe;
-        private System.Windows.Forms.Label studentPhone;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox studentNumberTextBox;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button enterStudentNumberButton;
-        private System.Windows.Forms.Label studentLNameLabel;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Label totalLabel;
-        private System.Windows.Forms.Label hstLabel;
-        private System.Windows.Forms.CheckBox waiveCheckBox;
-        private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label subtotalLabel;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.RadioButton deleteFeeRadioButton;
-        private System.Windows.Forms.RadioButton payFeeRadioButton;
-        private System.Windows.Forms.RadioButton ignoreRadioButton;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox feeTextBox;
         private System.Windows.Forms.BindingSource lUEquipmentDataSetBindingSource;
-        private System.Windows.Forms.Button removeButton;
-        private System.Windows.Forms.DataGridView itemGridView;
         private LUEquipmentDataSetTableAdapters.tblRentalTableAdapter tblRentalTableAdapter1;
         private LUEquipmentDataSetTableAdapters.tblStudentTableAdapter tblStudentTableAdapter1;
-        private LUEquipmentDataSet luEquipmentDataSet1;
-        private System.Windows.Forms.Button calcCost;
         private System.Windows.Forms.BindingSource lUEquipmentDataSetBindingSource1;
-        private System.Windows.Forms.Button rentalButton;
-        private System.Windows.Forms.Button exitButton;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Number;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Price;
+        private System.Windows.Forms.GroupBox rentalItemsGbx;
+        private System.Windows.Forms.Button removeAllItemsBtn;
+        private System.Windows.Forms.Button deleteItemBtn;
+        private System.Windows.Forms.DataGridView rentalItemsDgv;
+        private System.Windows.Forms.DataGridViewTextBoxColumn itemNumberClm;
+        private System.Windows.Forms.DataGridViewTextBoxColumn itemNameClm;
+        private System.Windows.Forms.DataGridViewTextBoxColumn itemRentalClm;
+        private System.Windows.Forms.TextBox itemQuantityTbx;
+        private System.Windows.Forms.Label itemQuantityLbl;
+        private System.Windows.Forms.Label itemNumberDashLbl;
+        private System.Windows.Forms.TextBox itemNumberATbx;
+        private System.Windows.Forms.Label itemNumberLbl;
+        private System.Windows.Forms.TextBox itemNumberBTbx;
+        private System.Windows.Forms.GroupBox studentInformationGbx;
+        private System.Windows.Forms.TextBox studentNumberTbx;
+        private System.Windows.Forms.Label studentNumberLbl;
+        private System.Windows.Forms.TextBox studentNameTbx;
+        private System.Windows.Forms.Label studentNameLbl;
+        private System.Windows.Forms.TextBox studentAddressTbx;
+        private System.Windows.Forms.Label rentalDateDueLbl;
+        private System.Windows.Forms.Label studentAddressLbl;
+        private System.Windows.Forms.Label rentalDateOutLbl;
+        private System.Windows.Forms.TextBox studentPhoneTbx;
+        private System.Windows.Forms.Label studentPhoneLbl;
+        private System.Windows.Forms.DateTimePicker rentalDateDueDpk;
+        private System.Windows.Forms.TextBox studentCourseTbx;
+        private System.Windows.Forms.Label studentCourseLbl;
+        private System.Windows.Forms.DateTimePicker rentalDateOutDpk;
+        private System.Windows.Forms.GroupBox paymentSummaryGbx;
+        private System.Windows.Forms.Label paymentWaiveLbl;
+        private System.Windows.Forms.CheckBox paymentHSTWaiveChbx;
+        private System.Windows.Forms.CheckBox paymentSubtotalWaiveChbx;
+        private System.Windows.Forms.TextBox paymentTotalTbx;
+        private System.Windows.Forms.Label paymentTotalLbl;
+        private System.Windows.Forms.TextBox paymentHSTTbx;
+        private System.Windows.Forms.Label paymentHSTLbl;
+        private System.Windows.Forms.TextBox paymentSubtotalTbx;
+        private System.Windows.Forms.Label paymentSubtotalLbl;
+        private System.Windows.Forms.TextBox paymentRentalDaysTbx;
+        private System.Windows.Forms.Label paymentRentalDaysLbl;
+        private System.Windows.Forms.GroupBox accountBalanceGbx;
+        private System.Windows.Forms.TextBox outstandingFeeTbx;
+        private System.Windows.Forms.Label outstandingFeeLbl;
+        private System.Windows.Forms.RadioButton ignoreFeeChbx;
+        private System.Windows.Forms.RadioButton deleteFeeChbx;
+        private System.Windows.Forms.RadioButton payFeeChbx;
+        private System.Windows.Forms.Button updateStudentBtn;
+        private System.Windows.Forms.Button existingRentalsBtn;
+        private System.Windows.Forms.TextBox enterStudentNumberTbx;
+        private System.Windows.Forms.Label enterStudentNumberLbl;
+        private System.Windows.Forms.Button enterStudentNumberBtn;
+        private System.Windows.Forms.Button exitBtn;
+        private System.Windows.Forms.Button resetRentalBtn;
+        private System.Windows.Forms.Button processRentalBtn;
+        private System.Windows.Forms.CheckBox orptChbx;
+        private LUEquipmentDataSetTableAdapters.tblStatusTableAdapter tblStatusTableAdapter1;
     }
 }

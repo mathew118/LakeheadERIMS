@@ -12,6 +12,9 @@ namespace Lakehead_ERIMS
 {
     public partial class ReturnEquip : Form
     {
+
+        //Stu_Owes and Equip_Nights should be calculated and added when equipment is returned
+
         public List<int> queuedItems = new List<int>();
         public int currentItem = -1;
 

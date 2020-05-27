@@ -22,210 +22,410 @@ namespace Lakehead_ERIMS
         {
             // TODO: This line of code loads data into the 'lUEquipmentDataSet.tblEquip' table. You can move, or remove it, as needed.
             this.tblEquipTableAdapter.Fill(this.lUEquipmentDataSet.tblEquip);
+            this.tblStudentTableAdapter1.Fill(this.lUEquipmentDataSet.tblStudent);
            
-
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void enterStudentNumberButton_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                this.tblStudentTableAdapter1.Fill(this.luEquipmentDataSet1.tblStudent);
-                DataRow info;
-                info = luEquipmentDataSet1.tblStudent.Select("Stu_Number = '" + studentNumberTextBox.Text + "'")[0];
-                studentNumberLabel.Text = info[1].ToString();
-                studentFNameLabel.Text = info[3].ToString();
-                studentLNameLabel.Text = info[2].ToString();
-                studentAddressLabe.Text = info[4].ToString();
-                studentPhone.Text = info[8].ToString();
-                feeTextBox.Text = info[17].ToString();
-            }
-            catch
-            {
-                MessageBox.Show("Student Number not found");
-            }
-         
-
-        }
-
-        private void label11_Click(object sender, EventArgs e)
-        {
-
-        }
-        int x = 0;
-        private void addButton_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                this.tblEquipTableAdapter.Fill(this.lUEquipmentDataSet.tblEquip);
-                DataRow equipmentrow;
-                equipmentrow = lUEquipmentDataSet.tblEquip.Select("Equip_Number = '" + equipNumbTextBox.Text + "'")[0];
-
-                itemGridView.Rows.Add(itemGridView.Rows[x].Cells[0].Value = equipmentrow[1].ToString(), itemGridView.Rows[x].Cells[1].Value = equipmentrow[2].ToString(), itemGridView.Rows[x].Cells[2].Value = equipmentrow[13].ToString());
-                x++;
-            }
-            catch
-            {
-                MessageBox.Show("Item number not found");
-            }
-
-
-        }
-
-        private void searchButton_Click(object sender, EventArgs e)
-        {
-
-
-        }
-
-        private void deleteButton_Click(object sender, EventArgs e)
-        {
-            foreach (DataGridViewRow row in itemGridView.SelectedRows)
-            {
-                itemGridView.Rows.RemoveAt(row.Index);
-            }
-        }
-
-        private void removeButton_Click(object sender, EventArgs e)
-        {
-            do
-            {
-                foreach (DataGridViewRow row in itemGridView.Rows)
-                {
-                    try
-                    {
-                        itemGridView.Rows.Remove(row);
-                    }
-                    catch (Exception) { }
-                }
-            } while (itemGridView.Rows.Count > 1);
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void calcCost_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                List<int> values = new List<int>();
-
-                foreach (DataGridViewRow row in itemGridView.Rows)
-                {
-                    values.Add(int.Parse(row.Cells["Price"].Value.ToString()));
-                }
-                int[] array = values.ToArray();
-                int[] finalArray = array.Take(array.Length - 1).ToArray();
-                DateTime rent = Convert.ToDateTime(dateRentedPicker.Text);
-                DateTime due = Convert.ToDateTime(dateDuePicker.Text);
-                TimeSpan days = due.Subtract(rent);
-                int totalDays = Convert.ToInt32(days.Days);
-
-                double sum = finalArray.Sum();
-
-                subtotalLabel.Text = sum.ToString();
-
-                double beforeDaysTotal = double.Parse(subtotalLabel.Text);
-                double final = totalDays * beforeDaysTotal;
-                subtotalLabel.Text = final.ToString();
-
-                if (payFeeRadioButton.Checked)
-                {
-                    double feeOwe = Convert.ToDouble(this.feeTextBox.Text);
-                    double fee = final + feeOwe;
-                    subtotalLabel.Text = fee.ToString();
-                }
-
-                double subtotalFinal = Convert.ToDouble(this.subtotalLabel.Text);
-
-                double total = subtotalFinal * 1.13;
-
-                double hst = subtotalFinal * 0.13;
-
-                hstLabel.Text = hst.ToString();
-
-                totalLabel.Text = total.ToString();
-
-
-
-                if (waiveCheckBox.Checked)
-                {
-                    subtotalLabel.Text = "0";
-                    hstLabel.Text = "0";
-                    totalLabel.Text = "0";
-                }
-            }
-            catch
-            {
-                MessageBox.Show("Make sure all values are correct (Rental days, student number)");
-            }
-
         }
 
         private void exitButton_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void exitBtn_Click(object sender, EventArgs e)
+        {
             this.Close();
         }
 
-        private void rentalButton_Click(object sender, EventArgs e)
+        private void enterStudentNumberBtn_Click(object sender, EventArgs e)
         {
-            List<string> values = new List<string>();
-
-            foreach (DataGridViewRow row in itemGridView.Rows)
+            if (enterStudentNumberTbx.Text.Length > 0)
             {
-                values.Add(row.Cells["Number"].Value.ToString());
+                //Attempts to get student information
+                if (this.lUEquipmentDataSet.tblStudent.Select("Stu_Number = '" + enterStudentNumberTbx.Text + "'").Length > 0)
+                {
+                    EnableFields(true);
+                    ActiveForm.AcceptButton = null;
+                    this.ActiveControl = studentCourseTbx;
+                    rentalItemsDgv.Rows.Clear();
+                    studentCourseTbx.Clear();
+                    LUEquipmentDataSet.tblStudentRow studentRow = (LUEquipmentDataSet.tblStudentRow)this.lUEquipmentDataSet.tblStudent.Select("Stu_Number = '" + enterStudentNumberTbx.Text + "'")[0];
+
+                    studentNumberTbx.Text = (!studentRow.IsStu_NumberNull()) ? studentRow.Stu_Number : string.Empty;
+                    studentNameTbx.Text = ((!studentRow.IsStu_FNameNull()) ? studentRow.Stu_FName : string.Empty) + " " + ((!studentRow.IsStu_LNameNull()) ? studentRow.Stu_LName : string.Empty);
+                    studentAddressTbx.Text = (!studentRow.IsStu_LAddressNull()) ? studentRow.Stu_LAddress : string.Empty;
+                    studentPhoneTbx.Text = (!studentRow.IsStu_LPhoneNull()) ? studentRow.Stu_LPhone : string.Empty;
+                    orptChbx.Checked = (!studentRow.IsStu_ORPTNull()) ? studentRow.Stu_ORPT : false;
+
+                    rentalDateOutDpk.Value = DateTime.Today;
+                    rentalDateDueDpk.Value = DateTime.Today.AddDays(1);
+                    rentalDateOutDpk.Format = DateTimePickerFormat.Long;
+                    rentalDateDueDpk.Format = DateTimePickerFormat.Long;
+
+                    outstandingFeeTbx.Text = (!studentRow.IsStu_OweNull()) ? studentRow.Stu_Owe.ToString("C") : "$0.00";
+                }
+                else
+                {
+                    MessageBox.Show("Student not found.", "Error");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Enter a valid student number.", "Error");
             }
 
-            string[] insert = values.ToArray();
-            string[] finalInsert = insert.Take(insert.Length - 1).ToArray();
-
-            List<int> equipID = new List<int>();
-            int counter = 0;
-            this.tblEquipTableAdapter.Fill(this.lUEquipmentDataSet.tblEquip);
-            foreach (string i in finalInsert)
-            {
-                DataRow Equip;
-                Equip = lUEquipmentDataSet.tblEquip.Select("Equip_Number = '" + i +"'")[0];
-                equipID.Add(int.Parse(Equip[0].ToString()));
-                counter++;
-            }
-            int[] equipIDarray = equipID.ToArray();
-            int newCounter = 0;
-
-            this.tblRentalTableAdapter1.Fill(this.lUEquipmentDataSet.tblRental);
-            DataRow invoice;
-            invoice = lUEquipmentDataSet.tblRental.Rows[lUEquipmentDataSet.tblRental.Count - 1];
-
-            int inNum = Convert.ToInt32(invoice[5]);
-            int studentNum = Convert.ToInt32(studentNumberTextBox.Text);
-            DateTime rent = Convert.ToDateTime(dateRentedPicker.Text);
-            DateTime due = Convert.ToDateTime(dateDuePicker.Text);
-
-
-            foreach (int i in equipIDarray)
-            {
-                short array = Convert.ToInt16(equipIDarray[newCounter]);
-                tblRentalTableAdapter1.Insert(array,studentNum,rent,due," ",inNum + 1);
-                LUEquipmentDataSet.tblEquipRow equipRow = luEquipmentDataSet1.tblEquip.FindByEquip_ID(array);
-                equipRow.Status_ID = 9;
-                tblEquipTableAdapter.Update(equipRow);
-                this.tblRentalTableAdapter1.Fill(this.lUEquipmentDataSet.tblRental);
-            }
-            MessageBox.Show("Item rented");
-
+            enterStudentNumberTbx.Clear();
+            
         }
 
-        private void studentNumberTextBox_TextChanged(object sender, EventArgs e)
+        private void EnableFields(bool enabled)
         {
+            studentNumberTbx.Enabled = enabled;
+            studentNameTbx.Enabled = enabled;
+            studentAddressTbx.Enabled = enabled;
+            studentPhoneTbx.Enabled = enabled;
+            studentCourseTbx.Enabled = enabled;
+            rentalDateOutDpk.Enabled = enabled;
+            rentalDateDueDpk.Enabled = enabled;
+            itemNumberATbx.Enabled = enabled;
+            itemNumberBTbx.Enabled = enabled;
+            itemQuantityTbx.Enabled = enabled;
+            outstandingFeeTbx.Enabled = enabled;
+            ignoreFeeChbx.Enabled = enabled;
+            payFeeChbx.Enabled = enabled;
+            deleteFeeChbx.Enabled = enabled;
+            paymentRentalDaysTbx.Enabled = enabled;
+            paymentSubtotalTbx.Enabled = enabled;
+            paymentHSTTbx.Enabled = enabled;
+            paymentTotalTbx.Enabled = enabled;
+            paymentHSTWaiveChbx.Enabled = enabled;
+            paymentSubtotalWaiveChbx.Enabled = enabled;
+            processRentalBtn.Enabled = enabled;
+            resetRentalBtn.Enabled = enabled;
+            orptChbx.Enabled = enabled;
+        }
 
+        private void updateStudentBtn_Click(object sender, EventArgs e)
+        {
+            addUpdateStudent studentForm = new addUpdateStudent();
+            studentForm.ShowDialog();
+        }
+
+        private void rentalDateDpk_ValueChanged(object sender, EventArgs e)
+        {
+            if(rentalDateOutDpk.Value < rentalDateDueDpk.Value)
+            {
+                paymentRentalDaysTbx.Text = ((int)(rentalDateDueDpk.Value - rentalDateOutDpk.Value).TotalDays).ToString();
+            }
+            else
+            {
+                paymentRentalDaysTbx.Text = "0";
+            }
+
+            recalculateTotal();
+        }
+
+        private void AutoTabItemNum(object sender, KeyEventArgs e)
+        {
+            TextBox sendingTbx = (TextBox)sender;
+            if (sendingTbx.Text.Length == sendingTbx.MaxLength)
+            {
+                sendingTbx.Parent.SelectNextControl(ActiveControl, true, true, true, true);
+            }
+        }
+
+        private void HandleNumericOnly(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar) || (e.KeyChar == (char)8))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void itemNumberTbx_TextChanged(object sender, EventArgs e)
+        {
+            int totalLength = itemNumberATbx.Text.Length + itemNumberBTbx.Text.Length;
+            if (totalLength == 6)
+            {
+                if (lUEquipmentDataSet.tblEquip.Count == 0)
+                {
+                    tblEquipTableAdapter.Fill(lUEquipmentDataSet.tblEquip);
+                }
+                if (lUEquipmentDataSet.tblStatus.Count == 0)
+                {
+                    tblStatusTableAdapter1.Fill(lUEquipmentDataSet.tblStatus);
+                }
+
+                //Add item
+                try
+                {
+                    string equipNum = itemNumberATbx.Text + itemNumberBTbx.Text;
+
+                    if (this.lUEquipmentDataSet.tblEquip.Select("Equip_Number = '" + equipNum + "'").Length > 0)
+                    {
+                        int equipID = int.Parse(this.lUEquipmentDataSet.tblEquip.Select("Equip_Number = '" + equipNum + "'")[0][0].ToString());
+                        LUEquipmentDataSet.tblEquipRow equipmentRow = lUEquipmentDataSet.tblEquip.FindByEquip_ID(equipID);
+
+                        //Check if equipment is already in list
+                        bool hasRow = false;
+                        foreach (DataGridViewRow dgvRow in rentalItemsDgv.Rows)
+                        {
+                            if (dgvRow.Cells[0].Value.ToString() == equipmentRow.Equip_Number)
+                            {
+                                hasRow = true;
+                            }
+                        }
+
+                        if (!hasRow)
+                        {
+                            //Check if equipment is available
+                            if (equipmentRow.Status_ID == 1)
+                            {
+                                rentalItemsDgv.Rows.Add(equipmentRow.Equip_Number, equipmentRow.Equip_Name, equipmentRow.Equip_RentalPrice.ToString("C"));
+                                processRentalBtn.Enabled = true;
+                            }
+                            else
+                            {
+                                string equipmentStatus = lUEquipmentDataSet.tblStatus.FindByStatus_ID(equipmentRow.Status_ID).Status_Name;
+                                MessageBox.Show("Equipment is not available.\nReason: " + equipmentStatus + ".", "Error");
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Equipment already added to rental.", "Error");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Equipment not found.", "Error");
+                    }
+                }
+                catch
+                {
+                    MessageBox.Show("Equipment invalid.", "Error");
+                }
+
+                itemNumberATbx.Clear();
+                itemNumberBTbx.Clear();
+                itemNumberATbx.Focus();
+            }
+        }
+
+        private void rentalItemsDgv_RowsChanged(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            recalculateTotal();
+
+            removeAllItemsBtn.Enabled = true;
+        }
+
+        private void rentalItemsDgv_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+        {
+            rentalItemsDgv_RowsChanged(sender, new DataGridViewRowsAddedEventArgs(e.RowIndex, e.RowCount));
+
+            if(rentalItemsDgv.Rows.Count == 0)
+            {
+                removeAllItemsBtn.Enabled = false;
+            }
+        }
+
+        private void rentalItemsDgv_SelectionChanged(object sender, EventArgs e)
+        {
+            if (rentalItemsDgv.SelectedRows.Count == 1)
+            {
+                deleteItemBtn.Enabled = true;
+            }
+            else
+            {
+                deleteItemBtn.Enabled = false;
+            }
+        }
+
+        private void recalculateTotal()
+        {
+            itemQuantityTbx.Text = rentalItemsDgv.Rows.Count.ToString();
+
+            //Calculate subtotal
+            if (rentalItemsDgv.Rows.Count > 0 && paymentRentalDaysTbx.Text != string.Empty && !paymentSubtotalWaiveChbx.Checked)
+            {
+                if (int.TryParse(paymentRentalDaysTbx.Text, out int rentalDays))
+                {
+                    if (rentalDays >= 0)
+                    {
+                        double sub = 0;
+                        foreach (DataGridViewRow row in rentalItemsDgv.Rows)
+                        {
+                            if (row.Cells[2].Value.ToString() != string.Empty)
+                            {
+                                if (double.TryParse(row.Cells[2].Value.ToString(), System.Globalization.NumberStyles.Currency, System.Globalization.NumberFormatInfo.CurrentInfo, out double rentalPrice))
+                                {
+                                    sub += (rentalPrice * rentalDays);
+                                }
+                            }
+                        }
+
+                        paymentSubtotalTbx.Text = sub.ToString("C");
+                    }
+                }
+            }
+            else
+            {
+                paymentSubtotalTbx.Text = "$0.00";
+            }
+
+
+            //Recalculate total
+            double total = 0;
+            if (double.TryParse(paymentSubtotalTbx.Text, System.Globalization.NumberStyles.Currency, System.Globalization.NumberFormatInfo.CurrentInfo, out double subTotal))
+            {
+                if (!paymentSubtotalWaiveChbx.Checked)
+                {
+                    total += subTotal;
+                }
+            }
+
+
+            double HST = (!paymentHSTWaiveChbx.Checked) ? (total * 0.13) : 0;
+            paymentHSTTbx.Text = HST.ToString("C");
+
+            total += HST;
+            paymentTotalTbx.Text = total.ToString("C");
+        }
+
+        private void paymentChanged(object sender, EventArgs e)
+        {
+            recalculateTotal();
+        }
+
+        private void rentalDaysTbxChanged(object sender, KeyEventArgs e)
+        {
+            //MessageBox.Show("USER changed rental days");
+            if (rentalDateOutDpk.Value != DateTime.FromOADate(0))
+            {
+                if (int.TryParse(paymentRentalDaysTbx.Text, out int rentalDays))
+                {
+                    if (rentalDays > 0)
+                    {
+                        try
+                        {
+                            DateTime newDate = rentalDateOutDpk.Value.AddDays(rentalDays);
+                            rentalDateDueDpk.Value = newDate;
+                        }
+                        catch
+                        {
+                            MessageBox.Show("Date out of bounds.", "Error");
+                        }
+                    }
+                }
+            }
+        }
+
+        private void deleteItemBtn_Click(object sender, EventArgs e)
+        {
+            if (rentalItemsDgv.SelectedRows != null && rentalItemsDgv.SelectedRows.Count > 0)
+            {
+                rentalItemsDgv.Rows.Remove(rentalItemsDgv.SelectedRows[0]);
+            }
+        }
+
+        private void removeAllItemsBtn_Click(object sender, EventArgs e)
+        {
+            rentalItemsDgv.Rows.Clear();
+        }
+
+        private void rentalSearchingTbx_Enter(object sender, EventArgs e)
+        {
+            Control sendingControl = (Control)sender;
+            if (this.ActiveControl == sendingControl)
+            {
+                ActiveForm.AcceptButton = enterStudentNumberBtn;
+            }
+            else
+            {
+                ActiveForm.AcceptButton = null;
+            }
+        }
+
+        private void resetRentalBtn_Click(object sender, EventArgs e)
+        {
+            EnableFields(false);
+
+
+            studentNumberTbx.Clear();
+            studentNameTbx.Clear();
+            studentAddressTbx.Clear();
+            studentPhoneTbx.Clear();
+            studentCourseTbx.Clear();
+            rentalDateOutDpk.Format = DateTimePickerFormat.Custom;
+            rentalDateDueDpk.Format = DateTimePickerFormat.Custom;
+            itemNumberATbx.Clear();
+            itemNumberBTbx.Clear();
+            itemQuantityTbx.Text = "0";
+            outstandingFeeTbx.Text = "$0.00";
+            ignoreFeeChbx.Checked = false;
+            payFeeChbx.Checked = false;
+            deleteFeeChbx.Checked = false;
+            paymentRentalDaysTbx.Clear();
+            paymentSubtotalTbx.Text = "$0.00";
+            paymentHSTTbx.Text = "$0.00";
+            paymentTotalTbx.Text = "$0.00";
+            paymentHSTWaiveChbx.Checked = false;
+            paymentSubtotalWaiveChbx.Checked = false;
+            orptChbx.Checked = false;
+            rentalItemsDgv.Rows.Clear();
+        }
+
+        private void processRentalBtn_Click(object sender, EventArgs e)
+        {
+            if(rentalItemsDgv.Rows.Count > 0)
+            {
+                if(int.TryParse(paymentRentalDaysTbx.Text, out int rentalDays))
+                {
+                    if(rentalDays > 0)
+                    {
+                        if((outstandingFeeTbx.Text != (0).ToString("C") && (payFeeChbx.Checked || ignoreFeeChbx.Checked || deleteFeeChbx.Checked)) || (outstandingFeeTbx.Text == (0).ToString("C")))
+                        {
+                            //Create rental
+                            foreach (DataGridViewRow row in rentalItemsDgv.Rows)
+                            {
+                                LUEquipmentDataSet.tblEquipRow equipRow = (LUEquipmentDataSet.tblEquipRow)lUEquipmentDataSet.tblEquip.Select("Equip_Number = '" + row.Cells[0].Value.ToString() + "'")[0];
+                                int equipID = equipRow.Equip_ID;
+
+                                
+                                //Item was added
+                                //tblRentalTableAdapter1.Insert(Convert.ToInt16(equipID), studentId, rentalDateOutDpk.Value, rentalDateDueDpk.Value, course, InvoiceNum);
+                                equipRow.Status_ID = 9;
+                                tblEquipTableAdapter.Update(equipRow);
+                                
+                            }
+
+                            //Modify existing fees based on option selected
+                            if (outstandingFeeTbx.Text != (0).ToString("C"))
+                            {
+
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Outstanding fees exist, an option must be selected.", "Error");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Rental days must be greater than 0.", "Error");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Rental date is invalid.", "Error");
+                }
+            }
+            else
+            {
+                MessageBox.Show("No items added to rental.", "Error");
+            }
         }
     }
 }
