@@ -13,6 +13,7 @@ namespace Lakehead_ERIMS
 {
     public partial class RentForm : Form
     {
+        //TODO Line 426, need to modify existing Stu_Owes !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         public RentForm()
         {
             InitializeComponent();
@@ -379,6 +380,11 @@ namespace Lakehead_ERIMS
 
         private void processRentalBtn_Click(object sender, EventArgs e)
         {
+            if(lUEquipmentDataSet.tblRental.Rows.Count == 0)
+            {
+                tblRentalTableAdapter1.Fill(lUEquipmentDataSet.tblRental);
+            }
+
             if(rentalItemsDgv.Rows.Count > 0)
             {
                 if(int.TryParse(paymentRentalDaysTbx.Text, out int rentalDays))
@@ -387,15 +393,28 @@ namespace Lakehead_ERIMS
                     {
                         if((outstandingFeeTbx.Text != (0).ToString("C") && (payFeeChbx.Checked || ignoreFeeChbx.Checked || deleteFeeChbx.Checked)) || (outstandingFeeTbx.Text == (0).ToString("C")))
                         {
+                            //Get largest invoice number
+                            //Sort rental table by invoice number then grab the highest index?
+                            lUEquipmentDataSet.tblRental.DefaultView.Sort = "Inv_Num";
+                            DataTable sortedRentals = lUEquipmentDataSet.tblRental.DefaultView.ToTable();
+                            int invoiceNum = int.Parse(sortedRentals.Rows[sortedRentals.Rows.Count - 1][5].ToString()) + 1;
+
+                            while(this.lUEquipmentDataSet.tblRental.Select("Inv_Num = '" + invoiceNum + "'").Length > 0)
+                            {
+                                invoiceNum++;
+                            }
+
+                            //Get student ID
+                            LUEquipmentDataSet.tblStudentRow studentRow = (LUEquipmentDataSet.tblStudentRow)this.lUEquipmentDataSet.tblStudent.Select("Stu_Number = '" + studentNumberTbx.Text + "'")[0];
+                            int studentId = studentRow.Stu_ID;
+
                             //Create rental
                             foreach (DataGridViewRow row in rentalItemsDgv.Rows)
                             {
                                 LUEquipmentDataSet.tblEquipRow equipRow = (LUEquipmentDataSet.tblEquipRow)lUEquipmentDataSet.tblEquip.Select("Equip_Number = '" + row.Cells[0].Value.ToString() + "'")[0];
                                 int equipID = equipRow.Equip_ID;
 
-                                
-                                //Item was added
-                                //tblRentalTableAdapter1.Insert(Convert.ToInt16(equipID), studentId, rentalDateOutDpk.Value, rentalDateDueDpk.Value, course, InvoiceNum);
+                                tblRentalTableAdapter1.Insert(Convert.ToInt16(equipID), studentId, rentalDateOutDpk.Value, rentalDateDueDpk.Value, studentCourseTbx.Text, invoiceNum);
                                 equipRow.Status_ID = 9;
                                 tblEquipTableAdapter.Update(equipRow);
                                 
@@ -404,7 +423,7 @@ namespace Lakehead_ERIMS
                             //Modify existing fees based on option selected
                             if (outstandingFeeTbx.Text != (0).ToString("C"))
                             {
-
+                                //TODO
                             }
                         }
                         else

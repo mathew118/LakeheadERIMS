@@ -81,6 +81,8 @@ namespace Lakehead_ERIMS
             uniqueInvoices.Clear();
 
             List<int> addedInvoices = new List<int>();
+
+            //This may cause issues with massive rental databases
             foreach (LUEquipmentDataSet.tblRentalRow rentalRow in luEquipmentDataSet1.tblRental)
             {
                 if (!addedInvoices.Contains(rentalRow.Inv_Num))
