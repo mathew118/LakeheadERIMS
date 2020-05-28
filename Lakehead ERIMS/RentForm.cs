@@ -452,5 +452,27 @@ namespace Lakehead_ERIMS
                 MessageBox.Show("No items added to rental.", "Error");
             }
         }
+
+        private void existingRentalsBtn_Click(object sender, EventArgs e)
+        {
+            if (studentNumberTbx.Text != string.Empty)
+            {
+                int studentNum = Convert.ToInt32(studentNumberTbx.Text);
+                string strCriteria = "Stu_Number ='" + studentNum + "'";
+                Microsoft.Office.Interop.Access.Application oAccess = new Microsoft.Office.Interop.Access.Application();
+                oAccess.Visible = true;
+                oAccess.OpenCurrentDatabase(System.IO.Path.Combine(Environment.CurrentDirectory, "LUEquipment.mdb"), false);
+                //this report is opened in Access and ready to print
+                oAccess.DoCmd.OpenReport("rptOnLoan", Microsoft.Office.Interop.Access.AcView.acViewPreview, //View
+                    System.Reflection.Missing.Value, //FilterName
+                    strCriteria //where condition
+                    );
+
+            }
+            else
+            {
+                MessageBox.Show("No student selected.", "Error");
+            }
+        }
     }
 }

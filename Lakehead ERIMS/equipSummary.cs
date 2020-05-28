@@ -20,6 +20,27 @@ namespace Lakehead_ERIMS
             InitializeComponent();
         }
 
+        private void AutoTabItemNum(object sender, KeyEventArgs e)
+        {
+            TextBox sendingTbx = (TextBox)sender;
+            if (sendingTbx.Text.Length == sendingTbx.MaxLength)
+            {
+                sendingTbx.Parent.SelectNextControl(ActiveControl, true, true, true, true);
+            }
+        }
+
+        private void HandleNumericOnly(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar) || (e.KeyChar == (char)8))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
         private void equipSummary_Load(object sender, EventArgs e)
         {
             this.AcceptButton = button1;

@@ -678,6 +678,7 @@
             this.existingRentalsBtn.TabIndex = 10;
             this.existingRentalsBtn.Text = "Existing Rentals";
             this.existingRentalsBtn.UseVisualStyleBackColor = true;
+            this.existingRentalsBtn.Click += new System.EventHandler(this.existingRentalsBtn_Click);
             // 
             // enterStudentNumberTbx
             // 

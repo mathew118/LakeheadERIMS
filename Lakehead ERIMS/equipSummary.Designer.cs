@@ -305,6 +305,8 @@
             this.equipNumber1.Size = new System.Drawing.Size(36, 20);
             this.equipNumber1.TabIndex = 46;
             this.equipNumber1.TextChanged += new System.EventHandler(this.equipNumber1_TextChanged);
+            this.equipNumber1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.HandleNumericOnly);
+            this.equipNumber1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.AutoTabItemNum);
             // 
             // itemNameLabel
             // 
@@ -495,6 +497,7 @@
             this.equipNumber2.Name = "equipNumber2";
             this.equipNumber2.Size = new System.Drawing.Size(36, 20);
             this.equipNumber2.TabIndex = 67;
+            this.equipNumber2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.HandleNumericOnly);
             // 
             // label4
             // 

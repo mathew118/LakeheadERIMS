@@ -56,7 +56,7 @@
             // exitBtn
             // 
             this.exitBtn.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.exitBtn.Location = new System.Drawing.Point(17, 163);
+            this.exitBtn.Location = new System.Drawing.Point(27, 163);
             this.exitBtn.Name = "exitBtn";
             this.exitBtn.Size = new System.Drawing.Size(75, 23);
             this.exitBtn.TabIndex = 14;
@@ -66,7 +66,7 @@
             // 
             // loginBtn
             // 
-            this.loginBtn.Location = new System.Drawing.Point(206, 163);
+            this.loginBtn.Location = new System.Drawing.Point(196, 163);
             this.loginBtn.Name = "loginBtn";
             this.loginBtn.Size = new System.Drawing.Size(75, 23);
             this.loginBtn.TabIndex = 13;
