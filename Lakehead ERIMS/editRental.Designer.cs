@@ -625,6 +625,7 @@
             // 
             // voidRentalBtn
             // 
+            this.voidRentalBtn.Enabled = false;
             this.voidRentalBtn.Location = new System.Drawing.Point(247, 599);
             this.voidRentalBtn.Name = "voidRentalBtn";
             this.voidRentalBtn.Size = new System.Drawing.Size(90, 34);

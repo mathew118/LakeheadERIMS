@@ -50,6 +50,7 @@
             this.itemNumberLbl = new System.Windows.Forms.Label();
             this.itemNumberBTbx = new System.Windows.Forms.TextBox();
             this.studentInformationGbx = new System.Windows.Forms.GroupBox();
+            this.orptChbx = new System.Windows.Forms.CheckBox();
             this.studentNumberTbx = new System.Windows.Forms.TextBox();
             this.studentNumberLbl = new System.Windows.Forms.Label();
             this.studentNameTbx = new System.Windows.Forms.TextBox();
@@ -77,11 +78,11 @@
             this.paymentRentalDaysTbx = new System.Windows.Forms.TextBox();
             this.paymentRentalDaysLbl = new System.Windows.Forms.Label();
             this.accountBalanceGbx = new System.Windows.Forms.GroupBox();
+            this.deleteFeeChbx = new System.Windows.Forms.RadioButton();
+            this.payFeeChbx = new System.Windows.Forms.RadioButton();
+            this.ignoreFeeChbx = new System.Windows.Forms.RadioButton();
             this.outstandingFeeTbx = new System.Windows.Forms.TextBox();
             this.outstandingFeeLbl = new System.Windows.Forms.Label();
-            this.ignoreFeeChbx = new System.Windows.Forms.RadioButton();
-            this.payFeeChbx = new System.Windows.Forms.RadioButton();
-            this.deleteFeeChbx = new System.Windows.Forms.RadioButton();
             this.updateStudentBtn = new System.Windows.Forms.Button();
             this.existingRentalsBtn = new System.Windows.Forms.Button();
             this.enterStudentNumberTbx = new System.Windows.Forms.TextBox();
@@ -90,7 +91,6 @@
             this.exitBtn = new System.Windows.Forms.Button();
             this.resetRentalBtn = new System.Windows.Forms.Button();
             this.processRentalBtn = new System.Windows.Forms.Button();
-            this.orptChbx = new System.Windows.Forms.CheckBox();
             this.tblStatusTableAdapter1 = new Lakehead_ERIMS.LUEquipmentDataSetTableAdapters.tblStatusTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.lUEquipmentDataSetBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lUEquipmentDataSet)).BeginInit();
@@ -308,10 +308,22 @@
             this.studentInformationGbx.TabStop = false;
             this.studentInformationGbx.Text = "Student Information";
             // 
+            // orptChbx
+            // 
+            this.orptChbx.AutoCheck = false;
+            this.orptChbx.AutoSize = true;
+            this.orptChbx.Enabled = false;
+            this.orptChbx.Location = new System.Drawing.Point(267, 148);
+            this.orptChbx.Name = "orptChbx";
+            this.orptChbx.Size = new System.Drawing.Size(56, 17);
+            this.orptChbx.TabIndex = 105;
+            this.orptChbx.Text = "ORPT";
+            this.orptChbx.UseVisualStyleBackColor = true;
+            // 
             // studentNumberTbx
             // 
             this.studentNumberTbx.Enabled = false;
-            this.studentNumberTbx.Location = new System.Drawing.Point(110, 28);
+            this.studentNumberTbx.Location = new System.Drawing.Point(110, 42);
             this.studentNumberTbx.MaxLength = 30;
             this.studentNumberTbx.Name = "studentNumberTbx";
             this.studentNumberTbx.ReadOnly = true;
@@ -321,7 +333,7 @@
             // studentNumberLbl
             // 
             this.studentNumberLbl.AutoSize = true;
-            this.studentNumberLbl.Location = new System.Drawing.Point(17, 31);
+            this.studentNumberLbl.Location = new System.Drawing.Point(17, 45);
             this.studentNumberLbl.Name = "studentNumberLbl";
             this.studentNumberLbl.Size = new System.Drawing.Size(87, 13);
             this.studentNumberLbl.TabIndex = 27;
@@ -330,7 +342,7 @@
             // studentNameTbx
             // 
             this.studentNameTbx.Enabled = false;
-            this.studentNameTbx.Location = new System.Drawing.Point(110, 54);
+            this.studentNameTbx.Location = new System.Drawing.Point(110, 68);
             this.studentNameTbx.MaxLength = 30;
             this.studentNameTbx.Name = "studentNameTbx";
             this.studentNameTbx.ReadOnly = true;
@@ -340,7 +352,7 @@
             // studentNameLbl
             // 
             this.studentNameLbl.AutoSize = true;
-            this.studentNameLbl.Location = new System.Drawing.Point(26, 57);
+            this.studentNameLbl.Location = new System.Drawing.Point(26, 71);
             this.studentNameLbl.Name = "studentNameLbl";
             this.studentNameLbl.Size = new System.Drawing.Size(78, 13);
             this.studentNameLbl.TabIndex = 29;
@@ -349,7 +361,7 @@
             // studentAddressTbx
             // 
             this.studentAddressTbx.Enabled = false;
-            this.studentAddressTbx.Location = new System.Drawing.Point(110, 80);
+            this.studentAddressTbx.Location = new System.Drawing.Point(110, 94);
             this.studentAddressTbx.MaxLength = 30;
             this.studentAddressTbx.Name = "studentAddressTbx";
             this.studentAddressTbx.ReadOnly = true;
@@ -359,7 +371,7 @@
             // rentalDateDueLbl
             // 
             this.rentalDateDueLbl.AutoSize = true;
-            this.rentalDateDueLbl.Location = new System.Drawing.Point(48, 187);
+            this.rentalDateDueLbl.Location = new System.Drawing.Point(48, 201);
             this.rentalDateDueLbl.Name = "rentalDateDueLbl";
             this.rentalDateDueLbl.Size = new System.Drawing.Size(56, 13);
             this.rentalDateDueLbl.TabIndex = 104;
@@ -368,7 +380,7 @@
             // studentAddressLbl
             // 
             this.studentAddressLbl.AutoSize = true;
-            this.studentAddressLbl.Location = new System.Drawing.Point(27, 83);
+            this.studentAddressLbl.Location = new System.Drawing.Point(27, 97);
             this.studentAddressLbl.Name = "studentAddressLbl";
             this.studentAddressLbl.Size = new System.Drawing.Size(77, 13);
             this.studentAddressLbl.TabIndex = 31;
@@ -377,7 +389,7 @@
             // rentalDateOutLbl
             // 
             this.rentalDateOutLbl.AutoSize = true;
-            this.rentalDateOutLbl.Location = new System.Drawing.Point(51, 161);
+            this.rentalDateOutLbl.Location = new System.Drawing.Point(51, 175);
             this.rentalDateOutLbl.Name = "rentalDateOutLbl";
             this.rentalDateOutLbl.Size = new System.Drawing.Size(53, 13);
             this.rentalDateOutLbl.TabIndex = 103;
@@ -386,7 +398,7 @@
             // studentPhoneTbx
             // 
             this.studentPhoneTbx.Enabled = false;
-            this.studentPhoneTbx.Location = new System.Drawing.Point(110, 106);
+            this.studentPhoneTbx.Location = new System.Drawing.Point(110, 120);
             this.studentPhoneTbx.MaxLength = 30;
             this.studentPhoneTbx.Name = "studentPhoneTbx";
             this.studentPhoneTbx.ReadOnly = true;
@@ -396,7 +408,7 @@
             // studentPhoneLbl
             // 
             this.studentPhoneLbl.AutoSize = true;
-            this.studentPhoneLbl.Location = new System.Drawing.Point(34, 109);
+            this.studentPhoneLbl.Location = new System.Drawing.Point(34, 123);
             this.studentPhoneLbl.Name = "studentPhoneLbl";
             this.studentPhoneLbl.Size = new System.Drawing.Size(70, 13);
             this.studentPhoneLbl.TabIndex = 33;
@@ -408,7 +420,7 @@
             this.rentalDateDueDpk.Enabled = false;
             this.rentalDateDueDpk.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rentalDateDueDpk.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.rentalDateDueDpk.Location = new System.Drawing.Point(110, 184);
+            this.rentalDateDueDpk.Location = new System.Drawing.Point(110, 198);
             this.rentalDateDueDpk.Name = "rentalDateDueDpk";
             this.rentalDateDueDpk.Size = new System.Drawing.Size(150, 20);
             this.rentalDateDueDpk.TabIndex = 11;
@@ -418,7 +430,7 @@
             // studentCourseTbx
             // 
             this.studentCourseTbx.Enabled = false;
-            this.studentCourseTbx.Location = new System.Drawing.Point(110, 132);
+            this.studentCourseTbx.Location = new System.Drawing.Point(110, 146);
             this.studentCourseTbx.MaxLength = 20;
             this.studentCourseTbx.Name = "studentCourseTbx";
             this.studentCourseTbx.Size = new System.Drawing.Size(150, 20);
@@ -427,7 +439,7 @@
             // studentCourseLbl
             // 
             this.studentCourseLbl.AutoSize = true;
-            this.studentCourseLbl.Location = new System.Drawing.Point(61, 135);
+            this.studentCourseLbl.Location = new System.Drawing.Point(61, 149);
             this.studentCourseLbl.Name = "studentCourseLbl";
             this.studentCourseLbl.Size = new System.Drawing.Size(43, 13);
             this.studentCourseLbl.TabIndex = 36;
@@ -439,7 +451,7 @@
             this.rentalDateOutDpk.Enabled = false;
             this.rentalDateOutDpk.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rentalDateOutDpk.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.rentalDateOutDpk.Location = new System.Drawing.Point(110, 158);
+            this.rentalDateOutDpk.Location = new System.Drawing.Point(110, 172);
             this.rentalDateOutDpk.Name = "rentalDateOutDpk";
             this.rentalDateOutDpk.Size = new System.Drawing.Size(150, 20);
             this.rentalDateOutDpk.TabIndex = 10;
@@ -592,6 +604,42 @@
             this.accountBalanceGbx.TabStop = false;
             this.accountBalanceGbx.Text = "Account Balance";
             // 
+            // deleteFeeChbx
+            // 
+            this.deleteFeeChbx.AutoSize = true;
+            this.deleteFeeChbx.Enabled = false;
+            this.deleteFeeChbx.Location = new System.Drawing.Point(56, 109);
+            this.deleteFeeChbx.Name = "deleteFeeChbx";
+            this.deleteFeeChbx.Size = new System.Drawing.Size(77, 17);
+            this.deleteFeeChbx.TabIndex = 111;
+            this.deleteFeeChbx.TabStop = true;
+            this.deleteFeeChbx.Text = "Delete Fee";
+            this.deleteFeeChbx.UseVisualStyleBackColor = true;
+            // 
+            // payFeeChbx
+            // 
+            this.payFeeChbx.AutoSize = true;
+            this.payFeeChbx.Enabled = false;
+            this.payFeeChbx.Location = new System.Drawing.Point(56, 86);
+            this.payFeeChbx.Name = "payFeeChbx";
+            this.payFeeChbx.Size = new System.Drawing.Size(64, 17);
+            this.payFeeChbx.TabIndex = 110;
+            this.payFeeChbx.TabStop = true;
+            this.payFeeChbx.Text = "Pay Fee";
+            this.payFeeChbx.UseVisualStyleBackColor = true;
+            // 
+            // ignoreFeeChbx
+            // 
+            this.ignoreFeeChbx.AutoSize = true;
+            this.ignoreFeeChbx.Enabled = false;
+            this.ignoreFeeChbx.Location = new System.Drawing.Point(56, 63);
+            this.ignoreFeeChbx.Name = "ignoreFeeChbx";
+            this.ignoreFeeChbx.Size = new System.Drawing.Size(76, 17);
+            this.ignoreFeeChbx.TabIndex = 109;
+            this.ignoreFeeChbx.TabStop = true;
+            this.ignoreFeeChbx.Text = "Ignore Fee";
+            this.ignoreFeeChbx.UseVisualStyleBackColor = true;
+            // 
             // outstandingFeeTbx
             // 
             this.outstandingFeeTbx.Enabled = false;
@@ -611,42 +659,6 @@
             this.outstandingFeeLbl.Size = new System.Drawing.Size(88, 13);
             this.outstandingFeeLbl.TabIndex = 108;
             this.outstandingFeeLbl.Text = "Outstanding Fee:";
-            // 
-            // ignoreFeeChbx
-            // 
-            this.ignoreFeeChbx.AutoSize = true;
-            this.ignoreFeeChbx.Enabled = false;
-            this.ignoreFeeChbx.Location = new System.Drawing.Point(56, 63);
-            this.ignoreFeeChbx.Name = "ignoreFeeChbx";
-            this.ignoreFeeChbx.Size = new System.Drawing.Size(76, 17);
-            this.ignoreFeeChbx.TabIndex = 109;
-            this.ignoreFeeChbx.TabStop = true;
-            this.ignoreFeeChbx.Text = "Ignore Fee";
-            this.ignoreFeeChbx.UseVisualStyleBackColor = true;
-            // 
-            // payFeeChbx
-            // 
-            this.payFeeChbx.AutoSize = true;
-            this.payFeeChbx.Enabled = false;
-            this.payFeeChbx.Location = new System.Drawing.Point(56, 86);
-            this.payFeeChbx.Name = "payFeeChbx";
-            this.payFeeChbx.Size = new System.Drawing.Size(64, 17);
-            this.payFeeChbx.TabIndex = 110;
-            this.payFeeChbx.TabStop = true;
-            this.payFeeChbx.Text = "Pay Fee";
-            this.payFeeChbx.UseVisualStyleBackColor = true;
-            // 
-            // deleteFeeChbx
-            // 
-            this.deleteFeeChbx.AutoSize = true;
-            this.deleteFeeChbx.Enabled = false;
-            this.deleteFeeChbx.Location = new System.Drawing.Point(56, 109);
-            this.deleteFeeChbx.Name = "deleteFeeChbx";
-            this.deleteFeeChbx.Size = new System.Drawing.Size(77, 17);
-            this.deleteFeeChbx.TabIndex = 111;
-            this.deleteFeeChbx.TabStop = true;
-            this.deleteFeeChbx.Text = "Delete Fee";
-            this.deleteFeeChbx.UseVisualStyleBackColor = true;
             // 
             // updateStudentBtn
             // 
@@ -692,7 +704,7 @@
             this.enterStudentNumberBtn.Name = "enterStudentNumberBtn";
             this.enterStudentNumberBtn.Size = new System.Drawing.Size(75, 23);
             this.enterStudentNumberBtn.TabIndex = 125;
-            this.enterStudentNumberBtn.Text = "Enter";
+            this.enterStudentNumberBtn.Text = "Search";
             this.enterStudentNumberBtn.UseVisualStyleBackColor = true;
             this.enterStudentNumberBtn.Click += new System.EventHandler(this.enterStudentNumberBtn_Click);
             // 
@@ -727,18 +739,6 @@
             this.processRentalBtn.Text = "Process Rental";
             this.processRentalBtn.UseVisualStyleBackColor = true;
             this.processRentalBtn.Click += new System.EventHandler(this.processRentalBtn_Click);
-            // 
-            // orptChbx
-            // 
-            this.orptChbx.AutoCheck = false;
-            this.orptChbx.AutoSize = true;
-            this.orptChbx.Enabled = false;
-            this.orptChbx.Location = new System.Drawing.Point(267, 134);
-            this.orptChbx.Name = "orptChbx";
-            this.orptChbx.Size = new System.Drawing.Size(56, 17);
-            this.orptChbx.TabIndex = 105;
-            this.orptChbx.Text = "ORPT";
-            this.orptChbx.UseVisualStyleBackColor = true;
             // 
             // tblStatusTableAdapter1
             // 

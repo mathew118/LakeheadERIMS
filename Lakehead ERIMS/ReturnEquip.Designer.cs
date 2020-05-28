@@ -133,7 +133,7 @@
             // itemNumberLbl
             // 
             this.itemNumberLbl.AutoSize = true;
-            this.itemNumberLbl.Location = new System.Drawing.Point(29, 71);
+            this.itemNumberLbl.Location = new System.Drawing.Point(30, 71);
             this.itemNumberLbl.Name = "itemNumberLbl";
             this.itemNumberLbl.Size = new System.Drawing.Size(70, 13);
             this.itemNumberLbl.TabIndex = 70;
@@ -160,11 +160,11 @@
             // stillOutLbl
             // 
             this.stillOutLbl.AutoSize = true;
-            this.stillOutLbl.Location = new System.Drawing.Point(368, 149);
+            this.stillOutLbl.Location = new System.Drawing.Point(288, 149);
             this.stillOutLbl.Name = "stillOutLbl";
-            this.stillOutLbl.Size = new System.Drawing.Size(46, 13);
+            this.stillOutLbl.Size = new System.Drawing.Size(126, 13);
             this.stillOutLbl.TabIndex = 93;
-            this.stillOutLbl.Text = "Still Out:";
+            this.stillOutLbl.Text = "Remaining Invoice Items:";
             // 
             // studentNameTbx
             // 
@@ -227,7 +227,7 @@
             this.lateFeesGbx.Controls.Add(this.payLateFeesCbx);
             this.lateFeesGbx.Controls.Add(this.waiveLateFeesCbx);
             this.lateFeesGbx.Controls.Add(this.invoiceLateFeesLbl);
-            this.lateFeesGbx.Location = new System.Drawing.Point(325, 197);
+            this.lateFeesGbx.Location = new System.Drawing.Point(325, 219);
             this.lateFeesGbx.Margin = new System.Windows.Forms.Padding(2);
             this.lateFeesGbx.Name = "lateFeesGbx";
             this.lateFeesGbx.Padding = new System.Windows.Forms.Padding(2);
@@ -293,7 +293,7 @@
             // 
             // itemsQueuedTbx
             // 
-            this.itemsQueuedTbx.Location = new System.Drawing.Point(105, 289);
+            this.itemsQueuedTbx.Location = new System.Drawing.Point(105, 311);
             this.itemsQueuedTbx.MaxLength = 3;
             this.itemsQueuedTbx.Name = "itemsQueuedTbx";
             this.itemsQueuedTbx.ReadOnly = true;
@@ -304,7 +304,7 @@
             // itemsQueuedLbl
             // 
             this.itemsQueuedLbl.AutoSize = true;
-            this.itemsQueuedLbl.Location = new System.Drawing.Point(23, 292);
+            this.itemsQueuedLbl.Location = new System.Drawing.Point(23, 314);
             this.itemsQueuedLbl.Name = "itemsQueuedLbl";
             this.itemsQueuedLbl.Size = new System.Drawing.Size(76, 13);
             this.itemsQueuedLbl.TabIndex = 95;
@@ -318,7 +318,7 @@
             this.statusCbx.Enabled = false;
             this.statusCbx.FormattingEnabled = true;
             this.statusCbx.ItemHeight = 13;
-            this.statusCbx.Location = new System.Drawing.Point(105, 210);
+            this.statusCbx.Location = new System.Drawing.Point(105, 232);
             this.statusCbx.Name = "statusCbx";
             this.statusCbx.Size = new System.Drawing.Size(150, 21);
             this.statusCbx.TabIndex = 6;
@@ -332,7 +332,7 @@
             // dateOutLbl
             // 
             this.dateOutLbl.AutoSize = true;
-            this.dateOutLbl.Location = new System.Drawing.Point(46, 240);
+            this.dateOutLbl.Location = new System.Drawing.Point(46, 262);
             this.dateOutLbl.Name = "dateOutLbl";
             this.dateOutLbl.Size = new System.Drawing.Size(53, 13);
             this.dateOutLbl.TabIndex = 107;
@@ -341,7 +341,7 @@
             // statusLbl
             // 
             this.statusLbl.AutoSize = true;
-            this.statusLbl.Location = new System.Drawing.Point(59, 213);
+            this.statusLbl.Location = new System.Drawing.Point(59, 235);
             this.statusLbl.Name = "statusLbl";
             this.statusLbl.Size = new System.Drawing.Size(40, 13);
             this.statusLbl.TabIndex = 106;
@@ -350,7 +350,7 @@
             // description3Lbl
             // 
             this.description3Lbl.AutoSize = true;
-            this.description3Lbl.Location = new System.Drawing.Point(27, 187);
+            this.description3Lbl.Location = new System.Drawing.Point(27, 209);
             this.description3Lbl.Name = "description3Lbl";
             this.description3Lbl.Size = new System.Drawing.Size(72, 13);
             this.description3Lbl.TabIndex = 105;
@@ -358,7 +358,7 @@
             // 
             // description3Tbx
             // 
-            this.description3Tbx.Location = new System.Drawing.Point(105, 184);
+            this.description3Tbx.Location = new System.Drawing.Point(105, 206);
             this.description3Tbx.MaxLength = 30;
             this.description3Tbx.Name = "description3Tbx";
             this.description3Tbx.ReadOnly = true;
@@ -368,7 +368,7 @@
             // description2Lbl
             // 
             this.description2Lbl.AutoSize = true;
-            this.description2Lbl.Location = new System.Drawing.Point(27, 161);
+            this.description2Lbl.Location = new System.Drawing.Point(27, 183);
             this.description2Lbl.Name = "description2Lbl";
             this.description2Lbl.Size = new System.Drawing.Size(72, 13);
             this.description2Lbl.TabIndex = 104;
@@ -376,7 +376,7 @@
             // 
             // description2Tbx
             // 
-            this.description2Tbx.Location = new System.Drawing.Point(105, 158);
+            this.description2Tbx.Location = new System.Drawing.Point(105, 180);
             this.description2Tbx.MaxLength = 30;
             this.description2Tbx.Name = "description2Tbx";
             this.description2Tbx.ReadOnly = true;
@@ -386,7 +386,7 @@
             // description1Lbl
             // 
             this.description1Lbl.AutoSize = true;
-            this.description1Lbl.Location = new System.Drawing.Point(27, 136);
+            this.description1Lbl.Location = new System.Drawing.Point(27, 158);
             this.description1Lbl.Name = "description1Lbl";
             this.description1Lbl.Size = new System.Drawing.Size(72, 13);
             this.description1Lbl.TabIndex = 103;
@@ -394,7 +394,7 @@
             // 
             // description1Tbx
             // 
-            this.description1Tbx.Location = new System.Drawing.Point(105, 132);
+            this.description1Tbx.Location = new System.Drawing.Point(105, 154);
             this.description1Tbx.MaxLength = 30;
             this.description1Tbx.Name = "description1Tbx";
             this.description1Tbx.ReadOnly = true;
@@ -404,7 +404,7 @@
             // itemNameLbl
             // 
             this.itemNameLbl.AutoSize = true;
-            this.itemNameLbl.Location = new System.Drawing.Point(34, 109);
+            this.itemNameLbl.Location = new System.Drawing.Point(34, 131);
             this.itemNameLbl.Name = "itemNameLbl";
             this.itemNameLbl.Size = new System.Drawing.Size(65, 13);
             this.itemNameLbl.TabIndex = 102;
@@ -412,7 +412,7 @@
             // 
             // itemNameTbx
             // 
-            this.itemNameTbx.Location = new System.Drawing.Point(105, 106);
+            this.itemNameTbx.Location = new System.Drawing.Point(105, 128);
             this.itemNameTbx.MaxLength = 30;
             this.itemNameTbx.Name = "itemNameTbx";
             this.itemNameTbx.ReadOnly = true;
@@ -422,7 +422,7 @@
             // dateDueLbl
             // 
             this.dateDueLbl.AutoSize = true;
-            this.dateDueLbl.Location = new System.Drawing.Point(44, 266);
+            this.dateDueLbl.Location = new System.Drawing.Point(44, 288);
             this.dateDueLbl.Name = "dateDueLbl";
             this.dateDueLbl.Size = new System.Drawing.Size(56, 13);
             this.dateDueLbl.TabIndex = 109;
@@ -452,7 +452,7 @@
             // 
             // dateOutTbx
             // 
-            this.dateOutTbx.Location = new System.Drawing.Point(105, 237);
+            this.dateOutTbx.Location = new System.Drawing.Point(105, 259);
             this.dateOutTbx.MaxLength = 3;
             this.dateOutTbx.Name = "dateOutTbx";
             this.dateOutTbx.ReadOnly = true;
@@ -461,7 +461,7 @@
             // 
             // dateDueTbx
             // 
-            this.dateDueTbx.Location = new System.Drawing.Point(106, 263);
+            this.dateDueTbx.Location = new System.Drawing.Point(106, 285);
             this.dateDueTbx.MaxLength = 3;
             this.dateDueTbx.Name = "dateDueTbx";
             this.dateDueTbx.ReadOnly = true;
@@ -471,7 +471,7 @@
             // queueBtn
             // 
             this.queueBtn.Enabled = false;
-            this.queueBtn.Location = new System.Drawing.Point(70, 330);
+            this.queueBtn.Location = new System.Drawing.Point(70, 364);
             this.queueBtn.Name = "queueBtn";
             this.queueBtn.Size = new System.Drawing.Size(100, 34);
             this.queueBtn.TabIndex = 15;
@@ -482,7 +482,7 @@
             // processReturnsBtn
             // 
             this.processReturnsBtn.Enabled = false;
-            this.processReturnsBtn.Location = new System.Drawing.Point(176, 330);
+            this.processReturnsBtn.Location = new System.Drawing.Point(176, 364);
             this.processReturnsBtn.Name = "processReturnsBtn";
             this.processReturnsBtn.Size = new System.Drawing.Size(100, 34);
             this.processReturnsBtn.TabIndex = 16;
@@ -493,7 +493,7 @@
             // clearItemBtn
             // 
             this.clearItemBtn.Enabled = false;
-            this.clearItemBtn.Location = new System.Drawing.Point(282, 330);
+            this.clearItemBtn.Location = new System.Drawing.Point(282, 364);
             this.clearItemBtn.Name = "clearItemBtn";
             this.clearItemBtn.Size = new System.Drawing.Size(100, 34);
             this.clearItemBtn.TabIndex = 17;
@@ -503,7 +503,7 @@
             // 
             // exitBtn
             // 
-            this.exitBtn.Location = new System.Drawing.Point(388, 330);
+            this.exitBtn.Location = new System.Drawing.Point(388, 364);
             this.exitBtn.Name = "exitBtn";
             this.exitBtn.Size = new System.Drawing.Size(100, 34);
             this.exitBtn.TabIndex = 18;
@@ -519,7 +519,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(600, 394);
+            this.ClientSize = new System.Drawing.Size(600, 431);
             this.Controls.Add(this.exitBtn);
             this.Controls.Add(this.clearItemBtn);
             this.Controls.Add(this.processReturnsBtn);

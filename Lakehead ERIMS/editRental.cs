@@ -143,6 +143,7 @@ namespace Lakehead_ERIMS
                 rentalDateDueDpk.Enabled = true;
                 paymentRentalDaysTbx.Enabled = true;
                 paymentOtherFeesTbx.Enabled = true;
+                voidRentalBtn.Enabled = true;
 
                 //Checks if query returns results and if so, assigns it to rentalRow
                 DataRow[] searchResults = this.luEquipmentDataSet1.tblRental.Select("Inv_Num = '" + rentalLbx.SelectedValue.ToString() + "'");
@@ -212,6 +213,7 @@ namespace Lakehead_ERIMS
                 paymentRentalDaysTbx.Enabled = false;
                 paymentOtherFeesTbx.Enabled = false;
                 updateRentalBtn.Enabled = false;
+                voidRentalBtn.Enabled = false;
             }
         }
 
@@ -544,8 +546,6 @@ namespace Lakehead_ERIMS
 
         private void voidRentalBtn_Click(object sender, EventArgs e)
         {
-            //Need to change Student Owes, equip nights, etc
-
             //Checks if listbox isn't empty
             if (rentalLbx.SelectedValue != null && rentalLbx.SelectedIndex != -1)
             {
@@ -574,8 +574,6 @@ namespace Lakehead_ERIMS
 
         private void updateRentalBtn_Click(object sender, EventArgs e)
         {
-            //Need to change Student Owes, equip nights, etc
-
             //Checks if listbox isn't empty
             if (rentalLbx.SelectedValue != null && rentalLbx.SelectedIndex != -1)
             {
@@ -640,6 +638,7 @@ namespace Lakehead_ERIMS
                             LUEquipmentDataSet.tblEquipRow equipRow = luEquipmentDataSet1.tblEquip.FindByEquip_ID(equipNum);
                             tblRentalTableAdapter1.Delete(equipNum, studentId, rentalDateOutDpk.Value, rentalDateDueDpk.Value, course, InvoiceNum);
                             equipRow.Status_ID = 1;
+                            tblEquipTableAdapter1.Update(equipRow);
                         }
 
                         updateRentalList();

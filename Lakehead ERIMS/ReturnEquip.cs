@@ -100,8 +100,18 @@ namespace Lakehead_ERIMS
                                 }
                             }
 
-                            //Get total rentals
-                            stillOutTbx.Text = luEquipmentDataSet1.tblRental.Select("Inv_Num = '" + rentalRow.Inv_Num + "'").Length.ToString();
+                            //Get remaining rentals
+                            DataRow[] invoiceRentals = luEquipmentDataSet1.tblRental.Select("Inv_Num = '" + rentalRow.Inv_Num + "'");
+                            int remainingInvoices = 0;
+                            foreach(DataRow invoiceRental in invoiceRentals)
+                            {
+                                int invoiceEquipId = int.Parse(invoiceRental[0].ToString());
+                                if (!queuedItems.Contains(invoiceEquipId))
+                                {
+                                    remainingInvoices++;
+                                }
+                            }
+                            stillOutTbx.Text = remainingInvoices.ToString();
 
                             if (!queuedItems.Contains(equipID))
                             {
@@ -109,7 +119,40 @@ namespace Lakehead_ERIMS
                             }
                             statusCbx.Enabled = true;
                             clearItemBtn.Enabled = true;
-                            
+
+                            DateTime dateOutDte = (!rentalRow.IsRent_DateOutNull()) ? rentalRow.Rent_DateOut : DateTime.Today;
+                            DateTime dateDueDte = (!rentalRow.IsRent_DateDueNull()) ? rentalRow.Rent_DateDue : DateTime.Today.AddDays(1);
+
+                            if(DateTime.Today > dateDueDte)
+                            {
+                                int daysLate = (int)(DateTime.Today - dateDueDte).TotalDays;
+                                if(daysLate > 0)
+                                {
+                                    invoiceLateFeesTbx.Text = (daysLate * 5).ToString("C");
+                                }
+                                else
+                                {
+                                    invoiceLateFeesTbx.Text = (0).ToString("C");
+                                }
+                            }
+                            else
+                            {
+                                invoiceLateFeesTbx.Text = (0).ToString("C");
+                            }
+
+                            waiveLateFeesCbx.Text = "Rentals remaining in current invoice.";
+                            waiveLateFeesCbx.Checked = true;
+                            payLateFeesCbx.Enabled = false;
+                            accumulateLateFeesCbx.Enabled = false;
+
+                            if (remainingInvoices <= 1 && queueBtn.Enabled)
+                            {
+                                //Do invoice late fees here
+                                waiveLateFeesCbx.Text = "Waive Late Fee";
+                                waiveLateFeesCbx.Checked = false;
+                                payLateFeesCbx.Enabled = true;
+                                accumulateLateFeesCbx.Enabled = true;
+                            }                           
                         }
                         else
                         {
@@ -136,13 +179,51 @@ namespace Lakehead_ERIMS
         {
             if(currentItem != -1)
             {
-                queuedItems.Add(currentItem);
-                queueBtn.Enabled = false;
-                processReturnsBtn.Enabled = true;
-                itemsQueuedTbx.Text = queuedItems.Count.ToString();
+                if(invoiceLateFeesTbx.Text != (0).ToString("C"))
+                {
+                    if(waiveLateFeesCbx.Checked || payLateFeesCbx.Checked || accumulateLateFeesCbx.Checked)
+                    {
+                        if (accumulateLateFeesCbx.Checked)
+                        {
+                            if (this.luEquipmentDataSet1.tblStudent.Select("Stu_ID = '" + studentNumberTbx.Text + "'").Length > 0)
+                            {
+                                LUEquipmentDataSet.tblStudentRow studentRow = luEquipmentDataSet1.tblStudent.FindByStu_ID(int.Parse(studentNumberTbx.Text));
+                                float stuOwes = (!studentRow.IsStu_OweNull()) ? studentRow.Stu_Owe : 0;
 
-            }
-            currentItem = -1;
+                                stuOwes += float.Parse(invoiceLateFeesTbx.Text, System.Globalization.NumberStyles.Currency, System.Globalization.NumberFormatInfo.CurrentInfo);
+
+                                studentRow.Stu_Owe = stuOwes;
+                                tblStudentTableAdapter1.Update(studentRow);
+                            }
+                            else
+                            {
+                                MessageBox.Show("Student not found, late fee not added.", "Error");
+                            }
+                        }
+                        queuedItems.Add(currentItem);
+                        queueBtn.Enabled = false;
+                        processReturnsBtn.Enabled = true;
+                        itemsQueuedTbx.Text = queuedItems.Count.ToString();
+                        clearItemBtn_Click(sender, e);
+                        this.ActiveControl = itemNumberATbx;
+                        currentItem = -1;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please select an option for handling the late fee.", "Error");
+                    }
+                }
+                else
+                {
+                    queuedItems.Add(currentItem);
+                    queueBtn.Enabled = false;
+                    processReturnsBtn.Enabled = true;
+                    itemsQueuedTbx.Text = queuedItems.Count.ToString();
+                    clearItemBtn_Click(sender, e);
+                    this.ActiveControl = itemNumberATbx;
+                    currentItem = -1;
+                }  
+            }  
         }
 
         private void processReturnsBtn_Click(object sender, EventArgs e)

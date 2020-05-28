@@ -13,7 +13,7 @@ namespace Lakehead_ERIMS
 {
     public partial class RentForm : Form
     {
-        //TODO Line 426, need to modify existing Stu_Owes !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        //It seems Stu_Owes only keeps track of late fees.
         public RentForm()
         {
             InitializeComponent();
@@ -25,11 +25,6 @@ namespace Lakehead_ERIMS
             this.tblEquipTableAdapter.Fill(this.lUEquipmentDataSet.tblEquip);
             this.tblStudentTableAdapter1.Fill(this.lUEquipmentDataSet.tblStudent);
            
-        }
-
-        private void exitButton_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void exitBtn_Click(object sender, EventArgs e)
@@ -376,6 +371,8 @@ namespace Lakehead_ERIMS
             paymentSubtotalWaiveChbx.Checked = false;
             orptChbx.Checked = false;
             rentalItemsDgv.Rows.Clear();
+
+            this.ActiveControl = enterStudentNumberTbx;
         }
 
         private void processRentalBtn_Click(object sender, EventArgs e)
@@ -417,7 +414,6 @@ namespace Lakehead_ERIMS
                                 tblRentalTableAdapter1.Insert(Convert.ToInt16(equipID), studentId, rentalDateOutDpk.Value, rentalDateDueDpk.Value, studentCourseTbx.Text, invoiceNum);
                                 equipRow.Status_ID = 9;
                                 tblEquipTableAdapter.Update(equipRow);
-                                
                             }
 
                             //Modify existing fees based on option selected
@@ -425,6 +421,9 @@ namespace Lakehead_ERIMS
                             {
                                 //TODO
                             }
+
+                            MessageBox.Show("Rental Processed.", "Success");
+                            resetRentalBtn_Click(sender, e);
                         }
                         else
                         {
