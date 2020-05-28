@@ -300,6 +300,7 @@
             this.itemsQueuedTbx.Size = new System.Drawing.Size(150, 20);
             this.itemsQueuedTbx.TabIndex = 9;
             this.itemsQueuedTbx.Text = "0";
+            this.itemsQueuedTbx.Visible = false;
             // 
             // itemsQueuedLbl
             // 
@@ -309,6 +310,7 @@
             this.itemsQueuedLbl.Size = new System.Drawing.Size(76, 13);
             this.itemsQueuedLbl.TabIndex = 95;
             this.itemsQueuedLbl.Text = "Items Queued:";
+            this.itemsQueuedLbl.Visible = false;
             // 
             // statusCbx
             // 
@@ -471,29 +473,30 @@
             // queueBtn
             // 
             this.queueBtn.Enabled = false;
-            this.queueBtn.Location = new System.Drawing.Point(70, 364);
+            this.queueBtn.Location = new System.Drawing.Point(-21, 421);
             this.queueBtn.Name = "queueBtn";
             this.queueBtn.Size = new System.Drawing.Size(100, 34);
-            this.queueBtn.TabIndex = 15;
+            this.queueBtn.TabIndex = 100;
             this.queueBtn.Text = "Queue Record";
             this.queueBtn.UseVisualStyleBackColor = true;
+            this.queueBtn.Visible = false;
             this.queueBtn.Click += new System.EventHandler(this.queueBtn_Click);
             // 
             // processReturnsBtn
             // 
             this.processReturnsBtn.Enabled = false;
-            this.processReturnsBtn.Location = new System.Drawing.Point(176, 364);
+            this.processReturnsBtn.Location = new System.Drawing.Point(141, 364);
             this.processReturnsBtn.Name = "processReturnsBtn";
             this.processReturnsBtn.Size = new System.Drawing.Size(100, 34);
             this.processReturnsBtn.TabIndex = 16;
-            this.processReturnsBtn.Text = "Process Returns";
+            this.processReturnsBtn.Text = "Process Return";
             this.processReturnsBtn.UseVisualStyleBackColor = true;
             this.processReturnsBtn.Click += new System.EventHandler(this.processReturnsBtn_Click);
             // 
             // clearItemBtn
             // 
             this.clearItemBtn.Enabled = false;
-            this.clearItemBtn.Location = new System.Drawing.Point(282, 364);
+            this.clearItemBtn.Location = new System.Drawing.Point(247, 364);
             this.clearItemBtn.Name = "clearItemBtn";
             this.clearItemBtn.Size = new System.Drawing.Size(100, 34);
             this.clearItemBtn.TabIndex = 17;
@@ -503,7 +506,7 @@
             // 
             // exitBtn
             // 
-            this.exitBtn.Location = new System.Drawing.Point(388, 364);
+            this.exitBtn.Location = new System.Drawing.Point(353, 364);
             this.exitBtn.Name = "exitBtn";
             this.exitBtn.Size = new System.Drawing.Size(100, 34);
             this.exitBtn.TabIndex = 18;
@@ -517,6 +520,7 @@
             // 
             // ReturnEquip
             // 
+            this.AcceptButton = this.processReturnsBtn;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(600, 431);

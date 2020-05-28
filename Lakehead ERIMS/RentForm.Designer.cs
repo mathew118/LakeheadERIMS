@@ -149,7 +149,7 @@
             this.rentalItemsGbx.Location = new System.Drawing.Point(12, 342);
             this.rentalItemsGbx.Name = "rentalItemsGbx";
             this.rentalItemsGbx.Size = new System.Drawing.Size(360, 223);
-            this.rentalItemsGbx.TabIndex = 13;
+            this.rentalItemsGbx.TabIndex = 3;
             this.rentalItemsGbx.TabStop = false;
             this.rentalItemsGbx.Text = "Rental Items";
             // 
@@ -304,7 +304,7 @@
             this.studentInformationGbx.Location = new System.Drawing.Point(12, 79);
             this.studentInformationGbx.Name = "studentInformationGbx";
             this.studentInformationGbx.Size = new System.Drawing.Size(324, 257);
-            this.studentInformationGbx.TabIndex = 14;
+            this.studentInformationGbx.TabIndex = 2;
             this.studentInformationGbx.TabStop = false;
             this.studentInformationGbx.Text = "Student Information";
             // 
@@ -474,7 +474,7 @@
             this.paymentSummaryGbx.Location = new System.Drawing.Point(378, 342);
             this.paymentSummaryGbx.Name = "paymentSummaryGbx";
             this.paymentSummaryGbx.Size = new System.Drawing.Size(188, 223);
-            this.paymentSummaryGbx.TabIndex = 20;
+            this.paymentSummaryGbx.TabIndex = 5;
             this.paymentSummaryGbx.TabStop = false;
             this.paymentSummaryGbx.Text = "Payment Summary";
             // 
@@ -600,7 +600,7 @@
             this.accountBalanceGbx.Location = new System.Drawing.Point(342, 185);
             this.accountBalanceGbx.Name = "accountBalanceGbx";
             this.accountBalanceGbx.Size = new System.Drawing.Size(224, 151);
-            this.accountBalanceGbx.TabIndex = 123;
+            this.accountBalanceGbx.TabIndex = 4;
             this.accountBalanceGbx.TabStop = false;
             this.accountBalanceGbx.Text = "Account Balance";
             // 
@@ -665,7 +665,7 @@
             this.updateStudentBtn.Location = new System.Drawing.Point(358, 114);
             this.updateStudentBtn.Name = "updateStudentBtn";
             this.updateStudentBtn.Size = new System.Drawing.Size(90, 34);
-            this.updateStudentBtn.TabIndex = 107;
+            this.updateStudentBtn.TabIndex = 9;
             this.updateStudentBtn.Text = "Update Student";
             this.updateStudentBtn.UseVisualStyleBackColor = true;
             this.updateStudentBtn.Click += new System.EventHandler(this.updateStudentBtn_Click);
@@ -675,7 +675,7 @@
             this.existingRentalsBtn.Location = new System.Drawing.Point(468, 114);
             this.existingRentalsBtn.Name = "existingRentalsBtn";
             this.existingRentalsBtn.Size = new System.Drawing.Size(90, 34);
-            this.existingRentalsBtn.TabIndex = 124;
+            this.existingRentalsBtn.TabIndex = 10;
             this.existingRentalsBtn.Text = "Existing Rentals";
             this.existingRentalsBtn.UseVisualStyleBackColor = true;
             // 
@@ -685,7 +685,7 @@
             this.enterStudentNumberTbx.MaxLength = 20;
             this.enterStudentNumberTbx.Name = "enterStudentNumberTbx";
             this.enterStudentNumberTbx.Size = new System.Drawing.Size(106, 20);
-            this.enterStudentNumberTbx.TabIndex = 105;
+            this.enterStudentNumberTbx.TabIndex = 0;
             this.enterStudentNumberTbx.Enter += new System.EventHandler(this.rentalSearchingTbx_Enter);
             this.enterStudentNumberTbx.Leave += new System.EventHandler(this.rentalSearchingTbx_Enter);
             // 
@@ -703,7 +703,7 @@
             this.enterStudentNumberBtn.Location = new System.Drawing.Point(248, 32);
             this.enterStudentNumberBtn.Name = "enterStudentNumberBtn";
             this.enterStudentNumberBtn.Size = new System.Drawing.Size(75, 23);
-            this.enterStudentNumberBtn.TabIndex = 125;
+            this.enterStudentNumberBtn.TabIndex = 1;
             this.enterStudentNumberBtn.Text = "Search";
             this.enterStudentNumberBtn.UseVisualStyleBackColor = true;
             this.enterStudentNumberBtn.Click += new System.EventHandler(this.enterStudentNumberBtn_Click);
@@ -713,7 +713,7 @@
             this.exitBtn.Location = new System.Drawing.Point(419, 589);
             this.exitBtn.Name = "exitBtn";
             this.exitBtn.Size = new System.Drawing.Size(90, 34);
-            this.exitBtn.TabIndex = 128;
+            this.exitBtn.TabIndex = 8;
             this.exitBtn.Text = "Exit";
             this.exitBtn.UseVisualStyleBackColor = true;
             this.exitBtn.Click += new System.EventHandler(this.exitBtn_Click);
@@ -724,7 +724,7 @@
             this.resetRentalBtn.Location = new System.Drawing.Point(246, 589);
             this.resetRentalBtn.Name = "resetRentalBtn";
             this.resetRentalBtn.Size = new System.Drawing.Size(90, 34);
-            this.resetRentalBtn.TabIndex = 127;
+            this.resetRentalBtn.TabIndex = 7;
             this.resetRentalBtn.Text = "Reset Form";
             this.resetRentalBtn.UseVisualStyleBackColor = true;
             this.resetRentalBtn.Click += new System.EventHandler(this.resetRentalBtn_Click);
@@ -735,7 +735,7 @@
             this.processRentalBtn.Location = new System.Drawing.Point(75, 589);
             this.processRentalBtn.Name = "processRentalBtn";
             this.processRentalBtn.Size = new System.Drawing.Size(90, 34);
-            this.processRentalBtn.TabIndex = 126;
+            this.processRentalBtn.TabIndex = 6;
             this.processRentalBtn.Text = "Process Rental";
             this.processRentalBtn.UseVisualStyleBackColor = true;
             this.processRentalBtn.Click += new System.EventHandler(this.processRentalBtn_Click);

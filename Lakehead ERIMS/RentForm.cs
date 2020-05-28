@@ -104,6 +104,8 @@ namespace Lakehead_ERIMS
         {
             addUpdateStudent studentForm = new addUpdateStudent();
             studentForm.ShowDialog();
+            resetRentalBtn_Click(sender, e);
+            tblStudentTableAdapter1.Fill(lUEquipmentDataSet.tblStudent);
         }
 
         private void rentalDateDpk_ValueChanged(object sender, EventArgs e)
@@ -419,7 +421,12 @@ namespace Lakehead_ERIMS
                             //Modify existing fees based on option selected
                             if (outstandingFeeTbx.Text != (0).ToString("C"))
                             {
-                                //TODO
+                                if (payFeeChbx.Checked || deleteFeeChbx.Checked)
+                                {
+                                    studentRow.Stu_Owe = 0;
+                                    tblStudentTableAdapter1.Update(studentRow);
+                                    tblStudentTableAdapter1.Fill(lUEquipmentDataSet.tblStudent);
+                                }
                             }
 
                             MessageBox.Show("Rental Processed.", "Success");

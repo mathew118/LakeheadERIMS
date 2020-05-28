@@ -87,6 +87,7 @@ namespace Lakehead_ERIMS
                             dateOutTbx.Text = (!rentalRow.IsRent_DateOutNull()) ? rentalRow.Rent_DateOut.ToLongDateString() : string.Empty;
                             dateDueTbx.Text = (!rentalRow.IsRent_DateDueNull()) ? rentalRow.Rent_DateDue.ToLongDateString() : string.Empty;
                             invoiceNumberTbx.Text = rentalRow.Inv_Num.ToString();
+                            processReturnsBtn.Enabled = true;
 
                             //Try to get student info
                             if (!rentalRow.IsStu_IDNull())
@@ -101,7 +102,9 @@ namespace Lakehead_ERIMS
                             }
 
                             //Get remaining rentals
+                            /*
                             DataRow[] invoiceRentals = luEquipmentDataSet1.tblRental.Select("Inv_Num = '" + rentalRow.Inv_Num + "'");
+                            
                             int remainingInvoices = 0;
                             foreach(DataRow invoiceRental in invoiceRentals)
                             {
@@ -110,7 +113,10 @@ namespace Lakehead_ERIMS
                                 {
                                     remainingInvoices++;
                                 }
-                            }
+                            }                            
+                            stillOutTbx.Text = remainingInvoices.ToString();
+                            */
+                            int remainingInvoices = luEquipmentDataSet1.tblRental.Select("Inv_Num = '" + rentalRow.Inv_Num + "'").Length;
                             stillOutTbx.Text = remainingInvoices.ToString();
 
                             if (!queuedItems.Contains(equipID))
@@ -177,6 +183,7 @@ namespace Lakehead_ERIMS
 
         private void queueBtn_Click(object sender, EventArgs e)
         {
+            /*
             if(currentItem != -1)
             {
                 if(invoiceLateFeesTbx.Text != (0).ToString("C"))
@@ -192,8 +199,8 @@ namespace Lakehead_ERIMS
 
                                 stuOwes += float.Parse(invoiceLateFeesTbx.Text, System.Globalization.NumberStyles.Currency, System.Globalization.NumberFormatInfo.CurrentInfo);
 
-                                studentRow.Stu_Owe = stuOwes;
-                                tblStudentTableAdapter1.Update(studentRow);
+                                //studentRow.Stu_Owe = stuOwes;
+                                //tblStudentTableAdapter1.Update(studentRow);
                             }
                             else
                             {
@@ -223,11 +230,13 @@ namespace Lakehead_ERIMS
                     this.ActiveControl = itemNumberATbx;
                     currentItem = -1;
                 }  
-            }  
+            } 
+            */
         }
 
         private void processReturnsBtn_Click(object sender, EventArgs e)
         {
+            /*
             if(queuedItems.Count > 0)
             {
                 foreach(int item in queuedItems)
@@ -257,6 +266,115 @@ namespace Lakehead_ERIMS
             {
                 MessageBox.Show("No invoices to process.", "Error");
             }
+            */
+
+            if (currentItem != -1)
+            {
+                if (luEquipmentDataSet1.tblEquip.Select("Equip_ID = '" + currentItem + "'").Length > 0 && luEquipmentDataSet1.tblRental.Select("Equip_ID = '" + currentItem + "'").Length > 0)
+                {
+                    if (invoiceLateFeesTbx.Text != (0).ToString("C") && waiveLateFeesCbx.Text != "Rentals remaining in current invoice.")
+                    {
+                        if (waiveLateFeesCbx.Checked || payLateFeesCbx.Checked || accumulateLateFeesCbx.Checked)
+                        {
+                            if (accumulateLateFeesCbx.Checked)
+                            {
+                                if (this.luEquipmentDataSet1.tblStudent.Select("Stu_Number = '" + studentNumberTbx.Text + "'").Length > 0)
+                                {
+                                    LUEquipmentDataSet.tblStudentRow studentRow = (LUEquipmentDataSet.tblStudentRow)luEquipmentDataSet1.tblStudent.Select("Stu_Number = '" + studentNumberTbx.Text + "'")[0];
+                                    float stuOwes = (!studentRow.IsStu_OweNull()) ? studentRow.Stu_Owe : 0;
+
+                                    stuOwes += float.Parse(invoiceLateFeesTbx.Text, System.Globalization.NumberStyles.Currency, System.Globalization.NumberFormatInfo.CurrentInfo);
+
+                                    studentRow.Stu_Owe = stuOwes;
+                                    tblStudentTableAdapter1.Update(studentRow);
+
+                                    LUEquipmentDataSet.tblEquipRow equipmentRow = luEquipmentDataSet1.tblEquip.FindByEquip_ID(currentItem);
+                                    LUEquipmentDataSet.tblRentalRow rentalRow = luEquipmentDataSet1.tblRental.FindByEquip_IDInv_Num(Convert.ToInt16(currentItem), int.Parse(luEquipmentDataSet1.tblRental.Select("Equip_ID = '" + currentItem + "'")[0][5].ToString()));
+                                    int equipNights = (!equipmentRow.IsEquip_NightsNull()) ? equipmentRow.Equip_Nights : 0;
+                                    equipNights += (int)(DateTime.Today - rentalRow.Rent_DateOut).TotalDays;
+                                    equipmentRow.Equip_Nights = equipNights;
+                                    equipmentRow.Status_ID = short.Parse(statusCbx.SelectedValue.ToString());
+                                    tblEquipTableAdapter1.Update(equipmentRow);
+                                    tblEquipTableAdapter1.Fill(luEquipmentDataSet1.tblEquip);
+
+
+                                    
+                                    tblRentalTableAdapter1.Delete(rentalRow.Equip_ID, (!rentalRow.IsStu_IDNull()) ? rentalRow.Stu_ID : (int?)null, (!rentalRow.IsRent_DateOutNull()) ? rentalRow.Rent_DateOut : (DateTime?)null, (!rentalRow.IsRent_DateDueNull()) ? rentalRow.Rent_DateDue : (DateTime?)null, (!rentalRow.IsRent_CourseNull()) ? rentalRow.Rent_Course : null, rentalRow.Inv_Num);
+                                    tblRentalTableAdapter1.Fill(luEquipmentDataSet1.tblRental);
+
+                                    processReturnsBtn.Enabled = false;
+                                    ClearFields();
+                                    clearItemBtn_Click(sender, e);
+                                    this.ActiveControl = itemNumberATbx;
+                                    currentItem = -1;
+                                    MessageBox.Show("Item returned.", "Success");
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Student not found, late fee not added.", "Error");
+                                }
+                            }
+                            else
+                            {
+                                LUEquipmentDataSet.tblEquipRow equipmentRow = luEquipmentDataSet1.tblEquip.FindByEquip_ID(currentItem);
+                                LUEquipmentDataSet.tblRentalRow rentalRow = luEquipmentDataSet1.tblRental.FindByEquip_IDInv_Num(Convert.ToInt16(currentItem), int.Parse(luEquipmentDataSet1.tblRental.Select("Equip_ID = '" + currentItem + "'")[0][5].ToString()));
+                                int equipNights = (!equipmentRow.IsEquip_NightsNull()) ? equipmentRow.Equip_Nights : 0;
+                                equipNights += (int)(DateTime.Today - rentalRow.Rent_DateOut).TotalDays;
+                                equipmentRow.Equip_Nights = equipNights;
+                                equipmentRow.Status_ID = short.Parse(statusCbx.SelectedValue.ToString());
+                                tblEquipTableAdapter1.Update(equipmentRow);
+                                tblEquipTableAdapter1.Fill(luEquipmentDataSet1.tblEquip);
+
+
+                                
+                                tblRentalTableAdapter1.Delete(rentalRow.Equip_ID, (!rentalRow.IsStu_IDNull()) ? rentalRow.Stu_ID : (int?)null, (!rentalRow.IsRent_DateOutNull()) ? rentalRow.Rent_DateOut : (DateTime?)null, (!rentalRow.IsRent_DateDueNull()) ? rentalRow.Rent_DateDue : (DateTime?)null, (!rentalRow.IsRent_CourseNull()) ? rentalRow.Rent_Course : null, rentalRow.Inv_Num);
+                                tblRentalTableAdapter1.Fill(luEquipmentDataSet1.tblRental);
+
+                                processReturnsBtn.Enabled = false;
+                                ClearFields();
+                                clearItemBtn_Click(sender, e);
+                                this.ActiveControl = itemNumberATbx;
+                                currentItem = -1;
+                                MessageBox.Show("Item returned");
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Please select an option for handling the late fee.", "Error");
+                        }
+                    }
+
+                    else
+                    {
+                        LUEquipmentDataSet.tblEquipRow equipmentRow = luEquipmentDataSet1.tblEquip.FindByEquip_ID(currentItem);
+                        LUEquipmentDataSet.tblRentalRow rentalRow = luEquipmentDataSet1.tblRental.FindByEquip_IDInv_Num(Convert.ToInt16(currentItem), int.Parse(luEquipmentDataSet1.tblRental.Select("Equip_ID = '" + currentItem + "'")[0][5].ToString()));
+                        int equipNights = (!equipmentRow.IsEquip_NightsNull()) ? equipmentRow.Equip_Nights : 0;
+                        equipNights += (int)(DateTime.Today - rentalRow.Rent_DateOut).TotalDays;
+                        equipmentRow.Equip_Nights = equipNights;
+                        equipmentRow.Status_ID = short.Parse(statusCbx.SelectedValue.ToString());
+                        tblEquipTableAdapter1.Update(equipmentRow);
+                        tblEquipTableAdapter1.Fill(luEquipmentDataSet1.tblEquip);
+
+
+                        
+                        tblRentalTableAdapter1.Delete(rentalRow.Equip_ID, (!rentalRow.IsStu_IDNull()) ? rentalRow.Stu_ID : (int?)null, (!rentalRow.IsRent_DateOutNull()) ? rentalRow.Rent_DateOut : (DateTime?)null, (!rentalRow.IsRent_DateDueNull()) ? rentalRow.Rent_DateDue : (DateTime?)null, (!rentalRow.IsRent_CourseNull()) ? rentalRow.Rent_Course : null, rentalRow.Inv_Num);
+                        tblRentalTableAdapter1.Fill(luEquipmentDataSet1.tblRental);
+
+                        processReturnsBtn.Enabled = false;
+                        ClearFields();
+                        clearItemBtn_Click(sender, e);
+                        this.ActiveControl = itemNumberATbx;
+                        currentItem = -1;
+                        MessageBox.Show("Item returned");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Item " + currentItem + " either does not exist, or a rental containing that item does not exist.", "Error");
+                }
+
+                
+            }
         }
 
         public void ClearFields()
@@ -279,6 +397,9 @@ namespace Lakehead_ERIMS
             clearItemBtn.Enabled = false;
             queueBtn.Enabled = false;
             currentItem = -1;
+            accumulateLateFeesCbx.Checked = false;
+            payLateFeesCbx.Checked = false;
+            waiveLateFeesCbx.Checked = false;
         }
 
         private void clearItemBtn_Click(object sender, EventArgs e)
@@ -299,6 +420,9 @@ namespace Lakehead_ERIMS
             clearItemBtn.Enabled = false;
             queueBtn.Enabled = false;
             currentItem = -1;
+            accumulateLateFeesCbx.Checked = false;
+            payLateFeesCbx.Checked = false;
+            waiveLateFeesCbx.Checked = false;
         }
     }
 }
