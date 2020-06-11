@@ -494,21 +494,7 @@ namespace Lakehead_ERIMS
                 var oAccess = new Microsoft.Office.Interop.Access.Application();
                 
                 //oAccess.Visible = false;
-                oAccess.OpenCurrentDatabase(System.IO.Path.Combine(Environment.CurrentDirectory, "LUEquipment.mdb"), false);
-                //objAccess.DoCmd.SetParameter("@Inv_Num", invoiceNumber);
-
-                //objAccess.DoCmd.OpenReport("rptRental", Microsoft.Office.Interop.Access.AcView.acViewPreview);
-
-                /*objAccess.DoCmd.PrintOut(
-                   Microsoft.Office.Interop.Access.AcPrintRange.acPrintAll, //PrintRange
-                   System.Reflection.Missing.Value, //PageFrom
-                   System.Reflection.Missing.Value, //PageTo
-                   Microsoft.Office.Interop.Access.AcPrintQuality.acHigh, //PrintQuality
-                   2, //Copies
-                   false //CollateCopies
-                );
-                */
-
+                oAccess.OpenCurrentDatabase(System.IO.Path.Combine(Environment.CurrentDirectory, "LUEquipment.mdb"), false);         
 
                 oAccess.DoCmd.OpenReport(
                    "rptRental", //ReportName
@@ -528,13 +514,7 @@ namespace Lakehead_ERIMS
                 );
 
                 oAccess.Quit(Microsoft.Office.Interop.Access.AcQuitOption.acQuitSaveNone);
-                // Close the report preview window: 
-                /*oAccess.DoCmd.Close(
-                   Microsoft.Office.Interop.Access.AcObjectType.acReport, //ObjectType
-                   "rptRental", //ObjectName
-                   Microsoft.Office.Interop.Access.AcCloseSave.acSaveNo //Save
-                );
-                */
+
             }
             catch
             {

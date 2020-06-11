@@ -613,6 +613,7 @@ namespace Lakehead_ERIMS
                             tblRentalTableAdapter1.Update(rentalRow);
                         }
 
+                        bool emptyRental = (rentalItemsDgv.Rows.Count == 0);
                         //Update items
                         foreach (DataGridViewRow row in rentalItemsDgv.Rows)
                         {
@@ -641,6 +642,11 @@ namespace Lakehead_ERIMS
                             tblEquipTableAdapter1.Update(equipRow);
                         }
 
+                        if (!emptyRental)
+                        {
+                            printRentalForm(InvoiceNum);
+                        }
+
                         updateRentalList();
 
                         int lbxSearching = rentalLbx.FindString(InvoiceNum.ToString());
@@ -653,6 +659,8 @@ namespace Lakehead_ERIMS
                             rentalLbx.SelectedIndex = -1;
                         }
 
+                        
+
                     }
                     else
                     {
@@ -664,14 +672,56 @@ namespace Lakehead_ERIMS
 
         private void rentalSearchingTbx_Enter(object sender, EventArgs e)
         {
-            Control sendingControl = (Control)sender;
-            if (sendingControl.Focused)
+            try
             {
-                ActiveForm.AcceptButton = rentalSearchingBtn;
+                Control sendingControl = (Control)sender;
+                if (sendingControl.Focused)
+                {
+                    ActiveForm.AcceptButton = rentalSearchingBtn;
+                }
+                else
+                {
+                    ActiveForm.AcceptButton = null;
+                }
             }
-            else
+            catch
             {
-                ActiveForm.AcceptButton = null;
+
+            }
+        }
+
+        private void printRentalForm(int invoiceNumber)
+        {
+            try
+            {
+                var oAccess = new Microsoft.Office.Interop.Access.Application();
+
+                //oAccess.Visible = false;
+                oAccess.OpenCurrentDatabase(System.IO.Path.Combine(Environment.CurrentDirectory, "LUEquipment.mdb"), false);
+
+                oAccess.DoCmd.OpenReport(
+                   "rptRental", //ReportName
+                   Microsoft.Office.Interop.Access.AcView.acViewPreview, //View
+                   System.Reflection.Missing.Value, //FilterName
+                   ("[Inv_Num]=" + invoiceNumber) //WhereCondition
+                );
+
+                // Print 2 copies of the active object: 
+                oAccess.DoCmd.PrintOut(
+                   Microsoft.Office.Interop.Access.AcPrintRange.acPrintAll, //PrintRange
+                   System.Reflection.Missing.Value, //PageFrom
+                   System.Reflection.Missing.Value, //PageTo
+                   Microsoft.Office.Interop.Access.AcPrintQuality.acHigh, //PrintQuality
+                   2, //Copies
+                   false //CollateCopies
+                );
+
+                oAccess.Quit(Microsoft.Office.Interop.Access.AcQuitOption.acQuitSaveNone);
+
+            }
+            catch
+            {
+                MessageBox.Show("Error printing rental agreement forms.", "Error");
             }
         }
     }
