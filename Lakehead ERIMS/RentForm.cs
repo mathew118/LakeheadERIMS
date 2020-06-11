@@ -335,14 +335,21 @@ namespace Lakehead_ERIMS
 
         private void rentalSearchingTbx_Enter(object sender, EventArgs e)
         {
-            Control sendingControl = (Control)sender;
-            if (this.ActiveControl == sendingControl)
+            try
             {
-                ActiveForm.AcceptButton = enterStudentNumberBtn;
+                Control sendingControl = (Control)sender;
+                if (this.ActiveControl == sendingControl)
+                {
+                    ActiveForm.AcceptButton = enterStudentNumberBtn;
+                }
+                else
+                {
+                    ActiveForm.AcceptButton = null;
+                }
             }
-            else
+            catch
             {
-                ActiveForm.AcceptButton = null;
+
             }
         }
 
@@ -365,7 +372,8 @@ namespace Lakehead_ERIMS
             ignoreFeeChbx.Checked = false;
             payFeeChbx.Checked = false;
             deleteFeeChbx.Checked = false;
-            paymentRentalDaysTbx.Clear();
+            //paymentRentalDaysTbx.Clear();
+            paymentRentalDaysTbx.Text = "1";
             paymentSubtotalTbx.Text = "$0.00";
             paymentHSTTbx.Text = "$0.00";
             paymentTotalTbx.Text = "$0.00";
@@ -379,10 +387,10 @@ namespace Lakehead_ERIMS
 
         private void processRentalBtn_Click(object sender, EventArgs e)
         {
-            if(lUEquipmentDataSet.tblRental.Rows.Count == 0)
-            {
+            //if(lUEquipmentDataSet.tblRental.Rows.Count == 0)
+            //{
                 tblRentalTableAdapter1.Fill(lUEquipmentDataSet.tblRental);
-            }
+            //}
 
             if(rentalItemsDgv.Rows.Count > 0)
             {
@@ -429,6 +437,8 @@ namespace Lakehead_ERIMS
                                 }
                             }
 
+                            printRentalForm(invoiceNum);
+
                             MessageBox.Show("Rental Processed.", "Success");
                             resetRentalBtn_Click(sender, e);
                         }
@@ -468,10 +478,67 @@ namespace Lakehead_ERIMS
                     strCriteria //where condition
                     );
 
+                
+
             }
             else
             {
                 MessageBox.Show("No student selected.", "Error");
+            }
+        }
+
+        private void printRentalForm(int invoiceNumber)
+        {
+            try
+            {
+                var oAccess = new Microsoft.Office.Interop.Access.Application();
+                
+                //oAccess.Visible = false;
+                oAccess.OpenCurrentDatabase(System.IO.Path.Combine(Environment.CurrentDirectory, "LUEquipment.mdb"), false);
+                //objAccess.DoCmd.SetParameter("@Inv_Num", invoiceNumber);
+
+                //objAccess.DoCmd.OpenReport("rptRental", Microsoft.Office.Interop.Access.AcView.acViewPreview);
+
+                /*objAccess.DoCmd.PrintOut(
+                   Microsoft.Office.Interop.Access.AcPrintRange.acPrintAll, //PrintRange
+                   System.Reflection.Missing.Value, //PageFrom
+                   System.Reflection.Missing.Value, //PageTo
+                   Microsoft.Office.Interop.Access.AcPrintQuality.acHigh, //PrintQuality
+                   2, //Copies
+                   false //CollateCopies
+                );
+                */
+
+
+                oAccess.DoCmd.OpenReport(
+                   "rptRental", //ReportName
+                   Microsoft.Office.Interop.Access.AcView.acViewPreview, //View
+                   System.Reflection.Missing.Value, //FilterName
+                   ("[Inv_Num]=" + invoiceNumber) //WhereCondition
+                );
+
+                // Print 2 copies of the active object: 
+                oAccess.DoCmd.PrintOut(
+                   Microsoft.Office.Interop.Access.AcPrintRange.acPrintAll, //PrintRange
+                   System.Reflection.Missing.Value, //PageFrom
+                   System.Reflection.Missing.Value, //PageTo
+                   Microsoft.Office.Interop.Access.AcPrintQuality.acHigh, //PrintQuality
+                   2, //Copies
+                   false //CollateCopies
+                );
+
+                oAccess.Quit(Microsoft.Office.Interop.Access.AcQuitOption.acQuitSaveNone);
+                // Close the report preview window: 
+                /*oAccess.DoCmd.Close(
+                   Microsoft.Office.Interop.Access.AcObjectType.acReport, //ObjectType
+                   "rptRental", //ObjectName
+                   Microsoft.Office.Interop.Access.AcCloseSave.acSaveNo //Save
+                );
+                */
+            }
+            catch
+            {
+                MessageBox.Show("Error printing rental agreement forms.", "Error");
             }
         }
     }
