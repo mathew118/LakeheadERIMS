@@ -87,7 +87,7 @@ namespace Lakehead_ERIMS
                             dateOutTbx.Text = (!rentalRow.IsRent_DateOutNull()) ? rentalRow.Rent_DateOut.ToLongDateString() : string.Empty;
                             dateDueTbx.Text = (!rentalRow.IsRent_DateDueNull()) ? rentalRow.Rent_DateDue.ToLongDateString() : string.Empty;
                             invoiceNumberTbx.Text = rentalRow.Inv_Num.ToString();
-                            processReturnsBtn.Enabled = true;
+                            //queueBtn.Enabled = true;
 
                             //Try to get student info
                             if (!rentalRow.IsStu_IDNull())
@@ -102,7 +102,7 @@ namespace Lakehead_ERIMS
                             }
 
                             //Get remaining rentals
-                            /*
+                            
                             DataRow[] invoiceRentals = luEquipmentDataSet1.tblRental.Select("Inv_Num = '" + rentalRow.Inv_Num + "'");
                             
                             int remainingInvoices = 0;
@@ -115,9 +115,9 @@ namespace Lakehead_ERIMS
                                 }
                             }                            
                             stillOutTbx.Text = remainingInvoices.ToString();
-                            */
-                            int remainingInvoices = luEquipmentDataSet1.tblRental.Select("Inv_Num = '" + rentalRow.Inv_Num + "'").Length;
-                            stillOutTbx.Text = remainingInvoices.ToString();
+                            
+                            //int remainingInvoices = luEquipmentDataSet1.tblRental.Select("Inv_Num = '" + rentalRow.Inv_Num + "'").Length;
+                            //stillOutTbx.Text = remainingInvoices.ToString();
 
                             if (!queuedItems.Contains(equipID))
                             {
@@ -183,10 +183,11 @@ namespace Lakehead_ERIMS
 
         private void queueBtn_Click(object sender, EventArgs e)
         {
-            /*
+            
             if(currentItem != -1)
             {
-                if(invoiceLateFeesTbx.Text != (0).ToString("C"))
+                /*
+                if (invoiceLateFeesTbx.Text != (0).ToString("C") && waiveLateFeesCbx.Text != "Rentals remaining in current invoice.")
                 {
                     if(waiveLateFeesCbx.Checked || payLateFeesCbx.Checked || accumulateLateFeesCbx.Checked)
                     {
@@ -222,16 +223,26 @@ namespace Lakehead_ERIMS
                 }
                 else
                 {
+                */
+                if (!queuedItems.Contains(currentItem))
+                {
                     queuedItems.Add(currentItem);
-                    queueBtn.Enabled = false;
-                    processReturnsBtn.Enabled = true;
-                    itemsQueuedTbx.Text = queuedItems.Count.ToString();
-                    clearItemBtn_Click(sender, e);
-                    this.ActiveControl = itemNumberATbx;
-                    currentItem = -1;
-                }  
+                }
+                else
+                {
+                    MessageBox.Show("Item already queued.", "Error");
+                }
+
+                queueBtn.Enabled = false;
+                processReturnsBtn.Enabled = true;
+                itemsQueuedTbx.Text = queuedItems.Count.ToString();
+                clearItemBtn_Click(sender, e);
+                this.ActiveControl = itemNumberATbx;
+                currentItem = -1;
+
+                //}  
             } 
-            */
+            
         }
 
         private void processReturnsBtn_Click(object sender, EventArgs e)
@@ -268,6 +279,55 @@ namespace Lakehead_ERIMS
             }
             */
 
+            foreach (int item in queuedItems)
+            {
+                if(item != -1)
+                {
+                    LUEquipmentDataSet.tblEquipRow equipmentRow = luEquipmentDataSet1.tblEquip.FindByEquip_ID(item);
+                    LUEquipmentDataSet.tblRentalRow rentalRow = luEquipmentDataSet1.tblRental.FindByEquip_IDInv_Num(Convert.ToInt16(item), int.Parse(luEquipmentDataSet1.tblRental.Select("Equip_ID = '" + item + "'")[0][5].ToString()));
+
+                    int inv = rentalRow.Inv_Num;
+                    int stuId = rentalRow.Stu_ID;
+                    DateTime dateOutDte = (!rentalRow.IsRent_DateOutNull()) ? rentalRow.Rent_DateOut : DateTime.Today;
+                    DateTime dateDueDte = (!rentalRow.IsRent_DateDueNull()) ? rentalRow.Rent_DateDue : DateTime.Today.AddDays(1);
+
+                    int equipNights = (!equipmentRow.IsEquip_NightsNull()) ? equipmentRow.Equip_Nights : 0;
+                    equipNights += (int)(DateTime.Today - rentalRow.Rent_DateOut).TotalDays;
+                    equipmentRow.Equip_Nights = equipNights;
+                    equipmentRow.Status_ID = short.Parse(statusCbx.SelectedValue.ToString());
+                    tblEquipTableAdapter1.Update(equipmentRow);
+                    tblEquipTableAdapter1.Fill(luEquipmentDataSet1.tblEquip);
+
+
+
+                    tblRentalTableAdapter1.Delete(rentalRow.Equip_ID, (!rentalRow.IsStu_IDNull()) ? rentalRow.Stu_ID : (int?)null, (!rentalRow.IsRent_DateOutNull()) ? rentalRow.Rent_DateOut : (DateTime?)null, (!rentalRow.IsRent_DateDueNull()) ? rentalRow.Rent_DateDue : (DateTime?)null, (!rentalRow.IsRent_CourseNull()) ? rentalRow.Rent_Course : null, rentalRow.Inv_Num);
+                    tblRentalTableAdapter1.Fill(luEquipmentDataSet1.tblRental);
+
+                    if (luEquipmentDataSet1.tblRental.Select("Inv_Num = '" + inv + "'").Length == 0 && DateTime.Today > dateDueDte){
+                        int daysLate = (int)(DateTime.Today - dateDueDte).TotalDays;
+                        if (daysLate > 0) {
+
+                            //Last item in invoice and is late.
+                            FeeDialog lateFeeDialog = new FeeDialog(inv, (daysLate * 5), stuId);
+                            while (!lateFeeDialog.handled)
+                            {
+                                lateFeeDialog.ShowDialog();
+                            }
+
+                        }
+                    }
+
+                }
+            }
+
+            processReturnsBtn.Enabled = false;
+            ClearFields();
+            clearItemBtn_Click(sender, e);
+            this.ActiveControl = itemNumberATbx;
+            currentItem = -1;
+            MessageBox.Show("Items returned", "Success");
+
+            /*
             if (currentItem != -1)
             {
                 if (luEquipmentDataSet1.tblEquip.Select("Equip_ID = '" + currentItem + "'").Length > 0 && luEquipmentDataSet1.tblRental.Select("Equip_ID = '" + currentItem + "'").Length > 0)
@@ -375,6 +435,7 @@ namespace Lakehead_ERIMS
 
                 
             }
+            */
         }
 
         public void ClearFields()
@@ -423,6 +484,12 @@ namespace Lakehead_ERIMS
             accumulateLateFeesCbx.Checked = false;
             payLateFeesCbx.Checked = false;
             waiveLateFeesCbx.Checked = false;
+        }
+
+        private void clearQueueBtn_Click(object sender, EventArgs e)
+        {
+            clearItemBtn_Click(sender, e);
+            queuedItems.Clear();
         }
     }
 }

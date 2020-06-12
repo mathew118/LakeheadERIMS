@@ -150,7 +150,7 @@
             // 
             // stillOutTbx
             // 
-            this.stillOutTbx.Location = new System.Drawing.Point(420, 146);
+            this.stillOutTbx.Location = new System.Drawing.Point(419, 206);
             this.stillOutTbx.MaxLength = 3;
             this.stillOutTbx.Name = "stillOutTbx";
             this.stillOutTbx.ReadOnly = true;
@@ -160,7 +160,7 @@
             // stillOutLbl
             // 
             this.stillOutLbl.AutoSize = true;
-            this.stillOutLbl.Location = new System.Drawing.Point(288, 149);
+            this.stillOutLbl.Location = new System.Drawing.Point(287, 209);
             this.stillOutLbl.Name = "stillOutLbl";
             this.stillOutLbl.Size = new System.Drawing.Size(126, 13);
             this.stillOutLbl.TabIndex = 93;
@@ -168,7 +168,7 @@
             // 
             // studentNameTbx
             // 
-            this.studentNameTbx.Location = new System.Drawing.Point(420, 120);
+            this.studentNameTbx.Location = new System.Drawing.Point(419, 180);
             this.studentNameTbx.MaxLength = 3;
             this.studentNameTbx.Name = "studentNameTbx";
             this.studentNameTbx.ReadOnly = true;
@@ -178,7 +178,7 @@
             // studentNameLbl
             // 
             this.studentNameLbl.AutoSize = true;
-            this.studentNameLbl.Location = new System.Drawing.Point(336, 123);
+            this.studentNameLbl.Location = new System.Drawing.Point(335, 183);
             this.studentNameLbl.Name = "studentNameLbl";
             this.studentNameLbl.Size = new System.Drawing.Size(78, 13);
             this.studentNameLbl.TabIndex = 91;
@@ -186,7 +186,7 @@
             // 
             // studentNumberTbx
             // 
-            this.studentNumberTbx.Location = new System.Drawing.Point(420, 94);
+            this.studentNumberTbx.Location = new System.Drawing.Point(419, 154);
             this.studentNumberTbx.MaxLength = 3;
             this.studentNumberTbx.Name = "studentNumberTbx";
             this.studentNumberTbx.ReadOnly = true;
@@ -196,7 +196,7 @@
             // studentNumberLbl
             // 
             this.studentNumberLbl.AutoSize = true;
-            this.studentNumberLbl.Location = new System.Drawing.Point(327, 97);
+            this.studentNumberLbl.Location = new System.Drawing.Point(326, 157);
             this.studentNumberLbl.Name = "studentNumberLbl";
             this.studentNumberLbl.Size = new System.Drawing.Size(87, 13);
             this.studentNumberLbl.TabIndex = 89;
@@ -204,7 +204,7 @@
             // 
             // invoiceNumberTbx
             // 
-            this.invoiceNumberTbx.Location = new System.Drawing.Point(420, 68);
+            this.invoiceNumberTbx.Location = new System.Drawing.Point(419, 128);
             this.invoiceNumberTbx.MaxLength = 3;
             this.invoiceNumberTbx.Name = "invoiceNumberTbx";
             this.invoiceNumberTbx.ReadOnly = true;
@@ -214,7 +214,7 @@
             // invoiceNumberLbl
             // 
             this.invoiceNumberLbl.AutoSize = true;
-            this.invoiceNumberLbl.Location = new System.Drawing.Point(329, 71);
+            this.invoiceNumberLbl.Location = new System.Drawing.Point(328, 131);
             this.invoiceNumberLbl.Name = "invoiceNumberLbl";
             this.invoiceNumberLbl.Size = new System.Drawing.Size(85, 13);
             this.invoiceNumberLbl.TabIndex = 87;
@@ -227,7 +227,8 @@
             this.lateFeesGbx.Controls.Add(this.payLateFeesCbx);
             this.lateFeesGbx.Controls.Add(this.waiveLateFeesCbx);
             this.lateFeesGbx.Controls.Add(this.invoiceLateFeesLbl);
-            this.lateFeesGbx.Location = new System.Drawing.Point(325, 219);
+            this.lateFeesGbx.Enabled = false;
+            this.lateFeesGbx.Location = new System.Drawing.Point(16, 404);
             this.lateFeesGbx.Margin = new System.Windows.Forms.Padding(2);
             this.lateFeesGbx.Name = "lateFeesGbx";
             this.lateFeesGbx.Padding = new System.Windows.Forms.Padding(2);
@@ -235,6 +236,7 @@
             this.lateFeesGbx.TabIndex = 15;
             this.lateFeesGbx.TabStop = false;
             this.lateFeesGbx.Text = "Late Fees";
+            this.lateFeesGbx.Visible = false;
             // 
             // invoiceLateFeesTbx
             // 
@@ -293,24 +295,22 @@
             // 
             // itemsQueuedTbx
             // 
-            this.itemsQueuedTbx.Location = new System.Drawing.Point(105, 311);
+            this.itemsQueuedTbx.Location = new System.Drawing.Point(417, 258);
             this.itemsQueuedTbx.MaxLength = 3;
             this.itemsQueuedTbx.Name = "itemsQueuedTbx";
             this.itemsQueuedTbx.ReadOnly = true;
             this.itemsQueuedTbx.Size = new System.Drawing.Size(150, 20);
             this.itemsQueuedTbx.TabIndex = 9;
             this.itemsQueuedTbx.Text = "0";
-            this.itemsQueuedTbx.Visible = false;
             // 
             // itemsQueuedLbl
             // 
             this.itemsQueuedLbl.AutoSize = true;
-            this.itemsQueuedLbl.Location = new System.Drawing.Point(23, 314);
+            this.itemsQueuedLbl.Location = new System.Drawing.Point(335, 261);
             this.itemsQueuedLbl.Name = "itemsQueuedLbl";
             this.itemsQueuedLbl.Size = new System.Drawing.Size(76, 13);
             this.itemsQueuedLbl.TabIndex = 95;
             this.itemsQueuedLbl.Text = "Items Queued:";
-            this.itemsQueuedLbl.Visible = false;
             // 
             // statusCbx
             // 
@@ -432,7 +432,7 @@
             // 
             // accountBalanceTbx
             // 
-            this.accountBalanceTbx.Location = new System.Drawing.Point(420, 172);
+            this.accountBalanceTbx.Location = new System.Drawing.Point(419, 232);
             this.accountBalanceTbx.MaxLength = 3;
             this.accountBalanceTbx.Name = "accountBalanceTbx";
             this.accountBalanceTbx.ReadOnly = true;
@@ -442,7 +442,7 @@
             // accountBalanceLbl
             // 
             this.accountBalanceLbl.AutoSize = true;
-            this.accountBalanceLbl.Location = new System.Drawing.Point(322, 175);
+            this.accountBalanceLbl.Location = new System.Drawing.Point(321, 235);
             this.accountBalanceLbl.Name = "accountBalanceLbl";
             this.accountBalanceLbl.Size = new System.Drawing.Size(92, 13);
             this.accountBalanceLbl.TabIndex = 111;
@@ -473,19 +473,18 @@
             // queueBtn
             // 
             this.queueBtn.Enabled = false;
-            this.queueBtn.Location = new System.Drawing.Point(-21, 421);
+            this.queueBtn.Location = new System.Drawing.Point(93, 338);
             this.queueBtn.Name = "queueBtn";
             this.queueBtn.Size = new System.Drawing.Size(100, 34);
             this.queueBtn.TabIndex = 100;
             this.queueBtn.Text = "Queue Record";
             this.queueBtn.UseVisualStyleBackColor = true;
-            this.queueBtn.Visible = false;
             this.queueBtn.Click += new System.EventHandler(this.queueBtn_Click);
             // 
             // processReturnsBtn
             // 
             this.processReturnsBtn.Enabled = false;
-            this.processReturnsBtn.Location = new System.Drawing.Point(141, 364);
+            this.processReturnsBtn.Location = new System.Drawing.Point(199, 338);
             this.processReturnsBtn.Name = "processReturnsBtn";
             this.processReturnsBtn.Size = new System.Drawing.Size(100, 34);
             this.processReturnsBtn.TabIndex = 16;
@@ -496,17 +495,17 @@
             // clearItemBtn
             // 
             this.clearItemBtn.Enabled = false;
-            this.clearItemBtn.Location = new System.Drawing.Point(247, 364);
+            this.clearItemBtn.Location = new System.Drawing.Point(305, 338);
             this.clearItemBtn.Name = "clearItemBtn";
             this.clearItemBtn.Size = new System.Drawing.Size(100, 34);
             this.clearItemBtn.TabIndex = 17;
-            this.clearItemBtn.Text = "Clear Item";
+            this.clearItemBtn.Text = "Clear Items";
             this.clearItemBtn.UseVisualStyleBackColor = true;
-            this.clearItemBtn.Click += new System.EventHandler(this.clearItemBtn_Click);
+            this.clearItemBtn.Click += new System.EventHandler(this.clearQueueBtn_Click);
             // 
             // exitBtn
             // 
-            this.exitBtn.Location = new System.Drawing.Point(353, 364);
+            this.exitBtn.Location = new System.Drawing.Point(411, 338);
             this.exitBtn.Name = "exitBtn";
             this.exitBtn.Size = new System.Drawing.Size(100, 34);
             this.exitBtn.TabIndex = 18;
@@ -520,7 +519,7 @@
             // 
             // ReturnEquip
             // 
-            this.AcceptButton = this.processReturnsBtn;
+            this.AcceptButton = this.queueBtn;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(600, 431);
