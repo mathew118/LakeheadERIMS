@@ -79,6 +79,7 @@
             this.label20 = new System.Windows.Forms.Label();
             this.equipNumberLbl = new System.Windows.Forms.Label();
             this.nextBtn = new System.Windows.Forms.Button();
+            this.tblStatusTableAdapter1 = new Lakehead_ERIMS.LUEquipmentDataSetTableAdapters.tblStatusTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.tblEquipBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lUEquipmentDataSet)).BeginInit();
             this.SuspendLayout();
@@ -166,7 +167,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(361, 169);
+            this.label10.Location = new System.Drawing.Point(361, 135);
             this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(82, 13);
@@ -176,7 +177,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(361, 202);
+            this.label11.Location = new System.Drawing.Point(361, 168);
             this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(73, 13);
@@ -186,7 +187,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(361, 233);
+            this.label12.Location = new System.Drawing.Point(361, 199);
             this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(59, 13);
@@ -196,7 +197,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(361, 262);
+            this.label13.Location = new System.Drawing.Point(361, 228);
             this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(49, 13);
@@ -206,7 +207,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(361, 288);
+            this.label14.Location = new System.Drawing.Point(361, 254);
             this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(40, 13);
@@ -216,7 +217,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(361, 314);
+            this.label15.Location = new System.Drawing.Point(361, 280);
             this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(87, 13);
@@ -226,7 +227,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(361, 345);
+            this.label16.Location = new System.Drawing.Point(361, 311);
             this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(76, 13);
@@ -236,7 +237,7 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(361, 374);
+            this.label17.Location = new System.Drawing.Point(361, 340);
             this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(80, 13);
@@ -246,7 +247,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(361, 406);
+            this.label18.Location = new System.Drawing.Point(361, 372);
             this.label18.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(54, 13);
@@ -266,18 +267,18 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(117, 461);
+            this.button1.Location = new System.Drawing.Point(308, 56);
             this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(119, 28);
+            this.button1.Size = new System.Drawing.Size(75, 25);
             this.button1.TabIndex = 43;
-            this.button1.Text = "Search Equipment";
+            this.button1.Text = "Search";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(284, 461);
+            this.button2.Location = new System.Drawing.Point(311, 442);
             this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(135, 29);
@@ -371,7 +372,7 @@
             // homeLabel
             // 
             this.homeLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.homeLabel.Location = new System.Drawing.Point(449, 169);
+            this.homeLabel.Location = new System.Drawing.Point(449, 135);
             this.homeLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.homeLabel.Name = "homeLabel";
             this.homeLabel.Size = new System.Drawing.Size(118, 15);
@@ -381,7 +382,7 @@
             // nightLabel
             // 
             this.nightLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.nightLabel.Location = new System.Drawing.Point(449, 202);
+            this.nightLabel.Location = new System.Drawing.Point(449, 168);
             this.nightLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.nightLabel.Name = "nightLabel";
             this.nightLabel.Size = new System.Drawing.Size(118, 15);
@@ -391,7 +392,7 @@
             // rentalFeeLabel
             // 
             this.rentalFeeLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.rentalFeeLabel.Location = new System.Drawing.Point(449, 233);
+            this.rentalFeeLabel.Location = new System.Drawing.Point(449, 199);
             this.rentalFeeLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.rentalFeeLabel.Name = "rentalFeeLabel";
             this.rentalFeeLabel.Size = new System.Drawing.Size(118, 15);
@@ -401,7 +402,7 @@
             // lateFeeLabel
             // 
             this.lateFeeLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lateFeeLabel.Location = new System.Drawing.Point(449, 260);
+            this.lateFeeLabel.Location = new System.Drawing.Point(449, 226);
             this.lateFeeLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lateFeeLabel.Name = "lateFeeLabel";
             this.lateFeeLabel.Size = new System.Drawing.Size(118, 15);
@@ -411,7 +412,7 @@
             // statusLabel
             // 
             this.statusLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.statusLabel.Location = new System.Drawing.Point(449, 286);
+            this.statusLabel.Location = new System.Drawing.Point(449, 252);
             this.statusLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.statusLabel.Name = "statusLabel";
             this.statusLabel.Size = new System.Drawing.Size(118, 15);
@@ -421,7 +422,7 @@
             // studentNumberLabel
             // 
             this.studentNumberLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.studentNumberLabel.Location = new System.Drawing.Point(449, 316);
+            this.studentNumberLabel.Location = new System.Drawing.Point(449, 282);
             this.studentNumberLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.studentNumberLabel.Name = "studentNumberLabel";
             this.studentNumberLabel.Size = new System.Drawing.Size(118, 15);
@@ -431,7 +432,7 @@
             // studentNameLabel
             // 
             this.studentNameLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.studentNameLabel.Location = new System.Drawing.Point(449, 349);
+            this.studentNameLabel.Location = new System.Drawing.Point(449, 315);
             this.studentNameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.studentNameLabel.Name = "studentNameLabel";
             this.studentNameLabel.Size = new System.Drawing.Size(118, 15);
@@ -441,7 +442,7 @@
             // studentPhoneLabel
             // 
             this.studentPhoneLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.studentPhoneLabel.Location = new System.Drawing.Point(449, 374);
+            this.studentPhoneLabel.Location = new System.Drawing.Point(449, 340);
             this.studentPhoneLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.studentPhoneLabel.Name = "studentPhoneLabel";
             this.studentPhoneLabel.Size = new System.Drawing.Size(118, 15);
@@ -451,7 +452,7 @@
             // dateDueLabel
             // 
             this.dateDueLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dateDueLabel.Location = new System.Drawing.Point(449, 406);
+            this.dateDueLabel.Location = new System.Drawing.Point(449, 372);
             this.dateDueLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.dateDueLabel.Name = "dateDueLabel";
             this.dateDueLabel.Size = new System.Drawing.Size(118, 15);
@@ -497,6 +498,7 @@
             this.equipNumber2.Name = "equipNumber2";
             this.equipNumber2.Size = new System.Drawing.Size(36, 20);
             this.equipNumber2.TabIndex = 67;
+            this.equipNumber2.TextChanged += new System.EventHandler(this.equipNumber2_TextChanged);
             this.equipNumber2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.HandleNumericOnly);
             // 
             // label4
@@ -545,13 +547,17 @@
             // 
             // nextBtn
             // 
-            this.nextBtn.Location = new System.Drawing.Point(326, 57);
+            this.nextBtn.Location = new System.Drawing.Point(171, 442);
             this.nextBtn.Name = "nextBtn";
-            this.nextBtn.Size = new System.Drawing.Size(75, 23);
+            this.nextBtn.Size = new System.Drawing.Size(135, 29);
             this.nextBtn.TabIndex = 73;
             this.nextBtn.Text = "Next Item";
             this.nextBtn.UseVisualStyleBackColor = true;
             this.nextBtn.Click += new System.EventHandler(this.nextBtn_Click);
+            // 
+            // tblStatusTableAdapter1
+            // 
+            this.tblStatusTableAdapter1.ClearBeforeFill = true;
             // 
             // equipSummary
             // 
@@ -670,5 +676,6 @@
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label equipNumberLbl;
         private System.Windows.Forms.Button nextBtn;
+        private LUEquipmentDataSetTableAdapters.tblStatusTableAdapter tblStatusTableAdapter1;
     }
 }

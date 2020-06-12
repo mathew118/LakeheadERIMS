@@ -14,6 +14,7 @@ namespace Lakehead_ERIMS
     public partial class equipSummary : Form
     {
         string equipNumber;
+        int currentEquipIndex = 0;
 
         public equipSummary()
         {
@@ -74,9 +75,13 @@ namespace Lakehead_ERIMS
             try
             {
                 this.tblEquipTableAdapter.Fill(this.lUEquipmentDataSet.tblEquip);
+                this.tblStatusTableAdapter1.Fill(this.lUEquipmentDataSet.tblStatus);
                 equipNumber = equipNumber1.Text + equipNumber2.Text;
-                equipNumberLbl.Text = equipNumber;
+
+                equipNumberLbl.Text = equipNumber1.Text + "-" + equipNumber2.Text;
                 equipmentrow = lUEquipmentDataSet.tblEquip.Select("Equip_Number = '" + equipNumber + "'")[0];
+                currentEquipIndex = lUEquipmentDataSet.tblEquip.Rows.IndexOf(equipmentrow);
+                //MessageBox.Show(currentEquipIndex.ToString());
                 itemNameLabel.Text = equipmentrow[2].ToString();
                 desc1Label.Text = equipmentrow[3].ToString();
                 desc2Label.Text = equipmentrow[4].ToString();
@@ -88,39 +93,18 @@ namespace Lakehead_ERIMS
                 nightLabel.Text = equipmentrow[15].ToString();
                 rentalFeeLabel.Text = equipmentrow[13].ToString();
                 string statusID = equipmentrow[17].ToString();
-                if (statusID == "1")
+                try
                 {
-                    statusLabel.Text = "Active";
+                    LUEquipmentDataSet.tblStatusRow statusRow = lUEquipmentDataSet.tblStatus.FindByStatus_ID(int.Parse(statusID));
+                    statusLabel.Text = statusRow.Status_Name;
                 }
-                else if (statusID == "2")
-                {
-                    statusLabel.Text = "Destroyed";
-                }
-                else if (statusID == "3")
-                {
-                    statusLabel.Text = "Retired";
-                }
-                else if (statusID == "4")
-                {
-                    statusLabel.Text = "Missing";
-                }
-                else if (statusID == "5")
-                {
-                    statusLabel.Text = "Scrapped for parts";
-                }
-                else if (statusID == "6")
-                {
-                    statusLabel.Text = "Retired";
-                }
-                else if (statusID == "7")
-                {
-                    statusLabel.Text = "Sold";
-                }
-                else if (statusID == "8")
+                catch
                 {
                     statusLabel.Text = "Unknown";
                 }
-                else if (statusID == "9")
+
+
+                if (statusID == "9")
                 {
                     statusLabel.Text = "Out";
                     string EquipID = equipmentrow[0].ToString();
@@ -136,14 +120,6 @@ namespace Lakehead_ERIMS
                     studentNameLabel.Text = info[3].ToString() + " " + info[2].ToString(); //Student name now shows full name not just first name
                     studentPhoneLabel.Text = info[8].ToString();
 
-                }
-                else if (statusID == "10")
-                {
-                    statusLabel.Text = "Waiting Repaires";
-                }
-                else if (statusID == "11")
-                {
-                    statusLabel.Text = "Lost";
                 }
             }
             catch
@@ -185,6 +161,17 @@ namespace Lakehead_ERIMS
             DataRow equipmentrow;
             try
             {
+                if((currentEquipIndex + 1) < lUEquipmentDataSet.tblEquip.Rows.Count)
+                {
+                    equipmentrow = lUEquipmentDataSet.tblEquip.Rows[currentEquipIndex + 1];
+                    //MessageBox.Show(equipmentrow[1].ToString().Substring(0, 3));
+                    //MessageBox.Show(equipmentrow[1].ToString().Substring(3));
+                    equipNumber1.Text = equipmentrow[1].ToString().Substring(0, 3);
+                    equipNumber2.Text = equipmentrow[1].ToString().Substring(3);
+                    button1_Click(sender, e);
+                }
+
+                /*
                 this.tblEquipTableAdapter.Fill(this.lUEquipmentDataSet.tblEquip);
 
                 equipmentrow = lUEquipmentDataSet.tblEquip.Select("Equip_Number = '" + equipNumberLbl.Text + "'")[0];
@@ -266,6 +253,7 @@ namespace Lakehead_ERIMS
                 {
                     statusLabel.Text = "Lost";
                 }
+                */
             }
             catch
             {
@@ -282,6 +270,16 @@ namespace Lakehead_ERIMS
             //{
             //  MessageBox.Show("Invalid Number");
             //}
+        }
+
+        private void equipNumber2_TextChanged(object sender, EventArgs e)
+        {
+            /*int totalLength = equipNumber1.Text.Length + equipNumber2.Text.Length;
+            if (totalLength == 6)
+            {
+                button1_Click(sender, e);
+            }
+            */
         }
     }
 }
