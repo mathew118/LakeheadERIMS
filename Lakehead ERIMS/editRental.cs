@@ -72,6 +72,14 @@ namespace Lakehead_ERIMS
 
             updateRentalList();
             rentalLbx.SelectedIndex = -1;
+
+            System.Diagnostics.Process[] procs = System.Diagnostics.Process.GetProcessesByName("MSACCESS");
+            foreach (System.Diagnostics.Process proc in procs)
+            {
+                proc.CloseMainWindow();
+                proc.Kill();
+                //MessageBox.Show("Shutting process down");
+            }
         }
 
         private void updateRentalList()
@@ -722,6 +730,14 @@ namespace Lakehead_ERIMS
             catch
             {
                 MessageBox.Show("Error printing rental agreement forms.", "Error");
+            }
+
+            System.Diagnostics.Process[] procs = System.Diagnostics.Process.GetProcessesByName("MSACCESS");
+            foreach (System.Diagnostics.Process proc in procs)
+            {
+                proc.CloseMainWindow();
+                proc.Kill();
+                //MessageBox.Show("Shutting process down");
             }
         }
     }

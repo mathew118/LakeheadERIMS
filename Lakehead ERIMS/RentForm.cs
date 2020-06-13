@@ -24,7 +24,15 @@ namespace Lakehead_ERIMS
             // TODO: This line of code loads data into the 'lUEquipmentDataSet.tblEquip' table. You can move, or remove it, as needed.
             this.tblEquipTableAdapter.Fill(this.lUEquipmentDataSet.tblEquip);
             this.tblStudentTableAdapter1.Fill(this.lUEquipmentDataSet.tblStudent);
-           
+
+            System.Diagnostics.Process[] procs = System.Diagnostics.Process.GetProcessesByName("MSACCESS");
+            foreach (System.Diagnostics.Process proc in procs)
+            {
+                proc.CloseMainWindow();
+                proc.Kill();
+                //MessageBox.Show("Shutting process down");
+            }
+
         }
 
         private void exitBtn_Click(object sender, EventArgs e)
@@ -492,9 +500,10 @@ namespace Lakehead_ERIMS
             try
             {
                 var oAccess = new Microsoft.Office.Interop.Access.Application();
-                
+
+
                 //oAccess.Visible = false;
-                oAccess.OpenCurrentDatabase(System.IO.Path.Combine(Environment.CurrentDirectory, "LUEquipment.mdb"), false);         
+                oAccess.OpenCurrentDatabase(System.IO.Path.Combine(Environment.CurrentDirectory, "LUEquipment.mdb"), false);
 
                 oAccess.DoCmd.OpenReport(
                    "rptRental", //ReportName
@@ -513,12 +522,28 @@ namespace Lakehead_ERIMS
                    false //CollateCopies
                 );
 
-                oAccess.Quit(Microsoft.Office.Interop.Access.AcQuitOption.acQuitSaveNone);
+                oAccess.DoCmd.Quit(Microsoft.Office.Interop.Access.AcQuitOption.acQuitSaveNone);
+
+                //oAccess.CloseCurrentDatabase();
+
+                //oAccess.Quit(Microsoft.Office.Interop.Access.AcQuitOption.acQuitSaveNone);
+
+                
 
             }
-            catch
+            catch(Exception e)
             {
+                //MessageBox.Show(e.Message);
                 MessageBox.Show("Error printing rental agreement forms.", "Error");
+            }
+
+            //MessageBox.Show("Getting processes");
+            System.Diagnostics.Process[] procs = System.Diagnostics.Process.GetProcessesByName("MSACCESS");
+            foreach (System.Diagnostics.Process proc in procs)
+            {
+                proc.CloseMainWindow();
+                proc.Kill();
+                //MessageBox.Show("Shutting process down");
             }
         }
     }
