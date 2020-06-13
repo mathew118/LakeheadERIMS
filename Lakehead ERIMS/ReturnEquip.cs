@@ -124,7 +124,7 @@ namespace Lakehead_ERIMS
                                 queueBtn.Enabled = true;
                             }
                             statusCbx.Enabled = true;
-                            clearItemBtn.Enabled = true;
+                            //clearItemBtn.Enabled = true;
 
                             DateTime dateOutDte = (!rentalRow.IsRent_DateOutNull()) ? rentalRow.Rent_DateOut : DateTime.Today;
                             DateTime dateDueDte = (!rentalRow.IsRent_DateDueNull()) ? rentalRow.Rent_DateDue : DateTime.Today.AddDays(1);
@@ -227,6 +227,7 @@ namespace Lakehead_ERIMS
                 if (!queuedItems.Contains(currentItem))
                 {
                     queuedItems.Add(currentItem);
+                    clearItemBtn.Enabled = true;
                 }
                 else
                 {
@@ -478,7 +479,7 @@ namespace Lakehead_ERIMS
             stillOutTbx.Clear();
             accountBalanceTbx.Clear();
             invoiceLateFeesTbx.Clear();
-            clearItemBtn.Enabled = false;
+            //clearItemBtn.Enabled = false;
             queueBtn.Enabled = false;
             currentItem = -1;
             accumulateLateFeesCbx.Checked = false;
@@ -489,7 +490,10 @@ namespace Lakehead_ERIMS
         private void clearQueueBtn_Click(object sender, EventArgs e)
         {
             clearItemBtn_Click(sender, e);
+            processReturnsBtn.Enabled = false;
+            clearItemBtn.Enabled = false;           
             queuedItems.Clear();
+            itemsQueuedTbx.Text = queuedItems.Count.ToString();
         }
     }
 }

@@ -56,7 +56,7 @@
             this.lateFeesGbx.Name = "lateFeesGbx";
             this.lateFeesGbx.Padding = new System.Windows.Forms.Padding(2);
             this.lateFeesGbx.Size = new System.Drawing.Size(243, 112);
-            this.lateFeesGbx.TabIndex = 16;
+            this.lateFeesGbx.TabIndex = 1;
             this.lateFeesGbx.TabStop = false;
             this.lateFeesGbx.Text = "Late Fees";
             // 
