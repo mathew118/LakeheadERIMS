@@ -14,7 +14,7 @@ namespace Lakehead_ERIMS
     public partial class equipSummary : Form
     {
         string equipNumber;
-        int currentEquipIndex = 0;
+        int currentEquipIndex = -1;
 
         public equipSummary()
         {
@@ -280,6 +280,33 @@ namespace Lakehead_ERIMS
                 button1_Click(sender, e);
             }
             */
+        }
+
+        private void prevBtn_Click(object sender, EventArgs e)
+        {
+            ClearLabel();
+            DataRow equipmentrow;
+            try
+            {
+                if (currentEquipIndex > 0)
+                {
+                    equipmentrow = lUEquipmentDataSet.tblEquip.Rows[currentEquipIndex - 1];
+                    equipNumber1.Text = equipmentrow[1].ToString().Substring(0, 3);
+                    equipNumber2.Text = equipmentrow[1].ToString().Substring(3);
+                    button1_Click(sender, e);
+                }
+            }
+            catch
+            {
+                ClearLabel();
+                MessageBox.Show("Invailid number", "Error");
+            }
+
+            //clear item number textboxes, shift focus back to the top
+            equipNumber1.Clear();
+            equipNumber2.Clear();
+            equipNumber1.Focus();
+            
         }
     }
 }
