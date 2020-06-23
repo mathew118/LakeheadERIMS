@@ -32,14 +32,17 @@ namespace Lakehead_ERIMS
             //all categories option
             DataRow newRow = lUEquipmentDataSet.tblCategory.NewRow();
             newRow["Cat_Name"] = "All Categories";
+            newRow["Cat_ID"] = "-1";
             lUEquipmentDataSet.tblCategory.Rows.InsertAt(newRow, 0);
             //all location option
             DataRow newRow1 = lUEquipmentDataSet.tblLocation.NewRow();
             newRow1["Loc_Name"] = "All Locations";
+            newRow1["Loc_ID"] = "-1";
             lUEquipmentDataSet.tblLocation.Rows.InsertAt(newRow1, 0);
             // all status option
             DataRow newRow2 = lUEquipmentDataSet.tblStatus.NewRow();
             newRow2["Status_Name"] = "All Status";
+            newRow2["Status_ID"] = "-1";
             lUEquipmentDataSet.tblStatus.Rows.InsertAt(newRow2, 0);
 
         }
