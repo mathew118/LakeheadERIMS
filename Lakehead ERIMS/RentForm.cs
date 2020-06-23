@@ -110,10 +110,13 @@ namespace Lakehead_ERIMS
 
         private void updateStudentBtn_Click(object sender, EventArgs e)
         {
-            addUpdateStudent studentForm = new addUpdateStudent();
+
+            addUpdateStudent studentForm = (studentNumberTbx.Text != "") ? new addUpdateStudent(studentNumberTbx.Text) : new addUpdateStudent();
+            
             studentForm.ShowDialog();
             resetRentalBtn_Click(sender, e);
             tblStudentTableAdapter1.Fill(lUEquipmentDataSet.tblStudent);
+            
         }
 
         private void rentalDateDpk_ValueChanged(object sender, EventArgs e)

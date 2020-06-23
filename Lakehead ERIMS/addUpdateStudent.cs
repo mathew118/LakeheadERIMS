@@ -13,9 +13,16 @@ namespace Lakehead_ERIMS
 {
     public partial class addUpdateStudent : Form
     {
+        string searchOnOpen = "";
 
         public addUpdateStudent()
         {
+            InitializeComponent();
+        }
+
+        public addUpdateStudent(string stuNum)
+        {
+            searchOnOpen = stuNum;
             InitializeComponent();
         }
 
@@ -24,6 +31,15 @@ namespace Lakehead_ERIMS
             Application.DoEvents();
             this.tblStudentTableAdapter1.Fill(this.luEquipmentDataSet1.tblStudent);
             studentLbx.SelectedIndex = -1;
+
+            if(searchOnOpen != "")
+            {
+                studentSearchingTbx.Text = searchOnOpen;
+                searchByLNameRbn.Checked = false;
+                searchByNumberRbn.Checked = true;
+
+                studentSearchingBtn_Click(this, null);
+            }
         }
 
         private void studentLbx_Format(object sender, ListControlConvertEventArgs e)
